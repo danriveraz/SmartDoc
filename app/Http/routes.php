@@ -12,9 +12,13 @@
 */
 
 Route::get('/', 'Auth\AuthController@getLogin');
-
 Route::post('Auth/login', 'Auth\AuthController@postLogin');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('consultorio/', 'UserController@index');
 Route::get('consultorio/registro', 'UserController@registro');
+
+Route::get('pocketCompany', 'UserController@registroPropietario');
+
+Route::post('Auth/register', 'Auth\AuthController@postRegister');
+Route::get('Auth/register', 'Auth\AuthController@getRegister');

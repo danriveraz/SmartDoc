@@ -7,6 +7,9 @@
         <title>Login</title>        
         
         <!-- Estilos y Fuentes -->
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400" rel="stylesheet">
         <link rel="stylesheet" href="assetsNew/styles/normalize.css" type="text/css" />
         <link rel="stylesheet" href="assetsNew/styles/styles-login-min.css" type="text/css" />
@@ -49,6 +52,8 @@
     <section class="content">
         <div class="hero-login bg-cover" style="background-image: url('images/welcome.jpg');">
         </div>
+        <script src="//code.jquery.com/jquery.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </section>
 </div>    </body>
 </html>

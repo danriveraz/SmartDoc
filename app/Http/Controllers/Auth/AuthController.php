@@ -94,6 +94,7 @@ class AuthController extends Controller
             if(sizeOf($user) != 0){
                 if($user->esPropietario == 1){
                     if($user->email == $request->email && $user->password == $request->password){
+                        //Auth::login($user);
                         return redirect('consultorio/registro');
                     }
                 }else{
@@ -110,14 +111,63 @@ class AuthController extends Controller
                     }
                 }
             }else{
-                dd("segundo else");
+                dd("aiuda");
                 Flash::warning('El nombre de usuario o contraseña son incorrectos')->important();
                 return redirect('/');
             }
         }else{
-            dd("ultimo else");
+            dd("aiuda");
             Flash::error('Debe ingresar los campos de nombre de usuario y contraseña')->important();
             return redirect('/');
+        }
+    }
+
+    public function postRegister(Request $request){
+
+        if($request->esPropietario == "true"){
+            $user = User::Search($request->email)->get()->first();
+            if(sizeOf($user) == 0){
+                if($request->clavePrimaria == "123456"){
+                    $user = new User();
+                    $user->email = $request->email;
+                    $user->password = bcrypt($request->password);
+                    $user->nombreCompleto = $request->nombre;
+                    $user->esPropietario = 1;
+                    //$user->save();
+                    return redirect('/');
+                }else{
+                    Flash::error('Clave de acceso PocketCompany errada');
+                    return redirect('/pocketCompany');
+                }
+            }else{
+                //dd("?");
+                Flash::error('Correo en uso');
+                return redirect('/pocketCompany');
+            }
+        }else{
+            $user = User::Search($request->email)->get()->first();
+            if(sizeOf($user) == 0){
+                $user = new User();
+                $user->email = $request->email;
+                $user->password = bcrypt($request->password);
+                $user->nombreCompleto = $request->nombre;
+                $user->imagenPerfil = 'perfil.jpg'; 
+                //$user->save();
+                if (Auth::attempt(
+                        [
+                            'email' => $user->email,
+                            'password' => $request->password,
+                        ], true
+                        )){
+                    return redirect('/consultorio/registro');
+                }else{
+                    flash('Registro exitoso, por favor inicie sesión')->warning()->important();
+                    return redirect('/consultorio/registro');
+                }
+            }else{
+                flash('El usuario ya se encuentra registrado')->warning()->important();
+                return redirect('/consultorio/registro');
+            }
         }
     }
 }

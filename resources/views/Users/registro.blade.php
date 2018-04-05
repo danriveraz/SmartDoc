@@ -35,28 +35,29 @@
         <div class="container">
           <div class="row">
             <div class="col col-login mx-auto">
-              <form class="card" action="" method="post">
+              <form class="card" method="POST" enctype="multipart/form-data" action="{{ url('Auth/register') }}">
+              	{{csrf_field()}}
                 <div class="card-body p-6">
                   <!--<div class="card-title">Registro nuevo usuario</div>-->
                   <div class="form-group">
                     <!--<label class="form-label">Nombre completo</label>-->
-                    <input type="text" class="form-control" placeholder="Nombre completo">
+                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Email address</label>-->
-                    <input type="email" class="form-control" placeholder="Correo">
+                    <input id="email" name="email" type="email" class="form-control" placeholder="Correo">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="password" class="form-control" placeholder="Contraseña">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="password" class="form-control" placeholder="Confirmar contraseña">
+                    <input id="confirmpass" name="confirmpass" type="password" class="form-control" placeholder="Confirmar contraseña">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" class="form-control" placeholder="Cedula">
+                    <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula">
                   </div>
                   <div class="form-group">
                         <!--<label class="form-label">Date of birth</label>-->

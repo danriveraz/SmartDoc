@@ -15,4 +15,8 @@ class UserController extends Controller
     public function registro(){
         return View('Users.registro');
     }
+
+    public function registroPropietario(){
+        return View('Users.registroPropietario');
+    }
 }
