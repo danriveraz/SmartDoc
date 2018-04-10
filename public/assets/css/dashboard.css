@@ -3793,10 +3793,9 @@ tbody.collapse.show {
 
 .nav {
   display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
@@ -10242,6 +10241,7 @@ body.fixed-header .header {
   color: #9aa0ac;
   -ms-flex-align: center;
   align-items: center;
+  text-align: center;
 }
 
 @media print {

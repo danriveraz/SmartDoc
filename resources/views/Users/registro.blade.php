@@ -50,9 +50,10 @@
     <div class="page">
       <div class="page-single">
         <div class="container">
+          @include('flash::message')
           <div class="row">
             <div class="col col-login mx-auto">
-              <form class="card" method="POST" enctype="multipart/form-data" action="{{url('Auth/register') }}">
+              <form id="formRegister" class="card" method="POST" enctype="multipart/form-data" action="{{url('Auth/register') }}">
               	{{csrf_field()}}
                 <div class="card-body p-6">
                   <!--<div class="card-title">Registro nuevo usuario</div>-->
@@ -266,7 +267,9 @@
                     <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección">
                   </div>
                   <div class="form-footer">
-                    <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    <a href="#" id="btnConfirm" class="btn btn-primary btn-block" onclick="confirmPassword()">
+                      Registrar
+                    </a>
                   </div>
                 </div>
               </form>
@@ -279,4 +282,33 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    function confirmPassword() {
+      var nombre = document.getElementById("nombre").value;
+      var correo = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var password2confirm = document.getElementById("confirmpass").value;
+      var cedula = document.getElementById("cedula").value;
+      var mes = document.getElementById("mes").value;
+      var dia = document.getElementById("dia").value;
+      var anho = document.getElementById("anho").value;
+      var telefono = document.getElementById("telefono").value;
+      var direccion =document.getElementById("direccion").value;
+
+      if(nombre != "" && correo != cedula != "" && dia != "" &&
+         mes != "" && anho != "" && telefono != "" && direccion != ""){
+        if(password.length >= 4){
+          if(password == password2confirm){
+          formRegister.submit();
+          }else{
+            alert("Las contraseñas no coinciden");
+          }
+        }else{
+          alert("La contraseña debe tener minimo 4 caracters, no usar caracteres especiales.");
+        }
+      }else{
+        alert("Por favor diligenciar todos los campos");
+      }
+    }
+  </script>
 </html>

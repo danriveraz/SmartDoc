@@ -102,18 +102,19 @@ class AuthController extends Controller
                     }else{
                         return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
-                }else{
+                }else if($user->esAdmin == 1){
                     if (Auth::attempt(
                         [
-                            'email' => $user->email,
-                            'password' => $user->password
-                        ], true
+                            'email' => $request->email,
+                            'password' => $request->password
+                        ], $request->has('remember')
                         )){
-                        return redirect('usuario/perfil');
+                        return redirect('/WelcomeAdmin');
                     }else{
-                        Flash::warning('Contraseña incorrecta, intente de nuevo')->important();
-                        return redirect('/');
+                        return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
+                }else{
+
                 }
             }else{
                return redirect('/')->with('message', 'Nombre de usuario o contraseña incorrecto');
@@ -179,17 +180,18 @@ class AuthController extends Controller
                     $user->cedula = $request->cedula;
                     $user->telefono = $request->telefono;
                     $user->direccion = $request->direccion;
+                    $user->esAdmin = 1;
                     $dia = $request->dia;
                     $mes = $request->mes;
                     $anho = $request->anho;     
-                    $user->fechaNacimiento = $anho+"-"+$mes+"-"+$dia;
-                    $user->imagenPerfil = 'perfil.jpg'; 
+                    $user->fechaNacimiento = $anho."-".$mes."-".$dia;
+                    $user->imagen = 'perfil.jpg';
                     $user->save();
-                    Flash::succes('Clave de acceso PocketCompany errada');
-                    return redirect('/consultorio/registro');
+                    Flash::success('Registro exitoso');
+                    return redirect('/registro');
                 }else{
                     flash('El usuario ya se encuentra registrado')->warning()->important();
-                    return redirect('/consultorio/registro');
+                    return redirect('/registro');
                 }
             }else{
 
