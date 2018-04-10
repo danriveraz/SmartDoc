@@ -28,6 +28,10 @@ class User extends Authenticatable
     ];
 
     public function scopeSearch($query, $email){
-      return $query->where('email','LIKE',"%$email%");
+      return $query->where('email', 'like', '%' .$email. '%');
+    }
+
+    public function scopeIdentity($query, $cedula){
+      return $query->where('cedula', 'like', '%' .$cedula. '%');
     }
 }

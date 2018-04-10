@@ -36,14 +36,14 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/WelcomeAdmin';
+    protected $redirectTo = '/';
 
     protected function redirectTo()
-    {
+    {   
         if(Auth::User()->esAdmin){
             return '/WelcomeAdmin';
-        }elseif(Auth::User()->esEmpleado){
-            return '/WelcomeEmpleado';
+        }else if(Auth::User()->esEmpleado){
+            return '/WelcomeTrabajador';
         }
     }
     /**
@@ -53,7 +53,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
     /**
@@ -90,12 +90,17 @@ class AuthController extends Controller
         if($request->email != null && $request->password != null){
 
             $user = User::Search($request->email)->get()->first();
-
             if(sizeOf($user) != 0){
                 if($user->esPropietario == 1){
-                    if($user->email == $request->email && $user->password == $request->password){
-                        //Auth::login($user);
-                        return redirect('consultorio/registro');
+                    if (Auth::attempt(
+                        [
+                            'email' => $request->email,
+                            'password' => $request->password
+                        ], $request->has('remember')
+                        )){
+                        return redirect('/registro');
+                    }else{
+                        return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
                 }else{
                     if (Auth::attempt(
@@ -111,62 +116,83 @@ class AuthController extends Controller
                     }
                 }
             }else{
-                dd("aiuda");
-                Flash::warning('El nombre de usuario o contraseña son incorrectos')->important();
-                return redirect('/');
+               return redirect('/')->with('message', 'Nombre de usuario o contraseña incorrecto');
             }
         }else{
-            dd("aiuda");
-            Flash::error('Debe ingresar los campos de nombre de usuario y contraseña')->important();
-            return redirect('/');
+            return redirect('/')->with('message', 'Por favor ingresar correo y contraseña');
         }
     }
 
     public function postRegister(Request $request){
-
         if($request->esPropietario == "true"){
-            $user = User::Search($request->email)->get()->first();
-            if(sizeOf($user) == 0){
+            $email = $request->email;
+            $cedula = $request->cedula;
+            if($email == ""){
+                $email = "none";
+            }
+            if($cedula == ""){
+                $cedula = "none";
+            }
+            $user = User::Search($email)->get()->first();
+            $identity = User::identity($cedula)->get()->first();
+            if(sizeOf($user) == 0 && sizeof($identity) == 0){
                 if($request->clavePrimaria == "123456"){
-                    $user = new User();
-                    $user->email = $request->email;
-                    $user->password = bcrypt($request->password);
-                    $user->nombreCompleto = $request->nombre;
-                    $user->esPropietario = 1;
-                    //$user->save();
-                    return redirect('/');
+                    if($email == "none" || $request->nombre == "" || $cedula == "none" ){
+                        Flash::error('Por favor llenar todos los campos');
+                        return redirect('/pocketCompany');
+                    }else{
+                        $user = new User();
+                        $user->email = $request->email;
+                        $user->password = bcrypt($request->password);
+                        $user->nombreCompleto = $request->nombre;
+                        $user->cedula = $request->cedula;
+                        $user->esPropietario = 1;
+                        $user->save();
+                        return redirect('/')->with('message', 'Por favor iniciar sesión.');
+                    }
                 }else{
                     Flash::error('Clave de acceso PocketCompany errada');
                     return redirect('/pocketCompany');
                 }
             }else{
-                //dd("?");
-                Flash::error('Correo en uso');
-                return redirect('/pocketCompany');
+                if(sizeof($user) > 0){
+                    Flash::error('Correo en uso');
+                    return redirect('/pocketCompany');
+                }else{
+                    Flash::error('Cedula en uso');
+                    return redirect('/pocketCompany');
+                }
             }
         }else{
-            $user = User::Search($request->email)->get()->first();
-            if(sizeOf($user) == 0){
-                $user = new User();
-                $user->email = $request->email;
-                $user->password = bcrypt($request->password);
-                $user->nombreCompleto = $request->nombre;
-                $user->imagenPerfil = 'perfil.jpg'; 
-                //$user->save();
-                if (Auth::attempt(
-                        [
-                            'email' => $user->email,
-                            'password' => $request->password,
-                        ], true
-                        )){
+            $email = $request->email;
+            if($email == ""){
+                $email = "none";
+            }
+            $user = User::Search($email)->get()->first();
+            $userActual = Auth::User();
+            if($userActual->esPropietario){
+                if(sizeOf($user) == 0){
+                    $user = new User();
+                    $user->email = $request->email;
+                    $user->password = bcrypt($request->password);
+                    $user->nombreCompleto = $request->nombre;
+                    $user->cedula = $request->cedula;
+                    $user->telefono = $request->telefono;
+                    $user->direccion = $request->direccion;
+                    $dia = $request->dia;
+                    $mes = $request->mes;
+                    $anho = $request->anho;     
+                    $user->fechaNacimiento = $anho+"-"+$mes+"-"+$dia;
+                    $user->imagenPerfil = 'perfil.jpg'; 
+                    $user->save();
+                    Flash::succes('Clave de acceso PocketCompany errada');
                     return redirect('/consultorio/registro');
                 }else{
-                    flash('Registro exitoso, por favor inicie sesión')->warning()->important();
+                    flash('El usuario ya se encuentra registrado')->warning()->important();
                     return redirect('/consultorio/registro');
                 }
             }else{
-                flash('El usuario ya se encuentra registrado')->warning()->important();
-                return redirect('/consultorio/registro');
+
             }
         }
     }

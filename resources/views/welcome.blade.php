@@ -31,7 +31,7 @@
                     {{Session::get('message')}}
                 @endif
                 <form  autocomplete="on" method="post" action="{{url('Auth/login')}}">
-                    {{ csrf_field() }}
+                    {{csrf_field()}}
                     <div class="input-wrapper">
                         <input type="text" name="email" id="email" value="" class="email" placeholder="E-mail" required>
                     </div>

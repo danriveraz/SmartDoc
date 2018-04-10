@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Language" content="en" />
@@ -28,23 +27,6 @@
     <script src="{{asset('assets/plugins/maps-google/plugin.js')}}"></script>
     <!-- Input Mask Plugin -->
     <script src="{{asset('assets/plugins/input-mask/plugin.js')}}"></script>
-    <script>
-        // ajax para verificar que el usuario esté logueado y así no dejar ver la página
-         $(document).ready(function(){
-            console.log("ejecuta al cargar");
-                $.ajax({
-                  type: "POST",
-                  url: '{{url('Auth/verificarUser')}}',
-                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                  success: function (data) { //anunciar creado autor
-                    console.log("sigue logueado");
-                  }, error: function(xhr,status, response) {
-                    console.log("ya no está logueado");
-                    window.history.forward();
-                  }
-            });
-        });
-        </script>
   </head>
   <body class="">
     <div class="page">
@@ -52,7 +34,7 @@
         <div class="container">
           <div class="row">
             <div class="col col-login mx-auto">
-              <form class="card" method="POST" enctype="multipart/form-data" action="{{url('Auth/register') }}">
+              <form class="card" method="POST" enctype="multipart/form-data" action="{{url('Auth/register')}}">
               	{{csrf_field()}}
                 <div class="card-body p-6">
                   <!--<div class="card-title">Registro nuevo usuario</div>-->
