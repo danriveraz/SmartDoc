@@ -15,10 +15,13 @@ Route::get('/', 'Auth\AuthController@getLogin');
 Route::post('Auth/login', 'Auth\AuthController@postLogin');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 
-Route::get('consultorio/', 'UserController@index');
-Route::get('registro', 'UserController@registro');
+Route::get('Consultorio/', 'UserController@index');
+Route::get('Registro', 'UserController@registro');
+Route::get('Perfil', 'UserController@profile');
 
-Route::get('pocketCompany', 'UserController@registroPropietario');
+Route::get('ResetPassword', 'HomeController@resetPassword');
+
+Route::get('PocketCompany', 'UserController@registroPropietario');
 
 Route::post('Auth/register', 'Auth\AuthController@postRegister');
 Route::get('Auth/register', 'Auth\AuthController@getRegister');

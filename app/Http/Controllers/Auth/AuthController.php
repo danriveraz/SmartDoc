@@ -98,7 +98,7 @@ class AuthController extends Controller
                             'password' => $request->password
                         ], $request->has('remember')
                         )){
-                        return redirect('/registro');
+                        return redirect('/Registro');
                     }else{
                         return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
@@ -140,7 +140,7 @@ class AuthController extends Controller
                 if($request->clavePrimaria == "123456"){
                     if($email == "none" || $request->nombre == "" || $cedula == "none" ){
                         Flash::error('Por favor llenar todos los campos');
-                        return redirect('/pocketCompany');
+                        return redirect('/PocketCompany');
                     }else{
                         $user = new User();
                         $user->email = $request->email;
@@ -153,15 +153,15 @@ class AuthController extends Controller
                     }
                 }else{
                     Flash::error('Clave de acceso PocketCompany errada');
-                    return redirect('/pocketCompany');
+                    return redirect('/PocketCompany');
                 }
             }else{
                 if(sizeof($user) > 0){
                     Flash::error('Correo en uso');
-                    return redirect('/pocketCompany');
+                    return redirect('/PocketCompany');
                 }else{
                     Flash::error('Cedula en uso');
-                    return redirect('/pocketCompany');
+                    return redirect('/PocketCompany');
                 }
             }
         }else{
@@ -188,10 +188,10 @@ class AuthController extends Controller
                     $user->imagen = 'perfil.jpg';
                     $user->save();
                     Flash::success('Registro exitoso');
-                    return redirect('/registro');
+                    return redirect('/Registro');
                 }else{
                     flash('El usuario ya se encuentra registrado')->warning()->important();
-                    return redirect('/registro');
+                    return redirect('/Registro');
                 }
             }else{
 

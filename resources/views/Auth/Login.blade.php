@@ -19,9 +19,9 @@
     <aside class="sidebar-large1">
         <div class="user-access">
             <div class="user-access-header">
-                <a href="{{url('/home')}}" class="logo"><img src="images/logoEmail.png"></a>
-                <p class="intro-title colorMorado">Bienvenido</p>
-                <p class="intro-summary">controla tu negocio con solo unos clicks</p>
+                <a href="{{url('')}}" class="logo"><img src="images/logoEmail.png"></a>
+                <p class="intro-title" style="color: #210B61">Bienvenido</p>
+                <p class="intro-summary" style="color: #210B61">controla tu negocio con solo unos clicks</p>
             </div>
             <div class="user-access-form">   
                 @if (Session::has('message'))
@@ -35,13 +35,12 @@
                     <div class="input-wrapper">
                         <input type="password" name="password" id="password" value="" class="clave" placeholder="Contraseña" required>
                     </div>
-                    <input type="submit" name="submit" id="submit" value="INGRESAR" class="enviar">
+                    <input type="submit" name="submit" id="submit" value="INGRESAR" style="background-color: #467fcf">
                 </form>
             </div> 
             <div class="colorGris user-access-footer">
-                <p><a href="{{url('')}}">¿Olvidaste tu contraseña?</a></p>
+                <p><a href="{{url('ResetPassword')}}" style="color: #210B61">¿Olvidaste tu contraseña?</a></p>
                 <hr />
-                <a class="btn btn-social-icon btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social-icon', 'click', 'btn-facebook']);"><span class="fa fa-facebook"></span></a>
             </div>
     </div>
     </aside>

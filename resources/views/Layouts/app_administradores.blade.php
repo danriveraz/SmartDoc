@@ -15,7 +15,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
     <!-- Generated: 2018-03-27 13:25:03 +0200 -->
-    <title>Welcome</title>
+    <title>POCKET</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
     <script src="./assets/js/require.min.js"></script>
@@ -55,7 +55,7 @@
                     </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{url('Perfil')}}">
                       <span>Editar perfil</span>
                     </a>
                     <a class="dropdown-item" href="#">
@@ -76,50 +76,25 @@
               <div class="col">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link active"><i class="fe fe-home"></i> Home</a>
+                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link"><i class="fa fa-home"></i>Home</a>
                   </li>
                   <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link"><i class="fe fe-box"></i> Mi Personal</a>
-                    <div class="nav-submenu nav">
-                      <a href="./cards.html" class="nav-item ">Cards design</a>
-                      <a href="./charts.html" class="nav-item ">Charts</a>
-                      <a href="./pricing-cards.html" class="nav-item ">Pricing cards</a>
-                    </div>
+                    <a href="#" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
                   </li>
                   <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link"><i class="fe fe-calendar"></i> Components</a>
-                    <div class="nav-submenu nav">
-                      <a href="./maps.html" class="nav-item ">Maps</a>
-                      <a href="./icons.html" class="nav-item ">Icons</a>
-                      <a href="./store.html" class="nav-item ">Store</a>
-                      <a href="./blog.html" class="nav-item ">Blog</a>
-                    </div>
+                      <a href="#" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
                   </li>
                   <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link"><i class="fe fe-file"></i> Pages</a>
-                    <div class="nav-submenu nav">
-                      <a href="./profile.html" class="nav-item ">Profile</a>
-                      <a href="./login.html" class="nav-item ">Login</a>
-                      <a href="./register.html" class="nav-item ">Register</a>
-                      <a href="./forgot-password.html" class="nav-item ">Forgot password</a>
-                      <a href="./400.html" class="nav-item ">400 error</a>
-                      <a href="./104.html" class="nav-item ">401 error</a>
-                      <a href="./403.html" class="nav-item ">403 error</a>
-                      <a href="./404.html" class="nav-item ">404 error</a>
-                      <a href="./500.html" class="nav-item ">500 error</a>
-                      <a href="./503.html" class="nav-item ">503 error</a>
-                      <a href="./email.html" class="nav-item ">Email</a>
-                      <a href="./empty.html" class="nav-item ">Empty page</a>
-                    </div>
+                    <a href="#" class="nav-link"><i class="fa fa-suitcase"></i>Inventario</a>
                   </li>
                   <li class="nav-item">
-                    <a href="./form-elements.html" class="nav-link"><i class="fe fe-check-square"></i> Forms</a>
+                    <a href="#" class="nav-link"><i class="fa fa-truck"></i>Proveedor</a>
                   </li>
                   <li class="nav-item">
-                    <a href="./gallery.html" class="nav-link"><i class="fe fe-image"></i> Gallery</a>
+                    <a href="#" class="nav-link"><i class="fa fa-tachometer"></i>Servicio</a>
                   </li>
                   <li class="nav-item">
-                    <a href="./docs/index.html" class="nav-link"><i class="fe fe-file-text"></i> Documentation</a>
+                    <a href="#" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>
                   </li>
                 </ul>
               </div>
