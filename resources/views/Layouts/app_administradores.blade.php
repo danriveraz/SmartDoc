@@ -18,23 +18,42 @@
     <title>POCKET</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-    <script src="./assets/js/require.min.js"></script>
+
+    <!--Scripts-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{asset('assets/js/require.min.js')}}"></script>
+
     <script>
       requirejs.config({
           baseUrl: '.'
       		});
     </script>
     <!-- Dashboard Core -->
-    <link href="./assets/css/dashboard.css" rel="stylesheet" />
-    <script src="./assets/js/dashboard.js"></script>
+    <link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" />
+    <script src="{{asset('assets/js/dashboard.js')}}"></script>
     <!-- c3.js Charts Plugin -->
-    <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/charts-c3/plugin.js"></script>
+    <link href="{{asset('assets/plugins/charts-c3/plugin.css')}}" rel="stylesheet" />
+    <script src="{{asset('assets/plugins/charts-c3/plugin.js')}}"></script>
     <!-- Google Maps Plugin -->
-    <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
-    <script src="./assets/plugins/maps-google/plugin.js"></script>
+    <link href="{{asset('assets/plugins/maps-google/plugin.css')}}" rel="stylesheet" />
+    <script src="{{asset('assets/plugins/maps-google/plugin.js')}}"></script>
     <!-- Input Mask Plugin -->
-    <script src="./assets/plugins/input-mask/plugin.js"></script>
+    <script src="{{asset('assets/plugins/input-mask/plugin.js')}}"></script>
+
+    <!--Fileupload-->
+    {!!Html::style('stylesheets\jquery.fileupload-ui.css')!!}
+    {!!Html::script("javascripts\bootstrap-fileupload.js")!!}
+
+    <!--Fancybox-->
+    {!!Html::style('stylesheets\jquery.fancybox.css')!!}
+    {!!Html::script("javascripts\jquery.fancybox.pack.js")!!}
+
+    <!--Estilos para imagen perfil -->    
+    {!!Html::style('stylesheets/style.css')!!}
+    {!!Html::style('stylesheetspropio\stylePropio.css')!!}
+    <!-- End scripts-->
+
   </head>
   <body class="">
     <div class="page">
@@ -88,10 +107,7 @@
                     <a href="#" class="nav-link"><i class="fa fa-suitcase"></i>Inventario</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-truck"></i>Proveedor</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-tachometer"></i>Servicio</a>
+                    <a href="#" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>

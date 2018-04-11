@@ -17,7 +17,10 @@ Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('Consultorio/', 'UserController@index');
 Route::get('Registro', 'UserController@registro');
-Route::get('Perfil', 'UserController@profile');
+
+Route::post('Perfil', ['uses' => 'UserController@postmodificarPerfil', 'as' => 'Auth.usuario.editPerfil']);
+Route::get('Perfil', ['uses' => 'UserController@modificarPerfil', 'as' => 'Auth.usuario.showeditPerfil']);
+
 
 Route::get('ResetPassword', 'HomeController@resetPassword');
 

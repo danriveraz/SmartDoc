@@ -86,7 +86,7 @@ html {
 
 body {
   font-family: "Lato", sans-serif !important;
-  color: #2f0033 ;
+  color: #210B61 ;
   font-size: 14px !important;
   min-height: 100%; }
   body.page-header-fixed {
@@ -765,12 +765,11 @@ body.sidebar-nav {
       border-top-color: #FFFFFF; }
 
 .btn-primary {
-  background: #2d0031;
-  border-color: #2d0031; }
+  background: #467fcf;
+  border-color: #467fcf; }
   .btn-primary:hover, .btn-primary.active {
-    background: transparent;
-    color: #2d0031;
-    border-color: #2d0031; }
+    background: #4444EB;
+    color: #ffffff; }
     .btn-primary:hover .caret, .btn-primary.active .caret {
       border-top-color: #2d0031; }
 
@@ -1725,7 +1724,7 @@ th:active {
   height: 150px;
   margin: 10px;
   position: relative;
-  background:#2d0038;
+  background:#467fcf;
  }
   .gallery-item img {
     width: 100%;
@@ -2130,7 +2129,7 @@ input[type="text"] {
   -moz-transition: all 0.5s;
   transition: all 0.5s; }
   .form-control:focus {
-    border-color: #2d0031;
+    border-color: #467fcf;
     box-shadow: none; }
   .form-control.has-error, .form-control.error {
     border-color: #d9534f; }

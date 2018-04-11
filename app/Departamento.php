@@ -1,6 +1,6 @@
 <?php
 
-namespace saydamaya;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

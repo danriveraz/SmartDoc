@@ -23,7 +23,7 @@
     display: inline-block;
     margin: 0 4px;
     font-size: 20px;
-    color: rgb(47,0,51);
+    color: #210B61;
     width: 46px;
     height: 46px;
     text-align: center;
@@ -38,7 +38,7 @@
 
   .gallery-item .actions i:hover {
     background: white;
-    color: #333333; }
+    color: #210B61; }
 
   .gallery-item .actions i.fa-search-plus {
     font-size: 20px;
