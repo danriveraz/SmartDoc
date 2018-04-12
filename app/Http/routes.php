@@ -24,6 +24,9 @@ Route::get('Perfil', ['uses' => 'UserController@modificarPerfil', 'as' => 'Auth.
 Route::post('Configuracion', ['uses' => 'UserController@postmodificarConfiguracion', 'as' => 'Auth.usuario.editConfiguracion']);
 Route::get('Configuracion', ['uses' => 'UserController@modificarConfiguracion', 'as' => 'Auth.usuario.showeditConfiguracion']);
 
+Route::post('Personal', ['uses' => 'PersonalController@postmodificarPersonal', 'as' => 'Auth.usuario.editPersonal']);
+Route::get('Personal', ['uses' => 'PersonalController@modificarPersonal', 'as' => 'Auth.usuario.showeditPersonal']);
+
 Route::get('ResetPassword', 'HomeController@resetPassword');
 
 Route::get('PocketCompany', 'UserController@registroPropietario');

@@ -142,8 +142,8 @@
     <button type="submit" class="btn btn-primary">Guardar perfil</button>
   </div>
 </form>
-<script>
 
+<script>
 	require(['input-mask']);
 
 	$('#idDepto').on('change', function (event) {

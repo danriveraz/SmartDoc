@@ -98,7 +98,7 @@
                     <a href="{{url('/WelcomeAdmin')}}" class="nav-link"><i class="fa fa-home"></i>Home</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
+                    <a href="{{url('/Personal')}}" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>

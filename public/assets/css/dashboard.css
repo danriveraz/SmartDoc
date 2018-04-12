@@ -5270,13 +5270,13 @@ tbody.collapse.show {
   font-size: 1.40625rem;
   font-weight: 700;
   line-height: 1;
-  color: #000;
+  color: #FFF;
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
 }
 
 .close:hover, .close:focus {
-  color: #000;
+  color: #FFF;
   text-decoration: none;
   opacity: .75;
 }
@@ -5382,10 +5382,7 @@ button.close {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid #e9ecef;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
+  }
 
 .modal-header .close {
   padding: 1rem;
@@ -5405,8 +5402,8 @@ button.close {
 }
 
 .modal-footer {
+  text-align: center;
   display: -ms-flexbox;
-  display: flex;
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: end;
@@ -12708,7 +12705,7 @@ a.icon:hover {
 }
 
 .close:before {
-  content: '\ea00';
+  content: ' ';
   font-family: "feather";
 }
 
