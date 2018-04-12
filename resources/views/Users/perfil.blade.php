@@ -1,6 +1,8 @@
 @extends('Layouts.app_administradores')
 @section('content')
-<form class="card" enctype="multipart/form-data" method="POST">
+@include('flash::message')
+<form class="card" enctype="multipart/form-data" method="POST" route="'Auth.usuario.editPerfil'">
+  {{ csrf_field() }}
   <div class="card-body">
     <h3 class="card-title"></h3>
   <br>
@@ -43,44 +45,44 @@
       <div class="col-md-5">
         <div class="form-group">
           <label class="form-label">Nombre completo</label>
-          <input type="text" class="form-control" placeholder="" value="{{$user->nombreCompleto}}">
+          <input id="nombre" name="nombre" type="text" class="form-control" placeholder="" value="{{$user->nombreCompleto}}">
         </div>
       </div>
       <div class="col-sm-6 col-md-3">
         <div class="form-group">
           <label class="form-label">Cedula</label>
-          <input type="text" class="form-control" placeholder="" value="{{$user->cedula}}">
+          <input id="cedula" name="cedula" type="text" class="form-control" placeholder="" value="{{$user->cedula}}">
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="form-group">
           <label class="form-label">Teléfono</label>
-          <input type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$user->telefono}}">
+          <input id="telefono" name="telefono" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$user->telefono}}">
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
         <div class="form-group">
           <label class="form-label">Dirección</label>
-          <input type="text" class="form-control" placeholder="" value="{{$user->direccion}}">
+          <input id="direccion" name="direccion" type="text" class="form-control" placeholder="" value="{{$user->direccion}}">
         </div>
       </div>
       <div class="col-sm-3 col-md-3">
         <div class="form-group">
           <label class="form-label">Salario</label>
-          <input type="number" class="form-control" placeholder="" value="{{$user->salario}}">
+          <input id="salario" name="salario" type="number" class="form-control" placeholder="" value="{{$user->salario}}">
         </div>
       </div>
       <div class="col-sm-6 col-md-6">
 		<div class="form-group">
 	       <label class="form-label">Fecha de nacimiento</label>
-	       <input type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="0000-00-00" />
+	       <input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="0000-00-00" value="{{$user->fechaNacimiento}}" />
 	    </div>
       </div>
       <div class="col-md-4">
         <div class="form-group">
           <label>Sexo</label>
             <div class="input-group">
-                <select name='sexo' class="form-control" placeholder="Tipo De Sexo">
+                <select id="sexo" name='sexo' class="form-control" placeholder="Tipo De Sexo">
                   @if($user->sexo=='')
                   	<option value="" selected="selected">Seleccionar</option>
                     <option value="masculino">Masculino</option>
@@ -101,8 +103,12 @@
           <label>Departamento</label>
 	        <select class="form-control" id="idDepto"  name="idDepto" required>
 				<option value="">Elija una opción</option>
-				@foreach($departamentos as $departamento)
-	              	<option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+				      @foreach($departamentos as $departamento)
+                  @if($user->departamento == $departamento->id)
+	              	  <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
+                  @else
+                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+                  @endif
 	            @endforeach
 			</select>
         </div>
@@ -111,14 +117,23 @@
         <div class="form-group">
           <label>Ciudad</label>
             <select class="form-control" id="idCiudad" name="idCiudad" required>
-				<option value="">Elija una opción</option>
+				    <option value="">Elija una opción</option>
+              @foreach($ciudades as $ciudad)
+                  @if($user->departamento == $ciudad->idDepartamento)
+                    @if($user->ciudad == $ciudad->id)
+                      <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
+                    @else
+                      <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
+                    @endif
+                  @endif
+              @endforeach
 			</select>
         </div>
       </div>
       <div class="col-md-12">
         <div class="form-group mb-0">
           <label class="form-label">Descripción general</label>
-          <textarea rows="5" class="form-control" placeholder="" value="">{{$user->descripcionGeneral}}</textarea>
+          <textarea id="descripcion" name="descripcion" rows="5" class="form-control" placeholder="" value="">{{$user->descripcionGeneral}}</textarea>
         </div>
       </div>
     </div>
