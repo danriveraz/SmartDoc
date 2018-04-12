@@ -1,7 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
-<form class="card" enctype="multipart/form-data" method="POST" route="'Auth.usuario.editPerfil'">
+<form class="card" enctype="multipart/form-data" method="POST" route="Auth.usuario.editPerfil">
   {{ csrf_field() }}
   <div class="card-body">
     <h3 class="card-title"></h3>

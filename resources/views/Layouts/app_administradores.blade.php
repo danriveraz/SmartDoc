@@ -77,7 +77,7 @@
                     <a class="dropdown-item" href="{{url('Perfil')}}">
                       <span>Editar perfil</span>
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{url('Configuracion')}}">
                       <span>Configuración</span>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -119,13 +119,8 @@
         </div>
         <div class="page-content">
           <div class="container">
-            <div class="page-header">
-              
-            </div>
-            <div class="row row-cards row-deck">
-              <div class="">
-                @yield('content')
-              </div>
+            <div class="">
+              @yield('content')
             </div>
           </div>
         </div>

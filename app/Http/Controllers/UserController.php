@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 use App\Departamento;
 use App\Ciudad;
 use App\Http\Requests;
@@ -65,4 +66,39 @@ class UserController extends Controller
         return redirect('/Perfil');
     }
 
+    public function modificarConfiguracion(){
+        $user = Auth::User();
+        return View('Users.configuracion')->with('user',$user);
+    }
+
+    public function postmodificarConfiguracion(Request $request){
+        $correoActual = Auth::User()->email;
+        $correo = $request->email;
+        if($correo == ""){
+            $correo = "none";
+        }else if($correo == $correoActual){
+            $correo = "correo valido";
+        }
+        $user = User::search($correo)->get()->first();   
+        if(sizeof($user) == null){
+            $newUser = Auth::User();
+            if($request->email != null){
+                $newUser->email = $request->email;
+            }
+            if($request->password != null){
+                if(strlen($request->password) < 4 || strlen($request->password) > 18){
+                    flash::error('La contraseña debe tener minimo 4 caracteres y no exceder los 18')->important();
+                    return redirect('/Configuracion'); 
+                }else{
+                    $newUser->password = bcrypt($request->password);   
+                }
+            }
+            $newUser->save();
+            flash::success('Perfil modificado exitosamente')->important();
+            return redirect('/Configuracion'); 
+        }else{
+            flash::error('Correo en uso')->important();
+            return redirect('/Configuracion');          
+        }
+    }
 }
