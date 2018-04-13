@@ -14,14 +14,14 @@ use Laracasts\Flash\Flash;
 class PersonalController extends Controller
 {
     public function modificarPersonal(){
-        $personal = Personal::all();
+        $personales = Personal::all();
     	$departamentos = Departamento::all();
         $ciudades = Ciudad::all();
     	$user = Auth::User();
     	return View('Personal.personal')->with('user',$user)
     	->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
-        ->with('personal', $personal);
+        ->with('personales', $personales);
     }
 
      public function postmodificarPersonal(Request $request){

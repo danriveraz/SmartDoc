@@ -87,23 +87,37 @@
 </div>
 
 <!-- Espacio para mi personal -->
-<section class="cd-gallery desplegado">
+<section class="cd-gallery desplegado" style="background: rgb(245,247,251);">
 	<ul>
-		<li class="card" style="width: 25%; display: inline-block;">
-		  <div class="card-header">
-		    <h3 class="card-title">Card title</h3>
-		    <div class="card-options">
-		        <a class="btn btn-secondary btn-sm">Modificar</a>
-		        <a class="btn btn-secondary btn-sm ml-2">Eliminar</a>
-		    </div>
-		  </div>
-		  <div class="card-body">
-		    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A consequuntur, deserunt eaque error nulla temporibus!
-		  </div>
-		  <div class="card-footer">
-		    This is standard card footer
-		  </div>
-		</li>
+		@foreach($personales as $personal)
+			<li class="card" style="width: 30%; display: inline-block;">
+			  <div class="card-header">
+			    <h3 class="card-title">{{$personal->nombreCompleto}}</h3>
+			    <div class="card-options">
+			        <a class="btn btn-primary btn-sm"><span class="fe fe-edit-2"></span></a>
+			        <a class="btn btn-danger btn-sm ml-2"><span class="fe fe-trash-2"></span></a>
+			    </div>
+			  </div>
+			  <div class="card-body">
+			  	<span class="avatar avatar-xl" style="background-image: url(images/admin/trabajador.png)"></span>
+			  	<p> </p>
+			  	<div class="row">
+				  	<p class="col-md-6">Cédula: {{$personal->cedula}}</p>
+				  	<p class="col-md-6">Teléfono: {{$personal->telefono}}</p>		  		
+			  	</div>
+			  	<div class="row">
+			  		<p class="col-md-6">Dirección: {{$personal->direccion}}</p>
+			  		<p class="col-md-6">Salario {{$personal->salario}}</p>
+			  	</div>
+			  	<div class="row">
+			  		<p class="col-md-12">Descripción general: {{$personal->descripcionGeneral}}</p>
+			  	</div>
+			  </div>
+			  <div class="card-footer">
+			    {{$personal->email}}
+			  </div>
+			</li>
+		@endforeach
 	</ul>
 </section>
 <!-- Fin mi personal -->
