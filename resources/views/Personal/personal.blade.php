@@ -1,9 +1,13 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
-<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar personal">
-	<span class="fe fe-plus"></span>
-</button>
+<div>
+	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar personal">
+		<span class="fe fe-plus"></span>
+	</button>	
+</div>
+<br>
+
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -13,23 +17,26 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      	{!! Form::open(['action' => ['PersonalController@postmodificarPersonal'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
-            {{ csrf_field() }}
+      {!! Form::open(['action' => ['PersonalController@postmodificarPersonal'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+       	{{ csrf_field() }}
+      	<div class="modal-body">
         	<div class="row">
 	        	<div class="col-md-6">
-		          	<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" >
+		          	<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" required="true">
 	        	</div>
 	        	<div class="col-md-6">
-			        <input id="email" name="email" type="email" class="form-control" placeholder="Correo" >
+			        <input id="email" name="email" type="email" class="form-control" placeholder="Correo" required="true">
 	        	</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">
-			        <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula">
+        		<div class="col-md-4">
+			        <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula" required="true">
         		</div>
-        		<div class="col-md-6">
+        		<div class="col-md-4">
 			        <input id="telefono" name="telefono" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000">
+        		</div>
+        		<div class="col-md-4">
+			        <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required="true">
         		</div>
         	</div>
 	        <div class="row">
@@ -42,7 +49,7 @@
 	        </div>
 	        <div class="row">
 	        	<div class="col-md-3">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="0000-00-00" />
+	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
 	        	</div>
 	        	<div class="col-md-3">
 	        		<select id="sexo" name='sexo' class="form-control" placeholder="">
@@ -79,6 +86,27 @@
   </div>
 </div>
 
+<!-- Espacio para mi personal -->
+<section class="cd-gallery desplegado">
+	<ul>
+		<li class="card" style="width: 25%; display: inline-block;">
+		  <div class="card-header">
+		    <h3 class="card-title">Card title</h3>
+		    <div class="card-options">
+		        <a class="btn btn-secondary btn-sm">Modificar</a>
+		        <a class="btn btn-secondary btn-sm ml-2">Eliminar</a>
+		    </div>
+		  </div>
+		  <div class="card-body">
+		    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit incidunt, iste, itaque minima neque pariatur perferendis sed suscipit velit vitae voluptatem. A consequuntur, deserunt eaque error nulla temporibus!
+		  </div>
+		  <div class="card-footer">
+		    This is standard card footer
+		  </div>
+		</li>
+	</ul>
+</section>
+<!-- Fin mi personal -->
 
 
 <script type="text/javascript">

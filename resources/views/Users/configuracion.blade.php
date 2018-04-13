@@ -10,7 +10,7 @@
           route="Auth.usuario.editConfiguracion">
             {{ csrf_field() }}
             <div class="card-body p-6">
-              <div class="card-title">Seguridad e inicio de sesion</div>
+              <div class="card-title">Seguridad e inicio de sesión</div>
               <p class="text-muted">Cambia tu correo o contraseña</p>
               <div class="form-group">
                 <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Correo" value="{{$user->email}}">
