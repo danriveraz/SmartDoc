@@ -96,7 +96,10 @@
 			    <div class="card-options">
 			        <button id="{{$personal->id}}" class="btn btn-primary btn-sm" data-toggle="modal" 
 			        	href="#editModal{{$personal->id}}" title="Agregar personal"><span class="fe fe-edit-2"></span></button>
-			        <a class="btn btn-danger btn-sm ml-2"><span class="fe fe-trash-2"></span></a>
+			        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+       				{{ csrf_field() }}
+			        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><span class="fe fe-trash-2"></span></button>
+			        {{ Form::close() }}
 			    </div>
 			  </div>
 			  <div class="card-body">

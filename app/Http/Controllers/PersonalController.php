@@ -132,7 +132,7 @@ class PersonalController extends Controller
                 $user2update->sexo = $request->$sexo;
                 $user2update->descripcionGeneral = $request->$descripcion;
                 $user2update->save();
-                flash('Modificacion exitosa')->success()->important();
+                flash('Modificación exitosa')->success()->important();
                 return redirect('/Personal');
             }else{
                 flash('Cedula en uso')->error()->important();
@@ -144,4 +144,10 @@ class PersonalController extends Controller
         }
     }
 
+    public function postdeleteProfile(Request $request, $id){
+        $user2destroy = Personal::find($id);
+        $user2destroy->delete();
+        flash('Eliminación exitosa')->success()->important();
+        return redirect('/Personal');
+    }
 }
