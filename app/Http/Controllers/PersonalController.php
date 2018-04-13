@@ -14,10 +14,10 @@ use Laracasts\Flash\Flash;
 class PersonalController extends Controller
 {
     public function modificarPersonal(){
-        $personales = Personal::all();
+        $user = Auth::User();
+        $personales = Personal::admin($user->id)->get();
     	$departamentos = Departamento::all();
         $ciudades = Ciudad::all();
-    	$user = Auth::User();
     	return View('Personal.personal')->with('user',$user)
     	->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
@@ -76,4 +76,72 @@ class PersonalController extends Controller
             return redirect('/Personal');
         }
     }
+
+    public function postupdateProfile(Request $request, $id){
+        //Se definen los datos dinamicos del usuario
+        $modificableCorreo = 0;
+        $modificableCedula = 0;
+        $nombre = "nombre".$id;
+        $correo = "email".$id;
+        $cedula = "cedula".$id;
+        $telefono =  "telefono".$id;
+        $direccion = "direccion".$id;
+        $salario = "salario".$id;
+        $fechaNacimiento = "fechaNacimiento".$id;
+        $sexo = "sexo".$id;
+        $descripcion = "descripcion".$id;
+
+        $email = $request->$correo;
+
+        $user2update = Personal::find($id);
+
+        $person = Personal::search($email)->get()->first();
+        $user = User::search($email)->get()->first();
+        $usersIdentity = User::identity($request->$cedula)->get()->first();
+        $personIdentity = Personal::identity($request->$cedula)->get()->first();
+
+        if(sizeof($person) == 1){
+            if($user2update->email == $email){
+                $modificableCorreo = 1;
+            }
+        }else if(sizeof($user) == 1){
+            $modificableCorreo = 0;
+        }else if(sizeof($person == null)){
+            $modificableCorreo = 1;
+        }
+
+        if(sizeof($personIdentity) == 1){
+            if($user2update->cedula == $request->$cedula){
+                $modificableCedula = 1;
+            }
+        }else if(sizeof($usersIdentity) == 1){
+            $modificableCedula = 0;
+        }else if(sizeof($personIdentity) == null){
+            $modificableCedula = 1;
+        }
+
+        if($modificableCorreo){
+            if($modificableCedula){
+                $user2update->nombreCompleto = $request->$nombre;
+                $user2update->email = $request->$correo;
+                $user2update->cedula = $request->$cedula;
+                $user2update->telefono = $request->$telefono;
+                $user2update->direccion = $request->$direccion;
+                $user2update->salario = $request->$salario;
+                $user2update->fechaNacimiento = $request->$fechaNacimiento;
+                $user2update->sexo = $request->$sexo;
+                $user2update->descripcionGeneral = $request->$descripcion;
+                $user2update->save();
+                flash('Modificacion exitosa')->success()->important();
+                return redirect('/Personal');
+            }else{
+                flash('Cedula en uso')->error()->important();
+                return redirect('/Personal');
+            }
+        }else{
+            flash('Correo en uso')->error()->important();
+            return redirect('/Personal');
+        }
+    }
+
 }

@@ -28,4 +28,8 @@ class Personal extends Model
     public function scopeIdentity($query, $cedula){
       return $query->where('cedula', 'like', '%' .$cedula. '%');
     }
+
+    public function scopeAdmin($query, $idAdmin){
+      return $query->where('idAdmin', 'like', '%' .$idAdmin. '%');   
+    }
 }
