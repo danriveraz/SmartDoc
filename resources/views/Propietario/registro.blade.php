@@ -245,7 +245,7 @@
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección">
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="">
                   </div>
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary btn-block">Registrar</button>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonalTable extends Migration
+class CreateMiPersonalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,6 @@ class CreatePersonalTable extends Migration
     public function up()
     {
         Schema::create('personal', function (Blueprint $table) {
-
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
@@ -28,11 +27,15 @@ class CreatePersonalTable extends Migration
             $table->integer('salario');
             $table->string('sexo' , 10);
 
+            $table->boolean('esPropietario');
+            $table->boolean('esAdmin');
+            $table->boolean('esEmpleado');
+
             $table->integer('idAdmin')->unsigned();
             $table->foreign('idAdmin')->references('id')->on('users');
 
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

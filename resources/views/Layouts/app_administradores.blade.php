@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!--Para el datatable -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,8 +22,14 @@
 
     <!--Scripts-->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    {!!Html::style('stylesheets\datatables.css')!!}
+    {!!Html::script("javascripts\datatable-editable.js")!!}
+    {!!Html::script("javascripts\jquery.dataTables.js")!!}
+    {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
     <script src="{{asset('assets/js/require.min.js')}}"></script>
+
+
 
     <script>
       requirejs.config({
@@ -52,6 +59,8 @@
     <!--Estilos para imagen perfil -->    
     {!!Html::style('stylesheets/style.css')!!}
     {!!Html::style('stylesheetspropio\stylePropio.css')!!}
+
+
     <!-- End scripts-->
 
   </head>
@@ -62,7 +71,7 @@
           <div class="container">
             <div class="d-flex">
               <a class="navbar-brand" href="{{url('/WelcomeAdmin')}}">
-                <img src="{{asset('images/logoEmail.png')}}" class="navbar-brand-img" alt="logo">
+                <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
               </a>
               <div class="ml-auto d-flex order-lg-2">
                 <div class="dropdown">
@@ -101,7 +110,7 @@
                     <a href="{{url('/Personal')}}" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
+                      <a href="{{url('/Procedimiento')}}" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-suitcase"></i>Inventario</a>

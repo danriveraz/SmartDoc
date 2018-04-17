@@ -46,6 +46,7 @@ class PersonalController extends Controller
                 $personal->nombreCompleto = $request->nombre;
                 $personal->email = $email;
                 $personal->cedula = $cedula;
+                $personal->esEmpleado = 1;
                 $personal->telefono = $request->telefono;
 
                 if(strlen($request->password) > 4 && strlen($request->password) < 18){

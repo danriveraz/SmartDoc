@@ -264,7 +264,7 @@
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección">
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección de establecimiento">
                   </div>
                   <div class="form-footer">
                     <a href="#" id="btnConfirm" class="btn btn-primary btn-block" onclick="confirmPassword()">
