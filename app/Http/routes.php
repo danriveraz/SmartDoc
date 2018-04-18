@@ -31,7 +31,8 @@ Route::get('Personal/{id}/destroy', ['uses' => 'PersonalController@postdeletePro
 
 Route::post('Procedimiento', ['uses' => 'ProcedimientoController@postmodificarProcedimiento', 'as' => 'Auth.usuario.editProcedimiento']); ////Esta ruta es la principal de personal, sirve para crear.
 Route::get('Procedimiento', ['uses' => 'ProcedimientoController@modificarProcedimiento', 'as' => 'Auth.usuario.showeditProcedimiento']);//Esta ruta es la principal de personal, sirve para crear.
-
+Route::get('Procedimiento/{id}/edit', ['uses' => 'ProcedimientoController@postupdateProcedimiento', 'as' => 'Auth.usuario.updateProcedimiento']);//Esta ruta sirve para modificar un "personal"
+Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@postdeleteProcedimiento', 'as' => 'Auth.usuario.deleteProcedimiento']);//Esta ruta sirve para eliminar un "personal"
 
 Route::get('ResetPassword', 'HomeController@resetPassword');
 

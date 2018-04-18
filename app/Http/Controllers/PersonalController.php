@@ -13,6 +13,19 @@ use Laracasts\Flash\Flash;
 
 class PersonalController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $userActual = Auth::user();
+        if($userActual != null){
+          if (!$userActual->esAdmin) {
+              flash('No Tiene Los Permisos Necesarios')->error()->important();
+              return redirect('/WelcomeTrabajador')->send();
+          }
+        }
+
+    }
+    
     public function modificarPersonal(){
         $user = Auth::User();
         $personales = Personal::admin($user->id)->get();

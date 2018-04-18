@@ -44,6 +44,8 @@ class AuthController extends Controller
             return '/WelcomeAdmin';
         }else if(Auth::User()->esEmpleado){
             return '/WelcomeTrabajador';
+        }else{
+            return '/';
         }
     }
     /**

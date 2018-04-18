@@ -12,6 +12,19 @@ use Laracasts\Flash\Flash;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $userActual = Auth::user();
+        if($userActual != null){
+          if (!$userActual->esAdmin) {
+              flash('No Tiene Los Permisos Necesarios')->error()->important();
+              return redirect('/WelcomeTrabajador')->send();
+          }
+        }
+
+    }
+    
     public function index(){
         return View('');
     }
