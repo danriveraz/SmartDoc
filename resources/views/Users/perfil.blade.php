@@ -1,147 +1,197 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
-<form class="card" enctype="multipart/form-data" method="POST" route="Auth.usuario.editPerfil">
-  {{ csrf_field() }}
-  <div class="card-body">
-    <h3 class="card-title"></h3>
-  <br>
-    <div class="row">
-     <div class="col-md-12">
-     	<div class="col-md-12" style="text-align: center;">
-    	<div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
-	        <div class="gallery-container fileupload-new img-thumbnail">
-	          <div class="gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
-	            @if($user->imagen != '')
-	              {!! Html::image('images/admin/'.$user->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
-	              <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
-	            @else
-	              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
-	            @endif
-	            <div class="actions">
-	              <a  id="modalImagen" href="{{ asset ('images/admin/'.$user->imagen) }}" title="Imagen">
-	                <img src="images/admin/{{$user->imagen}}" hidden>
-	                <i class="fa fa-search-plus"></i>
-	              </a>
-	              <a onclick="$('#imagenPerfil').click()">
-	                <i class="fa fa-pencil"></i>
-	              </a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff;">
-	          
-	        </div>
-	        <div hidden>
-	          <span class=" btn-file" id="subirImagenNegocio">
-	            <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
-	            <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
-	            <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
-	          </span>
-	        </div>
-      </div>
-  </div>
-     </div>
-      <div class="col-md-5">
-        <div class="form-group">
-          <label class="form-label">Nombre completo</label>
-          <input id="nombre" name="nombre" type="text" class="form-control" placeholder="" value="{{$user->nombreCompleto}}">
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="form-group">
-          <label class="form-label">Cedula</label>
-          <input id="cedula" name="cedula" type="text" class="form-control" placeholder="" value="{{$user->cedula}}">
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="form-group">
-          <label class="form-label">Teléfono</label>
-          <input id="telefono" name="telefono" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$user->telefono}}">
-        </div>
-      </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="form-group">
-          <label class="form-label">Dirección</label>
-          <input id="direccion" name="direccion" type="text" class="form-control" placeholder="" value="{{$user->direccion}}">
-        </div>
-      </div>
-      <div class="col-sm-3 col-md-3">
-        <div class="form-group">
-          <label class="form-label">Salario</label>
-          <input id="salario" name="salario" type="number" class="form-control" placeholder="" value="{{$user->salario}}">
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-6">
-		<div class="form-group">
-	       <label class="form-label">Fecha de nacimiento</label>
-	       <input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="0000-00-00" value="{{$user->fechaNacimiento}}" />
-	    </div>
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label>Sexo</label>
-            <div class="input-group">
-                <select id="sexo" name='sexo' class="form-control" placeholder="Tipo De Sexo">
-                  @if($user->sexo=='')
-                  	<option value="" selected="selected">Seleccionar</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                  @elseif($user->sexo=='femenino')
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino" selected="selected">Femenino</option>
-                  @else
-                    <option value="masculino" selected="selected">Masculino</option>
-                    <option value="femenino" >Femenino</option>
-                  @endif
-                </select>
-            </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="form-group">
-          <label>Departamento</label>
-	        <select class="form-control" id="idDepto"  name="idDepto" required>
-				<option value="">Elija una opción</option>
-				      @foreach($departamentos as $departamento)
-                  @if($user->departamento == $departamento->id)
-	              	  <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
-                  @else
-                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-                  @endif
-	            @endforeach
-			</select>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label>Ciudad</label>
-            <select class="form-control" id="idCiudad" name="idCiudad" required>
-				    <option value="">Elija una opción</option>
-              @foreach($ciudades as $ciudad)
-                  @if($user->departamento == $ciudad->idDepartamento)
-                    @if($user->ciudad == $ciudad->id)
-                      <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
-                    @else
-                      <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
-                    @endif
-                  @endif
-              @endforeach
-			</select>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group mb-0">
-          <label class="form-label">Descripción general</label>
-          <textarea id="descripcion" name="descripcion" rows="5" class="form-control" placeholder="" value="">{{$user->descripcionGeneral}}</textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card-footer text-center">
-    <button type="submit" class="btn btn-primary">Guardar perfil</button>
-  </div>
-</form>
+
+
+<!-- archivos nuevos-->
+      <div class="page-content">
+          <div class="container">
+
+            <div class="row row-cards">
+              <div class="col-lg-4">
+                <div class="card card-profile">
+                {!! Form::open(['route' => ['Auth.usuario.editPerfil'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+           	      {{ csrf_field() }}
+                  <div class="card-header" style="background-image: url(images/fondoProfile.jpg);"></div>
+                  <div class="card-body text-center">
+
+                      <div class="col-md-12" style="text-align: center; z-index: 1000;">
+                          <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
+                              <div class="gallery-container fileupload-new img-thumbnail">
+                              	 <div class="card-profile-img gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
+                              	     @if($user->imagen != '')
+                              	     {!! Html::image('images/admin/'.$user->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
+                              	     <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
+                              	     @else
+                              	     <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
+                              	     @endif
+                              	       <div class="actions">
+                              	              <a  id="modalImagen" href="{{ asset ('images/admin/'.$user->imagen) }}" title="Imagen">
+                              	                <img src="images/admin/{{$user->imagen}}" hidden>
+                              	                <i class="fa fa-search-plus"></i>
+                              	              </a>
+                              	              <a onclick="$('#imagenPerfil').click()">
+                              	                <i class="fa fa-pencil"></i>
+                              	              </a>
+                              	       </div>
+                              	 </div>
+                              </div>
+                      <div class="card-profile-img gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff; overflow: hidden;">
+                       </div>
+                          <div hidden>
+                              <span class=" btn-file" id="subirImagenNegocio">
+                              	 <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
+                              	 <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
+                              	 <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
+                              </span>
+                          </div>
+                        </div>
+                      </div><!-- fin col lg12 imagen de perfil-->
+
+                                    <h3 class="mb-1">{{$user->establecimiento}}</h3>
+                                      <p class="mb-3" style="font-size: 12px;">
+                                        {{$user->slogan}}
+                                      </p>
+                                    <ul class="social-links list-inline mb-0 mt-2">
+                                          <li class="list-inline-item">
+                                            <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                              <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
+                                          </li>
+                                          <li class="list-inline-item">
+                                                  <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
+                                          </li>
+                                    </ul>
+                  </div>
+                </div>
+              </div><!-- fin del col lg4-->
+
+              <!-- INICIO DEL CONTENEDOR DE LOS CAMPOS DE TEXTO -->
+              <div class="col-lg-8 pull-right">
+              <div class="card">
+              <div class="card-header">
+                  <h3 class="card-title">Configuración De Perfil</h3>
+              </div>
+
+              <div class="card-body">
+                <!-- inicio del contenedor del campo texto-->
+              <div class="row row-cards row-deck">
+                  <div class="col-md-6">
+
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-user"></i>
+                            </span>
+                            <input id="establecimiento" name="establecimiento"class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$user->establecimiento}}">
+
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-credit-card"></i>
+                            </span>
+                            <input id="cedula" name="cedula" class="form-control" placeholder="Nit" type="text" value="{{$user->cedula}}">
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-phone-call"></i>
+                            </span>
+                            <input id="telefono" name"telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$user->telefono}}">
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-map"></i>
+                            </span>
+                      <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
+                        <option value="">Elija una opción</option>
+                          @foreach($departamentos as $departamento)
+                              @if($user->departamento == $departamento->id)
+                                <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
+                              @else
+                                <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+                              @endif
+                          @endforeach
+                              </select>
+                    </div>
+                      </div>
+                  </div>
+                <!-- lado izquierdo-->
+                  <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-user"></i>
+                            </span>
+                            <input id="slogan" name="slogan" class="form-control" placeholder="Slogan" type="text" value="{{$user->slogan}}">
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-tag"></i>
+                            </span>
+                            <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$user->direccion}}">
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-smartphone"></i>
+                            </span>
+                            <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$user->celular}}">
+                          </div>
+                      </div>
+                  <div class="form-group">
+                    <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-map"></i>
+                            </span>
+                              <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
+                              <option value="">Elija una opción</option>
+                                @foreach($ciudades as $ciudad)
+                                    @if($user->departamento == $ciudad->idDepartamento)
+                                      @if($user->ciudad == $ciudad->id)
+                                        <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
+                                      @else
+                                        <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
+                                      @endif
+                                    @endif
+                                @endforeach
+                              </select>
+                    </div>
+                      </div>
+                  </div>
+                <!-- Fin del lado izquierdo-->
+              </div>
+                <!-- Fin del contenedor del campo texto-->
+              </div><!-- Fin del card-body-->
+              </div><!-- fin card-->
+
+              <!-- FIN DEL CONTENEDOR DE LOS CAMPOS DE TEXTO -->
+                  <div class="form-footer">
+                    <button type="submit"  class="btn btn-primary pull-right"><i class="fe fe-check-square"></i> Guardar Información Perfil</button>
+                  </div>
+              </div><!-- Fin del col-lg-8-->
+          </div><!-- fin del row row-cards -->
+{{ Form::close() }}
+
+          <div class="row">
+            <div class="col-lg-12">
+
+            </div><!-- fin del col lg 12-->
+          </div><!-- fin del row -->
+
+        </div><!-- fin container-->
+      </div><!-- fin page-content -->
+
+<!-- fin de archivos nuevos-->
 
 <script>
 	require(['input-mask']);
@@ -161,7 +211,7 @@
 	            text: currentValue.nombre
 	        }));
 	        }
-	    }); 
+	    });
 	  });
 </script>
 
@@ -198,7 +248,7 @@
 	          if( input.length ) {
 	              input.val(log);
 	          } else {
-	          	
+
 	          }
 
 	      });
@@ -213,5 +263,7 @@
     height: 150px;
   }
 </style>
+
+
 
 @endsection

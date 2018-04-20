@@ -16,7 +16,7 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
     <!-- Generated: 2018-03-27 13:25:03 +0200 -->
-    <title>POCKET</title>
+    <title>SmartDoc</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
 
@@ -39,13 +39,13 @@
     <!-- Dashboard Core -->
     <link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" />
     <script src="{{asset('assets/js/dashboard.js')}}"></script>
-    <!-- c3.js Charts Plugin -->
+    <!-- c3.js Charts Plugin-->
     <link href="{{asset('assets/plugins/charts-c3/plugin.css')}}" rel="stylesheet" />
     <script src="{{asset('assets/plugins/charts-c3/plugin.js')}}"></script>
-    <!-- Google Maps Plugin -->
+    <!-- Google Maps Plugin-->
     <link href="{{asset('assets/plugins/maps-google/plugin.css')}}" rel="stylesheet" />
     <script src="{{asset('assets/plugins/maps-google/plugin.js')}}"></script>
-    <!-- Input Mask Plugin -->
+    <!-- Input Mask Plugin-->
     <script src="{{asset('assets/plugins/input-mask/plugin.js')}}"></script>
 
     <!--Fileupload-->
@@ -56,7 +56,7 @@
     {!!Html::style('stylesheets\jquery.fancybox.css')!!}
     {!!Html::script("javascripts\jquery.fancybox.pack.js")!!}
 
-    <!--Estilos para imagen perfil -->    
+    <!--Estilos para imagen perfil-->
     {!!Html::style('stylesheets/style.css')!!}
     {!!Html::style('stylesheetspropio\stylePropio.css')!!}
 
@@ -74,10 +74,30 @@
                 <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
               </a>
               <div class="ml-auto d-flex order-lg-2">
+                <div class="nav-item">
+                  <a href="" class="btn btn-sm btn-outline-primary" target="_blank">Source code</a>
+                </div>
+                <div class="dropdown d-none d-md-flex">
+                  <a class="nav-link icon" data-toggle="dropdown">
+                    <i class="fe fe-message-square"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow px-4">
+
+                  </div>
+                </div>
+                <div class="dropdown d-none d-md-flex">
+                  <a class="nav-link icon" data-toggle="dropdown">
+                    <i class="fe fe-bell"></i>
+                    <span class="nav-unread"></span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow px-4">
+
+                  </div>
+                </div>
                 <div class="dropdown">
-                  <a href="#" class="nav-link pr-0" data-toggle="dropdown">
+                  <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$user->imagen)}}"></span>
-                    <span class="ml-2 d-none d-lg-block">
+            <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
                       <small class="text-muted d-block mt-1">Administrator</small>
                     </span>
@@ -136,8 +156,20 @@
       </div>
       <footer class="footer">
         <div class="container">
-          <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-            PocketCompany © 2018  All rights reserved.
+          <div class="row align-items-center flex-row-reverse">
+            <div class="col-auto ml-auto">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <ul class="list-inline list-inline-dots mb-0">
+                    <li class="list-inline-item">SmartDoc</li><a href="" target="_blank">- Politicas de Privacidad</a>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+              Copyright © 2018 <a href="."></a>. Theme by <a href="" target="_blank">PocketCompany</a> All rights reserved.
+            </div>
           </div>
         </div>
       </footer>
