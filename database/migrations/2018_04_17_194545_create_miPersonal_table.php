@@ -23,8 +23,7 @@ class CreateMiPersonalTable extends Migration
             $table->date('fechaNacimiento');
             $table->string('ciudad');
             $table->string('departamento');
-            $table->string('descripcionGeneral');
-            $table->integer('salario');
+            $table->string('hojaVida');
             $table->string('sexo' , 10);
 
             $table->boolean('esPropietario');

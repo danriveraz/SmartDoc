@@ -115,9 +115,6 @@
 			  		<p class="col-md-6">Dirección: {{$personal->direccion}}</p>
 			  		<p class="col-md-6">Salario: {{$personal->salario}}</p>
 			  	</div>
-			  	<div class="row">
-			  		<p class="col-md-12">Descripción general: {{$personal->descripcionGeneral}}</p>
-			  	</div>
 			  </div>
 			  <div class="card-footer">
 			    {{$personal->email}}

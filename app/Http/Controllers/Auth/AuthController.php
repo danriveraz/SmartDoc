@@ -40,7 +40,9 @@ class AuthController extends Controller
 
     protected function redirectTo()
     {   
-        if(Auth::User()->esAdmin){
+        if(Auth::User()->esPropietario){
+            return '/Registro';
+        }else if(Auth::User()->esAdmin){
             return '/WelcomeAdmin';
         }else if(Auth::User()->esEmpleado){
             return '/WelcomeTrabajador';
@@ -129,26 +131,27 @@ class AuthController extends Controller
     public function postRegister(Request $request){
         if($request->esPropietario == "true"){
             $email = $request->email;
-            $cedula = $request->cedula;
+            $nit = $request->nit;
             if($email == ""){
                 $email = "none";
             }
-            if($cedula == ""){
-                $cedula = "none";
+            if($nit == ""){
+                $nit = "none";
             }
             $user = User::Search($email)->get()->first();
-            $identity = User::identity($cedula)->get()->first();
+            $identity = User::identity($nit)->get()->first();
             if(sizeOf($user) == 0 && sizeof($identity) == 0){
                 if($request->clavePrimaria == "123456"){
-                    if($email == "none" || $request->nombre == "" || $cedula == "none" ){
+                    if($email == "none" || $request->nombre == "" || $nit == "none" ){
+                        dd($email, $request->nombre, $nit);
                         Flash::error('Por favor llenar todos los campos');
                         return redirect('/PocketCompany');
                     }else{
                         $user = new User();
                         $user->email = $request->email;
                         $user->password = bcrypt($request->password);
-                        $user->nombreCompleto = $request->nombre;
-                        $user->cedula = $request->cedula;
+                        $user->nombreEstablecimiento = $request->nombre;
+                        $user->nit = $request->nit;
                         $user->esPropietario = 1;
                         $user->save();
                         return redirect('/')->with('message', 'Por favor iniciar sesión.');
@@ -162,38 +165,46 @@ class AuthController extends Controller
                     Flash::error('Correo en uso');
                     return redirect('/PocketCompany');
                 }else{
-                    Flash::error('Cedula en uso');
+                    Flash::error('nit en uso');
                     return redirect('/PocketCompany');
                 }
             }
         }else{
             $email = $request->email;
+            $nit = $request->nit;
             if($email == ""){
                 $email = "none";
             }
+            if($nit == ""){
+                $nit = "none";
+            }
             $user = User::Search($email)->get()->first();
+            $identity = User::identity($nit)->get()->first();
             $userActual = Auth::User();
             if($userActual->esPropietario){
-                if(sizeOf($user) == 0){
+                if(sizeOf($user) == 0 && sizeof($identity) == 0){
                     $user = new User();
                     $user->email = $request->email;
                     $user->password = bcrypt($request->password);
-                    $user->nombreCompleto = $request->nombre;
-                    $user->cedula = $request->cedula;
+                    $user->nombreEstablecimiento = $request->nombre;
+                    $user->nit = $request->nit;
                     $user->telefono = $request->telefono;
+                    $user->celular = $request->celular;
                     $user->direccion = $request->direccion;
                     $user->esAdmin = 1;
-                    $dia = $request->dia;
-                    $mes = $request->mes;
-                    $anho = $request->anho;     
-                    $user->fechaNacimiento = $anho."-".$mes."-".$dia;
                     $user->imagen = 'perfil.jpg';
+                    $user->eslogan = "Ahora todo es más fácil con SmartDoc";
                     $user->save();
                     Flash::success('Registro exitoso');
                     return redirect('/Registro');
                 }else{
-                    flash('El usuario ya se encuentra registrado')->warning()->important();
-                    return redirect('/Registro');
+                    if(sizeof($user) > 0){
+                        flash('Correo en uso')->error()->important();
+                        return redirect('/Registro');
+                    }else{
+                        flash('Nit en uso')->error()->important();
+                        return redirect('/Registro');
+                    }
                 }
             }else{
 

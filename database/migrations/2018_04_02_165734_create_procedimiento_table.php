@@ -17,9 +17,11 @@ class CreateProcedimientoTable extends Migration
             $table->increments('id');
             $table->string('nombre' , 40);
             $table->integer('costo');
+            $table->integer('venta');
+            $table->integer('ganancia');
             $table->string('descripcion');
             $table->string('duracion' , 20);
- 
+            
             $table->integer('idAdmin')->unsigned();
             $table->foreign('idAdmin')->references('id')->on('users');
             

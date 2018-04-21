@@ -13,7 +13,7 @@ class CreateCiudadTable extends Migration
     public function up()
     {
         Schema::create('ciudad', function (Blueprint $table) {
-           $table->increments('id');
+            $table->increments('id');
             $table->string('nombre');
             $table->integer('idDepartamento')->unsigned();
             $table->foreign('idDepartamento')->references('id')->on('departamento');

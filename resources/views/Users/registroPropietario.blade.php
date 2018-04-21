@@ -47,8 +47,8 @@
                     <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" required="true">
                   </div>
                   <div class="form-group">
-                    <!--<label class="form-label">Password</label>-->
-                    <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula">
+                    <!--<label class="form-label">Nombre completo</label>-->
+                    <input id="nit" name="nit" type="text" class="form-control" placeholder="Cedula">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Email address</label>-->
