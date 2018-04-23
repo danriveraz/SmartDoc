@@ -50,16 +50,14 @@ class UserController extends Controller
 
     public function postmodificarPerfil(Request $request){
         $user = Auth::User();
-        $user->nombreCompleto = $request->nombre;
-        $user->cedula = $request->cedula;
+        $user->nombreEstablecimiento = $request->nombreEstablecimiento;
+        $user->eslogan = $request->eslogan;        
+        $user->nit = $request->nit;
         $user->telefono = $request->telefono;
+        $user->celular = $request->celular;
         $user->direccion = $request->direccion;
-        $user->salario = $request->salario;
-        $user->fechaNacimiento = $request->fechaNacimiento;
-        $user->sexo = $request->sexo;
         $user->departamento = $request->idDepto;
         $user->ciudad = $request->idCiudad;
-        $user->descripcionGeneral = $request->descripcion;
 
         //For the profile image
         $path = public_path() . '/images/admin/';
@@ -69,7 +67,7 @@ class UserController extends Controller
           $perfilNombre = 'perfil' . time() . '.' . $file->getClientOriginalExtension();
           //indicamos que queremos guardar un nuevo archivo en el disco local
           $file->move($path, $perfilNombre);
-          if($user->imagen != "perfil.png"){
+          if($user->imagen != "perfil.jpg"){
             $imagenActual = $path . $user->imagen;
             unlink($imagenActual);
           }

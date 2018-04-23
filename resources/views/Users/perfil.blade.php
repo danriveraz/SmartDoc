@@ -48,9 +48,9 @@
                         </div>
                       </div><!-- fin col lg12 imagen de perfil-->
 
-                                    <h3 class="mb-1">{{$user->establecimiento}}</h3>
+                                    <h3 class="mb-1">{{$user->nombreEstablecimiento}}</h3>
                                       <p class="mb-3" style="font-size: 12px;">
-                                        {{$user->slogan}}
+                                        {{$user->eslogan}}
                                       </p>
                                     <ul class="social-links list-inline mb-0 mt-2">
                                           <li class="list-inline-item">
@@ -84,8 +84,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-user"></i>
                             </span>
-                            <input id="establecimiento" name="establecimiento"class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$user->establecimiento}}">
-
+                            <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$user->nombreEstablecimiento}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -93,7 +92,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-credit-card"></i>
                             </span>
-                            <input id="cedula" name="cedula" class="form-control" placeholder="Nit" type="text" value="{{$user->cedula}}">
+                            <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$user->nit}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -101,7 +100,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-phone-call"></i>
                             </span>
-                            <input id="telefono" name"telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$user->telefono}}">
+                            <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$user->telefono}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -129,7 +128,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-user"></i>
                             </span>
-                            <input id="slogan" name="slogan" class="form-control" placeholder="Slogan" type="text" value="{{$user->slogan}}">
+                            <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$user->eslogan}}">
                           </div>
                       </div>
                   <div class="form-group">
