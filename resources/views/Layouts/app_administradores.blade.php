@@ -74,26 +74,7 @@
                 <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
               </a>
               <div class="ml-auto d-flex order-lg-2">
-                <div class="nav-item">
-                  <a href="" class="btn btn-sm btn-outline-primary" target="_blank">Source code</a>
-                </div>
-                <div class="dropdown d-none d-md-flex">
-                  <a class="nav-link icon" data-toggle="dropdown">
-                    <i class="fe fe-message-square"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow px-4">
-
-                  </div>
-                </div>
-                <div class="dropdown d-none d-md-flex">
-                  <a class="nav-link icon" data-toggle="dropdown">
-                    <i class="fe fe-bell"></i>
-                    <span class="nav-unread"></span>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow px-4">
-
-                  </div>
-                </div>
+                
                 <div class="dropdown">
                   <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$user->imagen)}}"></span>
@@ -133,13 +114,10 @@
                       <a href="{{url('/Procedimiento')}}" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-suitcase"></i>Inventario</a>
-                  </li>
-                  <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>
                   </li>
                 </ul>
               </div>

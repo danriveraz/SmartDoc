@@ -41,6 +41,8 @@ Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@pos
 //Agenda
 Route::get('Agenda', ['uses' => 'AgendaController@modificarAgenda', 'as' => 'Auth.usuario.showeditAgenda']);//Esta ruta es la principal de Agenda, sirve para crear.
 
+Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@modificarHistoriaClinica', 'as' => 'Auth.usuario.showeditHistoriaClinica']);//Esta ruta es la principal de Agenda, sirve para crear.
+
 Route::get('ResetPassword', 'HomeController@resetPassword');
 
 Route::get('PocketCompany', 'UserController@registroPropietario');
