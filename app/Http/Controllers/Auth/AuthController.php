@@ -1,5 +1,5 @@
 <?php
-
+/*Realizado por Daniel Alejandro Rivera, ing*/
 namespace App\Http\Controllers\Auth;
 
 use App\User;

@@ -1,5 +1,5 @@
 <?php
-
+/*Realizado por Daniel Alejandro Rivera, ing*/
 namespace App;
 
 //use PocketByR\RegistroLogin; // modelo de regitro de entreda y salida

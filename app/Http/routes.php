@@ -1,5 +1,5 @@
 <?php
-
+/*Realizado por Daniel Alejandro Rivera, ing*/
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -41,7 +41,8 @@ Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@pos
 //Agenda
 Route::get('Agenda', ['uses' => 'AgendaController@modificarAgenda', 'as' => 'Auth.usuario.showeditAgenda']);//Esta ruta es la principal de Agenda, sirve para crear.
 
-Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@modificarHistoriaClinica', 'as' => 'Auth.usuario.showeditHistoriaClinica']);//Esta ruta es la principal de Agenda, sirve para crear.
+Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
+Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinica', 'as' => 'Auth.usuario.showCreateHistoriaClinica']);//Esta ruta es la principal de Historia clinica, sirve para crear.
 
 Route::get('ResetPassword', 'HomeController@resetPassword');
 
