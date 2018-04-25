@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
 
     <!--Scripts-->
-
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
     {!!Html::style('stylesheets\datatables.css')!!}
     {!!Html::script("javascripts\datatable-editable.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
     <script src="{{asset('assets/js/require.min.js')}}"></script>
+    
 
 
 

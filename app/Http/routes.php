@@ -43,6 +43,8 @@ Route::get('Agenda', ['uses' => 'AgendaController@modificarAgenda', 'as' => 'Aut
 
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
 Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinica', 'as' => 'Auth.usuario.showCreateHistoriaClinica']);//Esta ruta es la principal de Historia clinica, sirve para crear.
+Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@edit', 'as' => 'historia.edit']);
+Route::get('editHistoriaClinica', ['uses' => 'HistoriaClinicaController@editHistoriaClinica', 'as' => 'historia.editHistoriaClinica']);
 
 Route::get('ResetPassword', 'HomeController@resetPassword');
 

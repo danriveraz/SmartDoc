@@ -16,26 +16,42 @@
 		          			<div class="row">
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo">
+	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" value="{{$historia->nombreCompleto}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
           							<select class="form-control" id="tipoDocumento" name="tipoDocumento">
-          								<option value="" selected="">Tipo documento</option>
-          								<option value="tarjeta">T.I</option>
-          								<option value="cedula">C.C</option>
+          								@if($historia->tipoDocumento=='')
+						                	<option value="" selected="selected">Tipo documento</option>
+						                    <option value="tarjeta">T.I</option>
+						                    <option value="cedula">C.C</option>
+						                @elseif($historia->sexo=='tarjeta')
+						                    <option value="tarjeta" selected="selected">T.I</option>
+						                    <option value="cedula" >C.C</option>
+						                @else
+						                    <option value="tarjeta" >T.I</option>
+						                    <option value="cedula" selected="selected">C.C</option>
+						                @endif
           							</select> 
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento">
+	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento" value="{{$historia->documento}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<select class="form-control" id="sexo" name="sexo">
-          								<option value="" selected="">Sexo</option>
-          								<option value="masculino">Masculino</option>
-          								<option value="femenino">Femenino</option>
+          								@if($historia->sexo=='')
+						                	<option value="" selected="selected">Seleccionar</option>
+						                    <option value="masculino">Masculino</option>
+						                    <option value="femenino">Femenino</option>
+						                @elseif($historia->sexo=='femenino')
+						                    <option value="masculino">Masculino</option>
+						                    <option value="femenino" selected="selected">Femenino</option>
+						                @else
+						                    <option value="masculino" selected="selected">Masculino</option>
+						                    <option value="femenino" >Femenino</option>
+						                @endif
           							</select> 
 	          					</div>
 		          			</div>
@@ -128,52 +144,228 @@
 										    </thead>
 										    <tbody>
 										      <tr>
+										        <td>Alergias</td>
+										        <td>
+										        	@if($historia->alergias)
+														<input class="checkbox" type="checkbox" value="1" id="alergias" name="alergias" checked="">
+														<span class="checkmark"></span>
+													@else
+														<input class="checkbox" type="checkbox" value="0" id="alergias" name="alergias">
+														<span class="checkmark"></span>
+													@endif
+							                    </td>
+										        <td>Hepatitis</td>
+										        <td>
+										        	@if($historia->hepatitis)
+										        		<input class="checkbox" type="checkbox" value="1" id="hepatitis" name="hepatitis" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="hepatitis" name="hepatitis">
+														<span class="checkmark"></span>
+													@endif
+										        </td>
+										        <td>Trastorno gástricos</td>
+										        <td>
+										        	@if($historia->transtornoGastricos)
+										        		<input class="checkbox" type="checkbox" value="1" id="trastornoGastricos" name="trastornoGastricos" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="trastornoGastricos" name="trastornoGastricos">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
+										      </tr>
+										      <tr>
 										        <td>Discrasias sanguíneas</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->discrasiasSangineas)
+											        	<input class="checkbox" type="checkbox" value="1" id="discrasiasSangineas" name="discrasiasSangineas" checked="">
+														<span class="checkbox" class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="discrasiasSangineas" name="discrasiasSangineas">
+														<span class="checkbox" class="checkmark"></span>
+										        	@endif
+							                    </td>
 										        <td>Diabetis</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->diabetis)
+											        	<input class="checkbox" type="checkbox" value="1" id="diabetis" name="diabetis" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="diabetis" name="diabetis">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Trastorno emocionales</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->transtornoEmocional)
+											        	<input class="checkbox" type="checkbox" value="1" id="trastornoEmocional" name="trastornoEmocional" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="trastornoEmocional" name="trastornoEmocional">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Cardiopatías</td>
-										        <td>SI/NO</td>
-										        <td>Fiebre reunática</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->cardiopatias)
+											        	<input class="checkbox" type="checkbox" value="1" id="cardiopatias" name="cardiopatias" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="cardiopatias" name="cardiopatias">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
+										        <td>Fiebre reumática</td>
+										        <td>
+										        	@if($historia->fiebreReumatica)
+										        		<input class="checkbox" type="checkbox" value="1" id="fiebreReumatica" name="fiebreReumatica" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="fiebreReumatica" name="fiebreReumatica">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Sinusitis</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->sinusitis)
+											        	<input class="checkbox" type="checkbox" value="1" id="sinusitis" name="sinusitis" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="sinusitis" name="sinusitis">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Embarazo</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->embarazo)
+											        	<input class="checkbox" type="checkbox" value="1" id="embarazo" name="embarazo" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="embarazo" name="embarazo">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>HIV - SIDA</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->hvisida)
+											        	<input class="checkbox" type="checkbox" value="1" id="hvisida" name="hvisida" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="hvisida" name="hvisida">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Cirugías (incluso orales)</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->cirugias)
+											        	<input class="checkbox" type="checkbox" value="1" id="cirugias" name="cirugias" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="cirugias" name="cirugias">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Alteraciones presión arterial</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->altPresionArterial)
+										        		<input class="checkbox" type="checkbox" value="1" id="altPresionArterial" name="altPresionArterial" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="altPresionArterial" name="altPresionArterial">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Inmunosupresión</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->inmunosupresion)
+											        	<input class="checkbox" type="checkbox" value="1" id="inmunosupresion" name="inmunosupresion" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="inmunosupresion" name="inmunosupresion">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Exodoncias</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->exodoncias)
+										        		<input class="checkbox" type="checkbox" value="1" id="exodoncias" name="exodoncias" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="exodoncias" name="exodoncias">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Toma de medicamentos</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->tomaMedicamentos)
+										        		<input class="checkbox" type="checkbox" value="1" id="tomaMedicamentos" name="tomaMedicamentos" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="tomaMedicamentos" name="tomaMedicamentos">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Patología Renales</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->patologiaRenales)
+											        	<input class="checkbox" type="checkbox" value="1" id="patologiaRenales" value="patologiaRenales" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="patologiaRenales" value="patologiaRenales">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Enfermedades orales</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->enfermedadesOrales)
+											        	<input class="checkbox" type="checkbox" value="1" id="enfermedadesOrales" name="enfermedadesOrales" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="enfermedadesOrales" name="enfermedadesOrales">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Tratamientos médicos actual</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->tratMedActual)	
+ 														<input class="checkbox" type="checkbox" value="1" id="tratMedActual" name="tratMedActual" checked="">
+														<span class="checkmark"></span>
+										        	@else
+											        	<input class="checkbox" type="checkbox" value="0" id="tratMedActual" name="tratMedActual">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Patología Respiratorias</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->patologiaRespiratoria)
+										        		<input class="checkbox" type="checkbox" value="1" id="patologiaRespiratoria" name="patologiaRespiratoria" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="patologiaRespiratoria" name="patologiaRespiratoria">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Uso de prótesis o aparato logia oral</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->protesis)
+										        		<input class="checkbox" type="checkbox" value="1" id="protesis" name="protesis" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="protesis" name="protesis">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										    </tbody>
 										</table>
@@ -216,51 +408,195 @@
 										    <tbody>
 										      <tr>
 										        <td>Labio inferior</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->labioInferior)
+										        		<input class="checkbox" type="checkbox" value="1" id="labioInferior" name="labioInferior" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="labioInferior" name="labioInferior">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Orofaringe</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->orofaringe)
+										        		<input class="checkbox" type="checkbox" value="1" id="orofaringe" name="orofaringe" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="orofaringe" name="orofaringe">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Ruidos</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->ruidos)
+										        		<input class="checkbox" type="checkbox" value="1" id="ruidos" name="ruidos" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="ruidos" name="ruidos">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Labio superior</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->labioSuperior)
+										        		<input class="checkbox" type="checkbox" value="1" id="labioSuperior" name="labioSuperior" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="labioSuperior" name="labioSuperior">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Paladar</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->paladar)
+										        		<input class="checkbox" type="checkbox" value="1" id="paladar" name="paladar" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="paladar" name="paladar">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Desviación</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->desviacion)
+										        		<input class="checkbox" type="checkbox" value="1" id="desviacion" name="desviacion" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="desviacion" name="desviacion">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Comisuras</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->comisuras)
+										        		<input class="checkbox" type="checkbox" value="1" id="comisuras" name="comisuras" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="comisuras" name="comisuras">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Glándulas Salivales</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->glandulasSalivales)
+										        		<input class="checkbox" type="checkbox" value="1" id="glandulasSalivales" name="glandulasSalivales" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="glandulasSalivales" name="glandulasSalivales">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Cambio de volumen</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->cambioVolumen)
+										        		<input class="checkbox" type="checkbox" value="1" id="cambioVolumen" name="cambioVolumen" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="cambioVolumen" name="cambioVolumen">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
-										        <td>Muscosa oral</td>
-										        <td>SI/NO</td>
+										        <td>Mucosa oral</td>
+										        <td>
+										        	@if($historia->mucuosaOral)
+										        		<input class="checkbox" type="checkbox" value="1" id="mucuosaOral" name="mucuosaOral" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="mucuosaOral" name="mucuosaOral">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Piso de boca</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->pisoDeBoca)
+										        		<input class="checkbox" type="checkbox" value="1" id="pisoDeBoca" name="pisoDeBoca" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="pisoDeBoca" name="pisoDeBoca">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Bloqueo mandibular</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->bloqueoMandibular)
+										        		<input class="checkbox" type="checkbox" value="1" id="bloqueoMandibular" name="bloqueoMandibular" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="bloqueoMandibular" name="bloqueoMandibular">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Surcos yugales</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->surcosYugales)
+										        		<input class="checkbox" type="checkbox" value="1" id="surcosYugales" name="surcosYugales" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="surcosYugales" name="surcosYugales">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Dorso de la lengua</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->dorsoLengua)
+										        		<input class="checkbox" type="checkbox" value="1" id="dorsoLengua" name="dorsoLengua" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="dorsoLengua" name="dorsoLengua">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Limitación de mandibula</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->limitacionMandibula)
+										        		<input class="checkbox" type="checkbox" value="1" id="limitacionMandibula" name="limitacionMandibula" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="limitacionMandibula" name="limitacionMandibula">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td>Frenillos</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->frenillos)
+										        		<input class="checkbox" type="checkbox" value="1" id="frenillos" name="frenillos" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="frenillos" name="frenillos">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Vientre de la lengua</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->vientreLengua)
+										        		<input class="checkbox" type="checkbox" value="1" id="vientreLengua" name="vientreLengua" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="vientreLengua" name="vientreLengua">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										        <td>Dolor articular</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->dolorArticular)
+										        		<input class="checkbox" type="checkbox" value="1" id="dolorArticular" name="dolorArticular" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="dolorArticular" name="dolorArticular">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										      <tr>
 										        <td></td>
@@ -268,7 +604,15 @@
 										        <td></td>
 										        <td></td>
 										        <td>Dolor muscular</td>
-										        <td>SI/NO</td>
+										        <td>
+										        	@if($historia->dolorMuscular)
+										        		<input class="checkbox" type="checkbox" value="1" id="dolorMuscular" name="dolorMuscular" checked="">
+														<span class="checkmark"></span>
+										        	@else
+										        		<input class="checkbox" type="checkbox" value="0" id="dolorMuscular" name="dolorMuscular">
+														<span class="checkmark"></span>
+										        	@endif
+										        </td>
 										      </tr>
 										    </tbody>
 										</table>
@@ -311,9 +655,7 @@
 </div>
 
 <script>
-
 	require(['input-mask']);
-
 	$('#idDepto').on('change', function (event) {
 	      var id = $(this).find('option:selected').val();
 	      $('#idCiudad').empty();
@@ -331,12 +673,22 @@
 	        }
 	    }); 
 	  });
+
+	$( '.checkbox' ).on( 'click', function() {
+	    if( $(this).is(':checked') ){
+	        // Hacer algo si el checkbox ha sido seleccionado
+	        $(this).val("1");
+	        alert("El checkbox con valor " + $(this).val() + ", e id " + $(this).attr("id") + " ha sido seleccionado");
+	    } else {
+	        // Hacer algo si el checkbox ha sido deseleccionado
+	        $(this).val("0");
+	        alert("El checkbox con valor " + $(this).val() + ", e id " + $(this).attr("id") +  " ha sido deseleccionado");
+	    }
+	});
+
 </script>
 
 <style type="text/css">
-	.card{
-	}
-
 	.row + .row{
 		margin-top: 0px;
 	}

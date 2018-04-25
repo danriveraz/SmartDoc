@@ -2,15 +2,61 @@
 @section('content')
 @include('flash::message')
 
-{!! Form::open(['action' => ['HistoriaClinicaController@createHistoriaClinica'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+<div>
+	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar historia clinica">
+		<span class="fe fe-plus"></span>
+	</button>	
+</div>
+<br>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {!! Form::open(['action' => ['HistoriaClinicaController@createHistoriaClinica'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
     {{ csrf_field() }}
-	<div>
-		<button type="submit" class="btn btn-pill btn-primary" title="Agregar historia clinica">
-			<span class="fe fe-plus"></span>
-		</button>	
-	</div>
-	<br>
-{{ Form::close() }}
+      	<div class="modal-body">
+        	<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<select class="form-control" id="sexo" name="sexo">
+						<option value="" selected="">Sexo</option>
+						<option value="masculino">Masculino</option>
+						<option value="femenino">Femenino</option>
+					</select> 
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<select class="form-control" id="tipoDocumento" name="tipoDocumento">
+						<option value="" selected="">Tipo documento</option>
+						<option value="tarjeta">T.I</option>
+						<option value="cedula">C.C</option>
+					</select> 
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento">
+					</div>
+				</div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
 
 <div class="container main-content">
   <div class="page-title"></div>
@@ -36,7 +82,9 @@
 		                <td>{{$historiaClinica->sexo}}</td>
 		                <td>{{$historiaClinica->edad}}</td>
 		                <td>
-		                		<button class="btn btn-primary btn-sm ml-2" title="Editar historia clinica"><i class="fe fe-trash-2"></i></button>
+		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia clinica" href="{{route('historia.edit', $historiaClinica->id)}}">
+		                			<i class="fe fe-edit-2"></i>
+		                		</a>
 					        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar historia clinica"><i class="fe fe-trash-2"></i></button>
 		                </td>
 		            </tr>
