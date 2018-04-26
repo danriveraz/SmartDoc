@@ -46,6 +46,9 @@ Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinic
 Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@edit', 'as' => 'historia.edit']);
 Route::get('editHistoriaClinica', ['uses' => 'HistoriaClinicaController@editHistoriaClinica', 'as' => 'historia.editHistoriaClinica']);
 
+Route::get('editHistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@posteditHistoriaClinica', 'as' => 'historia.posteditHistoriaClinica']);
+
+
 Route::get('ResetPassword', 'HomeController@resetPassword');
 
 Route::get('PocketCompany', 'UserController@registroPropietario');

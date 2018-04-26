@@ -6,7 +6,8 @@
 	<div class="container">
 	    <div class="row row-cards">
     	 	<div class="col-lg-12">
-    	 		<form>
+    	 		{!! Form::open(['route' => ['historia.posteditHistoriaClinica', $historia], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+       			{{ csrf_field() }}
     	 			<div class="card">
 	              		<div class="card-header">
 	                  		<h3 class="card-title">Identificación Paciente</h3>
@@ -58,20 +59,20 @@
 		          			<div class="row">
 		          				<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad">
+	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" required="true" />
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección">
+	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -80,43 +81,56 @@
 					        		<select class="form-control" id="idDepto"  name="idDepto" required>
 									<option value="">Departamento</option>
 									@foreach($departamentos as $departamento)
-					                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-						            @endforeach
+		                              @if($historia->departamento == $departamento->id)
+		                                <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
+		                              @else
+		                                <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+		                              @endif
+		                          @endforeach
 									</select>
 					        	</div>
 					        	<div class="col-md-3">
 					        		<select class="form-control" id="idCiudad" name="idCiudad" required>
 										<option value="">Ciudad</option>
+										@foreach($ciudades as $ciudad)
+		                                    @if($historia->departamento == $ciudad->idDepartamento)
+		                                      @if($historia->ciudad == $ciudad->id)
+		                                        <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
+		                                      @else
+		                                        <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
+		                                      @endif
+		                                    @endif
+		                                @endforeach
 									</select>
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable">
+	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono">
+	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 		          				<div class="col-md-12">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta">
+	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 					        	<div class="col-md-12">
-					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)"></textarea>
+					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)">{{$historia->evolucionEstado}}</textarea>
 					        	</div>
 					        </div>
 					        <br>
 					        <div class="row">
 		          				<div class="col-md-12">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares">
+	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -167,10 +181,10 @@
 										        <td>Trastorno gástricos</td>
 										        <td>
 										        	@if($historia->transtornoGastricos)
-										        		<input class="checkbox" type="checkbox" value="1" id="trastornoGastricos" name="trastornoGastricos" checked="">
+										        		<input class="checkbox" type="checkbox" value="1" id="transtornoGastricos" name="transtornoGastricos" checked="">
 														<span class="checkmark"></span>
 										        	@else
-										        		<input class="checkbox" type="checkbox" value="0" id="trastornoGastricos" name="trastornoGastricos">
+										        		<input class="checkbox" type="checkbox" value="0" id="transtornoGastricos" name="transtornoGastricos">
 														<span class="checkmark"></span>
 										        	@endif
 										        </td>
@@ -199,10 +213,10 @@
 										        <td>Trastorno emocionales</td>
 										        <td>
 										        	@if($historia->transtornoEmocional)
-											        	<input class="checkbox" type="checkbox" value="1" id="trastornoEmocional" name="trastornoEmocional" checked="">
+											        	<input class="checkbox" type="checkbox" value="1" id="transtornoEmocional" name="transtornoEmocional" checked="">
 														<span class="checkmark"></span>
 										        	@else
-											        	<input class="checkbox" type="checkbox" value="0" id="trastornoEmocional" name="trastornoEmocional">
+											        	<input class="checkbox" type="checkbox" value="0" id="transtornoEmocional" name="transtornoEmocional">
 														<span class="checkmark"></span>
 										        	@endif
 										        </td>
@@ -317,10 +331,11 @@
 										        <td>Patología Renales</td>
 										        <td>
 										        	@if($historia->patologiaRenales)
-											        	<input class="checkbox" type="checkbox" value="1" id="patologiaRenales" value="patologiaRenales" checked="">
+											        	<input class="checkbox" type="checkbox" value="1" 
+											        	id="patologiaRenales" name="patologiaRenales" checked="">
 														<span class="checkmark"></span>
 										        	@else
-											        	<input class="checkbox" type="checkbox" value="0" id="patologiaRenales" value="patologiaRenales">
+											        	<input class="checkbox" type="checkbox" value="0" id="patologiaRenales" name="patologiaRenales">
 														<span class="checkmark"></span>
 										        	@endif
 										        </td>
@@ -375,13 +390,13 @@
 		          			<div class="row">
 		          				<div class="col-md-12">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="otrasPatologiasAntecedentes" name="otrasPatologiasAntecedentes" placeholder="Otras Patologías o antecedentes Odontológicos o Médicos">
+	          							<input type="text" class="form-control" id="otrasPatologiasAntecedentes" name="otrasPatologiasAntecedentes" placeholder="Otras Patologías o antecedentes Odontológicos o Médicos" value="{{$historia->otrasPatologiasAntecedentes}}">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 					        	<div class="col-md-12">
-					        		<textarea id="observacionesAntecedentes" name="observacionesAntecedentes" rows="3" class="form-control" placeholder="Observaciones / Hábitos asociados a cavidad oral"></textarea>
+					        		<textarea id="observacionesAntecedentes" name="observacionesAntecedentes" rows="3" class="form-control" placeholder="Observaciones / Hábitos asociados a cavidad oral">{{$historia->observacionesAntecedentes}}</textarea>
 					        	</div>
 					        </div>
 	              		</div>
@@ -622,33 +637,38 @@
 		          			<div class="row">
 		          				<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="cariados" name="cariados" placeholder="No Cariados">
+	          							<input type="text" class="form-control" id="cariados" name="cariados" placeholder="No Cariados" value="{{$historia->cariados}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="obturados" name="obturados" placeholder="No Obturados">
+	          							<input type="text" class="form-control" id="obturados" name="obturados" placeholder="No Obturados" value="{{$historia->obturados}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="exfoliados" name="exfoliados" placeholder="No Exfoliados">
+	          							<input type="text" class="form-control" id="exfoliados" name="exfoliados" placeholder="No Exfoliados" value="{{$historia->exfoliados}}">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="sanos" name="sanos" placeholder="No Sano">
+	          							<input type="text" class="form-control" id="sanos" name="sanos" placeholder="No Sano" value="{{$historia->sanos}}">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 					        	<div class="col-md-12">
-					        		<textarea id="observacionesEE" name="observacionesEE" rows="3" class="form-control" placeholder="Observaciones"></textarea>
+					        		<textarea id="observacionesEE" name="observacionesEE" rows="3" class="form-control" placeholder="Observaciones">{{$historia->observacionesEE}}</textarea>
 					        	</div>
 					        </div>
 	              		</div>
 		          	</div>
-    	 		</form>
+		          	<div class="form-group" style="text-align: center;">
+		          		<button class="btn btn-primary">
+		          			Guardar
+		          		</button>
+		          	</div>
+    	 		{{ Form::close() }}
           	</div>
 	    </div>	
 	</div>
@@ -678,11 +698,9 @@
 	    if( $(this).is(':checked') ){
 	        // Hacer algo si el checkbox ha sido seleccionado
 	        $(this).val("1");
-	        alert("El checkbox con valor " + $(this).val() + ", e id " + $(this).attr("id") + " ha sido seleccionado");
 	    } else {
 	        // Hacer algo si el checkbox ha sido deseleccionado
 	        $(this).val("0");
-	        alert("El checkbox con valor " + $(this).val() + ", e id " + $(this).attr("id") +  " ha sido deseleccionado");
 	    }
 	});
 

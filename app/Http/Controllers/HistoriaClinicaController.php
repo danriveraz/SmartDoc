@@ -1305,5 +1305,85 @@ class HistoriaClinicaController extends Controller
         ->with('historia',$historia);
     }
 
+    public function posteditHistoriaClinica(Request $request, $id){
+        $user = Auth::User();
+        $departamentos = Departamento::all();
+        $ciudades = Ciudad::all();
 
+        $historia = HistoriaClinica::find($id);
+        //Información personal
+        $historia->nombreCompleto = $request->nombreCompleto;
+        $historia->tipoDocumento = $request->tipoDocumento;
+        $historia->documento = $request->documento;
+        $historia->sexo = $request->sexo;
+        $historia->edad = $request->edad;
+        $historia->fechaNacimiento = $request->fechaNacimiento;
+        $historia->direccion = $request->direccion;
+        $historia->telefono = $request->telefono;
+        $historia->departamento = $request->idDepto;
+        $historia->ciudad = $request->idCiudad;
+        $historia->personaResponsable = $request->personaResponsable;
+        $historia->telefonoResponsable = $request->telefonoResponsable;
+        $historia->motivoConsulta = $request->motivoConsulta;
+        $historia->evolucionEstado = $request->evolucionEstado;
+        $historia->antecedentesFamiliares = $request->antecedentesFamiliares;
+
+        //Antecedentes Odontológico y Médicos Generales
+        $historia->alergias = $request->alergias;
+        $historia->hepatitis = $request->hepatitis;
+        $historia->transtornoGastricos = $request->transtornoGastricos;
+        $historia->discrasiasSangineas = $request->discrasiasSangineas;
+        $historia->diabetis = $request->diabetis;
+        $historia->transtornoEmocional = $request->transtornoEmocional;
+        $historia->cardiopatias = $request->cardiopatias;
+        $historia->fiebreReumatica = $request->fiebreReumatica;
+        $historia->sinusitis = $request->sinusitis;
+        $historia->embarazo = $request->embarazo;
+        $historia->hvisida = $request->hvisida;
+        $historia->cirugias = $request->cirugias;
+        $historia->altPresionArterial = $request->altPresionArterial;
+        $historia->inmunosupresion = $request->inmunosupresion;
+        $historia->exodoncias = $request->exodoncias;
+        $historia->tomaMedicamentos = $request->tomaMedicamentos;
+        $historia->patologiaRenales = $request->patologiaRenales;
+        $historia->enfermedadesOrales = $request->enfermedadesOrales;
+        $historia->tratMedActual = $request->tratMedActual;
+        $historia->patologiaRespiratoria = $request->patologiaRespiratoria;
+        $historia->protesis = $request->protesis;
+        $historia->otrasPatologiasAntecedentes = $request->otrasPatologiasAntecedentes;
+        $historia->observacionesAntecedentes = $request->observacionesAntecedentes;
+
+        //Exámen Estomatológico / Articulación temporo mandibular (Hallazgo Clínicos)
+        $historia->labioInferior = $request->labioInferior;
+        $historia->orofaringe = $request->orofaringe;
+        $historia->desviacion = $request->desviacion;
+        $historia->labioSuperior = $request->labioSuperior;
+        $historia->paladar = $request->paladar;
+        $historia->cambioVolumen = $request->cambioVolumen;
+        $historia->comisuras = $request->comisuras;
+        $historia->glandulasSalivales = $request->glandulasSalivales;
+        $historia->bloqueoMandibular = $request->bloqueoMandibular;
+        $historia->mucuosaOral = $request->mucuosaOral;
+        $historia->pisoDeBoca = $request->pisoDeBoca;
+        $historia->limitacionMandibula = $request->limitacionMandibula;
+        $historia->surcosYugales = $request->surcosYugales;
+        $historia->dorsoLengua = $request->dorsoLengua;
+        $historia->dolorArticular = $request->dolorArticular;
+        $historia->frenillos = $request->frenillos;
+        $historia->vientreLengua = $request->vientreLengua;
+        $historia->ruidos = $request->ruidos;
+        $historia->dolorMuscular = $request->dolorMuscular;
+
+        $historia->cariados = $request->cariados;
+        $historia->obturados = $request->obturados;
+        $historia->exfoliados = $request->exfoliados;
+        $historia->sanos = $request->sanos;
+        $historia->observacionesEE = $request->observacionesEE;
+
+        $historia->save();
+
+        session_start();
+        $_SESSION['id'] = $id;
+        return redirect()->route('historia.editHistoriaClinica');
+    }
 }
