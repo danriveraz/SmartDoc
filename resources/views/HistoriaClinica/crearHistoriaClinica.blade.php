@@ -989,6 +989,7 @@
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
+	                        console.log($(this));
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "cariado";
 	                       	//alert(document.getElementById($id).value);
@@ -1409,6 +1410,144 @@
 	        return false;
 	    });
 	    return false;
+	});
+</script>
+
+<!-- Script para cargar el odontograma-->
+<script>
+
+	var JSONodontograma = eval(<?php echo json_encode($odontograma2array); ?>);
+	$(document).ready(function(){
+		for(i = 0; i < JSONodontograma.length; i++){
+			switch (JSONodontograma[i][1]){
+	            case "cariado":
+	            		$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "cariado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "cariado";
+	            break;
+	            case "obturado":
+	            		$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "obturado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "obturado";
+	            break;
+	            case "exodonciaRealizada":
+	            		$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "exodonciaRealizada";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "exodonciaRealizada";
+	            break;
+	            case "exodonciaSimple":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "exodonciaSimple";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "exodonciaSimple";
+                break;
+	            case "exodonciaQuirurgica":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "exodonciaQuirurgica";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "exodonciaQuirurgica";
+                break;
+	            case "sinErupcionar":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "sinErupcionar";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "sinErupcionar";
+                break;
+	            case "endodonciaRealizada":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "endodonciaRealizada";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "endodonciaRealizada";
+                break;
+	            case "endodonciaIndicada":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "endodonciaIndicada";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "endodonciaIndicada";
+                break;
+	            case "sellantePresente":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "sellantePresente";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "sellantePresente";
+                break;
+	            case "sellanteIndicado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "sellanteIndicado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "sellanteIndicado";
+                break;
+	            case "erosionAbrasion":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "erosionAbrasion";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "erosionAbrasion";
+                break;
+	            case "procedimientoRealizado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "procedimientoRealizado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "procedimientoRealizado";
+                break;
+	            case "coronaBuenEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "coronaBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "coronaBuenEstado";
+                break;
+	            case "coronaMalEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "coronaMalEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "coronaMalEstado";
+                break;
+	            case "provisionalBuenEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "provisionalBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "provisionalBuenEstado";
+                break;
+	            case "provisionalMalEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "provisionalMalEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "provisionalMalEstado";
+                break;
+	            case "nucleoBuenEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "nucleoBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "nucleoBuenEstado";
+                break;
+	            case "nucleoMalEstado":
+	                	$element = document.getElementById(JSONodontograma[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "nucleoMalEstado";
+	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
+	            		$inputElement.value = "nucleoMalEstado";
+                break;
+	        }
+		}
 	});
 </script>
 

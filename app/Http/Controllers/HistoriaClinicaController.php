@@ -518,13 +518,391 @@ class HistoriaClinicaController extends Controller
         $historia = HistoriaClinica::find($id);
 
         //return odontograma
+        $odontograma = Odontograma::find($historia->idOdontograma);
+        $diente1 = Diente::find($odontograma->idDiente1);
+        $diente2 = Diente::find($odontograma->idDiente2);
+        $diente3 = Diente::find($odontograma->idDiente3);
+        $diente4 = Diente::find($odontograma->idDiente4);
+        $diente5 = Diente::find($odontograma->idDiente5);
+        $diente6 = Diente::find($odontograma->idDiente6);
+        $diente7 = Diente::find($odontograma->idDiente7);
+        $diente8 = Diente::find($odontograma->idDiente8);
+        $diente9 = Diente::find($odontograma->idDiente9);
+        $diente10 = Diente::find($odontograma->idDiente10);
+        $diente11 = Diente::find($odontograma->idDiente11);
+        $diente12 = Diente::find($odontograma->idDiente12);
+        $diente13 = Diente::find($odontograma->idDiente13);
+        $diente14 = Diente::find($odontograma->idDiente14);
+        $diente15 = Diente::find($odontograma->idDiente15);
+        $diente16 = Diente::find($odontograma->idDiente16);
+        $diente17 = Diente::find($odontograma->idDiente17);
+        $diente18 = Diente::find($odontograma->idDiente18);
+        $diente19 = Diente::find($odontograma->idDiente19);
+        $diente20 = Diente::find($odontograma->idDiente20);
+        $diente21 = Diente::find($odontograma->idDiente21);
+        $diente22 = Diente::find($odontograma->idDiente22);
+        $diente23 = Diente::find($odontograma->idDiente23);
+        $diente24 = Diente::find($odontograma->idDiente24);
+        $diente25 = Diente::find($odontograma->idDiente25);
+        $diente26 = Diente::find($odontograma->idDiente26);
+        $diente27 = Diente::find($odontograma->idDiente27);
+        $diente28 = Diente::find($odontograma->idDiente28);
+        $diente29 = Diente::find($odontograma->idDiente39);
+        $diente30 = Diente::find($odontograma->idDiente30);
+        $diente31 = Diente::find($odontograma->idDiente31);
+        $diente32 = Diente::find($odontograma->idDiente32);
+        $diente33 = Diente::find($odontograma->idDiente33);
+        $diente34 = Diente::find($odontograma->idDiente34);
+        $diente35 = Diente::find($odontograma->idDiente35);
+        $diente36 = Diente::find($odontograma->idDiente36);
+        $diente37 = Diente::find($odontograma->idDiente37);
+        $diente38 = Diente::find($odontograma->idDiente38);
+        $diente39 = Diente::find($odontograma->idDiente39);
+        $diente40 = Diente::find($odontograma->idDiente40);
+        $diente41 = Diente::find($odontograma->idDiente41);
+        $diente42 = Diente::find($odontograma->idDiente42);
+        $diente43 = Diente::find($odontograma->idDiente43);
+        $diente44 = Diente::find($odontograma->idDiente44);
+        $diente45 = Diente::find($odontograma->idDiente45);
+        $diente46 = Diente::find($odontograma->idDiente46);
+        $diente47 = Diente::find($odontograma->idDiente47);
+        $diente48 = Diente::find($odontograma->idDiente48);
+        $diente49 = Diente::find($odontograma->idDiente49);
+        $diente50 = Diente::find($odontograma->idDiente50);
+        $diente51 = Diente::find($odontograma->idDiente51);
+        $diente52 = Diente::find($odontograma->idDiente52);
 
+        $odontograma2array = array();
+        //Primer bloque superior
+        //diente 1
+        array_push($odontograma2array, array('c18', $diente1->parteCentro));
+        array_push($odontograma2array, array('t18', $diente1->parteSuperior));
+        array_push($odontograma2array, array('b18', $diente1->parteInferior));
+        array_push($odontograma2array, array('l18', $diente1->parteIzquierda));
+        array_push($odontograma2array, array('r18', $diente1->parteDerecha));
+        //diente 2
+        array_push($odontograma2array, array('c17', $diente2->parteCentro));
+        array_push($odontograma2array, array('t17', $diente2->parteSuperior));
+        array_push($odontograma2array, array('b17', $diente2->parteInferior));
+        array_push($odontograma2array, array('l17', $diente2->parteIzquierda));
+        array_push($odontograma2array, array('r17', $diente2->parteDerecha));
+        //diente 3
+        array_push($odontograma2array, array('c16', $diente3->parteCentro));
+        array_push($odontograma2array, array('t16', $diente3->parteSuperior));
+        array_push($odontograma2array, array('b16', $diente3->parteInferior));
+        array_push($odontograma2array, array('l16', $diente3->parteIzquierda));
+        array_push($odontograma2array, array('r16', $diente3->parteDerecha));
+        //diente 4
+        array_push($odontograma2array, array('c15', $diente4->parteCentro));
+        array_push($odontograma2array, array('t15', $diente4->parteSuperior));
+        array_push($odontograma2array, array('b15', $diente4->parteInferior));
+        array_push($odontograma2array, array('l15', $diente4->parteIzquierda));
+        array_push($odontograma2array, array('r15', $diente4->parteDerecha));
+        //diente 5
+        array_push($odontograma2array, array('c14', $diente5->parteCentro));
+        array_push($odontograma2array, array('t14', $diente5->parteSuperior));
+        array_push($odontograma2array, array('b14', $diente5->parteInferior));
+        array_push($odontograma2array, array('l14', $diente5->parteIzquierda));
+        array_push($odontograma2array, array('r14', $diente5->parteDerecha));
+        //diente 6
+        array_push($odontograma2array, array('c13', $diente6->parteCentro));
+        array_push($odontograma2array, array('t13', $diente6->parteSuperior));
+        array_push($odontograma2array, array('b13', $diente6->parteInferior));
+        array_push($odontograma2array, array('l13', $diente6->parteIzquierda));
+        array_push($odontograma2array, array('r13', $diente6->parteDerecha));
+        //diente 7
+        array_push($odontograma2array, array('c12', $diente7->parteCentro));
+        array_push($odontograma2array, array('t12', $diente7->parteSuperior));
+        array_push($odontograma2array, array('b12', $diente7->parteInferior));
+        array_push($odontograma2array, array('l12', $diente7->parteIzquierda));
+        array_push($odontograma2array, array('r12', $diente7->parteDerecha));
+        //diente 8
+        array_push($odontograma2array, array('c11', $diente8->parteCentro));
+        array_push($odontograma2array, array('t11', $diente8->parteSuperior));
+        array_push($odontograma2array, array('b11', $diente8->parteInferior));
+        array_push($odontograma2array, array('l11', $diente8->parteIzquierda));
+        array_push($odontograma2array, array('r11', $diente8->parteDerecha));
 
-         return View('HistoriaClinica.crearHistoriaClinica')
+        //Segundo bloque superior
+        //diente 9
+        array_push($odontograma2array, array('c21', $diente9->parteCentro));
+        array_push($odontograma2array, array('t21', $diente9->parteSuperior));
+        array_push($odontograma2array, array('b21', $diente9->parteInferior));
+        array_push($odontograma2array, array('l21', $diente9->parteIzquierda));
+        array_push($odontograma2array, array('r21', $diente9->parteDerecha));
+        //diente 10
+        array_push($odontograma2array, array('c22', $diente10->parteCentro));
+        array_push($odontograma2array, array('t22', $diente10->parteSuperior));
+        array_push($odontograma2array, array('b22', $diente10->parteInferior));
+        array_push($odontograma2array, array('l22', $diente10->parteIzquierda));
+        array_push($odontograma2array, array('r22', $diente10->parteDerecha));
+        //diente 11
+        array_push($odontograma2array, array('c23', $diente11->parteCentro));
+        array_push($odontograma2array, array('t23', $diente11->parteSuperior));
+        array_push($odontograma2array, array('b23', $diente11->parteInferior));
+        array_push($odontograma2array, array('l23', $diente11->parteIzquierda));
+        array_push($odontograma2array, array('r23', $diente11->parteDerecha));
+        //diente 12
+        array_push($odontograma2array, array('c24', $diente12->parteCentro));
+        array_push($odontograma2array, array('t24', $diente12->parteSuperior));
+        array_push($odontograma2array, array('b24', $diente12->parteInferior));
+        array_push($odontograma2array, array('l24', $diente12->parteIzquierda));
+        array_push($odontograma2array, array('r24', $diente12->parteDerecha));
+        //diente 13
+        array_push($odontograma2array, array('c25', $diente13->parteCentro));
+        array_push($odontograma2array, array('t25', $diente13->parteSuperior));
+        array_push($odontograma2array, array('b25', $diente13->parteInferior));
+        array_push($odontograma2array, array('l25', $diente13->parteIzquierda));
+        array_push($odontograma2array, array('r25', $diente13->parteDerecha));
+        //diente 14
+        array_push($odontograma2array, array('c26', $diente14->parteCentro));
+        array_push($odontograma2array, array('t26', $diente14->parteSuperior));
+        array_push($odontograma2array, array('b26', $diente14->parteInferior));
+        array_push($odontograma2array, array('l26', $diente14->parteIzquierda));
+        array_push($odontograma2array, array('r26', $diente14->parteDerecha));
+        //diente 15
+        array_push($odontograma2array, array('c27', $diente15->parteCentro));
+        array_push($odontograma2array, array('t27', $diente15->parteSuperior));
+        array_push($odontograma2array, array('b27', $diente15->parteInferior));
+        array_push($odontograma2array, array('l27', $diente15->parteIzquierda));
+        array_push($odontograma2array, array('r27', $diente15->parteDerecha));
+        //diente 16
+        array_push($odontograma2array, array('c28', $diente16->parteCentro));
+        array_push($odontograma2array, array('t28', $diente16->parteSuperior));
+        array_push($odontograma2array, array('b28', $diente16->parteInferior));
+        array_push($odontograma2array, array('l28', $diente16->parteIzquierda));
+        array_push($odontograma2array, array('r28', $diente16->parteDerecha));
+
+        //bloque medio superior
+        //diente 17
+        array_push($odontograma2array, array('cleche55', $diente17->parteCentro));
+        array_push($odontograma2array, array('tleche55', $diente17->parteSuperior));
+        array_push($odontograma2array, array('bleche55', $diente17->parteInferior));
+        array_push($odontograma2array, array('lleche55', $diente17->parteIzquierda));
+        array_push($odontograma2array, array('rleche55', $diente17->parteDerecha));
+        //diente 18
+        array_push($odontograma2array, array('cleche54', $diente18->parteCentro));
+        array_push($odontograma2array, array('tleche54', $diente18->parteSuperior));
+        array_push($odontograma2array, array('bleche54', $diente18->parteInferior));
+        array_push($odontograma2array, array('lleche54', $diente18->parteIzquierda));
+        array_push($odontograma2array, array('rleche54', $diente18->parteDerecha));
+        //diente 19
+        array_push($odontograma2array, array('cleche53', $diente19->parteCentro));
+        array_push($odontograma2array, array('tleche53', $diente19->parteSuperior));
+        array_push($odontograma2array, array('bleche53', $diente19->parteInferior));
+        array_push($odontograma2array, array('lleche53', $diente19->parteIzquierda));
+        array_push($odontograma2array, array('rleche53', $diente19->parteDerecha));
+        //diente 20
+        array_push($odontograma2array, array('cleche52', $diente20->parteCentro));
+        array_push($odontograma2array, array('tleche52', $diente20->parteSuperior));
+        array_push($odontograma2array, array('bleche52', $diente20->parteInferior));
+        array_push($odontograma2array, array('lleche52', $diente20->parteIzquierda));
+        array_push($odontograma2array, array('rleche52', $diente20->parteDerecha));
+        //diente 21
+        array_push($odontograma2array, array('cleche51', $diente21->parteCentro));
+        array_push($odontograma2array, array('tleche51', $diente21->parteSuperior));
+        array_push($odontograma2array, array('bleche51', $diente21->parteInferior));
+        array_push($odontograma2array, array('lleche51', $diente21->parteIzquierda));
+        array_push($odontograma2array, array('rleche51', $diente21->parteDerecha));
+        //diente 22
+        array_push($odontograma2array, array('cleche61', $diente22->parteCentro));
+        array_push($odontograma2array, array('tleche61', $diente22->parteSuperior));
+        array_push($odontograma2array, array('bleche61', $diente22->parteInferior));
+        array_push($odontograma2array, array('lleche61', $diente22->parteIzquierda));
+        array_push($odontograma2array, array('rleche61', $diente22->parteDerecha));
+        //diente 23
+        array_push($odontograma2array, array('cleche62', $diente23->parteCentro));
+        array_push($odontograma2array, array('tleche62', $diente23->parteSuperior));
+        array_push($odontograma2array, array('bleche62', $diente23->parteInferior));
+        array_push($odontograma2array, array('lleche62', $diente23->parteIzquierda));
+        array_push($odontograma2array, array('rleche62', $diente23->parteDerecha));
+        //diente 24
+        array_push($odontograma2array, array('cleche63', $diente24->parteCentro));
+        array_push($odontograma2array, array('tleche63', $diente24->parteSuperior));
+        array_push($odontograma2array, array('bleche63', $diente24->parteInferior));
+        array_push($odontograma2array, array('lleche63', $diente24->parteIzquierda));
+        array_push($odontograma2array, array('rleche63', $diente24->parteDerecha));
+        //diente 25
+        array_push($odontograma2array, array('cleche64', $diente25->parteCentro));
+        array_push($odontograma2array, array('tleche64', $diente25->parteSuperior));
+        array_push($odontograma2array, array('bleche64', $diente25->parteInferior));
+        array_push($odontograma2array, array('lleche64', $diente25->parteIzquierda));
+        array_push($odontograma2array, array('rleche64', $diente25->parteDerecha));
+        //diente 26
+        array_push($odontograma2array, array('cleche65', $diente26->parteCentro));
+        array_push($odontograma2array, array('tleche65', $diente26->parteSuperior));
+        array_push($odontograma2array, array('bleche65', $diente26->parteInferior));
+        array_push($odontograma2array, array('lleche65', $diente26->parteIzquierda));
+        array_push($odontograma2array, array('rleche65', $diente26->parteDerecha));
+
+        //bloque medio inferior
+        //diente 27
+        array_push($odontograma2array, array('cleche85', $diente27->parteCentro));
+        array_push($odontograma2array, array('tleche85', $diente27->parteSuperior));
+        array_push($odontograma2array, array('bleche85', $diente27->parteInferior));
+        array_push($odontograma2array, array('lleche85', $diente27->parteIzquierda));
+        array_push($odontograma2array, array('rleche85', $diente27->parteDerecha));
+        //diente 28
+        array_push($odontograma2array, array('cleche84', $diente28->parteCentro));
+        array_push($odontograma2array, array('tleche84', $diente28->parteSuperior));
+        array_push($odontograma2array, array('bleche84', $diente28->parteInferior));
+        array_push($odontograma2array, array('lleche84', $diente28->parteIzquierda));
+        array_push($odontograma2array, array('rleche84', $diente28->parteDerecha));
+        //diente 29
+        array_push($odontograma2array, array('cleche83', $diente29->parteCentro));
+        array_push($odontograma2array, array('tleche83', $diente29->parteSuperior));
+        array_push($odontograma2array, array('bleche83', $diente29->parteInferior));
+        array_push($odontograma2array, array('lleche83', $diente29->parteIzquierda));
+        array_push($odontograma2array, array('rleche83', $diente29->parteDerecha));
+        //diente 30
+        array_push($odontograma2array, array('cleche82', $diente30->parteCentro));
+        array_push($odontograma2array, array('tleche82', $diente30->parteSuperior));
+        array_push($odontograma2array, array('bleche82', $diente30->parteInferior));
+        array_push($odontograma2array, array('lleche82', $diente30->parteIzquierda));
+        array_push($odontograma2array, array('rleche82', $diente30->parteDerecha));
+        //diente 31
+        array_push($odontograma2array, array('cleche81', $diente31->parteCentro));
+        array_push($odontograma2array, array('tleche81', $diente31->parteSuperior));
+        array_push($odontograma2array, array('bleche81', $diente31->parteInferior));
+        array_push($odontograma2array, array('lleche81', $diente31->parteIzquierda));
+        array_push($odontograma2array, array('rleche81', $diente31->parteDerecha));
+        //diente 32
+        array_push($odontograma2array, array('cleche71', $diente32->parteCentro));
+        array_push($odontograma2array, array('tleche71', $diente32->parteSuperior));
+        array_push($odontograma2array, array('bleche71', $diente32->parteInferior));
+        array_push($odontograma2array, array('lleche71', $diente32->parteIzquierda));
+        array_push($odontograma2array, array('rleche71', $diente32->parteDerecha));
+        //diente 33
+        array_push($odontograma2array, array('cleche72', $diente33->parteCentro));
+        array_push($odontograma2array, array('tleche72', $diente33->parteSuperior));
+        array_push($odontograma2array, array('bleche72', $diente33->parteInferior));
+        array_push($odontograma2array, array('lleche72', $diente33->parteIzquierda));
+        array_push($odontograma2array, array('rleche72', $diente33->parteDerecha));
+        //diente 34
+        array_push($odontograma2array, array('cleche73', $diente34->parteCentro));
+        array_push($odontograma2array, array('tleche73', $diente34->parteSuperior));
+        array_push($odontograma2array, array('bleche73', $diente34->parteInferior));
+        array_push($odontograma2array, array('lleche73', $diente34->parteIzquierda));
+        array_push($odontograma2array, array('rleche73', $diente34->parteDerecha));
+        //diente 35
+        array_push($odontograma2array, array('cleche74', $diente35->parteCentro));
+        array_push($odontograma2array, array('tleche74', $diente35->parteSuperior));
+        array_push($odontograma2array, array('bleche74', $diente35->parteInferior));
+        array_push($odontograma2array, array('lleche74', $diente35->parteIzquierda));
+        array_push($odontograma2array, array('rleche74', $diente35->parteDerecha));
+        //diente 36
+        array_push($odontograma2array, array('cleche75', $diente36->parteCentro));
+        array_push($odontograma2array, array('tleche75', $diente36->parteSuperior));
+        array_push($odontograma2array, array('bleche75', $diente36->parteInferior));
+        array_push($odontograma2array, array('lleche75', $diente36->parteIzquierda));
+        array_push($odontograma2array, array('rleche75', $diente36->parteDerecha));
+
+        //Primer bloque inferior
+        //diente 37
+        array_push($odontograma2array, array('c48', $diente37->parteCentro));
+        array_push($odontograma2array, array('t48', $diente37->parteSuperior));
+        array_push($odontograma2array, array('b48', $diente37->parteInferior));
+        array_push($odontograma2array, array('l48', $diente37->parteIzquierda));
+        array_push($odontograma2array, array('r48', $diente37->parteDerecha));
+        //diente 38
+        array_push($odontograma2array, array('c47', $diente38->parteCentro));
+        array_push($odontograma2array, array('t47', $diente38->parteSuperior));
+        array_push($odontograma2array, array('b47', $diente38->parteInferior));
+        array_push($odontograma2array, array('l47', $diente38->parteIzquierda));
+        array_push($odontograma2array, array('r47', $diente38->parteDerecha));
+        //diente 39
+        array_push($odontograma2array, array('c46', $diente39->parteCentro));
+        array_push($odontograma2array, array('t46', $diente39->parteSuperior));
+        array_push($odontograma2array, array('b46', $diente39->parteInferior));
+        array_push($odontograma2array, array('l46', $diente39->parteIzquierda));
+        array_push($odontograma2array, array('r46', $diente39->parteDerecha));
+        //diente 40
+        array_push($odontograma2array, array('c45', $diente40->parteCentro));
+        array_push($odontograma2array, array('t45', $diente40->parteSuperior));
+        array_push($odontograma2array, array('b45', $diente40->parteInferior));
+        array_push($odontograma2array, array('l45', $diente40->parteIzquierda));
+        array_push($odontograma2array, array('r45', $diente40->parteDerecha));
+        //diente 41
+        array_push($odontograma2array, array('c44', $diente41->parteCentro));
+        array_push($odontograma2array, array('t44', $diente41->parteSuperior));
+        array_push($odontograma2array, array('b44', $diente41->parteInferior));
+        array_push($odontograma2array, array('l44', $diente41->parteIzquierda));
+        array_push($odontograma2array, array('r44', $diente41->parteDerecha));
+        //diente 42
+        array_push($odontograma2array, array('c43', $diente42->parteCentro));
+        array_push($odontograma2array, array('t43', $diente42->parteSuperior));
+        array_push($odontograma2array, array('b43', $diente42->parteInferior));
+        array_push($odontograma2array, array('l43', $diente42->parteIzquierda));
+        array_push($odontograma2array, array('r43', $diente42->parteDerecha));
+        //diente 43
+        array_push($odontograma2array, array('c42', $diente43->parteCentro));
+        array_push($odontograma2array, array('t42', $diente43->parteSuperior));
+        array_push($odontograma2array, array('b42', $diente43->parteInferior));
+        array_push($odontograma2array, array('l42', $diente43->parteIzquierda));
+        array_push($odontograma2array, array('r42', $diente43->parteDerecha));
+        //diente 44
+        array_push($odontograma2array, array('c41', $diente44->parteCentro));
+        array_push($odontograma2array, array('t41', $diente44->parteSuperior));
+        array_push($odontograma2array, array('b41', $diente44->parteInferior));
+        array_push($odontograma2array, array('l41', $diente44->parteIzquierda));
+        array_push($odontograma2array, array('r41', $diente44->parteDerecha));
+
+        //Segundo bloque inferior
+        //diente 45
+        array_push($odontograma2array, array('c31', $diente45->parteCentro));
+        array_push($odontograma2array, array('t31', $diente45->parteSuperior));
+        array_push($odontograma2array, array('b31', $diente45->parteInferior));
+        array_push($odontograma2array, array('l31', $diente45->parteIzquierda));
+        array_push($odontograma2array, array('r31', $diente45->parteDerecha));
+        //diente 46
+        array_push($odontograma2array, array('c32', $diente46->parteCentro));
+        array_push($odontograma2array, array('t32', $diente46->parteSuperior));
+        array_push($odontograma2array, array('b32', $diente46->parteInferior));
+        array_push($odontograma2array, array('l32', $diente46->parteIzquierda));
+        array_push($odontograma2array, array('r32', $diente46->parteDerecha));
+        //diente 47
+        array_push($odontograma2array, array('c33', $diente47->parteCentro));
+        array_push($odontograma2array, array('t33', $diente47->parteSuperior));
+        array_push($odontograma2array, array('b33', $diente47->parteInferior));
+        array_push($odontograma2array, array('l33', $diente47->parteIzquierda));
+        array_push($odontograma2array, array('r33', $diente47->parteDerecha));
+        //diente 48
+        array_push($odontograma2array, array('c34', $diente48->parteCentro));
+        array_push($odontograma2array, array('t34', $diente48->parteSuperior));
+        array_push($odontograma2array, array('b34', $diente48->parteInferior));
+        array_push($odontograma2array, array('l34', $diente48->parteIzquierda));
+        array_push($odontograma2array, array('r34', $diente48->parteDerecha));
+        //diente 49
+        array_push($odontograma2array, array('c35', $diente49->parteCentro));
+        array_push($odontograma2array, array('t35', $diente49->parteSuperior));
+        array_push($odontograma2array, array('b35', $diente49->parteInferior));
+        array_push($odontograma2array, array('l35', $diente49->parteIzquierda));
+        array_push($odontograma2array, array('r35', $diente49->parteDerecha));
+        //diente 50
+        array_push($odontograma2array, array('c36', $diente50->parteCentro));
+        array_push($odontograma2array, array('t36', $diente50->parteSuperior));
+        array_push($odontograma2array, array('b36', $diente50->parteInferior));
+        array_push($odontograma2array, array('l36', $diente50->parteIzquierda));
+        array_push($odontograma2array, array('r36', $diente50->parteDerecha));
+        //diente 51
+        array_push($odontograma2array, array('c37', $diente51->parteCentro));
+        array_push($odontograma2array, array('t37', $diente51->parteSuperior));
+        array_push($odontograma2array, array('b37', $diente51->parteInferior));
+        array_push($odontograma2array, array('l37', $diente51->parteIzquierda));
+        array_push($odontograma2array, array('r37', $diente51->parteDerecha));
+        //diente 52
+        array_push($odontograma2array, array('c38', $diente52->parteCentro));
+        array_push($odontograma2array, array('t38', $diente52->parteSuperior));
+        array_push($odontograma2array, array('b38', $diente52->parteInferior));
+        array_push($odontograma2array, array('l38', $diente52->parteIzquierda));
+        array_push($odontograma2array, array('r38', $diente52->parteDerecha));
+        
+        return View('HistoriaClinica.crearHistoriaClinica')
         ->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
         ->with('user',$user)
-        ->with('historia',$historia);
+        ->with('historia',$historia)
+        ->with('odontograma2array', $odontograma2array);
     }
 
     public function posteditHistoriaClinica(Request $request, $id){
@@ -1115,7 +1493,7 @@ class HistoriaClinicaController extends Controller
         $diente26 = Diente::find($odontograma2destroy->idDiente26);
         $diente27 = Diente::find($odontograma2destroy->idDiente27);
         $diente28 = Diente::find($odontograma2destroy->idDiente28);
-        $diente29 = Diente::find($odontograma2destroy->idDiente39);
+        $diente29 = Diente::find($odontograma2destroy->idDiente29);
         $diente30 = Diente::find($odontograma2destroy->idDiente30);
         $diente31 = Diente::find($odontograma2destroy->idDiente31);
         $diente32 = Diente::find($odontograma2destroy->idDiente32);
