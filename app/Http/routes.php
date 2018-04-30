@@ -47,6 +47,7 @@ Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@ed
 Route::get('editHistoriaClinica', ['uses' => 'HistoriaClinicaController@editHistoriaClinica', 'as' => 'historia.editHistoriaClinica']);
 
 Route::get('editHistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@posteditHistoriaClinica', 'as' => 'historia.posteditHistoriaClinica']);
+Route::get('editHistoriaClinica/{id}/destroy', ['uses' => 'HistoriaClinicaController@postdeleteHistoriaClinica', 'as' => 'historia.postdeleteHistoriaClinica']);
 
 
 Route::get('ResetPassword', 'HomeController@resetPassword');

@@ -16,21 +16,11 @@ class CreateDienteTable extends Migration
             $table->increments('id');
 
             $table->string('numero');
-
-            $table->integer('idParteCentro')->unsigned();
-            $table->foreign('idParteCentro')->references('id')->on('pDiente')->onDelete('cascade');
-
-            $table->integer('idParteSuperior')->unsigned();
-            $table->foreign('idParteSuperior')->references('id')->on('pDiente')->onDelete('cascade');
-
-            $table->integer('idParteInferior')->unsigned();
-            $table->foreign('idParteInferior')->references('id')->on('pDiente')->onDelete('cascade');
-
-            $table->integer('idParteDerecha')->unsigned();
-            $table->foreign('idParteDerecha')->references('id')->on('pDiente')->onDelete('cascade');
-
-            $table->integer('idParteIzquierda')->unsigned();
-            $table->foreign('idParteIzquierda')->references('id')->on('pDiente')->onDelete('cascade');
+            $table->string('parteCentro');
+            $table->string('parteSuperior');
+            $table->string('parteInferior');
+            $table->string('parteDerecha');
+            $table->string('parteIzquierda');
             
             $table->timestamps();
         });

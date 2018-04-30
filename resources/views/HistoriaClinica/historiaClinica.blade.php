@@ -82,10 +82,13 @@
 		                <td>{{$historiaClinica->sexo}}</td>
 		                <td>{{$historiaClinica->edad}}</td>
 		                <td>
+		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+		       				{{ csrf_field() }}
 		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia clinica" href="{{route('historia.edit', $historiaClinica->id)}}">
 		                			<i class="fe fe-edit-2"></i>
 		                		</a>
-					        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar historia clinica"><i class="fe fe-trash-2"></i></button>
+		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><i class="fe fe-trash-2"></i></button>
+					        {{ Form::close() }}
 		                </td>
 		            </tr>
 		           @endforeach
