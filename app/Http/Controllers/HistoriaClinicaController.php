@@ -8,7 +8,7 @@ use App\User;
 use App\Departamento;
 use App\Ciudad;
 use App\HistoriaClinica;
-
+use App\Empresa;
 use App\Diente;
 use App\PDiente;
 use App\Observaciones;
@@ -36,9 +36,10 @@ class HistoriaClinicaController extends Controller
     public function historiaClinica(){
         $user = Auth::User();
         $historiasClinicas = HistoriaClinica::admin($user->idEmpresa)->get();
-
+        $empresa = Empresa::find($user->idEmpresa);
        	return View('HistoriaClinica.historiaClinica')
        	->with('user', $user)
+        ->with('empresa',$empresa)
         ->with('historiasClinicas', $historiasClinicas);
     }
 
@@ -497,7 +498,7 @@ class HistoriaClinicaController extends Controller
         $historia->save();
 
         session_start();
-        $_SESSION['id'] = $user->id;
+        $_SESSION['id'] = $historia->id;
         return redirect()->route('historia.editHistoriaClinica');
     }
 
@@ -894,11 +895,14 @@ class HistoriaClinicaController extends Controller
         array_push($odontograma2array, array('b38', $diente52->parteInferior));
         array_push($odontograma2array, array('l38', $diente52->parteIzquierda));
         array_push($odontograma2array, array('r38', $diente52->parteDerecha));
+
+        $empresa = Empresa::find($user->idEmpresa);
         
         return View('HistoriaClinica.crearHistoriaClinica')
         ->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
         ->with('user',$user)
+        ->with('empresa',$empresa)
         ->with('historia',$historia)
         ->with('odontograma2array', $odontograma2array);
     }

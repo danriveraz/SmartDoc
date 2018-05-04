@@ -80,14 +80,14 @@
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$empresa->imagen)}}"></span>
             <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
-                      <small class="text-muted d-block mt-1">Administrator</small>
+                      <small class="text-muted d-block mt-1">Trabajador</small>
                     </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="{{url('Perfil')}}">
+                    <a class="dropdown-item" href="{{url('')}}">
                       <span>Editar perfil</span>
                     </a>
-                    <a class="dropdown-item" href="{{url('Configuracion')}}">
+                    <a class="dropdown-item" href="{{url('')}}">
                       <span>Configuración</span>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -105,16 +105,10 @@
               <div class="col">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link"><i class="fa fa-home"></i>Agenda</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{url('/Personal')}}" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
+                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link"><i class="fa fa-home"></i>Agenda</a>
                   </li>
                   <li class="nav-item">
                       <a href="{{url('/Procedimiento')}}" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
                   </li>
                   <li class="nav-item">
                     <a href="{{url('/HistoriaClinica')}}" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>

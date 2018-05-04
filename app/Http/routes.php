@@ -38,9 +38,7 @@ Route::get('Procedimiento', ['uses' => 'ProcedimientoController@modificarProcedi
 Route::get('Procedimiento/{id}/edit', ['uses' => 'ProcedimientoController@postupdateProcedimiento', 'as' => 'Auth.usuario.updateProcedimiento']);//Esta ruta sirve para modificar un "Procedimiento"
 Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@postdeleteProcedimiento', 'as' => 'Auth.usuario.deleteProcedimiento']);//Esta ruta sirve para eliminar un "Procedimiento"
 
-//Agenda
-Route::get('Agenda', ['uses' => 'AgendaController@modificarAgenda', 'as' => 'Auth.usuario.showeditAgenda']);//Esta ruta es la principal de Agenda, sirve para crear.
-
+//Historia clinica
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
 Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinica', 'as' => 'Auth.usuario.showCreateHistoriaClinica']);//Esta ruta es la principal de Historia clinica, sirve para crear.
 Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@edit', 'as' => 'historia.edit']);
@@ -57,6 +55,12 @@ Route::get('PocketCompany', 'UserController@registroPropietario');
 //Registro
 Route::post('Auth/register', 'Auth\AuthController@postRegister');
 Route::get('Auth/register', 'Auth\AuthController@getRegister');
+
+//Agenda
+//Agenda
+Route::post('WelcomeAdmin', ['uses' => 'AgendaController@postcrearAgenda', 'as' => 'Auth.usuario.crearAgenda']);//Esta ruta es la principal de Agenda, sirve para crear.
+Route::get('WelcomeAdmin/{id}/edit', ['uses' => 'AgendaController@posteditAgenda', 'as' => 'Auth.usuario.editarAgenda']);//Esta ruta es la principal de Agenda, sirve para editar.
+Route::get('WelcomeAdmin/{id}/destroy', ['uses' => 'AgendaController@postdeleteAgenda', 'as' => 'Auth.usuario.eliminarAgenda']);//Esta ruta es la principal de Agenda, sirve para eliminar.
 
 Route::get('WelcomeAdmin', 'WelcomeAdminController@index');
 Route::get('WelcomeTrabajador', 'WelcomeTrabajadorController@index');

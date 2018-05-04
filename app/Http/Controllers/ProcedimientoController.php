@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Procedimiento;
+use App\Empresa;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
@@ -28,8 +29,10 @@ class ProcedimientoController extends Controller
     public function modificarProcedimiento(){
         $user = Auth::User();
         $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
+        $empresa = Empresa::find($user->idEmpresa);
        	return View('Procedimiento.procedimientos')
        	->with('user',$user)
+        ->with('empresa',$empresa)
        	->with('procedimientos',$procedimientos);
     }
 
@@ -65,7 +68,7 @@ class ProcedimientoController extends Controller
         $procedimiento2update->duracion = $request->$duracion;
         $procedimiento2update->descripcion = $request->$descripcion;
         $procedimiento2update->save();
-        flash('Modificación exitoso')->success()->important();
+        flash('Modificación exitosa')->success()->important();
 		return redirect('/Procedimiento');
     }
 

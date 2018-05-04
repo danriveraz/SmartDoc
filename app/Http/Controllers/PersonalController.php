@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Empresa;
 use App\Departamento;
 use App\Ciudad;
 use App\Http\Requests;
@@ -28,9 +29,11 @@ class PersonalController extends Controller
     public function modificarPersonal(){
         $user = Auth::User();
         $personales = User::Empresa($user->idEmpresa)->get();
+        $empresa = Empresa::find($user->idEmpresa);
     	$departamentos = Departamento::all();
         $ciudades = Ciudad::all();
     	return View('Personal.personal')->with('user',$user)
+        ->with('empresa',$empresa)
     	->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
         ->with('personales', $personales);

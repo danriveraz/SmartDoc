@@ -63,7 +63,7 @@
 		                <th width="20%">Nombre</th>
 		                <th width="10%">Costo</th>
 		                <th width="10%">Venta</th>
-		                <th width="10%">Ganancia</th>
+		                <th width="10%">Utilidad</th>
 		                <th width="10%">Duración</th>
 		                <th width="30%">Descripción</th>
 		                <th width="10%">Opciones</th>

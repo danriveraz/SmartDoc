@@ -119,7 +119,16 @@ class AuthController extends Controller
                         return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
                 }else{
-
+                    if (Auth::attempt(
+                        [
+                            'email' => $request->email,
+                            'password' => $request->password
+                        ], $request->has('remember')
+                        )){
+                        return redirect('/WelcomeTrabajador');
+                    }else{
+                        return redirect('/')->with('message', 'Error al iniciar sesión');
+                    }
                 }
             }else{
                return redirect('/')->with('message', 'Nombre de usuario o contraseña incorrecto');
