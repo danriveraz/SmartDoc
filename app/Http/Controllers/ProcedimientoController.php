@@ -35,12 +35,15 @@ class ProcedimientoController extends Controller
 
     public function postmodificarProcedimiento(Request $request){
     	$userActual = Auth::User();
+
     	$procedimiento = new Procedimiento();
     	$procedimiento->nombre = $request->nombre;
     	$procedimiento->costo = $request->costo;
+        $procedimiento->venta = $request->venta;
+        $procedimiento->ganancia = $procedimiento->venta - $procedimiento->costo;
     	$procedimiento->descripcion = $request->descripcion;
     	$procedimiento->duracion = $request->duracion;
-    	$procedimiento->idAdmin = $userActual->id;
+    	$procedimiento->idEmpresa = $userActual->idEmpresa;
     	$procedimiento->save();
     	flash('Registro exitoso')->success()->important();
 		return redirect('/Procedimiento');
@@ -49,6 +52,7 @@ class ProcedimientoController extends Controller
     public function postupdateProcedimiento(Request $request, $id){
     	$nombre = "nombre".$id;
         $costo = "costo".$id;
+        $venta = "venta".$id;
         $duracion = "duracion".$id;
         $descripcion =  "descripcion".$id;
 
@@ -56,6 +60,8 @@ class ProcedimientoController extends Controller
 
         $procedimiento2update->nombre = $request->$nombre;
         $procedimiento2update->costo = $request->$costo;
+        $procedimiento2update->venta = $request->$venta;
+        $procedimiento2update->ganancia = $procedimiento2update->venta - $procedimiento2update->costo;
         $procedimiento2update->duracion = $request->$duracion;
         $procedimiento2update->descripcion = $request->$descripcion;
         $procedimiento2update->save();

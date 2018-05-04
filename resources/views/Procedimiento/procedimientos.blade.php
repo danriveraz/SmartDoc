@@ -22,13 +22,16 @@
        	{{ csrf_field() }}
       	<div class="modal-body">
         	<div class="row">
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 		          	<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required="true">
 	        	</div>
-	        	<div class="col-md-4">
-			        <input id="costo" name="costo" type="number" class="form-control" placeholder="Costo" required="true">
+	        	<div class="col-md-3">
+			        <input id="costo" name="costo" type="number" class="form-control" placeholder="Valor costo" required="true">
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
+			        <input id="venta" name="venta" type="number" class="form-control" placeholder="Valor venta" required="true">
+	        	</div>
+	        	<div class="col-md-3">
 			        <input id="duracion" name="duracion" type="text" class="form-control" placeholder="Duración" required="true">
 	        	</div>
         	</div>
@@ -58,9 +61,11 @@
 		        <thead>
 		            <tr>
 		                <th width="20%">Nombre</th>
-		                <th width="20%">Costo</th>
+		                <th width="10%">Costo</th>
+		                <th width="10%">Venta</th>
+		                <th width="10%">Ganancia</th>
 		                <th width="10%">Duración</th>
-		                <th width="40%">Descripción</th>
+		                <th width="30%">Descripción</th>
 		                <th width="10%">Opciones</th>
 		            </tr>
 		        </thead>
@@ -69,6 +74,8 @@
 		            <tr>
 		                <td>{{$procedimiento->nombre}}</td>
 		                <td>{{$procedimiento->costo}}</td>
+		                <td>{{$procedimiento->venta}}</td>
+		                <td>{{$procedimiento->ganancia}}</td>
 		                <td>{{$procedimiento->duracion}}</td>
 		                <td>{{$procedimiento->descripcion}}</td>
 		                <td>
@@ -94,13 +101,16 @@
 			       				{{ csrf_field() }}
 						      	<div class="modal-body">
 						      		<div class="row">
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
 								          	<input id="nombre{{$procedimiento->id}}" name="nombre{{$procedimiento->id}}" type="text" class="form-control" placeholder="Nombre" required="true" value="{{$procedimiento->nombre}}">
 							        	</div>
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
 									        <input id="costo{{$procedimiento->id}}" name="costo{{$procedimiento->id}}" type="numbre" class="form-control" placeholder="Costo" required="true" value="{{$procedimiento->costo}}">
 							        	</div>
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
+									        <input id="venta{{$procedimiento->id}}" name="venta{{$procedimiento->id}}" type="number" class="form-control" placeholder="Valor venta" required="true" value="{{$procedimiento->venta}}">
+							        	</div>
+							        	<div class="col-md-3">
 									        <input id="duracion{{$procedimiento->id}}" name="duracion{{$procedimiento->id}}" type="text" class="form-control" placeholder="Duración" required="true" value="{{$procedimiento->duracion}}">
 							        	</div>
 						        	</div>
