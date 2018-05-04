@@ -8,7 +8,7 @@ class Procedimiento extends Model
 {
     protected $table = 'procedimiento';
 
-    public function scopeAdmin($query, $idAdmin){
-      return $query->where('idAdmin', 'like', '%' .$idAdmin. '%');   
+    public function scopeAdmin($query, $idEmpresa){
+      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');   
     }
 }

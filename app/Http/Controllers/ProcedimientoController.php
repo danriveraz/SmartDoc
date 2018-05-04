@@ -27,7 +27,7 @@ class ProcedimientoController extends Controller
 
     public function modificarProcedimiento(){
         $user = Auth::User();
-        $procedimientos = Procedimiento::admin($user->id)->get();
+        $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
        	return View('Procedimiento.procedimientos')
        	->with('user',$user)
        	->with('procedimientos',$procedimientos);
