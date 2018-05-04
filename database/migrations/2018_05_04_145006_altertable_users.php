@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltertableHistoriaclinica extends Migration
+class AltertableUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class AltertableHistoriaclinica extends Migration
      */
     public function up()
     {
-        Schema::table('historiaClinica', function ($table) {
-          $table->string('planTratamientoAprobado')->after('sanos');
-          $table->integer('costoTratamiento')->after('planTratamientoAprobado');
-      });
+        Schema::table('users', function ($table) {
+            $table->integer('idEmpresa')->unsigned();
+            $table->foreign('idEmpresa')->references('id')->on('empresa')->onDelete('cascade');
+        });
     }
 
     /**

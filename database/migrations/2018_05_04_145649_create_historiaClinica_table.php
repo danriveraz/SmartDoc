@@ -91,14 +91,17 @@ class CreateHistoriaClinicaTable extends Migration
             $table->tinyInteger('obturados');
             $table->tinyInteger('exfoliados');
             $table->tinyInteger('sanos');
+            $table->string('observacionesEE');
+            $table->string('planTratamientoAprobado');
+            $table->integer('costoTratamiento');
 
             //LLAVES FORANEAS
 
             $table->integer('idOdontograma')->unsigned();
             $table->foreign('idOdontograma')->references('id')->on('odontograma')->onDelete('cascade');
 
-            $table->integer('idAdmin')->unsigned();
-            $table->foreign('idAdmin')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('idEmpresa')->unsigned();
+            $table->foreign('idEmpresa')->references('id')->on('empresa')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -46,21 +46,19 @@
 	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
 	        	</div>
 	        	<div class="col-md-6">
-	        		<input id="salario" name="salario" type="number" class="form-control" placeholder="Salario">
+	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
 	        	</div>
 	        </div>
 	        <div class="row">
-	        	<div class="col-md-3">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
-	        	</div>
-	        	<div class="col-md-3">
+	        	
+	        	<div class="col-md-4">
 	        		<select id="sexo" name='sexo' class="form-control" placeholder="">
 	                  	<option value="" selected="selected">Seleccionar sexo</option>
 	                    <option value="masculino">Masculino</option>
 	                    <option value="femenino">Femenino</option>
                 </select>
 	        	</div>
-	        	<div class="col-md-3">
+	        	<div class="col-md-4">
 	        		<select class="form-control" id="idDepto"  name="idDepto" required>
 					<option value="">Departamento</option>
 					@foreach($departamentos as $departamento)
@@ -68,15 +66,10 @@
 		            @endforeach
 					</select>
 	        	</div>
-	        	<div class="col-md-3">
+	        	<div class="col-md-4">
 	        		<select class="form-control" id="idCiudad" name="idCiudad" required>
 						<option value="">Ciudad</option>
 					</select>
-	        	</div>
-	        </div>
-	        <div class="row">
-	        	<div class="col-md-12">
-	        		<textarea id="descripcion" name="descripcion" rows="5" class="form-control" placeholder="Descripción general"></textarea>
 	        	</div>
 	        </div>
       </div>
@@ -98,10 +91,12 @@
 			    <div class="card-options">
 			        <button id="{{$personal->id}}" class="btn btn-primary btn-sm" data-toggle="modal" 
 			        	href="#editModal{{$personal->id}}" title="Agregar personal"><span class="fe fe-edit-2"></span></button>
-			        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
-       				{{ csrf_field() }}
-			        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><span class="fe fe-trash-2"></span></button>
-			        {{ Form::close() }}
+			        @if(!$personal->esAdmin)
+				        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+	       				{{ csrf_field() }}
+				        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><span class="fe fe-trash-2"></span></button>
+				        {{ Form::close() }}
+				    @endif
 			    </div>
 			  </div>
 			  <div class="card-body">
@@ -113,7 +108,7 @@
 			  	</div>
 			  	<div class="row">
 			  		<p class="col-md-6">Dirección: {{$personal->direccion}}</p>
-			  		<p class="col-md-6">Salario: {{$personal->salario}}</p>
+			  		<p class="col-md-6">Sexo: {{$personal->sexo}}</p>
 			  	</div>
 			  </div>
 			  <div class="card-footer">
@@ -151,18 +146,13 @@
 			        		</div>
 			        	</div>
 				        <div class="row">
-				        	<div class="col-md-6">
+				        	<div class="col-md-4">
 				        		<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
 				        	</div>
-				        	<div class="col-md-6">
-				        		<input id="salario{{$personal->id}}" name="salario{{$personal->id}}" type="number" class="form-control" placeholder="Salario" value="{{$personal->salario}}">
-				        	</div>
-				        </div>
-				        <div class="row">
-				        	<div class="col-md-6">
+				        	<div class="col-md-4">
 				        		<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
 				        	</div>
-				        	<div class="col-md-6">
+				        	<div class="col-md-4">
 				        		<select id="sexo{{$personal->id}}" name="sexo{{$personal->id}}" class="form-control" placeholder="">
 				                  	@if($personal->sexo=='')
 					                  	<option value="" selected="selected">Seleccionar</option>
@@ -176,11 +166,6 @@
 					                    <option value="femenino" >Femenino</option>
 					                @endif
 			                	</select>
-				        	</div>
-				        </div>
-				        <div class="row">
-				        	<div class="col-md-12">
-				        		<textarea id="descripcion{{$personal->id}}" name="descripcion{{$personal->id}}" rows="5" class="form-control" placeholder="Descripción general">{{$personal->descripcionGeneral}}</textarea>
 				        	</div>
 				        </div>
 			      </div>

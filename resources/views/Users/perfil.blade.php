@@ -19,15 +19,15 @@
                           <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
                               <div class="gallery-container fileupload-new img-thumbnail">
                               	 <div class="card-profile-img gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
-                              	     @if($user->imagen != '')
-                              	     {!! Html::image('images/admin/'.$user->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
+                              	     @if($empresa->imagen != '')
+                              	     {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
                               	     <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
                               	     @else
                               	     <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
                               	     @endif
                               	       <div class="actions">
-                              	              <a  id="modalImagen" href="{{ asset ('images/admin/'.$user->imagen) }}" title="Imagen">
-                              	                <img src="images/admin/{{$user->imagen}}" hidden>
+                              	              <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
+                              	                <img src="images/admin/{{$empresa->imagen}}" hidden>
                               	                <i class="fa fa-search-plus"></i>
                               	              </a>
                               	              <a onclick="$('#imagenPerfil').click()">
@@ -48,9 +48,9 @@
                         </div>
                       </div><!-- fin col lg12 imagen de perfil-->
 
-                                    <h3 class="mb-1">{{$user->nombreEstablecimiento}}</h3>
+                                    <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
                                       <p class="mb-3" style="font-size: 12px;">
-                                        {{$user->eslogan}}
+                                        {{$empresa->eslogan}}
                                       </p>
                                     <ul class="social-links list-inline mb-0 mt-2">
                                           <li class="list-inline-item">
@@ -84,7 +84,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-user"></i>
                             </span>
-                            <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$user->nombreEstablecimiento}}">
+                            <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$empresa->nombreEstablecimiento}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -92,7 +92,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-credit-card"></i>
                             </span>
-                            <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$user->nit}}">
+                            <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$empresa->nit}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -100,7 +100,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-phone-call"></i>
                             </span>
-                            <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$user->telefono}}">
+                            <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$empresa->telefono}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -128,7 +128,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-user"></i>
                             </span>
-                            <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$user->eslogan}}">
+                            <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$empresa->eslogan}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -136,7 +136,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-tag"></i>
                             </span>
-                            <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$user->direccion}}">
+                            <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$empresa->direccion}}">
                           </div>
                       </div>
                   <div class="form-group">
@@ -144,7 +144,7 @@
                             <span class="input-icon-addon">
                               <i class="fe fe-smartphone"></i>
                             </span>
-                            <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$user->celular}}">
+                            <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$empresa->celular}}">
                           </div>
                       </div>
                   <div class="form-group">

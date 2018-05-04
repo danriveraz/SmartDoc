@@ -67,6 +67,10 @@
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
+                    <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula administrador">
+                  </div>
+                  <div class="form-group">
+                    <!--<label class="form-label">Password</label>-->
                     <input type="text" id="celular" name="celular" class="form-control" placeholder="(+57) 000 - 0000 - 000">
                   </div>
                   <div class="form-group">

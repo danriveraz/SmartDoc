@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Empresa;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -131,28 +132,34 @@ class AuthController extends Controller
     public function postRegister(Request $request){
         if($request->esPropietario == "true"){
             $email = $request->email;
-            $nit = $request->nit;
+            $cedula = $request->cedula;
             if($email == ""){
                 $email = "none";
             }
-            if($nit == ""){
-                $nit = "none";
+            if($cedula == ""){
+                $cedula = "none";
             }
             $user = User::Search($email)->get()->first();
-            $identity = User::identity($nit)->get()->first();
+            $identity = User::identity($cedula)->get()->first();
             if(sizeOf($user) == 0 && sizeof($identity) == 0){
                 if($request->clavePrimaria == "123456"){
-                    if($email == "none" || $request->nombre == "" || $nit == "none" ){
+                    if($email == "none" || $request->nombre == "" || $cedula == "none" ){
                         dd($email, $request->nombre, $nit);
                         Flash::error('Por favor llenar todos los campos');
                         return redirect('/PocketCompany');
                     }else{
+                        $empresa = new Empresa();
+                        $empresa->nombreEstablecimiento = "PocketCompany";
+                        $empresa->nit = "123";
+                        $empresa->save();
+
                         $user = new User();
                         $user->email = $request->email;
                         $user->password = bcrypt($request->password);
-                        $user->nombreEstablecimiento = $request->nombre;
-                        $user->nit = $request->nit;
+                        $user->nombreCompleto = $request->nombre;
+                        $user->cedula = $request->cedula;
                         $user->esPropietario = 1;
+                        $user->idEmpresa = $empresa->id;
                         $user->save();
                         return redirect('/')->with('message', 'Por favor iniciar sesión.');
                     }
@@ -165,44 +172,59 @@ class AuthController extends Controller
                     Flash::error('Correo en uso');
                     return redirect('/PocketCompany');
                 }else{
-                    Flash::error('nit en uso');
+                    Flash::error('Cedula en uso');
                     return redirect('/PocketCompany');
                 }
             }
         }else{
             $email = $request->email;
             $nit = $request->nit;
+            $cedula = $request->cedula;
             if($email == ""){
                 $email = "none";
             }
             if($nit == ""){
                 $nit = "none";
             }
+            if($cedula == ""){
+                $cedula = "none";
+            }
             $user = User::Search($email)->get()->first();
-            $identity = User::identity($nit)->get()->first();
+            $identity = User::identity($cedula)->get()->first();
+            $empresaIdentity = Empresa::identity($nit)->get()->first();
             $userActual = Auth::User();
             if($userActual->esPropietario){
-                if(sizeOf($user) == 0 && sizeof($identity) == 0){
+                if(sizeOf($user) == 0 && sizeof($identity) == 0 && sizeof($empresaIdentity) == 0){
+                    $empresa = new Empresa();
+                    $empresa->nombreEstablecimiento = $request->nombre;
+                    $empresa->nit = $nit;
+                    $empresa->telefono = $request->telefono;
+                    $empresa->celular = $request->celular;
+                    $empresa->direccion = $request->direccion;
+                    $empresa->imagen = 'perfil.jpg';
+                    $empresa->eslogan = "Ahora todo es más fácil con SmartDoc";
+                    $empresa->save();
+
                     $user = new User();
                     $user->email = $request->email;
                     $user->password = bcrypt($request->password);
-                    $user->nombreEstablecimiento = $request->nombre;
-                    $user->nit = $request->nit;
-                    $user->telefono = $request->telefono;
-                    $user->celular = $request->celular;
-                    $user->direccion = $request->direccion;
+                    $user->nombreCompleto = "Administrador";
+                    $user->cedula = $cedula;
                     $user->esAdmin = 1;
-                    $user->imagen = 'perfil.jpg';
-                    $user->eslogan = "Ahora todo es más fácil con SmartDoc";
+                    $user->idEmpresa = $empresa->id;
                     $user->save();
+
                     Flash::success('Registro exitoso');
                     return redirect('/Registro');
                 }else{
                     if(sizeof($user) > 0){
                         flash('Correo en uso')->error()->important();
                         return redirect('/Registro');
-                    }else{
+                    }else if(sizeof($empresaIdentity) > 0){
                         flash('Nit en uso')->error()->important();
+                        return redirect('/Registro');
+                    }else{
+                        flash('Cedula en uso')->error()->important();
                         return redirect('/Registro');
                     }
                 }

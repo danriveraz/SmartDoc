@@ -80,7 +80,7 @@
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-	          						@if($historia->fechaNacimiento != "")
+	          						@if($historia->fechaNacimiento != "0000-00-00")
           								<label>Fecha inicio tratamiento</label>
           							@endif
 					        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
@@ -978,6 +978,7 @@
 	                    $(this).addClass('click-red');
 	                    $id = $(this).attr("id") + 1;
                         document.getElementById($id).value = "cariado";
+                        document.getElementById($id).title = "cariado";
                         //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -985,6 +986,7 @@
 	                        $id = $(this).attr("id") + 1;
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "";
+	                        document.getElementById($id).title = "";
 	                        //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
@@ -992,6 +994,7 @@
 	                        console.log($(this));
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "cariado";
+	                        document.getElementById($id).title = "cariado";
 	                       	//alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1003,6 +1006,7 @@
 	                    $id = $(this).attr("id") + 1;
                         //alert(document.getElementById($id).id);
                         document.getElementById($id).value = "obturado";
+                        document.getElementById($id).title = "obturado";
                         //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1010,12 +1014,14 @@
 	                        $(this).val("obturado");
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "";
+	                        document.getElementById($id).title = "";
 	                        //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "obturado";
+		                    document.getElementById($id).title = "obturado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1027,6 +1033,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "exodonciaRealizada";
+	                    document.getElementById($id).title = "exodonciaRealizada";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1034,12 +1041,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "exodonciaRealizada";
+		                    document.getElementById($id).title = "exodonciaRealizada";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1051,6 +1060,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "exodonciaSimple";
+	                    document.getElementById($id).title = "exodonciaSimple";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1058,12 +1068,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "exodonciaSimple";
+		                    document.getElementById($id).title = "exodonciaSimple";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1075,6 +1087,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "exodonciaQuirurgica";
+	                    document.getElementById($id).title = "exodonciaQuirurgica";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1082,12 +1095,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "exodonciaQuirurgica";
+		                    document.getElementById($id).title = "exodonciaQuirurgica";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1099,6 +1114,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "sinErupcionar";
+	                    document.getElementById($id).title = "sinErupcionar";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1106,12 +1122,14 @@
 	                      	$id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "sinErupcionar";
+		                    document.getElementById($id).title = "sinErupcionar";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1123,6 +1141,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "endodonciaRealizada";
+	                    document.getElementById($id).title = "endodonciaRealizada";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1130,12 +1149,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "endodonciaRealizada";
+		                    document.getElementById($id).title = "endodonciaRealizada";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1147,6 +1168,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "endodonciaIndicada";
+	                    document.getElementById($id).title = "endodonciaIndicada";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1154,12 +1176,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "endodonciaIndicada";
+		                    document.getElementById($id).title = "endodonciaIndicada";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1171,6 +1195,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                   // alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "sellantePresente";
+	                    document.getElementById($id).title = "sellantePresente";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1178,12 +1203,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "sellantePresente";
+		                    document.getElementById($id).title = "sellantePresente";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1195,6 +1222,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "sellanteIndicado";
+	                    document.getElementById($id).title = "sellanteIndicado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1202,12 +1230,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "sellanteIndicado";
+		                    document.getElementById($id).title = "sellanteIndicado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1219,6 +1249,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "erosionAbrasion";
+	                    document.getElementById($id).title = "erosionAbrasion";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1226,12 +1257,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                   // alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                       	$id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "erosionAbrasion";
+		                    document.getElementById($id).title = "erosionAbrasion";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1243,6 +1276,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "procedimientoRealizado";
+	                    document.getElementById($id).title = "procedimientoRealizado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1250,12 +1284,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "procedimientoRealizado";
+		                    document.getElementById($id).title = "procedimientoRealizado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1267,6 +1303,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                   // alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "coronaBuenEstado";
+	                    document.getElementById($id).title = "coronaBuenEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1274,12 +1311,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "coronaBuenEstado";
+		                    document.getElementById($id).title = "coronaBuenEstado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1291,6 +1330,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "coronaMalEstado";
+	                    document.getElementById($id).title = "coronaMalEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1298,13 +1338,15 @@
 	                        //$id = $(this).attr("id") + 1;
 		                    alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
-		                    alert(document.getElementById($id).id);
+		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "coronaMalEstado";
-		                    alert(document.getElementById($id).value);
+		                    document.getElementById($id).title = "coronaMalEstado";
+		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
 	                break;
@@ -1315,6 +1357,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "provisionalBuenEstado";
+	                    document.getElementById($id).title = "provisionalBuenEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1322,12 +1365,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "provisionalBuenEstado";
+		                    document.getElementById($id).title = "provisionalBuenEstado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1339,6 +1384,7 @@
 	                   	$id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "provisionalMalEstado";
+	                    document.getElementById($id).title = "provisionalMalEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1346,12 +1392,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "provisionalMalEstado";
+		                    document.getElementById($id).title = "provisionalMalEstado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1363,6 +1411,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "nucleoBuenEstado";
+	                    document.getElementById($id).title = "nucleoBuenEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-blue")) {
@@ -1370,12 +1419,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-blue');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "nucleoBuenEstado";
+		                    document.getElementById($id).title = "nucleoBuenEstado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }
@@ -1387,6 +1438,7 @@
 	                    $id = $(this).attr("id") + 1;
 	                    //alert(document.getElementById($id).id);
 	                    document.getElementById($id).value = "nucleoMalEstado";
+	                    document.getElementById($id).title = "nucleoMalEstado";
 	                    //alert(document.getElementById($id).value);
 	                } else {
 	                    if ($(this).hasClass("click-red")) {
@@ -1394,12 +1446,14 @@
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "";
+		                    document.getElementById($id).title = "";
 		                    //alert(document.getElementById($id).value);
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
 		                    //alert(document.getElementById($id).id);
 		                    document.getElementById($id).value = "nucleoMalEstado";
+		                    document.getElementById($id).title = "nucleoMalEstado";
 		                    //alert(document.getElementById($id).value);
 	                    }
 	                }

@@ -105,7 +105,7 @@
               <div class="col">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link"><i class="fa fa-home"></i>Home</a>
+                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link"><i class="fa fa-home"></i>Agenda</a>
                   </li>
                   <li class="nav-item">
                     <a href="{{url('/Personal')}}" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>

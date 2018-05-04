@@ -35,7 +35,7 @@ class HistoriaClinicaController extends Controller
 
     public function historiaClinica(){
         $user = Auth::User();
-        $historiasClinicas = HistoriaClinica::admin($user->id)->get();
+        $historiasClinicas = HistoriaClinica::admin($user->idEmpresa)->get();
 
        	return View('HistoriaClinica.historiaClinica')
        	->with('user', $user)
@@ -493,14 +493,12 @@ class HistoriaClinicaController extends Controller
         $odontograma->save();
 
         $historia->idOdontograma = $odontograma->id;
-        $historia->idAdmin = $user->id;
+        $historia->idEmpresa = $user->idEmpresa;
         $historia->save();
 
-        return View('HistoriaClinica.crearHistoriaClinica')
-        ->with('departamentos',$departamentos)
-        ->with('ciudades', $ciudades)
-        ->with('user',$user)
-        ->with('historia',$historia);
+        session_start();
+        $_SESSION['id'] = $user->id;
+        return redirect()->route('historia.editHistoriaClinica');
     }
 
     public function edit($id){

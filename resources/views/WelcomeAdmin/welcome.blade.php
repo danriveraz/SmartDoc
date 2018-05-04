@@ -1,4 +1,4 @@
 @extends('Layouts.app_administradores')
 @section('content')
-<h1>Acá empeiza el welcome admin</h1>
+<h1>Acá empeiza la agenda</h1>
 @endsection

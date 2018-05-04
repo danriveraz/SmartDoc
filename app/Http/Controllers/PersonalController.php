@@ -7,7 +7,6 @@ use Auth;
 use App\User;
 use App\Departamento;
 use App\Ciudad;
-use App\Personal;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
@@ -28,7 +27,7 @@ class PersonalController extends Controller
     
     public function modificarPersonal(){
         $user = Auth::User();
-        $personales = Personal::admin($user->id)->get();
+        $personales = User::Empresa($user->idEmpresa)->get();
     	$departamentos = Departamento::all();
         $ciudades = Ciudad::all();
     	return View('Personal.personal')->with('user',$user)
@@ -47,14 +46,12 @@ class PersonalController extends Controller
             $cedula = "none";
         }
 
-    	$person = Personal::search($email)->get()->first();
         $users = User::search($email)->get()->first();
-        $identity = Personal::identity($cedula)->get()->first();
         $usersIdentity = User::identity($cedula)->get()->first();
 
-        if(sizeof($person) == null && sizeof($users) == null){
-            if(sizeof($identity) == null && sizeof($usersIdentity) == null){
-                $personal = new Personal();
+        if(sizeof($users) == null){
+            if(sizeof($usersIdentity) == null){
+                $personal = new User();
                 $admin = Auth::User();
                 $personal->nombreCompleto = $request->nombre;
                 $personal->email = $email;
@@ -65,13 +62,11 @@ class PersonalController extends Controller
                 if(strlen($request->password) > 4 && strlen($request->password) < 18){
                     $personal->password = bcrypt($request->password);
                     $personal->direccion = $request->direccion;
-                    $personal->salario = $request->salario;
                     $personal->fechaNacimiento = $request->fechaNacimiento;
                     $personal->sexo = $request->sexo;
                     $personal->departamento = $request->idDepto;
                     $personal->ciudad = $request->idCiudad;
-                    $personal->descripcionGeneral = $request->descripcion;
-                    $personal->idAdmin = $admin->id;
+                    $personal->idEmpresa = $admin->idEmpresa;
                     $personal->save();
                     flash('Registro exitoso')->success()->important();
                     return redirect('/Personal');
@@ -100,38 +95,26 @@ class PersonalController extends Controller
         $cedula = "cedula".$id;
         $telefono =  "telefono".$id;
         $direccion = "direccion".$id;
-        $salario = "salario".$id;
         $fechaNacimiento = "fechaNacimiento".$id;
         $sexo = "sexo".$id;
-        $descripcion = "descripcion".$id;
 
         $email = $request->$correo;
 
-        $user2update = Personal::find($id);
+        $user2update = User::find($id);
 
-        $person = Personal::search($email)->get()->first();
         $user = User::search($email)->get()->first();
         $usersIdentity = User::identity($request->$cedula)->get()->first();
-        $personIdentity = Personal::identity($request->$cedula)->get()->first();
 
-        if(sizeof($person) == 1){
+        if(sizeof($user) == 1){
             if($user2update->email == $email){
                 $modificableCorreo = 1;
-            }
-        }else if(sizeof($user) == 1){
-            $modificableCorreo = 0;
-        }else if(sizeof($person == null)){
-            $modificableCorreo = 1;
+            } 
         }
-
-        if(sizeof($personIdentity) == 1){
+            
+        if(sizeof($usersIdentity) == 1){
             if($user2update->cedula == $request->$cedula){
                 $modificableCedula = 1;
             }
-        }else if(sizeof($usersIdentity) == 1){
-            $modificableCedula = 0;
-        }else if(sizeof($personIdentity) == null){
-            $modificableCedula = 1;
         }
 
         if($modificableCorreo){
@@ -141,10 +124,8 @@ class PersonalController extends Controller
                 $user2update->cedula = $request->$cedula;
                 $user2update->telefono = $request->$telefono;
                 $user2update->direccion = $request->$direccion;
-                $user2update->salario = $request->$salario;
                 $user2update->fechaNacimiento = $request->$fechaNacimiento;
                 $user2update->sexo = $request->$sexo;
-                $user2update->descripcionGeneral = $request->$descripcion;
                 $user2update->save();
                 flash('Modificación exitosa')->success()->important();
                 return redirect('/Personal');
@@ -159,7 +140,7 @@ class PersonalController extends Controller
     }
 
     public function postdeleteProfile(Request $request, $id){
-        $user2destroy = Personal::find($id);
+        $user2destroy = User::find($id);
         $user2destroy->delete();
         flash('Eliminación exitosa')->success()->important();
         return redirect('/Personal');

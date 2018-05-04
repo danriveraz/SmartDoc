@@ -8,7 +8,7 @@ class HistoriaClinica extends Model
 {
     protected $table = 'historiaClinica';
 
-    public function scopeAdmin($query, $idAdmin){
-      return $query->where('idAdmin', 'like', '%' .$idAdmin. '%');   
+    public function scopeAdmin($query, $idEmpresa){
+      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');   
     }
 }

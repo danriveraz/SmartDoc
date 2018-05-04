@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Empresa;
 use App\Departamento;
 use App\Ciudad;
 use App\Http\Requests;
@@ -43,19 +44,23 @@ class UserController extends Controller
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
     	$user = Auth::User();
+        $empresa = Empresa::find($user->idEmpresa);
         return View('Users.perfil')->with('user',$user)
+        ->with('empresa',$empresa)
         ->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades);
     }
 
     public function postmodificarPerfil(Request $request){
         $user = Auth::User();
-        $user->nombreEstablecimiento = $request->nombreEstablecimiento;
-        $user->eslogan = $request->eslogan;        
-        $user->nit = $request->nit;
-        $user->telefono = $request->telefono;
-        $user->celular = $request->celular;
-        $user->direccion = $request->direccion;
+        $empresa = Empresa::find($user->idEmpresa);
+
+        $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
+        $empresa->eslogan = $request->eslogan;        
+        $empresa->nit = $request->nit;
+        $empresa->telefono = $request->telefono;
+        $empresa->celular = $request->celular;
+        $empresa->direccion = $request->direccion;
         $user->departamento = $request->idDepto;
         $user->ciudad = $request->idCiudad;
 
@@ -67,13 +72,14 @@ class UserController extends Controller
           $perfilNombre = 'perfil' . time() . '.' . $file->getClientOriginalExtension();
           //indicamos que queremos guardar un nuevo archivo en el disco local
           $file->move($path, $perfilNombre);
-          if($user->imagen != "perfil.jpg"){
-            $imagenActual = $path . $user->imagen;
+          if($empresa->imagen != "perfil.jpg"){
+            $imagenActual = $path . $empresa->imagen;
             unlink($imagenActual);
           }
-          $user->imagen = $perfilNombre;
+          $empresa->imagen = $perfilNombre;
         }
 
+        $empresa->save();
         $user->save();
         flash::success('Perfil modificado exitosamente')->important();
         return redirect('/Perfil');

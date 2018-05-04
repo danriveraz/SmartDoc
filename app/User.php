@@ -31,7 +31,11 @@ class User extends Authenticatable
       return $query->where('email', 'like', '%' .$email. '%');
     }
 
-    public function scopeIdentity($query, $nit){
-      return $query->where('nit', 'like', '%' .$nit. '%');
+    public function scopeIdentity($query, $cedula){
+      return $query->where('cedula', 'like', '%' .$cedula. '%');
+    }
+
+    public function scopeEmpresa($query, $idEmpresa){
+      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');
     }
 }
