@@ -138,10 +138,13 @@
 							        	</div>
 						        	</div>
 						        	<div class="row">
-						        		<div class="col-md-4">
+						        		<div class="col-md-3">
 									        <input id="nombrePaciente{{$agenda->id}}" name="nombrePaciente{{$agenda->id}}" type="text" class="form-control" placeholder="Nombre del paciente" required="true" value="{{$agenda->nombrePaciente}}">
 							        	</div>
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
+									        <input id="cedulaPaciente{{$agenda->id}}"" name="cedulaPaciente{{$agenda->id}}"" type="text" class="form-control" placeholder="Cedula del paciente" value="{{$agenda->cedulaPaciente}}"" required="true">
+							        	</div>
+							        	<div class="col-md-3">
 							        		<select id="personal{{$agenda->id}}" name='personal{{$agenda->id}}' class="form-control" placeholder="" required>
 							                  	@foreach($personales as $personal)
 								                    <option value="{{$personal->id}}"
@@ -152,7 +155,7 @@
 								               	@endforeach
 							            	</select>
 							        	</div>
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
 									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control">
 									        	<option value="green" 
 									        	@if($agenda->color == "green")

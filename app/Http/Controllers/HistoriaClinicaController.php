@@ -45,460 +45,468 @@ class HistoriaClinicaController extends Controller
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
 
-        $historia = new HistoriaClinica();
-        if($user->esAdmin){
-            $historia->sexo = $request->sexo;
-            $historia->tipoDocumento = $request->tipoDocumento;
+        $lookforahistory = HistoriaClinica::identity($request->documento)->get();
+
+        if(sizeof($lookforahistory) != 0){
+            flash('Historia clinica ya existente')->error()->important();
+            return redirect('/HistoriaClinica');
+        }else{
+            $historia = new HistoriaClinica();
+            if($user->esAdmin){
+                $historia->sexo = $request->sexo;
+                $historia->tipoDocumento = $request->tipoDocumento;
+            }
+            $historia->nombreCompleto = $request->nombreCompleto;
+            $historia->documento = $request->documento;
+
+            //Se crea el odontograma
+
+            //Primeros 10
+            //Inicio diente 1 y sus partes
+            $diente1 = new Diente();
+            $diente1->numero = 18;
+            $diente1->save();
+            //Fin diente 1 y sus partes
+
+            //Inicio diente 2 y sus partes
+            $diente2 = new Diente();
+            $diente2->numero = 17;
+            $diente2->save();
+            //Fin diente 2 y sus partes
+
+            //Inicio diente 3 y sus partes
+            
+            $diente3 = new Diente();
+            $diente3->numero = 16;
+            $diente3->save();
+            //Fin diente 3 y sus partes
+
+            //Inicio diente 4 y sus partes
+            
+            $diente4 = new Diente();
+            $diente4->numero = 15;
+            $diente4->save();
+            //Fin diente 4 y sus partes
+
+            //Inicio diente 5 y sus partes
+            $diente5 = new Diente();
+            $diente5->numero = 14;
+            $diente5->save();
+            //Fin diente 5 y sus partes
+
+            //Inicio diente 6 y sus partes
+            
+            $diente6 = new Diente();
+            $diente6->numero = 13;
+            $diente6->save();
+            //Fin diente 6 y sus partes
+
+            //Inicio diente 7 y sus partes
+            
+            $diente7 = new Diente();
+            $diente7->numero = 12;
+            $diente7->save();
+            //Fin diente 7 y sus partes
+
+            //Inicio diente 8 y sus partes
+            
+            $diente8 = new Diente();
+            $diente8->numero = 11;
+            $diente8->save();
+            //Fin diente 8 y sus partes
+
+            //Inicio diente 9 y sus partes
+            
+            $diente9 = new Diente();
+            $diente9->numero = 21;
+            $diente9->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 10 y sus partes
+            
+            $diente10 = new Diente();
+            $diente10->numero = 22;
+            $diente10->save();
+            //Fin diente 10 y sus partes
+            //Fin primeros 10
+
+            //Segundos 10
+            //Inicio diente 11 y sus partes
+            
+            $diente11 = new Diente();
+            $diente11->numero = 23;
+            $diente11->save();
+            //Fin diente 11 y sus partes
+
+            //Inicio diente 12 y sus partes
+            
+            $diente12 = new Diente();
+            $diente12->numero = 24;
+            $diente12->save();
+            //Fin diente 12 y sus partes
+
+            //Inicio diente 13 y sus partes
+            
+            $diente13 = new Diente();
+            $diente13->numero = 25;
+            $diente13->save();
+            //Fin diente 13 y sus partes
+
+            //Inicio diente 14 y sus partes
+            
+            $diente14 = new Diente();
+            $diente14->numero = 26;
+            $diente14->save();
+            //Fin diente 14 y sus partes
+
+            //Inicio diente 15 y sus partes
+            
+            $diente15 = new Diente();
+            $diente15->numero = 27;
+            $diente15->save();
+            //Fin diente 15 y sus partes
+
+            //Inicio diente 16 y sus partes
+            
+            $diente16 = new Diente();
+            $diente16->numero = 28;
+            $diente16->save();
+            //Fin diente 16 y sus partes
+
+            //Inicio diente 17 y s
+            
+            $diente17 = new Diente();
+            $diente17->numero = 55;
+            $diente17->save();
+            //Fin diente 17 y sus partes
+
+            //Inicio diente 18 y sus partes
+            
+            $diente18 = new Diente();
+            $diente18->numero = 54;
+            $diente18->save();
+            //Fin diente 18 y sus partes
+
+            //Inicio diente 19 y sus partes
+            
+            $diente19 = new Diente();
+            $diente19->numero = 53;
+            $diente19->save();
+            //Fin diente 19 y sus partes
+
+            //Inicio diente 20 y sus partes
+            
+            $diente20 = new Diente();
+            $diente20->numero = 52;
+            $diente20->save();
+            //Fin diente 20 y sus partes
+            //Fin segundos 10
+
+            //Terceros 10
+            //Inicio diente 21 y sus partes
+            
+            $diente21 = new Diente();
+            $diente21->numero = 51;
+            $diente21->save();
+            //Fin diente 21 y sus partes
+
+            //Inicio diente 22 y sus partes
+            
+            $diente22 = new Diente();
+            $diente22->numero = 61;
+            $diente22->save();
+            //Fin diente 22 y sus partes
+
+            //Inicio diente 23 y sus partes
+            
+            $diente23 = new Diente();
+            $diente23->numero = 62;
+            $diente23->save();
+            //Fin diente 23 y sus partes
+
+            //Inicio diente 24 y sus partes
+            
+            $diente24 = new Diente();
+            $diente24->numero = 63;
+            $diente24->save();
+            //Fin diente 24 y sus partes
+
+            //Inicio diente 25 y sus partes
+            
+            $diente25 = new Diente();
+            $diente25->numero = 64;
+            $diente25->save();
+            //Fin diente 25 y sus partes
+
+            //Inicio diente 26 y sus partes
+            
+            $diente26 = new Diente();
+            $diente26->numero = 65;
+            $diente26->save();
+            //Fin diente 26 y sus partes
+
+            //Inicio diente 27 y sus partes
+            
+            $diente27 = new Diente();
+            $diente27->numero = 85;
+            $diente27->save();
+            //Fin diente 27 y sus partes
+
+            //Inicio diente 28 y sus partes
+            
+            $diente28 = new Diente();
+            $diente28->numero = 84;
+            $diente28->save();
+            //Fin diente 28 y sus partes
+
+            //Inicio diente 29 y sus partes
+            
+            $diente29 = new Diente();
+            $diente29->numero = 83;
+            $diente29->save();
+            //Fin diente 29 y sus partes
+
+            //Inicio diente 30 y sus partes
+            
+            $diente30 = new Diente();
+            $diente30->numero = 82;
+            $diente30->save();
+            //Fin diente 30 y sus partes
+            //Fin terceros 10
+
+            //Cuartos 10
+            //Inicio diente 31 y sus partes
+            
+            $diente31 = new Diente();
+            $diente31->numero = 81;
+            $diente31->save();
+            //Fin diente 31 y sus partes
+
+            //Inicio diente 32 y sus partes
+            
+            $diente32 = new Diente();
+            $diente32->numero = 71;
+            $diente32->save();
+            //Fin diente 32 y sus partes
+
+            //Inicio diente 33 y sus partes
+            
+            $diente33 = new Diente();
+            $diente33->numero = 72;
+            $diente33->save();
+            //Fin diente 33 y sus partes
+
+            //Inicio diente 34 y sus partes
+            
+            $diente34 = new Diente();
+            $diente34->numero = 73;
+            $diente34->save();
+            //Fin diente 34 y sus partes
+
+            //Inicio diente 35 y sus partes
+            
+            $diente35 = new Diente();
+            $diente35->numero = 74;
+            $diente35->save();
+            //Fin diente 35 y sus partes
+
+            //Inicio diente 36 y sus partes
+            
+            $diente36 = new Diente();
+            $diente36->numero = 75;
+            $diente36->save();
+            //Fin diente 36 y sus partes
+
+            //Inicio diente 37 y sus partes
+            
+            $diente37 = new Diente();
+            $diente37->numero = 48;
+            $diente37->save();
+            //Fin diente 37 y sus partes
+
+            //Inicio diente 38 y sus partes
+            
+            $diente38 = new Diente();
+            $diente38->numero = 47;
+            $diente38->save();
+            //Fin diente 38 y sus partes
+
+            //Inicio diente 39 y sus partes
+            
+            $diente39 = new Diente();
+            $diente39->numero = 46;
+            $diente39->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 40 y sus partes
+            
+            $diente40 = new Diente();
+            $diente40->numero = 45;
+            $diente40->save();
+            //Fin diente 40 y sus partes
+            //Fin cuartos 10
+
+            //Quintos 10
+            //Inicio diente 41 y sus 
+            $diente41 = new Diente();
+            $diente41->numero = 44;
+            $diente41->save();
+            //Fin diente 41 y sus partes
+
+            //Inicio diente 42 y sus partes
+            
+            
+            $diente42 = new Diente();
+            $diente42->numero = 43;
+            $diente42->save();
+            //Fin diente 42 y sus partes
+
+            //Inicio diente 43 y sus partes
+            
+            
+            $diente43 = new Diente();
+            $diente43->numero = 42;
+            $diente43->save();
+            //Fin diente 43 y sus partes
+
+            //Inicio diente 44 y sus partes
+            
+            
+            $diente44 = new Diente();
+            $diente44->numero = 41;
+            $diente44->save();
+            //Fin diente 44 y sus partes
+
+            //Inicio diente 45 y sus partes
+            
+            $diente45 = new Diente();
+            $diente45->numero = 31;
+            $diente45->save();
+            //Fin diente 45 y sus partes
+
+            //Inicio diente 46 y sus partes
+            
+            $diente46 = new Diente();
+            $diente46->numero = 32;
+            $diente46->save();
+            //Fin diente 46 y sus partes
+
+            //Inicio diente 47 y sus partes
+           
+            $diente47 = new Diente();
+            $diente47->numero = 33;
+            $diente47->save();
+            //Fin diente 47 y sus partes
+
+            //Inicio diente 48 y sus partes
+            
+            $diente48 = new Diente();
+            $diente48->numero = 34;
+            $diente48->save();
+            //Fin diente 48 y sus partes
+
+            //Inicio diente 49 y sus partes
+            
+            $diente49 = new Diente();
+            $diente49->numero = 35;
+            $diente49->save();
+            //Fin diente 49 y sus partes
+
+            //Inicio diente 50 y sus partes
+            
+            $diente50 = new Diente();
+            $diente50->numero = 36;
+            $diente50->save();
+            //Fin diente 50 y sus partes
+            //Fin quintos 10
+
+            //Inicio ultimos 2
+            //Inicio diente 51 y sus partes
+            
+            $diente51 = new Diente();
+            $diente51->numero = 37;
+            $diente51->save();
+            //Fin diente 51 y sus partes
+
+            //Inicio diente 52 y sus partes
+            
+            $diente52 = new Diente();
+            $diente52->numero = 38;
+            $diente52->save();
+            //Fin diente 52 y sus partes
+            //Fin ultimos 2
+
+            //Se crea el odontograma y se le asignan los 52 dientes que manejará
+            $odontograma = new Odontograma();
+            //Primeros 10
+            $odontograma->idDiente1 = $diente1->id;
+            $odontograma->idDiente2 = $diente2->id;
+            $odontograma->idDiente3 = $diente3->id;
+            $odontograma->idDiente4 = $diente4->id;
+            $odontograma->idDiente5 = $diente5->id;
+            $odontograma->idDiente6 = $diente6->id;
+            $odontograma->idDiente7 = $diente7->id;
+            $odontograma->idDiente8 = $diente8->id;
+            $odontograma->idDiente9 = $diente9->id;
+            $odontograma->idDiente10 = $diente10->id;
+            //Segundos 10
+            $odontograma->idDiente11 = $diente11->id;
+            $odontograma->idDiente12 = $diente12->id;
+            $odontograma->idDiente13 = $diente13->id;
+            $odontograma->idDiente14 = $diente14->id;
+            $odontograma->idDiente15 = $diente15->id;
+            $odontograma->idDiente16 = $diente16->id;
+            $odontograma->idDiente17 = $diente17->id;
+            $odontograma->idDiente18 = $diente18->id;
+            $odontograma->idDiente19 = $diente19->id;
+            $odontograma->idDiente20 = $diente20->id;
+            //Terceros 10
+            $odontograma->idDiente21 = $diente21->id;
+            $odontograma->idDiente22 = $diente22->id;
+            $odontograma->idDiente23 = $diente23->id;
+            $odontograma->idDiente24 = $diente24->id;
+            $odontograma->idDiente25 = $diente25->id;
+            $odontograma->idDiente26 = $diente26->id;
+            $odontograma->idDiente27 = $diente27->id;
+            $odontograma->idDiente28 = $diente28->id;
+            $odontograma->idDiente29 = $diente29->id;
+            $odontograma->idDiente30 = $diente30->id;
+            //Cuartos 10
+            $odontograma->idDiente31 = $diente31->id;
+            $odontograma->idDiente32 = $diente32->id;
+            $odontograma->idDiente33 = $diente33->id;
+            $odontograma->idDiente34 = $diente34->id;
+            $odontograma->idDiente35 = $diente35->id;
+            $odontograma->idDiente36 = $diente36->id;
+            $odontograma->idDiente37 = $diente37->id;
+            $odontograma->idDiente38 = $diente38->id;
+            $odontograma->idDiente39 = $diente39->id;
+            $odontograma->idDiente40 = $diente40->id;
+            //Quintos 10
+            $odontograma->idDiente41 = $diente41->id;
+            $odontograma->idDiente42 = $diente42->id;
+            $odontograma->idDiente43 = $diente43->id;
+            $odontograma->idDiente44 = $diente44->id;
+            $odontograma->idDiente45 = $diente45->id;
+            $odontograma->idDiente46 = $diente46->id;
+            $odontograma->idDiente47 = $diente47->id;
+            $odontograma->idDiente48 = $diente48->id;
+            $odontograma->idDiente49 = $diente49->id;
+            $odontograma->idDiente50 = $diente50->id;
+            //Ultimos 2
+            $odontograma->idDiente51 = $diente51->id;
+            $odontograma->idDiente52 = $diente52->id;
+
+            $odontograma->save();
+
+            $historia->idOdontograma = $odontograma->id;
+            $historia->idEmpresa = $user->idEmpresa;
+            $historia->save();
+
+            session_start();
+            $_SESSION['id'] = $historia->id;
+            return redirect()->route('historia.editHistoriaClinica');
         }
-        $historia->nombreCompleto = $request->nombreCompleto;
-        $historia->documento = $request->documento;
-        //Se crea el odontograma
-
-        //Primeros 10
-        //Inicio diente 1 y sus partes
-        $diente1 = new Diente();
-        $diente1->numero = 18;
-        $diente1->save();
-        //Fin diente 1 y sus partes
-
-        //Inicio diente 2 y sus partes
-        $diente2 = new Diente();
-        $diente2->numero = 17;
-        $diente2->save();
-        //Fin diente 2 y sus partes
-
-        //Inicio diente 3 y sus partes
-        
-        $diente3 = new Diente();
-        $diente3->numero = 16;
-        $diente3->save();
-        //Fin diente 3 y sus partes
-
-        //Inicio diente 4 y sus partes
-        
-        $diente4 = new Diente();
-        $diente4->numero = 15;
-        $diente4->save();
-        //Fin diente 4 y sus partes
-
-        //Inicio diente 5 y sus partes
-        $diente5 = new Diente();
-        $diente5->numero = 14;
-        $diente5->save();
-        //Fin diente 5 y sus partes
-
-        //Inicio diente 6 y sus partes
-        
-        $diente6 = new Diente();
-        $diente6->numero = 13;
-        $diente6->save();
-        //Fin diente 6 y sus partes
-
-        //Inicio diente 7 y sus partes
-        
-        $diente7 = new Diente();
-        $diente7->numero = 12;
-        $diente7->save();
-        //Fin diente 7 y sus partes
-
-        //Inicio diente 8 y sus partes
-        
-        $diente8 = new Diente();
-        $diente8->numero = 11;
-        $diente8->save();
-        //Fin diente 8 y sus partes
-
-        //Inicio diente 9 y sus partes
-        
-        $diente9 = new Diente();
-        $diente9->numero = 21;
-        $diente9->save();
-        //Fin diente 9 y sus partes
-
-        //Inicio diente 10 y sus partes
-        
-        $diente10 = new Diente();
-        $diente10->numero = 22;
-        $diente10->save();
-        //Fin diente 10 y sus partes
-        //Fin primeros 10
-
-        //Segundos 10
-        //Inicio diente 11 y sus partes
-        
-        $diente11 = new Diente();
-        $diente11->numero = 23;
-        $diente11->save();
-        //Fin diente 11 y sus partes
-
-        //Inicio diente 12 y sus partes
-        
-        $diente12 = new Diente();
-        $diente12->numero = 24;
-        $diente12->save();
-        //Fin diente 12 y sus partes
-
-        //Inicio diente 13 y sus partes
-        
-        $diente13 = new Diente();
-        $diente13->numero = 25;
-        $diente13->save();
-        //Fin diente 13 y sus partes
-
-        //Inicio diente 14 y sus partes
-        
-        $diente14 = new Diente();
-        $diente14->numero = 26;
-        $diente14->save();
-        //Fin diente 14 y sus partes
-
-        //Inicio diente 15 y sus partes
-        
-        $diente15 = new Diente();
-        $diente15->numero = 27;
-        $diente15->save();
-        //Fin diente 15 y sus partes
-
-        //Inicio diente 16 y sus partes
-        
-        $diente16 = new Diente();
-        $diente16->numero = 28;
-        $diente16->save();
-        //Fin diente 16 y sus partes
-
-        //Inicio diente 17 y s
-        
-        $diente17 = new Diente();
-        $diente17->numero = 55;
-        $diente17->save();
-        //Fin diente 17 y sus partes
-
-        //Inicio diente 18 y sus partes
-        
-        $diente18 = new Diente();
-        $diente18->numero = 54;
-        $diente18->save();
-        //Fin diente 18 y sus partes
-
-        //Inicio diente 19 y sus partes
-        
-        $diente19 = new Diente();
-        $diente19->numero = 53;
-        $diente19->save();
-        //Fin diente 19 y sus partes
-
-        //Inicio diente 20 y sus partes
-        
-        $diente20 = new Diente();
-        $diente20->numero = 52;
-        $diente20->save();
-        //Fin diente 20 y sus partes
-        //Fin segundos 10
-
-        //Terceros 10
-        //Inicio diente 21 y sus partes
-        
-        $diente21 = new Diente();
-        $diente21->numero = 51;
-        $diente21->save();
-        //Fin diente 21 y sus partes
-
-        //Inicio diente 22 y sus partes
-        
-        $diente22 = new Diente();
-        $diente22->numero = 61;
-        $diente22->save();
-        //Fin diente 22 y sus partes
-
-        //Inicio diente 23 y sus partes
-        
-        $diente23 = new Diente();
-        $diente23->numero = 62;
-        $diente23->save();
-        //Fin diente 23 y sus partes
-
-        //Inicio diente 24 y sus partes
-        
-        $diente24 = new Diente();
-        $diente24->numero = 63;
-        $diente24->save();
-        //Fin diente 24 y sus partes
-
-        //Inicio diente 25 y sus partes
-        
-        $diente25 = new Diente();
-        $diente25->numero = 64;
-        $diente25->save();
-        //Fin diente 25 y sus partes
-
-        //Inicio diente 26 y sus partes
-        
-        $diente26 = new Diente();
-        $diente26->numero = 65;
-        $diente26->save();
-        //Fin diente 26 y sus partes
-
-        //Inicio diente 27 y sus partes
-        
-        $diente27 = new Diente();
-        $diente27->numero = 85;
-        $diente27->save();
-        //Fin diente 27 y sus partes
-
-        //Inicio diente 28 y sus partes
-        
-        $diente28 = new Diente();
-        $diente28->numero = 84;
-        $diente28->save();
-        //Fin diente 28 y sus partes
-
-        //Inicio diente 29 y sus partes
-        
-        $diente29 = new Diente();
-        $diente29->numero = 83;
-        $diente29->save();
-        //Fin diente 29 y sus partes
-
-        //Inicio diente 30 y sus partes
-        
-        $diente30 = new Diente();
-        $diente30->numero = 82;
-        $diente30->save();
-        //Fin diente 30 y sus partes
-        //Fin terceros 10
-
-        //Cuartos 10
-        //Inicio diente 31 y sus partes
-        
-        $diente31 = new Diente();
-        $diente31->numero = 81;
-        $diente31->save();
-        //Fin diente 31 y sus partes
-
-        //Inicio diente 32 y sus partes
-        
-        $diente32 = new Diente();
-        $diente32->numero = 71;
-        $diente32->save();
-        //Fin diente 32 y sus partes
-
-        //Inicio diente 33 y sus partes
-        
-        $diente33 = new Diente();
-        $diente33->numero = 72;
-        $diente33->save();
-        //Fin diente 33 y sus partes
-
-        //Inicio diente 34 y sus partes
-        
-        $diente34 = new Diente();
-        $diente34->numero = 73;
-        $diente34->save();
-        //Fin diente 34 y sus partes
-
-        //Inicio diente 35 y sus partes
-        
-        $diente35 = new Diente();
-        $diente35->numero = 74;
-        $diente35->save();
-        //Fin diente 35 y sus partes
-
-        //Inicio diente 36 y sus partes
-        
-        $diente36 = new Diente();
-        $diente36->numero = 75;
-        $diente36->save();
-        //Fin diente 36 y sus partes
-
-        //Inicio diente 37 y sus partes
-        
-        $diente37 = new Diente();
-        $diente37->numero = 48;
-        $diente37->save();
-        //Fin diente 37 y sus partes
-
-        //Inicio diente 38 y sus partes
-        
-        $diente38 = new Diente();
-        $diente38->numero = 47;
-        $diente38->save();
-        //Fin diente 38 y sus partes
-
-        //Inicio diente 39 y sus partes
-        
-        $diente39 = new Diente();
-        $diente39->numero = 46;
-        $diente39->save();
-        //Fin diente 9 y sus partes
-
-        //Inicio diente 40 y sus partes
-        
-        $diente40 = new Diente();
-        $diente40->numero = 45;
-        $diente40->save();
-        //Fin diente 40 y sus partes
-        //Fin cuartos 10
-
-        //Quintos 10
-        //Inicio diente 41 y sus 
-        $diente41 = new Diente();
-        $diente41->numero = 44;
-        $diente41->save();
-        //Fin diente 41 y sus partes
-
-        //Inicio diente 42 y sus partes
-        
-        
-        $diente42 = new Diente();
-        $diente42->numero = 43;
-        $diente42->save();
-        //Fin diente 42 y sus partes
-
-        //Inicio diente 43 y sus partes
-        
-        
-        $diente43 = new Diente();
-        $diente43->numero = 42;
-        $diente43->save();
-        //Fin diente 43 y sus partes
-
-        //Inicio diente 44 y sus partes
-        
-        
-        $diente44 = new Diente();
-        $diente44->numero = 41;
-        $diente44->save();
-        //Fin diente 44 y sus partes
-
-        //Inicio diente 45 y sus partes
-        
-        $diente45 = new Diente();
-        $diente45->numero = 31;
-        $diente45->save();
-        //Fin diente 45 y sus partes
-
-        //Inicio diente 46 y sus partes
-        
-        $diente46 = new Diente();
-        $diente46->numero = 32;
-        $diente46->save();
-        //Fin diente 46 y sus partes
-
-        //Inicio diente 47 y sus partes
-       
-        $diente47 = new Diente();
-        $diente47->numero = 33;
-        $diente47->save();
-        //Fin diente 47 y sus partes
-
-        //Inicio diente 48 y sus partes
-        
-        $diente48 = new Diente();
-        $diente48->numero = 34;
-        $diente48->save();
-        //Fin diente 48 y sus partes
-
-        //Inicio diente 49 y sus partes
-        
-        $diente49 = new Diente();
-        $diente49->numero = 35;
-        $diente49->save();
-        //Fin diente 49 y sus partes
-
-        //Inicio diente 50 y sus partes
-        
-        $diente50 = new Diente();
-        $diente50->numero = 36;
-        $diente50->save();
-        //Fin diente 50 y sus partes
-        //Fin quintos 10
-
-        //Inicio ultimos 2
-        //Inicio diente 51 y sus partes
-        
-        $diente51 = new Diente();
-        $diente51->numero = 37;
-        $diente51->save();
-        //Fin diente 51 y sus partes
-
-        //Inicio diente 52 y sus partes
-        
-        $diente52 = new Diente();
-        $diente52->numero = 38;
-        $diente52->save();
-        //Fin diente 52 y sus partes
-        //Fin ultimos 2
-
-        //Se crea el odontograma y se le asignan los 52 dientes que manejará
-        $odontograma = new Odontograma();
-        //Primeros 10
-        $odontograma->idDiente1 = $diente1->id;
-        $odontograma->idDiente2 = $diente2->id;
-        $odontograma->idDiente3 = $diente3->id;
-        $odontograma->idDiente4 = $diente4->id;
-        $odontograma->idDiente5 = $diente5->id;
-        $odontograma->idDiente6 = $diente6->id;
-        $odontograma->idDiente7 = $diente7->id;
-        $odontograma->idDiente8 = $diente8->id;
-        $odontograma->idDiente9 = $diente9->id;
-        $odontograma->idDiente10 = $diente10->id;
-        //Segundos 10
-        $odontograma->idDiente11 = $diente11->id;
-        $odontograma->idDiente12 = $diente12->id;
-        $odontograma->idDiente13 = $diente13->id;
-        $odontograma->idDiente14 = $diente14->id;
-        $odontograma->idDiente15 = $diente15->id;
-        $odontograma->idDiente16 = $diente16->id;
-        $odontograma->idDiente17 = $diente17->id;
-        $odontograma->idDiente18 = $diente18->id;
-        $odontograma->idDiente19 = $diente19->id;
-        $odontograma->idDiente20 = $diente20->id;
-        //Terceros 10
-        $odontograma->idDiente21 = $diente21->id;
-        $odontograma->idDiente22 = $diente22->id;
-        $odontograma->idDiente23 = $diente23->id;
-        $odontograma->idDiente24 = $diente24->id;
-        $odontograma->idDiente25 = $diente25->id;
-        $odontograma->idDiente26 = $diente26->id;
-        $odontograma->idDiente27 = $diente27->id;
-        $odontograma->idDiente28 = $diente28->id;
-        $odontograma->idDiente29 = $diente29->id;
-        $odontograma->idDiente30 = $diente30->id;
-        //Cuartos 10
-        $odontograma->idDiente31 = $diente31->id;
-        $odontograma->idDiente32 = $diente32->id;
-        $odontograma->idDiente33 = $diente33->id;
-        $odontograma->idDiente34 = $diente34->id;
-        $odontograma->idDiente35 = $diente35->id;
-        $odontograma->idDiente36 = $diente36->id;
-        $odontograma->idDiente37 = $diente37->id;
-        $odontograma->idDiente38 = $diente38->id;
-        $odontograma->idDiente39 = $diente39->id;
-        $odontograma->idDiente40 = $diente40->id;
-        //Quintos 10
-        $odontograma->idDiente41 = $diente41->id;
-        $odontograma->idDiente42 = $diente42->id;
-        $odontograma->idDiente43 = $diente43->id;
-        $odontograma->idDiente44 = $diente44->id;
-        $odontograma->idDiente45 = $diente45->id;
-        $odontograma->idDiente46 = $diente46->id;
-        $odontograma->idDiente47 = $diente47->id;
-        $odontograma->idDiente48 = $diente48->id;
-        $odontograma->idDiente49 = $diente49->id;
-        $odontograma->idDiente50 = $diente50->id;
-        //Ultimos 2
-        $odontograma->idDiente51 = $diente51->id;
-        $odontograma->idDiente52 = $diente52->id;
-
-        $odontograma->save();
-
-        $historia->idOdontograma = $odontograma->id;
-        $historia->idEmpresa = $user->idEmpresa;
-        $historia->save();
-
-        session_start();
-        $_SESSION['id'] = $historia->id;
-        return redirect()->route('historia.editHistoriaClinica');
     }
 
     public function edit($id){
