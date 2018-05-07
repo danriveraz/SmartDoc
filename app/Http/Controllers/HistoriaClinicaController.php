@@ -21,26 +21,23 @@ class HistoriaClinicaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $userActual = Auth::user();
-        if($userActual != null){
-          if($userActual->esPropietario){
-            return redirect('/Registro');
-          }else if (!$userActual->esAdmin) {
-              flash('No Tiene Los Permisos Necesarios')->error()->important();
-              return redirect('/WelcomeTrabajador')->send();
-          }
-        }
-
     }
 
     public function historiaClinica(){
         $user = Auth::User();
         $historiasClinicas = HistoriaClinica::admin($user->idEmpresa)->get();
         $empresa = Empresa::find($user->idEmpresa);
-       	return View('HistoriaClinica.historiaClinica')
-       	->with('user', $user)
-        ->with('empresa',$empresa)
-        ->with('historiasClinicas', $historiasClinicas);
+        if($user->esAdmin){
+            return View('HistoriaClinica.historiaClinica')
+            ->with('user', $user)
+            ->with('empresa',$empresa)
+            ->with('historiasClinicas', $historiasClinicas);
+        }else{
+            return View('HistoriaClinica.historiaClinicaTrabajador')
+            ->with('user', $user)
+            ->with('empresa',$empresa)
+            ->with('historiasClinicas', $historiasClinicas);
+        }
     }
 
     public function createHistoriaClinica(Request $request){
@@ -49,9 +46,11 @@ class HistoriaClinicaController extends Controller
         $ciudades = Ciudad::all();
 
         $historia = new HistoriaClinica();
+        if($user->esAdmin){
+            $historia->sexo = $request->sexo;
+            $historia->tipoDocumento = $request->tipoDocumento;
+        }
         $historia->nombreCompleto = $request->nombreCompleto;
-        $historia->sexo = $request->sexo;
-        $historia->tipoDocumento = $request->tipoDocumento;
         $historia->documento = $request->documento;
         //Se crea el odontograma
 
@@ -898,13 +897,23 @@ class HistoriaClinicaController extends Controller
 
         $empresa = Empresa::find($user->idEmpresa);
         
-        return View('HistoriaClinica.crearHistoriaClinica')
-        ->with('departamentos',$departamentos)
-        ->with('ciudades', $ciudades)
-        ->with('user',$user)
-        ->with('empresa',$empresa)
-        ->with('historia',$historia)
-        ->with('odontograma2array', $odontograma2array);
+        if($user->esAdmin){
+             return View('HistoriaClinica.crearHistoriaClinica')
+            ->with('departamentos',$departamentos)
+            ->with('ciudades', $ciudades)
+            ->with('user',$user)
+            ->with('empresa',$empresa)
+            ->with('historia',$historia)
+            ->with('odontograma2array', $odontograma2array);
+        }else{
+             return View('HistoriaClinica.crearHistoriaClinicaTrabajador')
+            ->with('departamentos',$departamentos)
+            ->with('ciudades', $ciudades)
+            ->with('user',$user)
+            ->with('empresa',$empresa)
+            ->with('historia',$historia)
+            ->with('odontograma2array', $odontograma2array);
+        }
     }
 
     public function posteditHistoriaClinica(Request $request, $id){

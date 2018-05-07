@@ -11,4 +11,8 @@ class Agenda extends Model
     public function scopeAdmin($query, $idEmpresa){
       return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');   
     }
+
+    public function scopeTrabajador($query, $idUsuario){
+      return $query->where('idUsuario', 'like', '%' .$idUsuario. '%');   
+    }
 }

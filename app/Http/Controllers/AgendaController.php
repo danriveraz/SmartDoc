@@ -32,7 +32,8 @@ class AgendaController extends Controller
         $evento->titulo = $request->titulo;
         $evento->fechaInicio = $request->fechaInicio;
         $evento->hora = $request->hora;
-        $evento->horaFin = $request->horaFin;
+        $evento->nombrePaciente = $request->nombrePaciente;
+        $evento->cedulaPaciente = $request->cedulaPaciente;
         $evento->idUsuario = $request->personal;
         $evento->idEmpresa = $userActual->idEmpresa;
         $evento->color = "orange";
@@ -46,7 +47,8 @@ class AgendaController extends Controller
         $titulo = "titulo".$id;
         $fechaInicio = "fechaInicio".$id;
         $hora = "hora".$id;
-        $horaFin = "horaFin".$id;
+        $nombrePaciente = "nombrePaciente".$id;
+        $cedulaPaciente = "cedulaPaciente".$id;
         $personal = "personal".$id;
         $color = "color".$id;
 
@@ -55,7 +57,8 @@ class AgendaController extends Controller
         $agenda2update->titulo = $request->$titulo;
         $agenda2update->fechaInicio = $request->$fechaInicio;
         $agenda2update->hora = $request->$hora;
-        $agenda2update->horaFin = $request->$horaFin;
+        $agenda2update->nombrePaciente = $request->$nombrePaciente;
+        $agenda2update->cedulaPaciente = $request->$cedulaPaciente;
         $agenda2update->idUsuario = $request->$personal;
         $agenda2update->color = $request->$color;
         $agenda2update->save();

@@ -33,10 +33,13 @@
 	        	</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-4">
-			        <input id="horaFin" name="horaFin" type="text" class="form-control" placeholder="Hora fin" required="true">
+        		<div class="col-md-3">
+			        <input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
+			        <input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cedula del paciente" required="true">
+	        	</div>
+	        	<div class="col-md-3">
 	        		<select id="personal" name='personal' class="form-control" placeholder="" required>
 	                  	<option value="" selected="selected">Persona encargada</option>
 	                  	@foreach($personales as $personal)
@@ -44,7 +47,7 @@
 		               	@endforeach
 	            	</select>
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 			        <input id="color" name="color" type="text" class="form-control" value="Estado: por atender" disabled>
 	        	</div>
         	</div>
@@ -67,11 +70,12 @@
 			<table id="example" class="table table-striped" style="width:100%">
 		        <thead>
 		            <tr>
-		                <th width="20%">Titulo</th>
+		            	<th width="10%">Hora</th>
+		                <th width="15%">Titulo</th>
 						<th width="20%">Encargado</th>
+						<th width="20%">Paciente</th>
+						<th width="20%">Cedula</th>
 		                <th width="15%">Fecha</th>
-		                <th width="15%">Hora inicio</th>
-		                <th width="15%">Hora fin</th>
 		                <th width="5%">Estado</th>
 		                <th width="10%">Opciones</th>
 		            </tr>
@@ -79,6 +83,7 @@
 		        <tbody>
 		        	@foreach($agendas as $agenda)
 		            <tr>
+		            	<td>{{$agenda->hora}}</td>
 		                <td>{{$agenda->titulo}}</td>
 		                <td>
 		                	@foreach($personales as $personal)
@@ -87,9 +92,9 @@
 		                		@endif
 		                	@endforeach
 		                </td>
+		                <td>{{$agenda->nombrePaciente}}</td>
+		                <td>{{$agenda->cedulaPaciente}}</td>
 		                <td>{{$agenda->fechaInicio}}</td>
-		                <td>{{$agenda->hora}}</td>
-		                <td>{{$agenda->horaFin}}</td>
 		                <td align="center">
 		                	@if($agenda->color == "green")
 		                		<span class="fa fa-circle" style="color: green" title="Atendido"></span>
@@ -134,7 +139,7 @@
 						        	</div>
 						        	<div class="row">
 						        		<div class="col-md-4">
-									        <input id="horaFin{{$agenda->id}}" name="horaFin{{$agenda->id}}" type="text" class="form-control" placeholder="Hora fin" required="true" value="{{$agenda->horaFin}}">
+									        <input id="nombrePaciente{{$agenda->id}}" name="nombrePaciente{{$agenda->id}}" type="text" class="form-control" placeholder="Nombre del paciente" required="true" value="{{$agenda->nombrePaciente}}">
 							        	</div>
 							        	<div class="col-md-4">
 							        		<select id="personal{{$agenda->id}}" name='personal{{$agenda->id}}' class="form-control" placeholder="" required>

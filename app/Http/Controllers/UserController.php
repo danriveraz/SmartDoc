@@ -87,7 +87,10 @@ class UserController extends Controller
 
     public function modificarConfiguracion(){
         $user = Auth::User();
-        return View('Users.configuracion')->with('user',$user);
+        $empresa = Empresa::find($user->idEmpresa);
+        return View('Users.configuracion')
+        ->with('empresa', $empresa)
+        ->with('user',$user);
     }
 
     public function postmodificarConfiguracion(Request $request){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Agenda;
 use App\Empresa;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -21,8 +22,10 @@ class WelcomeTrabajadorController extends Controller
     {	
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
+        $agendas = Agenda::Trabajador($user->id)->get();
         return View('WelcomeTrabajador.welcome')
         ->with('empresa',$empresa)
+        ->with('agendas',$agendas)
         ->with('user',$user);
     }
 }
