@@ -17,6 +17,7 @@ Route::get('/', 'Auth\AuthController@getLogin');
 Route::post('Auth/login', 'Auth\AuthController@postLogin');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 
+
 Route::get('Consultorio/', 'UserController@index');
 Route::get('Registro', 'UserController@registro');
 

@@ -22,22 +22,14 @@
        	{{ csrf_field() }}
       	<div class="modal-body">
         	<div class="row">
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 		          	<input id="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo" required="true">
 	        	</div>
-	        	<div class="col-md-4">
+	        	<div class="col-md-3">
 	        		<input id="fechaInicio" name="fechaInicio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
 	        	</div>
-	        	<div class="col-md-4">
-			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
-	        	</div>
-        	</div>
-        	<div class="row">
-        		<div class="col-md-3">
-			        <input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
-	        	</div>
 	        	<div class="col-md-3">
-			        <input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cedula del paciente" required="true">
+			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
 	        	</div>
 	        	<div class="col-md-3">
 	        		<select id="personal" name='personal' class="form-control" placeholder="" required>
@@ -46,6 +38,17 @@
 		                    <option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
 		               	@endforeach
 	            	</select>
+	        	</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">
+			        <input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
+	        	</div>
+	        	<div class="col-md-3">
+			        <input id="emailPaciente" name="emailPaciente" type="email" class="form-control" placeholder="Correo" required="true">
+	        	</div>
+	        	<div class="col-md-3">
+			        <input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cedula del paciente" required="true">
 	        	</div>
 	        	<div class="col-md-3">
 			        <input id="color" name="color" type="text" class="form-control" value="Estado: por atender" disabled>
@@ -127,22 +130,14 @@
 			       				{{ csrf_field() }}
 						      	<div class="modal-body">
 						      		<div class="row">
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
 								          	<input id="titulo{{$agenda->id}}" name="titulo{{$agenda->id}}" type="text" class="form-control" placeholder="Titulo" required="true" value="{{$agenda->titulo}}">
 							        	</div>
-							        	<div class="col-md-4">
+							        	<div class="col-md-3">
 							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$agenda->fechaInicio}}" />
 							        	</div>
-							        	<div class="col-md-4">
-									        <input id="hora{{$agenda->id}}" name="hora{{$agenda->id}}" type="text" class="form-control" placeholder="Hora inicio" required="true" value="{{$agenda->hora}}">
-							        	</div>
-						        	</div>
-						        	<div class="row">
-						        		<div class="col-md-3">
-									        <input id="nombrePaciente{{$agenda->id}}" name="nombrePaciente{{$agenda->id}}" type="text" class="form-control" placeholder="Nombre del paciente" required="true" value="{{$agenda->nombrePaciente}}">
-							        	</div>
 							        	<div class="col-md-3">
-									        <input id="cedulaPaciente{{$agenda->id}}"" name="cedulaPaciente{{$agenda->id}}"" type="text" class="form-control" placeholder="Cedula del paciente" value="{{$agenda->cedulaPaciente}}"" required="true">
+									        <input id="hora{{$agenda->id}}" name="hora{{$agenda->id}}" type="text" class="form-control" placeholder="Hora inicio" required="true" value="{{$agenda->hora}}">
 							        	</div>
 							        	<div class="col-md-3">
 							        		<select id="personal{{$agenda->id}}" name='personal{{$agenda->id}}' class="form-control" placeholder="" required>
@@ -154,6 +149,17 @@
 								                     >{{$personal->nombreCompleto}}</option>
 								               	@endforeach
 							            	</select>
+							        	</div>
+						        	</div>
+						        	<div class="row">
+						        		<div class="col-md-3">
+									        <input id="nombrePaciente{{$agenda->id}}" name="nombrePaciente{{$agenda->id}}" type="text" class="form-control" placeholder="Nombre del paciente" required="true" value="{{$agenda->nombrePaciente}}">
+							        	</div>
+							        	<div class="col-md-3">
+									        <input id="emailPaciente{{$agenda->id}}" name="emailPaciente{{$agenda->id}}" type="email" class="form-control" placeholder="Correo" required="true" value="{{$agenda->emailPaciente}}">
+							        	</div>
+							        	<div class="col-md-3">
+									        <input id="cedulaPaciente{{$agenda->id}}" name="cedulaPaciente{{$agenda->id}}"" type="text" class="form-control" placeholder="Cedula del paciente" value="{{$agenda->cedulaPaciente}}"" required="true">
 							        	</div>
 							        	<div class="col-md-3">
 									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control">

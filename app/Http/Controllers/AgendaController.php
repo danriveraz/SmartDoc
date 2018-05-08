@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\User;
 use App\Personal;
 use App\Agenda;
@@ -33,11 +34,19 @@ class AgendaController extends Controller
         $evento->fechaInicio = $request->fechaInicio;
         $evento->hora = $request->hora;
         $evento->nombrePaciente = $request->nombrePaciente;
+        $evento->emailPaciente = $request->emailPaciente;
         $evento->cedulaPaciente = $request->cedulaPaciente;
         $evento->idUsuario = $request->personal;
         $evento->idEmpresa = $userActual->idEmpresa;
         $evento->color = "orange";
         $evento->save();
+
+        $data = $evento;
+        $personal = User::find($evento->idUsuario);
+
+        Mail::send('Emails.confirmacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
+            $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+        });
 
         flash('Registro exitoso')->success()->important();
         return redirect('/WelcomeAdmin');
@@ -48,6 +57,7 @@ class AgendaController extends Controller
         $fechaInicio = "fechaInicio".$id;
         $hora = "hora".$id;
         $nombrePaciente = "nombrePaciente".$id;
+        $emailPaciente = "emailPaciente".$id;
         $cedulaPaciente = "cedulaPaciente".$id;
         $personal = "personal".$id;
         $color = "color".$id;
@@ -58,10 +68,18 @@ class AgendaController extends Controller
         $agenda2update->fechaInicio = $request->$fechaInicio;
         $agenda2update->hora = $request->$hora;
         $agenda2update->nombrePaciente = $request->$nombrePaciente;
+        $agenda2update->emailPaciente = $request->$emailPaciente;
         $agenda2update->cedulaPaciente = $request->$cedulaPaciente;
         $agenda2update->idUsuario = $request->$personal;
         $agenda2update->color = $request->$color;
         $agenda2update->save();
+
+        $data = $agenda2update;
+        $personal = User::find($agenda2update->idUsuario);
+
+        Mail::send('Emails.modificacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
+            $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+        });
 
         flash('Modificación exitosa')->success()->important();
         return redirect('/WelcomeAdmin');   
