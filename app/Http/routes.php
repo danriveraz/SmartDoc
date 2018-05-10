@@ -50,6 +50,7 @@ Route::get('editHistoriaClinica/{id}/destroy', ['uses' => 'HistoriaClinicaContro
 
 
 Route::get('ResetPassword', 'HomeController@resetPassword');
+Route::get('ResetPassword/edit', ['uses' => 'HomeController@postresetPassword', 'as' => 'password.postresetPassword']);
 
 Route::get('PocketCompany', 'UserController@registroPropietario');
 

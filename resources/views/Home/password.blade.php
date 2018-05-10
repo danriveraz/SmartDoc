@@ -45,18 +45,19 @@
               <div class="text-center mb-6">
                 <img src="./assets/brand/tabler.svg" class="h-6" alt="">
               </div>
-              <form class="card" action="" method="post">
+              {!! Form::open(['route' => ['password.postresetPassword'], 'class' => 'card' ,'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+              {{ csrf_field() }}
                 <div class="card-body p-6">
                   <div class="card-title">Recuperar contraseña</div>
                   <p class="text-muted">Ingresa tu correo electrónico y se enviará una nueva contraseña a esa dirección.</p>
                   <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo">
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Correo" required="true">
                   </div>
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary btn-block">Enviar nueva contraseña</button>
                   </div>
                 </div>
-              </form>
+              {{ Form::close() }}
               <div class="text-center text-muted">
                 Olvídalo, quiero <a href="{{url('/')}}">volver</a> a la pantalla principal.
               </div>

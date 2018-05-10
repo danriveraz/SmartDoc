@@ -17,15 +17,6 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         $userActual = Auth::user();
-        if($userActual != null){
-          if($userActual->esPropietario){
-            return redirect('/Registro');
-          }else if (!$userActual->esAdmin) {
-              flash('No Tiene Los Permisos Necesarios')->error()->important();
-              return redirect('/WelcomeTrabajador')->send();
-          }
-        }
-
     }
     
     public function index(){
@@ -88,9 +79,15 @@ class UserController extends Controller
     public function modificarConfiguracion(){
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
-        return View('Users.configuracion')
-        ->with('empresa', $empresa)
-        ->with('user',$user);
+        if($user->esAdmin){
+            return View('Users.configuracion')
+            ->with('empresa', $empresa)
+            ->with('user',$user);
+        }else{
+            return View('Users.configuracionTrabajador')
+            ->with('empresa', $empresa)
+            ->with('user',$user);
+        }
     }
 
     public function postmodificarConfiguracion(Request $request){

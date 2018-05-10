@@ -17,12 +17,11 @@ class WelcomeAdminController extends Controller
         $this->middleware('auth');
         $userActual = Auth::user();
         if($userActual != null){
-            if (!$userActual->esAdmin) {
-                flash('No Tiene Los Permisos Necesarios')->error()->important();
-                return redirect('/WelcomeTrabajador');
-            }
+          if (!$userActual->esAdmin) {
+              flash('No Tiene Los Permisos Necesarios')->error()->important();
+              return redirect('/WelcomeTrabajador')->send();
+          }
         }
-
     }
 
     public function index()

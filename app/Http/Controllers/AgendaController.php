@@ -77,9 +77,15 @@ class AgendaController extends Controller
         $data = $agenda2update;
         $personal = User::find($agenda2update->idUsuario);
 
-        Mail::send('Emails.modificacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
-            $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
-        });
+        if($agenda2update->color == "red"){
+            Mail::send('Emails.cancelacion', ['data' => $data], function($mail) use($data){
+                $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+            });
+        }else{
+            Mail::send('Emails.modificacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
+                $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+            });
+        }
 
         flash('Modificación exitosa')->success()->important();
         return redirect('/WelcomeAdmin');   
