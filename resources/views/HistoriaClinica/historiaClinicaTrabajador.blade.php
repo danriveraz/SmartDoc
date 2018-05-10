@@ -13,7 +13,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar historia clinica</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -71,7 +71,7 @@
 		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia clinica" href="{{route('historia.edit', $historiaClinica->id)}}">
 		                			<i class="fe fe-edit-2"></i>
 		                		</a>
-		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><i class="fe fe-trash-2"></i></button>
+		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar historia"><i class="fe fe-trash-2"></i></button>
 					        {{ Form::close() }}
 		                </td>
 		            </tr>

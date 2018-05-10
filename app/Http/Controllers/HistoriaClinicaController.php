@@ -1598,4 +1598,71 @@ class HistoriaClinicaController extends Controller
         flash('Eliminación exitosa')->success()->important();
         return redirect('/HistoriaClinica');
     }
+
+    public function observacion($id){
+      session_start();
+      $_SESSION['id'] = $id;
+      return redirect()->route('historia.observacionHistoriaClinica');
+    }
+
+    public function observacionHistoriaClinica(){
+      $user = Auth::User();
+      session_start();
+      $id = $_SESSION['id'];
+      $historia = HistoriaClinica::find($id);
+      $empresa = Empresa::find($user->idEmpresa);
+      $observaciones = Observaciones::Search($historia->id)->get();
+      return View('HistoriaClinica.observaciones')
+      ->with('observaciones',$observaciones)
+      ->with('empresa',$empresa)
+      ->with('historia',$historia);
+    }
+
+    public function postcreateObservacion(Request $request, $id){
+      $historia = HistoriaClinica::find($id);
+      $observaciones = new Observaciones();
+
+      $observaciones->fecha = $request->fecha;
+      $observaciones->diente = $request->diente;
+      $observaciones->actividad = $request->actividad;
+      $observaciones->descripcion = $request->descripcion;
+      $observaciones->codigoCUPS = $request->codigoCUPS;
+      $observaciones->valorCopago = $request->valorCopago;
+      $observaciones->idHistoriaClinica = $historia->id;
+      $observaciones->save();
+
+      session_start();
+      $_SESSION['id'] = $id;
+      return redirect()->route('historia.observacionHistoriaClinica');
+    }
+
+    public function editObservacion(Request $request, $id){
+      $fecha = "fecha".$id;
+      $diente = "diente".$id;
+      $actividad = "actividad".$id;
+      $descripcion = "descripcion".$id;
+      $codigoCUPS =  "codigoCUPS".$id;
+      $valorCopago = "valorCopago".$id;
+
+      $observacion = Observaciones::find($id);
+      $observacion->fecha = $request->$fecha;
+      $observacion->diente = $request->$diente;
+      $observacion->actividad = $request->$actividad;
+      $observacion->descripcion = $request->$descripcion;
+      $observacion->codigoCUPS = $request->$codigoCUPS;
+      $observacion->valorCopago = $request->$valorCopago;
+      $observacion->save();
+
+      $id = $observacion->idHistoriaClinica;
+      $_SESSION['id'] = $id;
+      return redirect()->route('historia.observacionHistoriaClinica');
+    }
+
+    public function postdeleteObservacion($id){
+      $observacion2destroy = Observaciones::find($id);
+      $id = $observacion2destroy->idHistoriaClinica;
+      $_SESSION['id'] = $id;
+      $observacion2destroy->delete();
+      return redirect()->route('historia.observacionHistoriaClinica');
+    }
 }

@@ -43,9 +43,21 @@ Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@pos
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
 Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinica', 'as' => 'Auth.usuario.showCreateHistoriaClinica']);//Esta ruta es la principal de Historia clinica, sirve para crear.
 Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@edit', 'as' => 'historia.edit']);
+
+Route::get('HistoriaClinica/{id}/observacion', ['uses' => 'HistoriaClinicaController@observacion', 'as' => 'historia.observacion']);
+
+Route::get('observaciones', ['uses' => 'HistoriaClinicaController@observacionHistoriaClinica', 'as' => 'historia.observacionHistoriaClinica']);
+
+Route::get('observaciones/{id}/create', ['uses' => 'HistoriaClinicaController@postcreateObservacion', 'as' => 'historia.postcreateObservacion']);
+
+Route::get('observaciones/{id}/edit', ['uses' => 'HistoriaClinicaController@editObservacion', 'as' => 'historia.editObservacion']);
+
+Route::get('observaciones/{id}/destroy', ['uses' => 'HistoriaClinicaController@postdeleteObservacion', 'as' => 'historia.postdeleteObservacion']);
+
 Route::get('editHistoriaClinica', ['uses' => 'HistoriaClinicaController@editHistoriaClinica', 'as' => 'historia.editHistoriaClinica']);
 
 Route::get('editHistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@posteditHistoriaClinica', 'as' => 'historia.posteditHistoriaClinica']);
+Route::get('editHistoriaClinica/{id}/observacion', ['uses' => 'HistoriaClinicaController@postobservacionHistoriaClinica', 'as' => 'historia.postobservacionHistoriaClinica']);
 Route::get('editHistoriaClinica/{id}/destroy', ['uses' => 'HistoriaClinicaController@postdeleteHistoriaClinica', 'as' => 'historia.postdeleteHistoriaClinica']);
 
 

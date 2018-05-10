@@ -13,7 +13,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar historia clinica</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -67,11 +67,11 @@
 			<table id="example" class="table table-striped" style="width:100%">
 		        <thead>
 		            <tr>
-		                <th width="30%">Nombre</th>
+		                <th width="35%">Nombre</th>
 		                <th width="20%">Documento</th>
-		                <th width="20%">Sexo</th>
-		                <th width="20%">Edad</th>
-		                <th width="10%">Opciones</th>
+		                <th width="15%">Sexo</th>
+		                <th width="5%">Edad</th>
+		                <th width="20%">Opciones</th>
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -84,10 +84,13 @@
 		                <td>
 		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
 		       				{{ csrf_field() }}
+			       				<a class="btn btn-primary btn-sm ml-2" title="Observaciones" href="{{route('historia.observacion', $historiaClinica->id)}}">
+			                			<i class="fe fe-eye"></i>
+		                		</a>
 		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia clinica" href="{{route('historia.edit', $historiaClinica->id)}}">
 		                			<i class="fe fe-edit-2"></i>
 		                		</a>
-		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><i class="fe fe-trash-2"></i></button>
+		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar historia"><i class="fe fe-trash-2"></i></button>
 					        {{ Form::close() }}
 		                </td>
 		            </tr>
