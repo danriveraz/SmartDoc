@@ -684,22 +684,38 @@
 		          			<div class="row">
 		          				<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="cariados" name="cariados" placeholder="No Cariados" value="{{$historia->cariados}}">
+	          							@if($historia->cariados == 0)
+	          								<input type="text" class="form-control" id="cariados" name="cariados" placeholder="No Cariados" value="">
+	          							@else
+	          								<input type="text" class="form-control" id="cariados" name="cariados" placeholder="No Cariados" value="{{$historia->cariados}}">
+	          							@endif
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="obturados" name="obturados" placeholder="No Obturados" value="{{$historia->obturados}}">
+	          							@if($historia->obturados == 0)
+	          								<input type="text" class="form-control" id="obturados" name="obturados" placeholder="No Obturados" value="">
+	          							@else
+	          								<input type="text" class="form-control" id="obturados" name="obturados" placeholder="No Obturados" value="{{$historia->obturados}}">
+	          							@endif
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="exfoliados" name="exfoliados" placeholder="No Exfoliados" value="{{$historia->exfoliados}}">
+	          							@if($historia->exfoliados == 0)
+	          								<input type="text" class="form-control" id="exfoliados" name="exfoliados" placeholder="No Exfoliados" value="">
+	          							@else
+	          								<input type="text" class="form-control" id="exfoliados" name="exfoliados" placeholder="No Exfoliados" value="{{$historia->exfoliados}}">
+	          							@endif
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							<input type="text" class="form-control" id="sanos" name="sanos" placeholder="No Sano" value="{{$historia->sanos}}">
+	          							@if($historia->sanos == 0)
+	          								<input type="text" class="form-control" id="sanos" name="sanos" placeholder="No Sano" value="">
+	          							@else
+	          								<input type="text" class="form-control" id="sanos" name="sanos" placeholder="No Sano" value="{{$historia->sanos}}">
+	          							@endif
 	          						</div>
 	          					</div>
 		          			</div>
@@ -801,13 +817,40 @@
 			                    </div>
 			                </div>
 			                <br>			                	
-			                <div class="form-group" style="text-align: center;">
-			                    <button type="submit" class="btn btn-primary">
-			                    	Guardar
-			                    </button>
-			                </div>
 			            </div>
 			        </div>
+			        <div class="card">
+	              		<div class="card-header">
+	                  		<h3 class="card-title">Plan de tratamiento aprobado</h3>
+	              		</div>
+	              		<!-- inicio del contenedor del campo texto-->
+		          		<div class="card-body">
+		          			<div class="row">
+					        	<div class="col-md-12">
+					        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="">{{$historia->planTratamientoAprobado}}</textarea>
+					        	</div>
+					        </div>
+					        <br>
+					        <div class="row" align="center">
+					        	<div class="col-md-12">
+					        		<div class="form-group">
+					        			@if($historia->costoTratamiento == 0)
+					        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" style="width: 20%">
+					        			@else
+					        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$historia->costoTratamiento}}" style="width: 20%">
+					        			@endif
+					        		</div>
+					        	</div>
+					        </div>
+		          		</div>
+		          	</div>
+		          	<div class="">
+          				<div class="form-group" style="text-align: center;">
+		                    <button type="submit" class="btn btn-primary">
+		                    	Guardar
+		                    </button>
+		                </div>
+	          		</div>
 		        {{ Form::close() }}
           	</div>
 	    </div>	

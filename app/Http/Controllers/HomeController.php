@@ -27,6 +27,6 @@ class HomeController extends Controller
             $mail->to($user->email)->subject('Olvidé mi contraseña');
         });
 
-    	return redirect('/')->with('message', 'Hemos envíado un nuava contraseña a tu correo');
+    	return redirect('/')->with('message', 'Hemos envíado un nueva contraseña a tu correo');
     }
 }

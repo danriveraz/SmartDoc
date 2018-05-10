@@ -999,6 +999,9 @@ class HistoriaClinicaController extends Controller
         $historia->sanos = $request->sanos;
         $historia->observacionesEE = $request->observacionesEE;
 
+        $historia->planTratamientoAprobado = $request->planTratamientoAprobado;
+        $historia->costoTratamiento = $request->costoTratamiento;
+
         //Inicio modificar odontograma
 
         $odontograma = Odontograma::find($historia->idOdontograma);
