@@ -1612,10 +1612,17 @@ class HistoriaClinicaController extends Controller
       $historia = HistoriaClinica::find($id);
       $empresa = Empresa::find($user->idEmpresa);
       $observaciones = Observaciones::Search($historia->id)->get();
-      return View('HistoriaClinica.observaciones')
-      ->with('observaciones',$observaciones)
-      ->with('empresa',$empresa)
-      ->with('historia',$historia);
+      if($user->esAdmin){
+            return View('HistoriaClinica.observaciones')
+            ->with('observaciones',$observaciones)
+            ->with('empresa',$empresa)
+            ->with('historia',$historia);
+      }else{
+            return View('HistoriaClinica.observacionesTrabajador')
+            ->with('observaciones',$observaciones)
+            ->with('empresa',$empresa)
+            ->with('historia',$historia);
+      }
     }
 
     public function postcreateObservacion(Request $request, $id){
