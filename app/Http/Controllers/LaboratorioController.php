@@ -54,4 +54,31 @@ class LaboratorioController extends Controller
         flash('Registro exitoso')->success()->important();
         return redirect('/Laboratorio');
     }
+
+    public function postupdateLaboratorio(Request $request, $id){
+        $nombreLaboratorio = "nombreLaboratorio".$id;
+        $referencia = "referencia".$id;
+        $valor = "valor".$id;
+        $fechaEnvio = "fechaEnvio".$id;
+        $fechaEntrega = "fechaEntrega".$id;
+
+        $laboratorio2update = Laboratorio::find($id);
+        $laboratorio2update->nombreLaboratorio = $request-> $nombreLaboratorio;
+        $laboratorio2update->referencia = $request->$referencia;
+        $laboratorio2update->valor = $request->$valor;
+        $laboratorio2update->fechaEnvio = $request->$fechaEnvio;
+        $laboratorio2update->fechaEntrega = $request->$fechaEntrega;
+
+        $laboratorio2update->save();
+        flash('Modificación exitosa')->success()->important();
+        return redirect('/Laboratorio');
+    }
+
+
+    public function postdeleteLaboratorio($id){
+        $laboratorio2delete = Laboratorio::find($id);
+        $laboratorio2delete->delete();
+        flash('Eliminación exitoso')->success()->important();
+        return redirect('/Laboratorio');
+    }
 }
