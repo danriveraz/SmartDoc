@@ -39,6 +39,10 @@ Route::get('Procedimiento', ['uses' => 'ProcedimientoController@modificarProcedi
 Route::get('Procedimiento/{id}/edit', ['uses' => 'ProcedimientoController@postupdateProcedimiento', 'as' => 'Auth.usuario.updateProcedimiento']);//Esta ruta sirve para modificar un "Procedimiento"
 Route::get('Procedimiento/{id}/destroy', ['uses' => 'ProcedimientoController@postdeleteProcedimiento', 'as' => 'Auth.usuario.deleteProcedimiento']);//Esta ruta sirve para eliminar un "Procedimiento"
 
+//Laboratorio
+Route::post('Laboratorio', ['uses' => 'LaboratorioController@postcreateLaboratorio', 'as' => 'Auth.usuario.createLaboratorio']); ////Esta ruta es la principal de Laboratorio, sirve para crear.
+Route::get('Laboratorio', ['uses' => 'LaboratorioController@createLaboratorio', 'as' => 'Auth.usuario.showcreateLaboratorio']);//Esta ruta es la principal de Laboratorio, sirve para crear.
+
 //Historia clinica
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
 Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinica', 'as' => 'Auth.usuario.showCreateHistoriaClinica']);//Esta ruta es la principal de Historia clinica, sirve para crear.

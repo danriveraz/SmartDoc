@@ -82,15 +82,15 @@
 		                <td>{{$historiaClinica->sexo}}</td>
 		                <td>{{$historiaClinica->edad}}</td>
 		                <td>
-		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$historiaClinica->id"]) !!}
 		       				{{ csrf_field() }}
 			       				<a class="btn btn-primary btn-sm ml-2" title="Observaciones" href="{{route('historia.observacion', $historiaClinica->id)}}">
 			                			<i class="fe fe-eye"></i>
 		                		</a>
-		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia clinica" href="{{route('historia.edit', $historiaClinica->id)}}">
+		                		<a class="btn btn-primary btn-sm ml-2" title="Editar historia" href="{{route('historia.edit', $historiaClinica->id)}}">
 		                			<i class="fe fe-edit-2"></i>
 		                		</a>
-		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar historia"><i class="fe fe-trash-2"></i></button>
+		                		<a class="btn btn-danger btn-sm ml-2" title="Eliminar historia" onclick="eliminar({{$historiaClinica->id}})"><i class="fe fe-trash-2"></i></a>
 					        {{ Form::close() }}
 		                </td>
 		            </tr>
@@ -104,6 +104,13 @@
 </div>
 
 <script type="text/javascript">
+	function eliminar(id){
+		if(confirm('¿Desea eliminar esta historia? Se perderán todos los datos.')){
+			var form = document.getElementById("form"+id);
+			form.submit();
+		}
+	}
+
 	$(document).ready(function() {
 	    $('#example').DataTable();
 	} );

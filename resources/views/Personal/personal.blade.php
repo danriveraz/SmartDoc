@@ -92,9 +92,9 @@
 			        <button id="{{$personal->id}}" class="btn btn-primary btn-sm" data-toggle="modal" 
 			        	href="#editModal{{$personal->id}}" title="Agregar personal"><span class="fe fe-edit-2"></span></button>
 			        @if(!$personal->esAdmin)
-				        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+				        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$personal->id"]) !!}
 	       				{{ csrf_field() }}
-				        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><span class="fe fe-trash-2"></span></button>
+				        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar personal" onclick="eliminar({{$personal->id}})"><span class="fe fe-trash-2"></span></a>
 				        {{ Form::close() }}
 				    @endif
 			    </div>
@@ -198,6 +198,14 @@
 
 <!-- Para fecha de nacimiento, departamento y ciudad -->
 <script>
+
+	function eliminar(id){
+		if(confirm('¿Desea eliminar este personal? Se perderán todos los datos.')){
+			var form = document.getElementById("form"+id);
+			form.submit();
+		}
+	}
+
 	require(['input-mask']);
 
 	$('#idDepto').on('change', function (event) {

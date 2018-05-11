@@ -82,12 +82,12 @@
 		                <td>{{$observacion->codigoCUPS}}</td>
 		                <td>{{$observacion->valorCopago}}</td>
 		                <td>
-		                	{!! Form::open(['route' => ['historia.postdeleteObservacion', $observacion], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+		                	{!! Form::open(['route' => ['historia.postdeleteObservacion', $observacion], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$observacion->id"]) !!}
 		       				{{ csrf_field() }}
 		                		<a class="btn btn-primary btn-sm" data-toggle="modal" href="#editModal{{$observacion->id}}" style="width: 40%;">
 	                        		<i class="fa fa-pencil"></i>
 	                      		</a>
-		                		<button class="btn btn-danger btn-sm ml-2" title="Eliminar observación"><i class="fe fe-trash-2"></i></button>
+		                		<a class="btn btn-danger btn-sm ml-2" title="Eliminar observación" onclick="eliminar({{$observacion->id}})"><i class="fe fe-trash-2"></i></a>
 					        {{ Form::close() }}
 		                </td>
 		                <!--Modal edit procedimiento -->
@@ -147,6 +147,14 @@
 </div>
 
 <script type="text/javascript">
+
+	function eliminar(id){
+		if(confirm('¿Desea eliminar esta observación? Se perderán todos los datos.')){
+			var form = document.getElementById("form"+id);
+			form.submit();
+		}
+	}
+
 	$(document).ready(function() {
 	    $('#example').DataTable();
 	} );

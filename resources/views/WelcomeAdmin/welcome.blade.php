@@ -108,12 +108,12 @@
 		                	@endif
 		                </td>
 		                <td>
-	                      	{!! Form::open(['route' => ['Auth.usuario.eliminarAgenda', $agenda], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+	                      	{!! Form::open(['route' => ['Auth.usuario.eliminarAgenda', $agenda], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$agenda->id"]) !!}
 		       				{{ csrf_field() }}
 			       				<a class="btn btn-primary btn-sm" data-toggle="modal" href="#editModal{{$agenda->id}}" style="width: 40%;">
 	                        		<i class="fa fa-pencil"></i>
 	                      		</a>
-					        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><i class="fe fe-trash-2"></i></button>
+					        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar evento" onclick="eliminar({{$agenda->id}})"><i class="fe fe-trash-2"></i></a>
 					        {{ Form::close() }}
 		                </td>
 		                <!--Modal edit procedimiento -->
@@ -203,6 +203,13 @@
 
 
 <script type="text/javascript">
+	function eliminar(id){
+		if(confirm('¿Desea eliminar este evento? Se perderán todos los datos.')){
+			var form = document.getElementById("form"+id);
+			form.submit();
+		}
+	}
+
 	$(document).ready(function() {
 	    $('#example').DataTable();
 	} );

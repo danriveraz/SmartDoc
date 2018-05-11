@@ -91,7 +91,6 @@
                       <span>Configuración</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">¿Neceista ayuda? </a>
                     <a class="dropdown-item" href="{{url('Auth/logout')}}">Salir</a>
                   </div>
                 </div>
@@ -114,7 +113,7 @@
                       <a href="{{url('/Procedimiento')}}" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
+                    <a href="{{url('/Laboratorio')}}" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
                   </li>
                   <li class="nav-item">
                     <a href="{{url('/HistoriaClinica')}}" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>

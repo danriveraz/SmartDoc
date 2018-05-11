@@ -8,7 +8,7 @@
 	<div class="container">
 	    <div class="row row-cards">
     	 	<div class="col-lg-12">
-    	 		{!! Form::open(['route' => ['historia.posteditHistoriaClinica', $historia], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+    	 		{!! Form::open(['route' => ['historia.posteditHistoriaClinica', $historia], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => 'formGuardar']) !!}
        			{{ csrf_field() }}
     	 			<div class="card">
 	              		<div class="card-header">
@@ -846,9 +846,15 @@
 		          	</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center;">
-		                    <button type="submit" class="btn btn-primary">
+		                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">
 		                    	Guardar
 		                    </button>
+		                    <button type="submit" class="btn btn-primary" name="observacion" id="observacion" onclick="setValue(this)">
+		                    	Añadir observación
+		                    </button>
+		                    <div class="form-group" hidden="true">
+		                    	<input type="text" name="activador" id="activador" value="">
+		                    </div>
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -1646,6 +1652,14 @@
 	        }
 		}
 	});
+
+	function setValue(idBtn) {
+		if(idBtn.id == "guardar"){
+	    	activador.value = 1;
+	    }else if(idBtn.id == "observacion"){
+	    	activador.value = 2;
+	    }
+	}
 </script>
 
 @endsection

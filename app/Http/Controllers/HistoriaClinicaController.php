@@ -1479,9 +1479,15 @@ class HistoriaClinicaController extends Controller
         $diente52->save();
 
         $historia->save();
+        
         session_start();
         $_SESSION['id'] = $id;
-        return redirect()->route('historia.editHistoriaClinica');
+        
+        if($request->activador == 1){
+            return redirect()->route('historia.editHistoriaClinica');
+        }else if($request->activador == 2){
+            return redirect()->route('historia.observacionHistoriaClinica');
+        }
     }
 
     public function postdeleteHistoriaClinica(Request $request, $id){

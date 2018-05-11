@@ -79,12 +79,12 @@
 		                <td>{{$procedimiento->duracion}}</td>
 		                <td>{{$procedimiento->descripcion}}</td>
 		                <td>
-	                      	{!! Form::open(['route' => ['Auth.usuario.deleteProcedimiento', $procedimiento], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$procedimiento->id"]) !!}
+	                      	{!! Form::open(['route' => ['Auth.usuario.deleteProcedimiento', $procedimiento], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
 		       				{{ csrf_field() }}
 			       				<a class="btn btn-primary btn-sm" data-toggle="modal" href="#editModal{{$procedimiento->id}}" style="width: 40%;">
 	                        		<i class="fa fa-pencil"></i>
 	                      		</a>
-					        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar procedimiento" onclick="eliminar({{$procedimiento->id}})"><i class="fe fe-trash-2"></i></a>
+					        	<button class="btn btn-danger btn-sm ml-2" title="Eliminar personal"><i class="fe fe-trash-2"></i></button>
 					        {{ Form::close() }}
 		                </td>
 		                <!--Modal edit procedimiento -->
@@ -140,18 +140,11 @@
 
 
 
-<script type="text/javascript">
-	function eliminar(id){
-		if(confirm('¿Desea eliminar este procedimiento? Se perderán todos los datos.')){
-			var form = document.getElementById("form"+id);
-			form.submit();
-		}
-	}
-
-	$(document).ready(function() {
-	    $('#example').DataTable();
-	} );
-</script>
-<!-- end DataTables Example -->
+    <script type="text/javascript">
+    	$(document).ready(function() {
+		    $('#example').DataTable();
+		} );
+    </script>
+	<!-- end DataTables Example -->
 
 @endsection
