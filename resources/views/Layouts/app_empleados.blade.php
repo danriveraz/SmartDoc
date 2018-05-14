@@ -26,10 +26,8 @@
     {!!Html::script("javascripts\datatable-editable.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
+    {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
     <script src="{{asset('assets/js/require.min.js')}}"></script>
-    
-
-
 
     <script>
       requirejs.config({
@@ -59,7 +57,6 @@
     <!--Estilos para imagen perfil-->
     {!!Html::style('stylesheets/style.css')!!}
     {!!Html::style('stylesheetspropio\stylePropio.css')!!}
-
 
     <!-- End scripts-->
 

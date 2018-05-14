@@ -26,8 +26,8 @@
 		          	<input id="nombreLaboratorio" name="nombreLaboratorio" type="text" class="form-control" placeholder="Nombre laboratorio" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-			        <select class="form-control custom-select" id="cedulaPaciente"  name="cedulaPaciente" required>
-                        <option value="">Documento paciente</option>
+			        <select class="selectpicker" id="cedulaPaciente"  data-live-search="true" name="cedulaPaciente" required>
+                        <option value="">Documento</option>
                           	@foreach($historiasClinicas as $historia)
                                 <option value="{{$historia->id}}">{{$historia->documento}}</option>
                           	@endforeach
@@ -48,7 +48,7 @@
 			        <input id="fechaEnvio" name="fechaEnvio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha envío AA/MM/DD" required="true" />
 	        	</div>
 	        	<div class="col-md-4">
-			        <input id="fechaEntrega" name="fechaEntrega" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fechaEntrega AA/MM/DD" required="true" />
+			        <input id="fechaEntrega" name="fechaEntrega" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha Entrega AA/MM/DD" required="true" />
 	        	</div>
 	        </div>
       </div>

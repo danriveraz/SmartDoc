@@ -18,7 +18,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {!! Form::open(['action' => ['AgendaController@postcrearAgenda'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+      {!! Form::open(['action' => ['AgendaController@postcrearAgenda'], 'method' => 'POST','enctype' => 'multipart/form-data', 'id' => "formCrear"]) !!}
        	{{ csrf_field() }}
       	<div class="modal-body">
         	<div class="row">
@@ -56,7 +56,7 @@
         	</div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar</a>
       </div>
       {{ Form::close() }}
     </div>
@@ -215,7 +215,27 @@
 	} );
 
 	require(['input-mask']);
+
+	var JSONcitas = eval(<?php echo json_encode($citas2array); ?>);
+	$documento = document.getElementById("cedulaPaciente");
+	function agregar(){
+		
+		for (var i = 0; i < JSONcitas.length; i++){
+			if($documento.value == JSONcitas[i][0]){
+				if(confirm('Elementos en el laboratorio sin llegar para este paciente, ¿desea agendar igualmente?')){
+					var form = document.getElementById("formCrear");
+					form.submit();
+					break;
+				}
+			}	
+		}
+	}
 </script>
-<!-- end DataTables Example -->
+
+<style type="text/css">
+	#btn-crear{
+		color: #fff;
+	}
+</style>
 
 @endsection
