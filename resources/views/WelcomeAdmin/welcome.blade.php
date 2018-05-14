@@ -225,9 +225,13 @@
 				if(confirm('Elementos en el laboratorio sin llegar para este paciente, ¿desea agendar igualmente?')){
 					var form = document.getElementById("formCrear");
 					form.submit();
-					break;
 				}
-			}	
+			break;
+			}else{
+				var form = document.getElementById("formCrear");
+				form.submit();
+				break;
+			}
 		}
 	}
 </script>
