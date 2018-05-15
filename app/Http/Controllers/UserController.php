@@ -27,10 +27,6 @@ class UserController extends Controller
         return View('Users.registro');
     }
 
-    public function registroPropietario(){
-        return View('Users.registroPropietario');
-    }
-
     public function modificarPerfil(){
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
@@ -120,4 +116,12 @@ class UserController extends Controller
             return redirect('/Configuracion');          
         }
     }
+
+    public function verificarUser(){
+    if(Auth::check()){
+      return response()->json(['success' => true,'message' => 'Está todavía logueado']);
+    }else{
+      return response()->json(['success' => false,'message' => 'Ya no está logueado']);
+    }
+  }
 }

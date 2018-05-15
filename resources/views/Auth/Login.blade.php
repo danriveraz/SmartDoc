@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>    
+        <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{csrf_token()}}">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Login</title>        
-        
+        <title>SmartDoc</title>        
+        <link type="image/x-icon" rel="shortcut icon" src="{{asset('assetsNew/images/icon(2).png')}}">
         <!-- Estilos y Fuentes -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:300,400" rel="stylesheet">
         <link rel="stylesheet" href="assetsNew/styles/normalize.css" type="text/css" />
         <link rel="stylesheet" href="assetsNew/styles/styles-login-min.css" type="text/css" />
-        <link type="image/x-icon" rel="shortcut icon" href="../assetsNew/images/icon.png"/>
+        <link type="image/x-icon" rel="shortcut icon" href="{{asset('assetsNew/images/icon(2).png')}}""/>
     </head>
     <body id="">
     </head>
@@ -19,7 +21,7 @@
     <aside class="sidebar-large1">
         <div class="user-access">
             <div class="user-access-header">
-                <a href="{{url('')}}" class="logo"><img src="images/logo smartdoc 290x72.png"></a>
+                <a href="{{url('PocketCompany')}}" class="logo"><img src="images/logo smartdoc 290x72.png"></a>
                 <p class="intro-title" style="color: #210B61">Bienvenido</p>
                 <p class="intro-summary" style="color: #210B61">controla tu negocio con solo unos clicks</p>
             </div>

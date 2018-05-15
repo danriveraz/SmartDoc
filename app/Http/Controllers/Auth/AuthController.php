@@ -17,6 +17,7 @@ use Redirect;
 use Socialite;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -38,7 +39,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/WelcomeAdmin';
 
     protected function redirectTo()
     {   
@@ -59,7 +60,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
+        $this->middleware($this->guestMiddleware(), ['except' => ['getLogout']]);
     }
 
     /**
@@ -115,7 +116,51 @@ class AuthController extends Controller
                             'password' => $request->password
                         ], $request->has('remember')
                         )){
-                        return redirect('/WelcomeAdmin');
+                        $cuentas = Cuentas::Empresa($user->idEmpresa)->first();
+                        $fecha = Carbon::parse($cuentas->fechaActual);
+                        $fechaActual = Carbon::now('COT');
+                        if($fecha->year != $fechaActual->year){
+                            $cuentas->eneroPasado = $cuentas->enero;
+                            $cuentas->enero = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->eneroPasado;
+                            $cuentas->febreroPasado = $cuentas->febrero;
+                            $cuentas->febrero = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->febreroPasado;
+                            $cuentas->marzoPasado = $cuentas->marzo;
+                            $cuentas->marzo = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->marzoPasado;
+                            $cuentas->abriPasador = $cuentas->abril;
+                            $cuentas->abril = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->abrilPasado;
+                            $cuentas->mayoPasado = $cuentas->mayo;
+                            $cuentas->mayo = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->mayoPasado;
+                            $cuentas->junioPasado = $cuentas->junio;
+                            $cuentas->junio = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->junioPasado;
+                            $cuentas->julioPasado = $cuentas->julio;
+                            $cuentas->julio = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->julioPasado;
+                            $cuentas->agostoPasado = $cuentas->agosto;
+                            $cuentas->agosto = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->agostoPasado;
+                            $cuentas->septiembrePasado = $cuentas->septiembre;
+                            $cuentas->septiembre = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->septiembrePasado;
+                            $cuentas->octubrePasado = $cuentas->octubre;
+                            $cuentas->octubre = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->octubrePasado;
+                            $cuentas->noviembrePasado = $cuentas->noviembre;
+                            $cuentas->noviembre = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->noviembrePasado;
+                            $cuentas->diciembrePasado = $cuentas->diciembre;
+                            $cuentas->diciembre = 0;
+                            $cuentas->anterior = $cuentas->anterior + $cuentas->diciembrePasado;
+                            $cuentas->actual = 0;
+                            $cuentas->fechaActual = $fechaActual;
+                            $cuentas->save();
+                        }
+                        return redirect()->intended($this->redirectPath());
                     }else{
                         return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
@@ -126,7 +171,7 @@ class AuthController extends Controller
                             'password' => $request->password
                         ], $request->has('remember')
                         )){
-                        return redirect('/WelcomeTrabajador');
+                        return redirect()->intended($this->redirectPath());
                     }else{
                         return redirect('/')->with('message', 'Error al iniciar sesión');
                     }
@@ -226,6 +271,7 @@ class AuthController extends Controller
 
                     $cuentas = new Cuentas();
                     $cuentas->idEmpresa = $empresa->id;
+                    $cuentas->fechaActual = Carbon::now('COT');
                     $cuentas->save();
 
                     Flash::success('Registro exitoso');

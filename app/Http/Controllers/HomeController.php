@@ -11,10 +11,20 @@ use App\Http\Requests;
 
 class HomeController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('guest');
+
+    }
+
     public function resetPassword(){
         return View('Home.password');
     }
 
+    public function registroPropietario(){
+        return View('Users.registroPropietario');
+    }
+    
     public function postresetPassword(Request $request){
     	$newPassword = time();
     	$user = User::Search($request->email)->first();

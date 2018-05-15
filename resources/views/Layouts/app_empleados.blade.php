@@ -3,6 +3,7 @@
   <head>
     <!--Para el datatable -->
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Language" content="en" />
@@ -13,10 +14,10 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assetsNew/images/icon(2).png')}}" />
     <!-- Generated: 2018-03-27 13:25:03 +0200 -->
     <title>SmartDoc</title>
+    <link type="image/x-icon" rel="shortcut icon" href="{{asset('assetsNew/images/icon(2).png')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
 
@@ -28,6 +29,24 @@
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
     <script src="{{asset('assets/js/require.min.js')}}"></script>
+
+    <script>
+    // ajax para verificar que el usuario esté logueado y así no dejar ver la página
+     $(document).ready(function(){
+        console.log("ejecuta al cargar");
+            $.ajax({
+              type: "POST",
+              url: '{{url('Auth/verificarUser')}}',
+              headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+              success: function (data) { //anunciar creado autor
+                console.log("sigue logueado");
+              }, error: function(xhr,status, response) {
+                console.log("ya no está logueado");
+                window.history.forward();
+              }
+        });
+    });
+    </script>
 
     <script>
       requirejs.config({
@@ -97,10 +116,10 @@
               <div class="col">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link"><i class="fa fa-home"></i>Agenda</a>
+                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link" title="Agenda" ><span class="fa fa-calendar" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('/HistoriaClinica')}}" class="nav-link"><i class="fa fa-file-text"></i>Historias Clinicas</a>
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Hisorias Clinicas" ><span class="fa fa-file-text" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
                   </li>
                 </ul>
               </div>

@@ -844,6 +844,26 @@
 					        </div>
 		          		</div>
 		          	</div>
+		          	<div class="card">
+	              		<div class="card-header">
+	                  		<h3 class="card-title">Servicio prestado</h3>
+	              		</div>
+	              		<!-- inicio del contenedor del campo texto-->
+		          		<div class="card-body">
+		          			<div class="row" align="center">
+		          				<div class="col-md-12">
+		          					<div class="form-group">
+						        		<select id="procedimiento" name='procedimiento' class="form-control" placeholder="" style="width: 25%">
+						                  	<option value="" selected="selected">Procedimiento realizado</option>
+						                  	@foreach($procedimientos as $procedimiento)
+							                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+							               	@endforeach
+						            	</select>
+						        	</div>
+		          				</div>
+					        </div>
+		          		</div>
+		          	</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center;">
 		                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">

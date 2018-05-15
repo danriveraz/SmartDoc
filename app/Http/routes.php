@@ -46,7 +46,11 @@ Route::get('Laboratorio/{id}/edit', ['uses' => 'LaboratorioController@postupdate
 Route::get('Laboratorio/{id}/destroy', ['uses' => 'LaboratorioController@postdeleteLaboratorio', 'as' => 'Auth.usuario.deleteLaboratorio']);//Esta ruta sirve para eliminar un "Laboratorio"
 
 //Cuentas
-Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal de Laboratorio, sirve para crear.
+Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal de Cuentas
+
+//Servicio
+Route::get('Servicio', ['uses' => 'ServicioController@createLaboratorio', 'as' => 'Auth.usuario.showcreateServicio']);//Esta ruta es la principal de Servicio, sirve para crear.
+Route::get('Servicio/{id}/destroy', ['uses' => 'ServicioController@postdeleteServicio', 'as' => 'Auth.usuario.deleteServicio']);//Esta ruta sirve para eliminar un "Servicio"
 
 //Historia clinica
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
@@ -73,7 +77,7 @@ Route::get('editHistoriaClinica/{id}/destroy', ['uses' => 'HistoriaClinicaContro
 Route::get('ResetPassword', 'HomeController@resetPassword');
 Route::get('ResetPassword/edit', ['uses' => 'HomeController@postresetPassword', 'as' => 'password.postresetPassword']);
 
-Route::get('PocketCompany', 'UserController@registroPropietario');
+Route::get('PocketCompany', 'HomeController@registroPropietario');
 
 //Registro
 Route::post('Auth/register', 'Auth\AuthController@postRegister');
@@ -87,3 +91,5 @@ Route::get('WelcomeAdmin/{id}/destroy', ['uses' => 'AgendaController@postdeleteA
 
 Route::get('WelcomeAdmin', 'WelcomeAdminController@index');
 Route::get('WelcomeTrabajador', 'WelcomeTrabajadorController@index');
+
+Route::post('Auth/verificarUser', 'UserController@verificarUser');

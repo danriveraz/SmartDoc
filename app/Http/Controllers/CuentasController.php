@@ -26,8 +26,9 @@ class CuentasController extends Controller
    	public function index()
     {
     	$user = Auth::User();
-        $cuentas = Cuentas::Empresa($user->idEmpresa)->get();
-        $empresa = Empresa::find($user->idEmpresa);
+      $cuentas = Cuentas::Empresa($user->idEmpresa)->get();
+      $empresa = Empresa::find($user->idEmpresa);
+      
     	return View('Cuentas.cuentas')
     	->with('cuentas',$cuentas)
     	->with('empresa',$empresa)

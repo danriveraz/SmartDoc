@@ -8,12 +8,15 @@ use App\User;
 use App\Departamento;
 use App\Ciudad;
 use App\HistoriaClinica;
+use App\Procedimiento;
+use App\Cuentas;
+use App\Servicio;
 use App\Empresa;
 use App\Diente;
 use App\PDiente;
 use App\Observaciones;
 use App\Odontograma;
-
+use Carbon\Carbon;
 use App\Http\Requests;
 
 class HistoriaClinicaController extends Controller
@@ -522,7 +525,7 @@ class HistoriaClinicaController extends Controller
         $departamentos = Departamento::all();
         $ciudades = Ciudad::all();
         $historia = HistoriaClinica::find($id);
-
+        $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
         //return odontograma
         $odontograma = Odontograma::find($historia->idOdontograma);
         $diente1 = Diente::find($odontograma->idDiente1);
@@ -912,6 +915,7 @@ class HistoriaClinicaController extends Controller
             ->with('user',$user)
             ->with('empresa',$empresa)
             ->with('historia',$historia)
+            ->with('procedimientos',$procedimientos)
             ->with('odontograma2array', $odontograma2array);
         }else{
              return View('HistoriaClinica.crearHistoriaClinicaTrabajador')
@@ -920,6 +924,7 @@ class HistoriaClinicaController extends Controller
             ->with('user',$user)
             ->with('empresa',$empresa)
             ->with('historia',$historia)
+            ->with('procedimientos',$procedimientos)
             ->with('odontograma2array', $odontograma2array);
         }
     }
@@ -1479,6 +1484,51 @@ class HistoriaClinicaController extends Controller
         $diente52->save();
 
         $historia->save();
+
+        //Servicio prestado
+        if($request->procedimiento != null){
+            $servicio = new Servicio();
+            $servicio->fecha = Carbon::now('COT');
+            $servicio->idEmpresa = $user->idEmpresa;
+            $servicio->idHistoriaClinica = $historia->id;
+            $servicio->idProcedimiento = $request->procedimiento;
+
+            $servicio->save();
+
+            $cuentas = Cuentas::Empresa($user->idEmpresa)->first(); 
+            $procedimiento = Procedimiento::find($servicio->idProcedimiento);
+            
+            $fecha = $servicio->fecha;
+            
+            if($fecha->month == 1){
+                  $cuentas->enero = $cuentas->enero + $procedimiento->venta;
+            }else if($fecha->month == 2){
+                  $cuentas->febrero = $cuentas->febrero + $procedimiento->venta;
+            }else if($fecha->month == 3){
+                  $cuentas->marzo = $cuentas->marzo + $procedimiento->venta;
+            }else if($fecha->month == 4){
+                  $cuentas->abril = $cuentas->abril + $procedimiento->venta;
+            }else if($fecha->month == 5){
+                  $cuentas->mayo = $cuentas->mayo + $procedimiento->venta;
+            }else if($fecha->month == 6){
+                  $cuentas->junio = $cuentas->junio + $procedimiento->venta;
+            }else if($fecha->month == 7){
+                  $cuentas->julio = $cuentas->julio + $procedimiento->venta;
+            }else if($fecha->month == 8){
+                  $cuentas->agosto = $cuentas->agosto + $procedimiento->venta;
+            }else if($fecha->month == 9){
+                  $cuentas->septiembre = $cuentas->septiembre + $procedimiento->venta;
+            }else if($fecha->month == 10){
+                  $cuentas->octubre = $cuentas->octubre + $procedimiento->venta;
+            }else if($fecha->month == 11){
+                  $cuentas->noviembre = $cuentas->noviembre + $procedimiento->venta;
+            }else if($fecha->month == 12){
+                  $cuentas->diciembre = $cuentas->diciembre + $procedimiento->venta;
+            }
+
+            $cuentas->actual = $cuentas->actual + $procedimiento->venta;
+            $cuentas->save();
+        }
         
         session_start();
         $_SESSION['id'] = $id;

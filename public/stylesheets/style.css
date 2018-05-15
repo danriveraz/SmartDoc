@@ -770,8 +770,8 @@ body.sidebar-nav {
   background: #467fcf;
   border-color: #467fcf; }
   .btn-primary:hover, .btn-primary.active {
-    background: #4444EB;
-    color: #ffffff; }
+    background: #FFFFFF;
+    color: inherit; }
     .btn-primary:hover .caret, .btn-primary.active .caret {
       border-top-color: #2d0031; }
 

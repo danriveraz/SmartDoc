@@ -109,7 +109,7 @@
                               <i class="fe fe-map"></i>
                             </span>
                       <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
-                        <option value="">Elija una opción</option>
+                        <option value="">Departamento</option>
                           @foreach($departamentos as $departamento)
                               @if($user->departamento == $departamento->id)
                                 <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
@@ -153,7 +153,7 @@
                               <i class="fe fe-map"></i>
                             </span>
                               <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
-                              <option value="">Elija una opción</option>
+                              <option value="">Ciudad</option>
                                 @foreach($ciudades as $ciudad)
                                     @if($user->departamento == $ciudad->idDepartamento)
                                       @if($user->ciudad == $ciudad->id)
