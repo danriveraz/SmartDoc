@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Empresa;
+use App\Cuentas;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -222,6 +223,10 @@ class AuthController extends Controller
                     $user->esAdmin = 1;
                     $user->idEmpresa = $empresa->id;
                     $user->save();
+
+                    $cuentas = new Cuentas();
+                    $cuentas->idEmpresa = $empresa->id;
+                    $cuentas->save();
 
                     Flash::success('Registro exitoso');
                     return redirect('/Registro');

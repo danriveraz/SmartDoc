@@ -110,7 +110,13 @@
                     <a href="{{url('/Personal')}}" class="nav-link"><i class="fa fa-users"></i>Mi Personal</a>
                   </li>
                   <li class="nav-item">
+                    <a href="{{url('/Cuentas')}}" class="nav-link"><i class="fa fa-money"></i>Cuentas</a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{url('/Procedimiento')}}" class="nav-link"><i class="fa fa-smile-o"></i>Procedimientos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="" class="nav-link"><i class="fa fa-shopping-bag"></i>Servicios</a>
                   </li>
                   <li class="nav-item">
                     <a href="{{url('/Laboratorio')}}" class="nav-link"><i class="fa fa-truck"></i>Laboratorio</a>
