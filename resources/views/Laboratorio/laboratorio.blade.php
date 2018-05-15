@@ -26,7 +26,7 @@
 		          	<input id="nombreLaboratorio" name="nombreLaboratorio" type="text" class="form-control" placeholder="Nombre laboratorio" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-			        <select class="selectpicker" id="cedulaPaciente"  data-live-search="true" name="cedulaPaciente" required>
+			        <select class="form-control" id="cedulaPaciente"  data-live-search="true" name="cedulaPaciente" required>
                         <option value="">Documento</option>
                           	@foreach($historiasClinicas as $historia)
                                 <option value="{{$historia->id}}">{{$historia->documento}}</option>
