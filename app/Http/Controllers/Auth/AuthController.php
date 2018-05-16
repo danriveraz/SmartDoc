@@ -120,6 +120,7 @@ class AuthController extends Controller
                         $fecha = Carbon::parse($cuentas->fechaActual);
                         $fechaActual = Carbon::now('COT');
                         if($fecha->year != $fechaActual->year){
+                            $cuentas->anterior = 0;
                             $cuentas->eneroPasado = $cuentas->enero;
                             $cuentas->enero = 0;
                             $cuentas->anterior = $cuentas->anterior + $cuentas->eneroPasado;
@@ -129,7 +130,7 @@ class AuthController extends Controller
                             $cuentas->marzoPasado = $cuentas->marzo;
                             $cuentas->marzo = 0;
                             $cuentas->anterior = $cuentas->anterior + $cuentas->marzoPasado;
-                            $cuentas->abriPasador = $cuentas->abril;
+                            $cuentas->abrilPasado = $cuentas->abril;
                             $cuentas->abril = 0;
                             $cuentas->anterior = $cuentas->anterior + $cuentas->abrilPasado;
                             $cuentas->mayoPasado = $cuentas->mayo;
@@ -197,7 +198,7 @@ class AuthController extends Controller
             $user = User::Search($email)->get()->first();
             $identity = User::identity($cedula)->get()->first();
             if(sizeOf($user) == 0 && sizeof($identity) == 0){
-                if($request->clavePrimaria == "123456"){
+                if($request->clavePrimaria == "3317898"){
                     if($email == "none" || $request->nombre == "" || $cedula == "none" ){
                         dd($email, $request->nombre, $nit);
                         Flash::error('Por favor llenar todos los campos');
@@ -205,7 +206,7 @@ class AuthController extends Controller
                     }else{
                         $empresa = new Empresa();
                         $empresa->nombreEstablecimiento = "PocketCompany";
-                        $empresa->nit = "123";
+                        $empresa->nit = "901158690-1";
                         $empresa->save();
 
                         $user = new User();
