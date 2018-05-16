@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Procedimiento;
 use App\Empresa;
+use App\Servicio;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
 
@@ -74,6 +75,12 @@ class ProcedimientoController extends Controller
 
     public function postdeleteProcedimiento(Request $request, $id){
         $procedimiento2destroy = Procedimiento::find($id);
+        $servicio2destroy = Servicio::Procedimiento($procedimiento2destroy->id)->get();
+        
+        for ($i=0; $i < sizeof($servicio2destroy) ; $i++) { 
+            $servicio2destroy[$i]->delete();
+        }
+
         $procedimiento2destroy->delete();
         flash('Eliminación exitosa')->success()->important();
         return redirect('/Procedimiento');

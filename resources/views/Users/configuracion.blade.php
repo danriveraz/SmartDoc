@@ -1,6 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <div class="page">
   <div class="page-single">
     <div class="container">

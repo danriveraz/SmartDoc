@@ -1,6 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
 		<span class="fe fe-plus"></span>
@@ -142,7 +143,7 @@
 
 <script type="text/javascript">
 	function eliminar(id){
-		if(confirm('¿Desea eliminar este procedimiento? Se perderán todos los datos.')){
+		if(confirm('¿Desea eliminar este procedimiento? Se perderán todos los datos, incluyendo los servicios asociados a este procedimiento.')){
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}

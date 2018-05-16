@@ -1,6 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar personal">
 		<span class="fe fe-plus"></span>
@@ -46,7 +47,7 @@
 	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
 	        	</div>
 	        	<div class="col-md-6">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
+	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
 	        	</div>
 	        </div>
 	        <div class="row">
@@ -200,7 +201,7 @@
 <script>
 
 	function eliminar(id){
-		if(confirm('¿Desea eliminar este personal? Se perderán todos los datos.')){
+		if(confirm('¿Desea eliminar este personal? Se perderán todos los datos, incluyendo citas asociadas a este usuario.')){
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}

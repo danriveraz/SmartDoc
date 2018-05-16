@@ -1,6 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
 		<span class="fe fe-plus"> Agregar evento</span>
@@ -26,7 +27,7 @@
 		          	<input id="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-	        		<input id="fechaInicio" name="fechaInicio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
+	        		<input id="fechaInicio" name="fechaInicio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
 	        	</div>
 	        	<div class="col-md-3">
 			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
@@ -134,7 +135,7 @@
 								          	<input id="titulo{{$agenda->id}}" name="titulo{{$agenda->id}}" type="text" class="form-control" placeholder="Titulo" required="true" value="{{$agenda->titulo}}">
 							        	</div>
 							        	<div class="col-md-3">
-							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$agenda->fechaInicio}}" />
+							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
 							        	</div>
 							        	<div class="col-md-3">
 									        <input id="hora{{$agenda->id}}" name="hora{{$agenda->id}}" type="text" class="form-control" placeholder="Hora inicio" required="true" value="{{$agenda->hora}}">
@@ -219,19 +220,23 @@
 	var JSONcitas = eval(<?php echo json_encode($citas2array); ?>);
 	$documento = document.getElementById("cedulaPaciente");
 	function agregar(){
-		
-		for (var i = 0; i < JSONcitas.length; i++){
-			if($documento.value == JSONcitas[i][0]){
-				if(confirm('Elementos en el laboratorio sin llegar para este paciente, ¿desea agendar igualmente?')){
+		if(JSONcitas.length != 0){
+			for (var i = 0; i < JSONcitas.length; i++){
+				if($documento.value == JSONcitas[i][0]){
+					if(confirm('Elementos en el laboratorio sin llegar para este paciente, ¿desea agendar igualmente?')){
+						var form = document.getElementById("formCrear");
+						form.submit();
+					}
+				break;
+				}else{
 					var form = document.getElementById("formCrear");
 					form.submit();
+					break;
 				}
-			break;
-			}else{
-				var form = document.getElementById("formCrear");
-				form.submit();
-				break;
 			}
+		}else{
+			var form = document.getElementById("formCrear");
+			form.submit();
 		}
 	}
 </script>

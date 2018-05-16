@@ -1,6 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar laboratorio">
 		<span class="fe fe-plus"></span>

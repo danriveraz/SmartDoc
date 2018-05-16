@@ -1,6 +1,7 @@
 @extends('Layouts.app_empleados')
 @section('content')
 @include('flash::message')
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <!--Espacio para la tabla de los procedimientos-->
 <!-- DataTables Example -->
 <div class="container main-content">

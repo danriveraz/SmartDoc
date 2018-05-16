@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Empresa;
+use App\Agenda;
 use App\Departamento;
 use App\Ciudad;
 use App\Http\Requests;
@@ -144,6 +145,12 @@ class PersonalController extends Controller
 
     public function postdeleteProfile(Request $request, $id){
         $user2destroy = User::find($id);
+        $agenda2destroy = Agenda::Trabajador($user2destroy->id)->get();
+
+        for ($i=0; $i < sizeof($agenda2destroy) ; $i++) { 
+            $agenda2destroy[$i]->delete();
+        }
+        
         $user2destroy->delete();
         flash('Eliminación exitosa')->success()->important();
         return redirect('/Personal');

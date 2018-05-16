@@ -11,4 +11,12 @@ class Servicio extends Model
     public function scopeEmpresa($query, $idEmpresa){
       return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');
     }
+
+    public function scopeProcedimiento($query, $idProcedimiento){
+      return $query->where('idProcedimiento', 'like', '%' .$idProcedimiento. '%');
+    }
+
+    public function scopeHistoriaClinica($query, $idHistoriaClinica){
+      return $query->where('idHistoriaClinica', 'like', '%' .$idHistoriaClinica. '%');
+    }
 }

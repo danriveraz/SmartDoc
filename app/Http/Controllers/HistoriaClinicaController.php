@@ -9,6 +9,7 @@ use App\Departamento;
 use App\Ciudad;
 use App\HistoriaClinica;
 use App\Procedimiento;
+use App\Laboratorio;
 use App\Cuentas;
 use App\Servicio;
 use App\Empresa;
@@ -1542,6 +1543,19 @@ class HistoriaClinicaController extends Controller
 
     public function postdeleteHistoriaClinica(Request $request, $id){
         $historia2destroy = HistoriaClinica::find($id);
+
+        $servicio2destroy = Servicio::HistoriaClinica($historia2destroy->id)->get();
+
+        for ($i=0; $i < sizeof($servicio2destroy) ; $i++) { 
+            $servicio2destroy[$i]->delete();
+        }
+
+        $laboratorio2destroy = Laboratorio::HistoriaClinica($historia2destroy->id)->get();
+
+        for ($i=0; $i < sizeof($laboratorio2destroy) ; $i++) { 
+            $laboratorio2destroy[$i]->delete();
+        }
+
         $odontograma2destroy = Odontograma::find($historia2destroy->idOdontograma);
         $diente1 = Diente::find($odontograma2destroy->idDiente1);
         $diente2 = Diente::find($odontograma2destroy->idDiente2);

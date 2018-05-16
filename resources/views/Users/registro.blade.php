@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--Realizado por Daniel Alejandro Rivera, ing-->
 <html>
   <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">

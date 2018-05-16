@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<!--Realizado por Daniel Alejandro Rivera, ing-->
   <head>
     <!--Para el datatable -->
     <meta charset="UTF-8">

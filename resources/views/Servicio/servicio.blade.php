@@ -1,7 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
-
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <!-- DataTables Example -->
 <div class="container main-content">
   <div class="page-title"></div>
