@@ -22,14 +22,12 @@
 	          							@if($historia->nombreCompleto != "")
 	          								<label>Nombre completo</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" value="{{$historia->nombreCompleto}}">
+	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" value="{{$historia->nombreCompleto}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-	          						@if($historia->tipoDocumento != "")
-          								<label>Tipo de documento</label>
-          							@endif
-          							<select class="form-control" id="tipoDocumento" name="tipoDocumento">
+      								<label>Tipo de documento</label>
+          							<select class="form-control" id="tipoDocumento" name="tipoDocumento" required="true">
           								@if($historia->tipoDocumento=='')
 						                	<option value="" selected="selected">Tipo documento</option>
 						                    <option value="tarjeta">T.I</option>
@@ -48,14 +46,12 @@
 	          							@if($historia->documento != "")
 	          								<label>Documento</label>
 	          							@endif
-	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento" value="{{$historia->documento}}">
+	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento" value="{{$historia->documento}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-	          						@if($historia->sexo != "")
-          								<label>Sexo</label>
-          							@endif
-	          						<select class="form-control" id="sexo" name="sexo">
+       								<label>Sexo</label>
+	          						<select class="form-control" id="sexo" name="sexo" required="true">
           								@if($historia->sexo=='')
 						                	<option value="" selected="selected">Seleccionar</option>
 						                    <option value="masculino">Masculino</option>
@@ -76,21 +72,21 @@
 	          							@if($historia->edad != "")
 	          								<label>Edad</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}">
+	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}" required="true" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						@if($historia->fechaNacimiento != "0000-00-00")
           								<label>Fecha inicio tratamiento</label>
           							@endif
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
 	          							@if($historia->direccion != "")
 	          								<label>Dirección</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}">
+	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
@@ -98,7 +94,7 @@
 	          							@if($historia->telefono != "")
 	          								<label>Teléfono</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}">
+	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -140,7 +136,7 @@
 	          							@if($historia->personaResponsable != "")
 	          								<label >Persona responsable</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}">
+	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
@@ -148,7 +144,7 @@
 	          							@if($historia->telefonoResponsable != "")
 	          								<label >Teléfono</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}">
+	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -158,7 +154,7 @@
 	          							@if($historia->motivoConsulta != "")
 	          								<label >Motivo de consulta</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}">
+	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -167,7 +163,7 @@
 					        		@if($historia->motivoConsulta != "")
           								<label >Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)</label>
           							@endif
-					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)">{{$historia->evolucionEstado}}</textarea>
+					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)" required="true">{{$historia->evolucionEstado}}</textarea>
 					        	</div>
 					        </div>
 					        <br>
@@ -177,7 +173,7 @@
 	          							@if($historia->antecedentesFamiliares != "")
 	          								<label>Antecedentes familiares</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}">
+	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
