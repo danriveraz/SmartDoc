@@ -41,7 +41,7 @@
 						                    <option value="tarjeta" >T.I</option>
 						                    <option value="cedula" selected="selected">C.C</option>
 						                @endif
-          							</select> 
+          							</select>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
@@ -67,7 +67,7 @@
 						                    <option value="masculino" selected="selected">Masculino</option>
 						                    <option value="femenino" >Femenino</option>
 						                @endif
-          							</select> 
+          							</select>
 	          					</div>
 		          			</div>
 		          			<div class="row">
@@ -83,7 +83,7 @@
 	          						@if($historia->fechaNacimiento != "0000-00-00")
           								<label>Fecha inicio tratamiento</label>
           							@endif
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
@@ -378,7 +378,7 @@
 										        <td>Patología Renales</td>
 										        <td>
 										        	@if($historia->patologiaRenales)
-											        	<input class="checkbox" type="checkbox" value="1" 
+											        	<input class="checkbox" type="checkbox" value="1"
 											        	id="patologiaRenales" name="patologiaRenales" checked="">
 														<span class="checkmark"></span>
 										        	@else
@@ -400,7 +400,7 @@
 										      <tr>
 										        <td>Tratamientos médicos actual</td>
 										        <td>
-										        	@if($historia->tratMedActual)	
+										        	@if($historia->tratMedActual)
  														<input class="checkbox" type="checkbox" value="1" id="tratMedActual" name="tratMedActual" checked="">
 														<span class="checkmark"></span>
 										        	@else
@@ -816,7 +816,7 @@
 			                    <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			                    </div>
 			                </div>
-			                <br>			                	
+			                <br>
 			            </div>
 			        </div>
 			        <div class="card">
@@ -879,7 +879,7 @@
 	          		</div>
 		        {{ Form::close() }}
           	</div>
-	    </div>	
+	    </div>
 	</div>
 </div>
 
@@ -900,7 +900,7 @@
 	            text: currentValue.nombre
 	        }));
 	        }
-	    }); 
+	    });
 	  });
 
 	$( '.checkbox' ).on( 'click', function() {

@@ -91,7 +91,7 @@
                 <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
               </a>
               <div class="ml-auto d-flex order-lg-2">
-                
+
                 <div class="dropdown">
                   <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$empresa->imagen)}}"></span>
@@ -142,7 +142,7 @@
               <div class="row align-items-center">
                 <div class="col-auto">
                   <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item">SmartDoc</li><a href="" target="_blank">- Politicas de Privacidad</a>
+                    <li class="list-inline-item">PocketSmartDoc</li><a href="" target="_blank">- Politicas de Privacidad</a>
                   </ul>
                 </div>
 

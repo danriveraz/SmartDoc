@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar observacion">
 		<span class="fe fe-plus"></span>
-	</button>	
+	</button>
 </div>
 <br>
 
@@ -23,7 +23,7 @@
       	<div class="modal-body">
         	<div class="row">
 				<div class="col-md-4">
-	        		<input id="fecha" name="fecha" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
+	        		<input id="fecha" name="fecha" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
 	        	</div>
 				<div class="col-md-4">
 			        <input id="diente" name="diente" type="text" class="form-control" placeholder="Diente" required="true">
@@ -105,7 +105,7 @@
 						      	<div class="modal-body">
 						      		<div class="row">
 										<div class="col-md-4">
-							        		<input id="fecha{{$observacion->id}}" name="fecha{{$observacion->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$observacion->fecha}}" />
+							        		<input id="fecha{{$observacion->id}}" name="fecha{{$observacion->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$observacion->fecha}}" />
 							        	</div>
 										<div class="col-md-4">
 									        <input id="diente{{$observacion->id}}" name="diente{{$observacion->id}}" type="text" class="form-control" placeholder="Diente" required="true" value="{{$observacion->diente}}">
@@ -139,7 +139,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>

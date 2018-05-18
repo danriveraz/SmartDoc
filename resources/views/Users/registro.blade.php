@@ -47,39 +47,39 @@
                   <!--<div class="card-title">Registro nuevo usuario</div>-->
                   <div class="form-group">
                     <!--<label class="form-label">Nombre completo</label>-->
-                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre establecimiento">
+                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre establecimiento" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Email address</label>-->
-                    <input id="email" name="email" type="email" class="form-control" placeholder="Correo">
+                    <input id="email" name="email" type="email" class="form-control" placeholder="Correo" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input id="confirmpass" name="confirmpass" type="password" class="form-control" placeholder="Confirmar contraseña">
+                    <input id="confirmpass" name="confirmpass" type="password" class="form-control" placeholder="Confirmar contraseña" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input id="nit" name="nit" type="text" class="form-control" placeholder="Nit">
+                    <input id="nit" name="nit" type="text" class="form-control" placeholder="Nit" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula administrador">
+                    <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula administrador" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="celular" name="celular" class="form-control" placeholder="(+57) 000 - 0000 - 000">
+                    <input type="text" id="celular" name="celular" class="form-control" placeholder="Numero Celular" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="(032) 000 - 00 - 00">
+                    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Numero Fijo" required>
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección de establecimiento">
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección de establecimiento" required>
                   </div>
                   <div class="form-footer">
                     <a href="#" id="btnConfirm" class="btn btn-primary btn-block" onclick="confirmPassword()">

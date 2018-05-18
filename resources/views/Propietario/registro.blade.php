@@ -242,11 +242,11 @@
                       </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="(+57) 000 - 0000 - 000">
+                    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Telefono">
                   </div>
                   <div class="form-group">
                     <!--<label class="form-label">Password</label>-->
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="">
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección">
                   </div>
                   <div class="form-footer">
                     <button type="submit" class="btn btn-primary btn-block">Registrar</button>
