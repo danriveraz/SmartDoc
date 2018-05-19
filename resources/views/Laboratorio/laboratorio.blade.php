@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar laboratorio">
 		<span class="fe fe-plus"></span>
-	</button>
+	</button>	
 </div>
 <br>
 
@@ -46,10 +46,10 @@
 			        <input id="valor" name="valor" type="number" class="form-control" placeholder="Valor" required="true">
 	        	</div>
 	        	<div class="col-md-4">
-			        <input id="fechaEnvio" name="fechaEnvio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha envío AA/MM/DD" required="true" />
+			        <input id="fechaEnvio" name="fechaEnvio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha envío AA/MM/DD" required="true" />
 	        	</div>
 	        	<div class="col-md-4">
-			        <input id="fechaEntrega" name="fechaEntrega" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha Entrega AA/MM/DD" required="true" />
+			        <input id="fechaEntrega" name="fechaEntrega" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha Entrega AA/MM/DD" required="true" />
 	        	</div>
 	        </div>
       </div>
@@ -147,10 +147,10 @@
 									        <input id="valor{{$laboratorio->id}}" name="valor{{$laboratorio->id}}" type="number" class="form-control" placeholder="Valor" required="true" value="{{$laboratorio->valor}}">
 							        	</div>
 							        	<div class="col-md-4">
-									        <input id="fechaEnvio{{$laboratorio->id}}" name="fechaEnvio{{$laboratorio->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha envío AA/MM/DD" required="true" value="{{$laboratorio->fechaEnvio}}" />
+									        <input id="fechaEnvio{{$laboratorio->id}}" name="fechaEnvio{{$laboratorio->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fecha envío AA/MM/DD" required="true" value="{{$laboratorio->fechaEnvio}}" />
 							        	</div>
 							        	<div class="col-md-4">
-									        <input id="fechaEntrega{{$laboratorio->id}}" name="fechaEntrega{{$laboratorio->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fechaEntrega AA/MM/DD" required="true" value="{{$laboratorio->fechaEntrega}}" />
+									        <input id="fechaEntrega{{$laboratorio->id}}" name="fechaEntrega{{$laboratorio->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="fechaEntrega AA/MM/DD" required="true" value="{{$laboratorio->fechaEntrega}}" />
 							        	</div>
 							        </div>
 						      </div>
@@ -165,7 +165,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>
+		    </table>	
 		  </div>
 		</div>
 	  </div>

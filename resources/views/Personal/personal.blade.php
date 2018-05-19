@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar personal">
 		<span class="fe fe-plus"></span>
-	</button>
+	</button>	
 </div>
 <br>
 
@@ -36,7 +36,7 @@
 			        <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula" required="true">
         		</div>
         		<div class="col-md-4">
-			        <input id="telefono" name="telefono" type="text" class="form-control" placeholder="Telefono" required="true">
+			        <input id="telefono" name="telefono" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000">
         		</div>
         		<div class="col-md-4">
 			        <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required="true">
@@ -44,14 +44,14 @@
         	</div>
 	        <div class="row">
 	        	<div class="col-md-6">
-	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección" required="true">
+	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
 	        	</div>
 	        	<div class="col-md-6">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
+	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
 	        	</div>
 	        </div>
 	        <div class="row">
-
+	        	
 	        	<div class="col-md-4">
 	        		<select id="sexo" name='sexo' class="form-control" placeholder="">
 	                  	<option value="" selected="selected">Seleccionar sexo</option>
@@ -90,7 +90,7 @@
 			  <div class="card-header">
 			    <h3 class="card-title">{{$personal->nombreCompleto}}</h3>
 			    <div class="card-options">
-			        <button id="{{$personal->id}}" class="btn btn-primary btn-sm" data-toggle="modal"
+			        <button id="{{$personal->id}}" class="btn btn-primary btn-sm" data-toggle="modal" 
 			        	href="#editModal{{$personal->id}}" title="Agregar personal"><span class="fe fe-edit-2"></span></button>
 			        @if(!$personal->esAdmin)
 				        {!! Form::open(['route' => ['Auth.usuario.deleteProfile', $personal], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$personal->id"]) !!}
@@ -105,7 +105,7 @@
 			  	<p> </p>
 			  	<div class="row">
 				  	<p class="col-md-6">Cédula: {{$personal->cedula}}</p>
-				  	<p class="col-md-6">Teléfono: {{$personal->telefono}}</p>
+				  	<p class="col-md-6">Teléfono: {{$personal->telefono}}</p>		  		
 			  	</div>
 			  	<div class="row">
 			  		<p class="col-md-6">Dirección: {{$personal->direccion}}</p>
@@ -224,7 +224,7 @@
 	            text: currentValue.nombre
 	        }));
 	        }
-	    });
+	    }); 
 	  });
 </script>
 

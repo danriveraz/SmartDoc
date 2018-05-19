@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
 		<span class="fe fe-plus"> Agregar evento</span>
-	</button>
+	</button>	
 </div>
 <br>
 
@@ -27,7 +27,7 @@
 		          	<input id="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-	        		<input id="fechaInicio" name="fechaInicio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="" required="true" />
+	        		<input id="fechaInicio" name="fechaInicio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
 	        	</div>
 	        	<div class="col-md-3">
 			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
@@ -135,7 +135,7 @@
 								          	<input id="titulo{{$agenda->id}}" name="titulo{{$agenda->id}}" type="text" class="form-control" placeholder="Titulo" required="true" value="{{$agenda->titulo}}">
 							        	</div>
 							        	<div class="col-md-3">
-							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
+							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
 							        	</div>
 							        	<div class="col-md-3">
 									        <input id="hora{{$agenda->id}}" name="hora{{$agenda->id}}" type="text" class="form-control" placeholder="Hora inicio" required="true" value="{{$agenda->hora}}">
@@ -164,7 +164,7 @@
 							        	</div>
 							        	<div class="col-md-3">
 									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control">
-									        	<option value="green"
+									        	<option value="green" 
 									        	@if($agenda->color == "green")
 									        		selected = "true"
 									        	@endif
@@ -174,7 +174,7 @@
 									        		selected = "true"
 									        	@endif
 									        	>Por atender</option>
-									        	<option value="red"
+									        	<option value="red" 
 									        	@if($agenda->color == "red")
 									        		selected = "true"
 									        	@endif
@@ -194,7 +194,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>
+		    </table>	
 		  </div>
 		</div>
 	  </div>
