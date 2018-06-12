@@ -13,7 +13,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar observación</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -23,13 +23,13 @@
       	<div class="modal-body">
         	<div class="row">
 				<div class="col-md-4">
-	        		<input id="fecha" name="fecha" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
+	        		<input id="fecha" name="fecha" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" />
 	        	</div>
 				<div class="col-md-4">
-			        <input id="diente" name="diente" type="text" class="form-control" placeholder="Diente" required="true">
+			        <input id="diente" name="diente" type="text" class="form-control" placeholder="Diente">
 	        	</div>
 	        	<div class="col-md-4">
-			        <input id="actividad" name="actividad" type="text" class="form-control" placeholder="Actividad" required="true">
+			        <input id="actividad" name="actividad" type="text" class="form-control" placeholder="Actividad">
 	        	</div>
 			</div>
 			<div class="row">
@@ -39,10 +39,10 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-	        		<input id="codigoCUPS" name="codigoCUPS" type="text" class="form-control"  placeholder="Código CUPS" required="true" />
+	        		<input id="codigoCUPS" name="codigoCUPS" type="text" class="form-control"  placeholder="Abono" required="true" />
 	        	</div>
 				<div class="col-md-6">
-			        <input id="valorCopago" name="valorCopago" type="text" class="form-control" placeholder="Valor C.M Copago" required="true">
+			        <input id="valorCopago" name="valorCopago" type="text" class="form-control" placeholder="Saldo" required="true">
 	        	</div>
 			</div>
       </div>
@@ -67,8 +67,8 @@
 		                <th width="10%">Diente</th>
 		                <th width="10%">Actividad</th>
 		                <th width="25%">Descripción del procedimiento</th>
-		                <th width="15%">Codigo CUPS</th>
-		                <th width="20%">Valor C.M Copago</th>
+		                <th width="15%">Abono</th>
+		                <th width="20%">Saldo</th>
 		                <th width="5%">Opciones</th>
 		            </tr>
 		        </thead>
@@ -105,13 +105,13 @@
 						      	<div class="modal-body">
 						      		<div class="row">
 										<div class="col-md-4">
-							        		<input id="fecha{{$observacion->id}}" name="fecha{{$observacion->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$observacion->fecha}}" />
+							        		<input id="fecha{{$observacion->id}}" name="fecha{{$observacion->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$observacion->fecha}}" />
 							        	</div>
 										<div class="col-md-4">
-									        <input id="diente{{$observacion->id}}" name="diente{{$observacion->id}}" type="text" class="form-control" placeholder="Diente" required="true" value="{{$observacion->diente}}">
+									        <input id="diente{{$observacion->id}}" name="diente{{$observacion->id}}" type="text" class="form-control" placeholder="Diente" value="{{$observacion->diente}}">
 							        	</div>
 							        	<div class="col-md-4">
-									        <input id="actividad{{$observacion->id}}" name="actividad{{$observacion->id}}" type="text" class="form-control" placeholder="Actividad" required="true" value="{{$observacion->actividad}}">
+									        <input id="actividad{{$observacion->id}}" name="actividad{{$observacion->id}}" type="text" class="form-control" placeholder="Actividad" value="{{$observacion->actividad}}">
 							        	</div>
 									</div>
 									<div class="row">
@@ -121,10 +121,10 @@
 									</div>
 									<div class="row">
 										<div class="col-md-6">
-							        		<input id="codigoCUPS{{$observacion->id}}" name="codigoCUPS{{$observacion->id}}" type="text" class="form-control"  placeholder="Código CUPS" required="true" value="{{$observacion->codigoCUPS}}" />
+							        		<input id="codigoCUPS{{$observacion->id}}" name="codigoCUPS{{$observacion->id}}" type="text" class="form-control"  placeholder="Abono" required="true" value="{{$observacion->codigoCUPS}}" />
 							        	</div>
 										<div class="col-md-6">
-									        <input id="valorCopago{{$observacion->id}}" name="valorCopago{{$observacion->id}}" type="text" class="form-control" placeholder="Valor C.M Copago" required="true" value="{{$observacion->valorCopago}}">
+									        <input id="valorCopago{{$observacion->id}}" name="valorCopago{{$observacion->id}}" type="text" class="form-control" placeholder="Saldo" required="true" value="{{$observacion->valorCopago}}">
 							        	</div>
 									</div>
 						      </div>

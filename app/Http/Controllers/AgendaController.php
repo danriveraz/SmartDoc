@@ -36,6 +36,7 @@ class AgendaController extends Controller
         $evento->nombrePaciente = $request->nombrePaciente;
         $evento->emailPaciente = $request->emailPaciente;
         $evento->cedulaPaciente = $request->cedulaPaciente;
+        $evento->telefonoPaciente = $request->telefonoPaciente;
         $evento->idUsuario = $request->personal;
         $evento->idEmpresa = $userActual->idEmpresa;
         $evento->color = "orange";
@@ -44,9 +45,11 @@ class AgendaController extends Controller
         $data = $evento;
         $personal = User::find($evento->idUsuario);
 
-        Mail::send('Emails.confirmacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
-            $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
-        });
+        if($data->emailPaciente != ""){
+            Mail::send('Emails.confirmacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
+                $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+            });
+        }
 
         flash('Registro exitoso')->success()->important();
         return redirect('/WelcomeAdmin');
@@ -59,6 +62,7 @@ class AgendaController extends Controller
         $nombrePaciente = "nombrePaciente".$id;
         $emailPaciente = "emailPaciente".$id;
         $cedulaPaciente = "cedulaPaciente".$id;
+        $telefonoPaciente = "telefonoPaciente".$id;
         $personal = "personal".$id;
         $color = "color".$id;
 
@@ -70,6 +74,7 @@ class AgendaController extends Controller
         $agenda2update->nombrePaciente = $request->$nombrePaciente;
         $agenda2update->emailPaciente = $request->$emailPaciente;
         $agenda2update->cedulaPaciente = $request->$cedulaPaciente;
+        $agenda2update->telefonoPaciente = $request->$telefonoPaciente;
         $agenda2update->idUsuario = $request->$personal;
         $agenda2update->color = $request->$color;
         $agenda2update->save();
@@ -77,14 +82,16 @@ class AgendaController extends Controller
         $data = $agenda2update;
         $personal = User::find($agenda2update->idUsuario);
 
-        if($agenda2update->color == "red"){
-            Mail::send('Emails.cancelacion', ['data' => $data], function($mail) use($data){
-                $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
-            });
-        }else{
-            Mail::send('Emails.modificacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
-                $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
-            });
+        if($data->emailPaciente != ""){
+            if($agenda2update->color == "red"){
+                Mail::send('Emails.cancelacion', ['data' => $data], function($mail) use($data){
+                    $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+                });
+            }else if($agenda2update->color != "green"){
+                Mail::send('Emails.modificacion', ['data' => $data, 'personal' => $personal], function($mail) use($data, $personal){
+                    $mail->to($data->emailPaciente)->subject('Confirmación de tu cita');
+                });
+            }
         }
 
         flash('Modificación exitosa')->success()->important();

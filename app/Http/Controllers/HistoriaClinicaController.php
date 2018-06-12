@@ -56,13 +56,13 @@ class HistoriaClinicaController extends Controller
             return redirect('/HistoriaClinica');
         }else{
             $historia = new HistoriaClinica();
+
             if($user->esAdmin){
                 $historia->sexo = $request->sexo;
                 $historia->tipoDocumento = $request->tipoDocumento;
             }
             $historia->nombreCompleto = $request->nombreCompleto;
             $historia->documento = $request->documento;
-
             //Se crea el odontograma
 
             //Primeros 10
@@ -503,7 +503,449 @@ class HistoriaClinicaController extends Controller
 
             $odontograma->save();
 
+            //Se crea el odontograma inicial
+
+            //Primeros 10
+            //Inicio diente 1 y sus partes
+            $diente1Inicial = new Diente();
+            $diente1Inicial->numero = 18;
+            $diente1Inicial->save();
+            //Fin diente 1 y sus partes
+
+            //Inicio diente 2 y sus partes
+            $diente2Inicial = new Diente();
+            $diente2Inicial->numero = 17;
+            $diente2Inicial->save();
+            //Fin diente 2 y sus partes
+
+            //Inicio diente 3 y sus partes
+            
+            $diente3Inicial = new Diente();
+            $diente3Inicial->numero = 16;
+            $diente3Inicial->save();
+            //Fin diente 3 y sus partes
+
+            //Inicio diente 4 y sus partes
+            
+            $diente4Inicial = new Diente();
+            $diente4Inicial->numero = 15;
+            $diente4Inicial->save();
+            //Fin diente 4 y sus partes
+
+            //Inicio diente 5 y sus partes
+            $diente5Inicial = new Diente();
+            $diente5Inicial->numero = 14;
+            $diente5Inicial->save();
+            //Fin diente 5 y sus partes
+
+            //Inicio diente 6 y sus partes
+            
+            $diente6Inicial = new Diente();
+            $diente6Inicial->numero = 13;
+            $diente6Inicial->save();
+            //Fin diente 6 y sus partes
+
+            //Inicio diente 7 y sus partes
+            
+            $diente7Inicial = new Diente();
+            $diente7Inicial->numero = 12;
+            $diente7Inicial->save();
+            //Fin diente 7 y sus partes
+
+            //Inicio diente 8 y sus partes
+            
+            $diente8Inicial = new Diente();
+            $diente8Inicial->numero = 11;
+            $diente8Inicial->save();
+            //Fin diente 8 y sus partes
+
+            //Inicio diente 9 y sus partes
+            
+            $diente9Inicial = new Diente();
+            $diente9Inicial->numero = 21;
+            $diente9Inicial->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 10 y sus partes
+            
+            $diente10Inicial = new Diente();
+            $diente10Inicial->numero = 22;
+            $diente10Inicial->save();
+            //Fin diente 10 y sus partes
+            //Fin primeros 10
+
+            //Segundos 10
+            //Inicio diente 11 y sus partes
+            
+            $diente11Inicial = new Diente();
+            $diente11Inicial->numero = 23;
+            $diente11Inicial->save();
+            //Fin diente 11 y sus partes
+
+            //Inicio diente 12 y sus partes
+            
+            $diente12Inicial = new Diente();
+            $diente12Inicial->numero = 24;
+            $diente12Inicial->save();
+            //Fin diente 12 y sus partes
+
+            //Inicio diente 13 y sus partes
+            
+            $diente13Inicial = new Diente();
+            $diente13Inicial->numero = 25;
+            $diente13Inicial->save();
+            //Fin diente 13 y sus partes
+
+            //Inicio diente 14 y sus partes
+            
+            $diente14Inicial = new Diente();
+            $diente14Inicial->numero = 26;
+            $diente14Inicial->save();
+            //Fin diente 14 y sus partes
+
+            //Inicio diente 15 y sus partes
+            
+            $diente15Inicial = new Diente();
+            $diente15Inicial->numero = 27;
+            $diente15Inicial->save();
+            //Fin diente 15 y sus partes
+
+            //Inicio diente 16 y sus partes
+            
+            $diente16Inicial = new Diente();
+            $diente16Inicial->numero = 28;
+            $diente16Inicial->save();
+            //Fin diente 16 y sus partes
+
+            //Inicio diente 17 y s
+            
+            $diente17Inicial = new Diente();
+            $diente17Inicial->numero = 55;
+            $diente17Inicial->save();
+            //Fin diente 17 y sus partes
+
+            //Inicio diente 18 y sus partes
+            
+            $diente18Inicial = new Diente();
+            $diente18Inicial->numero = 54;
+            $diente18Inicial->save();
+            //Fin diente 18 y sus partes
+
+            //Inicio diente 19 y sus partes
+            
+            $diente19Inicial = new Diente();
+            $diente19Inicial->numero = 53;
+            $diente19Inicial->save();
+            //Fin diente 19 y sus partes
+
+            //Inicio diente 20 y sus partes
+            
+            $diente20Inicial = new Diente();
+            $diente20Inicial->numero = 52;
+            $diente20Inicial->save();
+            //Fin diente 20 y sus partes
+            //Fin segundos 10
+
+            //Terceros 10
+            //Inicio diente 21 y sus partes
+            
+            $diente21Inicial = new Diente();
+            $diente21Inicial->numero = 51;
+            $diente21Inicial->save();
+            //Fin diente 21 y sus partes
+
+            //Inicio diente 22 y sus partes
+            
+            $diente22Inicial = new Diente();
+            $diente22Inicial->numero = 61;
+            $diente22Inicial->save();
+            //Fin diente 22 y sus partes
+
+            //Inicio diente 23 y sus partes
+            
+            $diente23Inicial = new Diente();
+            $diente23Inicial->numero = 62;
+            $diente23Inicial->save();
+            //Fin diente 23 y sus partes
+
+            //Inicio diente 24 y sus partes
+            
+            $diente24Inicial = new Diente();
+            $diente24Inicial->numero = 63;
+            $diente24Inicial->save();
+            //Fin diente 24 y sus partes
+
+            //Inicio diente 25 y sus partes
+            
+            $diente25Inicial = new Diente();
+            $diente25Inicial->numero = 64;
+            $diente25Inicial->save();
+            //Fin diente 25 y sus partes
+
+            //Inicio diente 26 y sus partes
+            
+            $diente26Inicial = new Diente();
+            $diente26Inicial->numero = 65;
+            $diente26Inicial->save();
+            //Fin diente 26 y sus partes
+
+            //Inicio diente 27 y sus partes
+            
+            $diente27Inicial = new Diente();
+            $diente27Inicial->numero = 85;
+            $diente27Inicial->save();
+            //Fin diente 27 y sus partes
+
+            //Inicio diente 28 y sus partes
+            
+            $diente28Inicial = new Diente();
+            $diente28Inicial->numero = 84;
+            $diente28Inicial->save();
+            //Fin diente 28 y sus partes
+
+            //Inicio diente 29 y sus partes
+            
+            $diente29Inicial = new Diente();
+            $diente29Inicial->numero = 83;
+            $diente29Inicial->save();
+            //Fin diente 29 y sus partes
+
+            //Inicio diente 30 y sus partes
+            
+            $diente30Inicial = new Diente();
+            $diente30Inicial->numero = 82;
+            $diente30Inicial->save();
+            //Fin diente 30 y sus partes
+            //Fin terceros 10
+
+            //Cuartos 10
+            //Inicio diente 31 y sus partes
+            
+            $diente31Inicial = new Diente();
+            $diente31Inicial->numero = 81;
+            $diente31Inicial->save();
+            //Fin diente 31 y sus partes
+
+            //Inicio diente 32 y sus partes
+            
+            $diente32Inicial = new Diente();
+            $diente32Inicial->numero = 71;
+            $diente32Inicial->save();
+            //Fin diente 32 y sus partes
+
+            //Inicio diente 33 y sus partes
+            
+            $diente33Inicial = new Diente();
+            $diente33Inicial->numero = 72;
+            $diente33Inicial->save();
+            //Fin diente 33 y sus partes
+
+            //Inicio diente 34 y sus partes
+            
+            $diente34Inicial = new Diente();
+            $diente34Inicial->numero = 73;
+            $diente34Inicial->save();
+            //Fin diente 34 y sus partes
+
+            //Inicio diente 35 y sus partes
+            
+            $diente35Inicial = new Diente();
+            $diente35Inicial->numero = 74;
+            $diente35Inicial->save();
+            //Fin diente 35 y sus partes
+
+            //Inicio diente 36 y sus partes
+            
+            $diente36Inicial = new Diente();
+            $diente36Inicial->numero = 75;
+            $diente36Inicial->save();
+            //Fin diente 36 y sus partes
+
+            //Inicio diente 37 y sus partes
+            
+            $diente37Inicial = new Diente();
+            $diente37Inicial->numero = 48;
+            $diente37Inicial->save();
+            //Fin diente 37 y sus partes
+
+            //Inicio diente 38 y sus partes
+            
+            $diente38Inicial = new Diente();
+            $diente38Inicial->numero = 47;
+            $diente38Inicial->save();
+            //Fin diente 38 y sus partes
+
+            //Inicio diente 39 y sus partes
+            
+            $diente39Inicial = new Diente();
+            $diente39Inicial->numero = 46;
+            $diente39Inicial->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 40 y sus partes
+            
+            $diente40Inicial = new Diente();
+            $diente40Inicial->numero = 45;
+            $diente40Inicial->save();
+            //Fin diente 40 y sus partes
+            //Fin cuartos 10
+
+            //Quintos 10
+            //Inicio diente 41 y sus 
+            $diente41Inicial = new Diente();
+            $diente41Inicial->numero = 44;
+            $diente41Inicial->save();
+            //Fin diente 41 y sus partes
+
+            //Inicio diente 42 y sus partes
+            
+            
+            $diente42Inicial = new Diente();
+            $diente42Inicial->numero = 43;
+            $diente42Inicial->save();
+            //Fin diente 42 y sus partes
+
+            //Inicio diente 43 y sus partes
+            
+            
+            $diente43Inicial = new Diente();
+            $diente43Inicial->numero = 42;
+            $diente43Inicial->save();
+            //Fin diente 43 y sus partes
+
+            //Inicio diente 44 y sus partes
+            
+            
+            $diente44Inicial = new Diente();
+            $diente44Inicial->numero = 41;
+            $diente44Inicial->save();
+            //Fin diente 44 y sus partes
+
+            //Inicio diente 45 y sus partes
+            
+            $diente45Inicial = new Diente();
+            $diente45Inicial->numero = 31;
+            $diente45Inicial->save();
+            //Fin diente 45 y sus partes
+
+            //Inicio diente 46 y sus partes
+            
+            $diente46Inicial = new Diente();
+            $diente46Inicial->numero = 32;
+            $diente46Inicial->save();
+            //Fin diente 46 y sus partes
+
+            //Inicio diente 47 y sus partes
+           
+            $diente47Inicial = new Diente();
+            $diente47Inicial->numero = 33;
+            $diente47Inicial->save();
+            //Fin diente 47 y sus partes
+
+            //Inicio diente 48 y sus partes
+            
+            $diente48Inicial = new Diente();
+            $diente48Inicial->numero = 34;
+            $diente48Inicial->save();
+            //Fin diente 48 y sus partes
+
+            //Inicio diente 49 y sus partes
+            
+            $diente49Inicial = new Diente();
+            $diente49Inicial->numero = 35;
+            $diente49Inicial->save();
+            //Fin diente 49 y sus partes
+
+            //Inicio diente 50 y sus partes
+            
+            $diente50Inicial = new Diente();
+            $diente50Inicial->numero = 36;
+            $diente50Inicial->save();
+            //Fin diente 50 y sus partes
+            //Fin quintos 10
+
+            //Inicio ultimos 2
+            //Inicio diente 51 y sus partes
+            
+            $diente51Inicial = new Diente();
+            $diente51Inicial->numero = 37;
+            $diente51Inicial->save();
+            //Fin diente 51 y sus partes
+
+            //Inicio diente 52 y sus partes
+            
+            $diente52Inicial = new Diente();
+            $diente52Inicial->numero = 38;
+            $diente52Inicial->save();
+            //Fin diente 52 y sus partes
+            //Fin ultimos 2
+
+            //Se crea el odontograma y se le asignan los 52 dientes que manejará
+            $odontogramaInicial = new Odontograma();
+            //Primeros 10
+            $odontogramaInicial->idDiente1 = $diente1Inicial->id;
+            $odontogramaInicial->idDiente2 = $diente2Inicial->id;
+            $odontogramaInicial->idDiente3 = $diente3Inicial->id;
+            $odontogramaInicial->idDiente4 = $diente4Inicial->id;
+            $odontogramaInicial->idDiente5 = $diente5Inicial->id;
+            $odontogramaInicial->idDiente6 = $diente6Inicial->id;
+            $odontogramaInicial->idDiente7 = $diente7Inicial->id;
+            $odontogramaInicial->idDiente8 = $diente8Inicial->id;
+            $odontogramaInicial->idDiente9 = $diente9Inicial->id;
+            $odontogramaInicial->idDiente10 = $diente10Inicial->id;
+            //Segundos 10
+            $odontogramaInicial->idDiente11 = $diente11Inicial->id;
+            $odontogramaInicial->idDiente12 = $diente12Inicial->id;
+            $odontogramaInicial->idDiente13 = $diente13Inicial->id;
+            $odontogramaInicial->idDiente14 = $diente14Inicial->id;
+            $odontogramaInicial->idDiente15 = $diente15Inicial->id;
+            $odontogramaInicial->idDiente16 = $diente16Inicial->id;
+            $odontogramaInicial->idDiente17 = $diente17Inicial->id;
+            $odontogramaInicial->idDiente18 = $diente18Inicial->id;
+            $odontogramaInicial->idDiente19 = $diente19Inicial->id;
+            $odontogramaInicial->idDiente20 = $diente20Inicial->id;
+            //Terceros 10
+            $odontogramaInicial->idDiente21 = $diente21Inicial->id;
+            $odontogramaInicial->idDiente22 = $diente22Inicial->id;
+            $odontogramaInicial->idDiente23 = $diente23Inicial->id;
+            $odontogramaInicial->idDiente24 = $diente24Inicial->id;
+            $odontogramaInicial->idDiente25 = $diente25Inicial->id;
+            $odontogramaInicial->idDiente26 = $diente26Inicial->id;
+            $odontogramaInicial->idDiente27 = $diente27Inicial->id;
+            $odontogramaInicial->idDiente28 = $diente28Inicial->id;
+            $odontogramaInicial->idDiente29 = $diente29Inicial->id;
+            $odontogramaInicial->idDiente30 = $diente30Inicial->id;
+            //Cuartos 10
+            $odontogramaInicial->idDiente31 = $diente31Inicial->id;
+            $odontogramaInicial->idDiente32 = $diente32Inicial->id;
+            $odontogramaInicial->idDiente33 = $diente33Inicial->id;
+            $odontogramaInicial->idDiente34 = $diente34Inicial->id;
+            $odontogramaInicial->idDiente35 = $diente35Inicial->id;
+            $odontogramaInicial->idDiente36 = $diente36Inicial->id;
+            $odontogramaInicial->idDiente37 = $diente37Inicial->id;
+            $odontogramaInicial->idDiente38 = $diente38Inicial->id;
+            $odontogramaInicial->idDiente39 = $diente39Inicial->id;
+            $odontogramaInicial->idDiente40 = $diente40Inicial->id;
+            //Quintos 10
+            $odontogramaInicial->idDiente41 = $diente41Inicial->id;
+            $odontogramaInicial->idDiente42 = $diente42Inicial->id;
+            $odontogramaInicial->idDiente43 = $diente43Inicial->id;
+            $odontogramaInicial->idDiente44 = $diente44Inicial->id;
+            $odontogramaInicial->idDiente45 = $diente45Inicial->id;
+            $odontogramaInicial->idDiente46 = $diente46Inicial->id;
+            $odontogramaInicial->idDiente47 = $diente47Inicial->id;
+            $odontogramaInicial->idDiente48 = $diente48Inicial->id;
+            $odontogramaInicial->idDiente49 = $diente49Inicial->id;
+            $odontogramaInicial->idDiente50 = $diente50Inicial->id;
+            //Ultimos 2
+            $odontogramaInicial->idDiente51 = $diente51Inicial->id;
+            $odontogramaInicial->idDiente52 = $diente52Inicial->id;
+
+            $odontogramaInicial->save();
+
+            $historia->idOdontogramaInicial = $odontogramaInicial->id;
             $historia->idOdontograma = $odontograma->id;
+
             $historia->idEmpresa = $user->idEmpresa;
             $historia->save();
 
@@ -527,8 +969,510 @@ class HistoriaClinicaController extends Controller
         $ciudades = Ciudad::all();
         $historia = HistoriaClinica::find($id);
         $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
+
+        if($historia->idOdontogramaInicial == 0){//Se agrega el odontograma inicial si no lo tiene
+            //Se crea el odontograma
+
+            //Primeros 10
+            //Inicio diente 1 y sus partes
+            $diente1 = new Diente();
+            $diente1->numero = 18;
+            $diente1->save();
+            //Fin diente 1 y sus partes
+
+            //Inicio diente 2 y sus partes
+            $diente2 = new Diente();
+            $diente2->numero = 17;
+            $diente2->save();
+            //Fin diente 2 y sus partes
+
+            //Inicio diente 3 y sus partes
+            
+            $diente3 = new Diente();
+            $diente3->numero = 16;
+            $diente3->save();
+            //Fin diente 3 y sus partes
+
+            //Inicio diente 4 y sus partes
+            
+            $diente4 = new Diente();
+            $diente4->numero = 15;
+            $diente4->save();
+            //Fin diente 4 y sus partes
+
+            //Inicio diente 5 y sus partes
+            $diente5 = new Diente();
+            $diente5->numero = 14;
+            $diente5->save();
+            //Fin diente 5 y sus partes
+
+            //Inicio diente 6 y sus partes
+            
+            $diente6 = new Diente();
+            $diente6->numero = 13;
+            $diente6->save();
+            //Fin diente 6 y sus partes
+
+            //Inicio diente 7 y sus partes
+            
+            $diente7 = new Diente();
+            $diente7->numero = 12;
+            $diente7->save();
+            //Fin diente 7 y sus partes
+
+            //Inicio diente 8 y sus partes
+            
+            $diente8 = new Diente();
+            $diente8->numero = 11;
+            $diente8->save();
+            //Fin diente 8 y sus partes
+
+            //Inicio diente 9 y sus partes
+            
+            $diente9 = new Diente();
+            $diente9->numero = 21;
+            $diente9->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 10 y sus partes
+            
+            $diente10 = new Diente();
+            $diente10->numero = 22;
+            $diente10->save();
+            //Fin diente 10 y sus partes
+            //Fin primeros 10
+
+            //Segundos 10
+            //Inicio diente 11 y sus partes
+            
+            $diente11 = new Diente();
+            $diente11->numero = 23;
+            $diente11->save();
+            //Fin diente 11 y sus partes
+
+            //Inicio diente 12 y sus partes
+            
+            $diente12 = new Diente();
+            $diente12->numero = 24;
+            $diente12->save();
+            //Fin diente 12 y sus partes
+
+            //Inicio diente 13 y sus partes
+            
+            $diente13 = new Diente();
+            $diente13->numero = 25;
+            $diente13->save();
+            //Fin diente 13 y sus partes
+
+            //Inicio diente 14 y sus partes
+            
+            $diente14 = new Diente();
+            $diente14->numero = 26;
+            $diente14->save();
+            //Fin diente 14 y sus partes
+
+            //Inicio diente 15 y sus partes
+            
+            $diente15 = new Diente();
+            $diente15->numero = 27;
+            $diente15->save();
+            //Fin diente 15 y sus partes
+
+            //Inicio diente 16 y sus partes
+            
+            $diente16 = new Diente();
+            $diente16->numero = 28;
+            $diente16->save();
+            //Fin diente 16 y sus partes
+
+            //Inicio diente 17 y s
+            
+            $diente17 = new Diente();
+            $diente17->numero = 55;
+            $diente17->save();
+            //Fin diente 17 y sus partes
+
+            //Inicio diente 18 y sus partes
+            
+            $diente18 = new Diente();
+            $diente18->numero = 54;
+            $diente18->save();
+            //Fin diente 18 y sus partes
+
+            //Inicio diente 19 y sus partes
+            
+            $diente19 = new Diente();
+            $diente19->numero = 53;
+            $diente19->save();
+            //Fin diente 19 y sus partes
+
+            //Inicio diente 20 y sus partes
+            
+            $diente20 = new Diente();
+            $diente20->numero = 52;
+            $diente20->save();
+            //Fin diente 20 y sus partes
+            //Fin segundos 10
+
+            //Terceros 10
+            //Inicio diente 21 y sus partes
+            
+            $diente21 = new Diente();
+            $diente21->numero = 51;
+            $diente21->save();
+            //Fin diente 21 y sus partes
+
+            //Inicio diente 22 y sus partes
+            
+            $diente22 = new Diente();
+            $diente22->numero = 61;
+            $diente22->save();
+            //Fin diente 22 y sus partes
+
+            //Inicio diente 23 y sus partes
+            
+            $diente23 = new Diente();
+            $diente23->numero = 62;
+            $diente23->save();
+            //Fin diente 23 y sus partes
+
+            //Inicio diente 24 y sus partes
+            
+            $diente24 = new Diente();
+            $diente24->numero = 63;
+            $diente24->save();
+            //Fin diente 24 y sus partes
+
+            //Inicio diente 25 y sus partes
+            
+            $diente25 = new Diente();
+            $diente25->numero = 64;
+            $diente25->save();
+            //Fin diente 25 y sus partes
+
+            //Inicio diente 26 y sus partes
+            
+            $diente26 = new Diente();
+            $diente26->numero = 65;
+            $diente26->save();
+            //Fin diente 26 y sus partes
+
+            //Inicio diente 27 y sus partes
+            
+            $diente27 = new Diente();
+            $diente27->numero = 85;
+            $diente27->save();
+            //Fin diente 27 y sus partes
+
+            //Inicio diente 28 y sus partes
+            
+            $diente28 = new Diente();
+            $diente28->numero = 84;
+            $diente28->save();
+            //Fin diente 28 y sus partes
+
+            //Inicio diente 29 y sus partes
+            
+            $diente29 = new Diente();
+            $diente29->numero = 83;
+            $diente29->save();
+            //Fin diente 29 y sus partes
+
+            //Inicio diente 30 y sus partes
+            
+            $diente30 = new Diente();
+            $diente30->numero = 82;
+            $diente30->save();
+            //Fin diente 30 y sus partes
+            //Fin terceros 10
+
+            //Cuartos 10
+            //Inicio diente 31 y sus partes
+            
+            $diente31 = new Diente();
+            $diente31->numero = 81;
+            $diente31->save();
+            //Fin diente 31 y sus partes
+
+            //Inicio diente 32 y sus partes
+            
+            $diente32 = new Diente();
+            $diente32->numero = 71;
+            $diente32->save();
+            //Fin diente 32 y sus partes
+
+            //Inicio diente 33 y sus partes
+            
+            $diente33 = new Diente();
+            $diente33->numero = 72;
+            $diente33->save();
+            //Fin diente 33 y sus partes
+
+            //Inicio diente 34 y sus partes
+            
+            $diente34 = new Diente();
+            $diente34->numero = 73;
+            $diente34->save();
+            //Fin diente 34 y sus partes
+
+            //Inicio diente 35 y sus partes
+            
+            $diente35 = new Diente();
+            $diente35->numero = 74;
+            $diente35->save();
+            //Fin diente 35 y sus partes
+
+            //Inicio diente 36 y sus partes
+            
+            $diente36 = new Diente();
+            $diente36->numero = 75;
+            $diente36->save();
+            //Fin diente 36 y sus partes
+
+            //Inicio diente 37 y sus partes
+            
+            $diente37 = new Diente();
+            $diente37->numero = 48;
+            $diente37->save();
+            //Fin diente 37 y sus partes
+
+            //Inicio diente 38 y sus partes
+            
+            $diente38 = new Diente();
+            $diente38->numero = 47;
+            $diente38->save();
+            //Fin diente 38 y sus partes
+
+            //Inicio diente 39 y sus partes
+            
+            $diente39 = new Diente();
+            $diente39->numero = 46;
+            $diente39->save();
+            //Fin diente 9 y sus partes
+
+            //Inicio diente 40 y sus partes
+            
+            $diente40 = new Diente();
+            $diente40->numero = 45;
+            $diente40->save();
+            //Fin diente 40 y sus partes
+            //Fin cuartos 10
+
+            //Quintos 10
+            //Inicio diente 41 y sus 
+            $diente41 = new Diente();
+            $diente41->numero = 44;
+            $diente41->save();
+            //Fin diente 41 y sus partes
+
+            //Inicio diente 42 y sus partes
+            
+            
+            $diente42 = new Diente();
+            $diente42->numero = 43;
+            $diente42->save();
+            //Fin diente 42 y sus partes
+
+            //Inicio diente 43 y sus partes
+            
+            
+            $diente43 = new Diente();
+            $diente43->numero = 42;
+            $diente43->save();
+            //Fin diente 43 y sus partes
+
+            //Inicio diente 44 y sus partes
+            
+            
+            $diente44 = new Diente();
+            $diente44->numero = 41;
+            $diente44->save();
+            //Fin diente 44 y sus partes
+
+            //Inicio diente 45 y sus partes
+            
+            $diente45 = new Diente();
+            $diente45->numero = 31;
+            $diente45->save();
+            //Fin diente 45 y sus partes
+
+            //Inicio diente 46 y sus partes
+            
+            $diente46 = new Diente();
+            $diente46->numero = 32;
+            $diente46->save();
+            //Fin diente 46 y sus partes
+
+            //Inicio diente 47 y sus partes
+           
+            $diente47 = new Diente();
+            $diente47->numero = 33;
+            $diente47->save();
+            //Fin diente 47 y sus partes
+
+            //Inicio diente 48 y sus partes
+            
+            $diente48 = new Diente();
+            $diente48->numero = 34;
+            $diente48->save();
+            //Fin diente 48 y sus partes
+
+            //Inicio diente 49 y sus partes
+            
+            $diente49 = new Diente();
+            $diente49->numero = 35;
+            $diente49->save();
+            //Fin diente 49 y sus partes
+
+            //Inicio diente 50 y sus partes
+            
+            $diente50 = new Diente();
+            $diente50->numero = 36;
+            $diente50->save();
+            //Fin diente 50 y sus partes
+            //Fin quintos 10
+
+            //Inicio ultimos 2
+            //Inicio diente 51 y sus partes
+            
+            $diente51 = new Diente();
+            $diente51->numero = 37;
+            $diente51->save();
+            //Fin diente 51 y sus partes
+
+            //Inicio diente 52 y sus partes
+            
+            $diente52 = new Diente();
+            $diente52->numero = 38;
+            $diente52->save();
+            //Fin diente 52 y sus partes
+            //Fin ultimos 2
+
+            //Se crea el odontograma y se le asignan los 52 dientes que manejará
+            $odontogramaInicial = new Odontograma();
+            //Primeros 10
+            $odontogramaInicial->idDiente1 = $diente1->id;
+            $odontogramaInicial->idDiente2 = $diente2->id;
+            $odontogramaInicial->idDiente3 = $diente3->id;
+            $odontogramaInicial->idDiente4 = $diente4->id;
+            $odontogramaInicial->idDiente5 = $diente5->id;
+            $odontogramaInicial->idDiente6 = $diente6->id;
+            $odontogramaInicial->idDiente7 = $diente7->id;
+            $odontogramaInicial->idDiente8 = $diente8->id;
+            $odontogramaInicial->idDiente9 = $diente9->id;
+            $odontogramaInicial->idDiente10 = $diente10->id;
+            //Segundos 10
+            $odontogramaInicial->idDiente11 = $diente11->id;
+            $odontogramaInicial->idDiente12 = $diente12->id;
+            $odontogramaInicial->idDiente13 = $diente13->id;
+            $odontogramaInicial->idDiente14 = $diente14->id;
+            $odontogramaInicial->idDiente15 = $diente15->id;
+            $odontogramaInicial->idDiente16 = $diente16->id;
+            $odontogramaInicial->idDiente17 = $diente17->id;
+            $odontogramaInicial->idDiente18 = $diente18->id;
+            $odontogramaInicial->idDiente19 = $diente19->id;
+            $odontogramaInicial->idDiente20 = $diente20->id;
+            //Terceros 10
+            $odontogramaInicial->idDiente21 = $diente21->id;
+            $odontogramaInicial->idDiente22 = $diente22->id;
+            $odontogramaInicial->idDiente23 = $diente23->id;
+            $odontogramaInicial->idDiente24 = $diente24->id;
+            $odontogramaInicial->idDiente25 = $diente25->id;
+            $odontogramaInicial->idDiente26 = $diente26->id;
+            $odontogramaInicial->idDiente27 = $diente27->id;
+            $odontogramaInicial->idDiente28 = $diente28->id;
+            $odontogramaInicial->idDiente29 = $diente29->id;
+            $odontogramaInicial->idDiente30 = $diente30->id;
+            //Cuartos 10
+            $odontogramaInicial->idDiente31 = $diente31->id;
+            $odontogramaInicial->idDiente32 = $diente32->id;
+            $odontogramaInicial->idDiente33 = $diente33->id;
+            $odontogramaInicial->idDiente34 = $diente34->id;
+            $odontogramaInicial->idDiente35 = $diente35->id;
+            $odontogramaInicial->idDiente36 = $diente36->id;
+            $odontogramaInicial->idDiente37 = $diente37->id;
+            $odontogramaInicial->idDiente38 = $diente38->id;
+            $odontogramaInicial->idDiente39 = $diente39->id;
+            $odontogramaInicial->idDiente40 = $diente40->id;
+            //Quintos 10
+            $odontogramaInicial->idDiente41 = $diente41->id;
+            $odontogramaInicial->idDiente42 = $diente42->id;
+            $odontogramaInicial->idDiente43 = $diente43->id;
+            $odontogramaInicial->idDiente44 = $diente44->id;
+            $odontogramaInicial->idDiente45 = $diente45->id;
+            $odontogramaInicial->idDiente46 = $diente46->id;
+            $odontogramaInicial->idDiente47 = $diente47->id;
+            $odontogramaInicial->idDiente48 = $diente48->id;
+            $odontogramaInicial->idDiente49 = $diente49->id;
+            $odontogramaInicial->idDiente50 = $diente50->id;
+            //Ultimos 2
+            $odontogramaInicial->idDiente51 = $diente51->id;
+            $odontogramaInicial->idDiente52 = $diente52->id;
+
+            $odontogramaInicial->save();
+            $historia->idOdontogramaInicial = $odontogramaInicial->id;
+            $historia->save();
+        }
+
+        $odontogramaInicial = Odontograma::find($historia->idOdontogramaInicial);
+
+        $diente1Inicial = Diente::find($odontogramaInicial->idDiente1);
+        $diente2Inicial = Diente::find($odontogramaInicial->idDiente2);
+        $diente3Inicial = Diente::find($odontogramaInicial->idDiente3);
+        $diente4Inicial = Diente::find($odontogramaInicial->idDiente4);
+        $diente5Inicial = Diente::find($odontogramaInicial->idDiente5);
+        $diente6Inicial = Diente::find($odontogramaInicial->idDiente6);
+        $diente7Inicial = Diente::find($odontogramaInicial->idDiente7);
+        $diente8Inicial = Diente::find($odontogramaInicial->idDiente8);
+        $diente9Inicial = Diente::find($odontogramaInicial->idDiente9);
+        $diente10Inicial = Diente::find($odontogramaInicial->idDiente10);
+        $diente11Inicial = Diente::find($odontogramaInicial->idDiente11);
+        $diente12Inicial = Diente::find($odontogramaInicial->idDiente12);
+        $diente13Inicial = Diente::find($odontogramaInicial->idDiente13);
+        $diente14Inicial = Diente::find($odontogramaInicial->idDiente14);
+        $diente15Inicial = Diente::find($odontogramaInicial->idDiente15);
+        $diente16Inicial = Diente::find($odontogramaInicial->idDiente16);
+        $diente17Inicial = Diente::find($odontogramaInicial->idDiente17);
+        $diente18Inicial = Diente::find($odontogramaInicial->idDiente18);
+        $diente19Inicial = Diente::find($odontogramaInicial->idDiente19);
+        $diente20Inicial = Diente::find($odontogramaInicial->idDiente20);
+        $diente21Inicial = Diente::find($odontogramaInicial->idDiente21);
+        $diente22Inicial = Diente::find($odontogramaInicial->idDiente22);
+        $diente23Inicial = Diente::find($odontogramaInicial->idDiente23);
+        $diente24Inicial = Diente::find($odontogramaInicial->idDiente24);
+        $diente25Inicial = Diente::find($odontogramaInicial->idDiente25);
+        $diente26Inicial = Diente::find($odontogramaInicial->idDiente26);
+        $diente27Inicial = Diente::find($odontogramaInicial->idDiente27);
+        $diente28Inicial = Diente::find($odontogramaInicial->idDiente28);
+        $diente29Inicial = Diente::find($odontogramaInicial->idDiente29);
+        $diente30Inicial = Diente::find($odontogramaInicial->idDiente30);
+        $diente31Inicial = Diente::find($odontogramaInicial->idDiente31);
+        $diente32Inicial = Diente::find($odontogramaInicial->idDiente32);
+        $diente33Inicial = Diente::find($odontogramaInicial->idDiente33);
+        $diente34Inicial = Diente::find($odontogramaInicial->idDiente34);
+        $diente35Inicial = Diente::find($odontogramaInicial->idDiente35);
+        $diente36Inicial = Diente::find($odontogramaInicial->idDiente36);
+        $diente37Inicial = Diente::find($odontogramaInicial->idDiente37);
+        $diente38Inicial = Diente::find($odontogramaInicial->idDiente38);
+        $diente39Inicial = Diente::find($odontogramaInicial->idDiente39);
+        $diente40Inicial = Diente::find($odontogramaInicial->idDiente40);
+        $diente41Inicial = Diente::find($odontogramaInicial->idDiente41);
+        $diente42Inicial = Diente::find($odontogramaInicial->idDiente42);
+        $diente43Inicial = Diente::find($odontogramaInicial->idDiente43);
+        $diente44Inicial = Diente::find($odontogramaInicial->idDiente44);
+        $diente45Inicial = Diente::find($odontogramaInicial->idDiente45);
+        $diente46Inicial = Diente::find($odontogramaInicial->idDiente46);
+        $diente47Inicial = Diente::find($odontogramaInicial->idDiente47);
+        $diente48Inicial = Diente::find($odontogramaInicial->idDiente48);
+        $diente49Inicial = Diente::find($odontogramaInicial->idDiente49);
+        $diente50Inicial = Diente::find($odontogramaInicial->idDiente50);
+        $diente51Inicial = Diente::find($odontogramaInicial->idDiente51);
+        $diente52Inicial = Diente::find($odontogramaInicial->idDiente52);
+
         //return odontograma
+
         $odontograma = Odontograma::find($historia->idOdontograma);
+
         $diente1 = Diente::find($odontograma->idDiente1);
         $diente2 = Diente::find($odontograma->idDiente2);
         $diente3 = Diente::find($odontograma->idDiente3);
@@ -557,7 +1501,7 @@ class HistoriaClinicaController extends Controller
         $diente26 = Diente::find($odontograma->idDiente26);
         $diente27 = Diente::find($odontograma->idDiente27);
         $diente28 = Diente::find($odontograma->idDiente28);
-        $diente29 = Diente::find($odontograma->idDiente39);
+        $diente29 = Diente::find($odontograma->idDiente29);
         $diente30 = Diente::find($odontograma->idDiente30);
         $diente31 = Diente::find($odontograma->idDiente31);
         $diente32 = Diente::find($odontograma->idDiente32);
@@ -583,6 +1527,331 @@ class HistoriaClinicaController extends Controller
         $diente52 = Diente::find($odontograma->idDiente52);
 
         $odontograma2array = array();
+        $odontogramaInicial2array = array();
+        //Odontograma inicial
+        array_push($odontogramaInicial2array, array('c18Inicial', $diente1Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t18Inicial', $diente1Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b18Inicial', $diente1Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l18Inicial', $diente1Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r18Inicial', $diente1Inicial->parteDerecha));
+        //diente 2
+        array_push($odontogramaInicial2array, array('c17Inicial', $diente2Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t17Inicial', $diente2Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b17Inicial', $diente2Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l17Inicial', $diente2Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r17Inicial', $diente2Inicial->parteDerecha));
+        //diente 3
+        array_push($odontogramaInicial2array, array('c16Inicial', $diente3Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t16Inicial', $diente3Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b16Inicial', $diente3Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l16Inicial', $diente3Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r16Inicial', $diente3Inicial->parteDerecha));
+        //diente 4
+        array_push($odontogramaInicial2array, array('c15Inicial', $diente4Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t15Inicial', $diente4Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b15Inicial', $diente4Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l15Inicial', $diente4Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r15Inicial', $diente4Inicial->parteDerecha));
+        //diente 5
+        array_push($odontogramaInicial2array, array('c14Inicial', $diente5Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t14Inicial', $diente5Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b14Inicial', $diente5Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l14Inicial', $diente5Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r14Inicial', $diente5Inicial->parteDerecha));
+        //diente 6
+        array_push($odontogramaInicial2array, array('c13Inicial', $diente6Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t13Inicial', $diente6Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b13Inicial', $diente6Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l13Inicial', $diente6Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r13Inicial', $diente6Inicial->parteDerecha));
+        //diente 7
+        array_push($odontogramaInicial2array, array('c12Inicial', $diente7Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t12Inicial', $diente7Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b12Inicial', $diente7Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l12Inicial', $diente7Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r12Inicial', $diente7Inicial->parteDerecha));
+        //diente 8
+        array_push($odontogramaInicial2array, array('c11Inicial', $diente8Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t11Inicial', $diente8Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b11Inicial', $diente8Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l11Inicial', $diente8Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r11Inicial', $diente8Inicial->parteDerecha));
+
+        //Segundo bloque superior
+        //diente 9
+        array_push($odontogramaInicial2array, array('c21Inicial', $diente9Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t21Inicial', $diente9Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b21Inicial', $diente9Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l21Inicial', $diente9Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r21Inicial', $diente9Inicial->parteDerecha));
+        //diente 10
+        array_push($odontogramaInicial2array, array('c22Inicial', $diente10Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t22Inicial', $diente10Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b22Inicial', $diente10Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l22Inicial', $diente10Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r22Inicial', $diente10Inicial->parteDerecha));
+        //diente 11
+        array_push($odontogramaInicial2array, array('c23Inicial', $diente11Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t23Inicial', $diente11Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b23Inicial', $diente11Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l23Inicial', $diente11Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r23Inicial', $diente11Inicial->parteDerecha));
+        //diente 12
+        array_push($odontogramaInicial2array, array('c24Inicial', $diente12Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t24Inicial', $diente12Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b24Inicial', $diente12Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l24Inicial', $diente12Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r24Inicial', $diente12Inicial->parteDerecha));
+        //diente 13
+        array_push($odontogramaInicial2array, array('c25Inicial', $diente13Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t25Inicial', $diente13Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b25Inicial', $diente13Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l25Inicial', $diente13Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r25Inicial', $diente13Inicial->parteDerecha));
+        //diente 14
+        array_push($odontogramaInicial2array, array('c26Inicial', $diente14Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t26Inicial', $diente14Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b26Inicial', $diente14Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l26Inicial', $diente14Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r26Inicial', $diente14Inicial->parteDerecha));
+        //diente 15
+        array_push($odontogramaInicial2array, array('c27Inicial', $diente15Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t27Inicial', $diente15Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b27Inicial', $diente15Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l27Inicial', $diente15Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r27Inicial', $diente15Inicial->parteDerecha));
+        //diente 16
+        array_push($odontogramaInicial2array, array('c28Inicial', $diente16Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t28Inicial', $diente16Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b28Inicial', $diente16Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l28Inicial', $diente16Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r28Inicial', $diente16Inicial->parteDerecha));
+
+        //bloque medio superior
+        //diente 17
+        array_push($odontogramaInicial2array, array('cleche55Inicial', $diente17Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche55Inicial', $diente17Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche55Inicial', $diente17Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche55Inicial', $diente17Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche55Inicial', $diente17Inicial->parteDerecha));
+        //diente 18
+        array_push($odontogramaInicial2array, array('cleche54Inicial', $diente18Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche54Inicial', $diente18Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche54Inicial', $diente18Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche54Inicial', $diente18Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche54Inicial', $diente18Inicial->parteDerecha));
+        //diente 19
+        array_push($odontogramaInicial2array, array('cleche53Inicial', $diente19Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche53Inicial', $diente19Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche53Inicial', $diente19Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche53Inicial', $diente19Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche53Inicial', $diente19Inicial->parteDerecha));
+        //diente 20
+        array_push($odontogramaInicial2array, array('cleche52Inicial', $diente20Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche52Inicial', $diente20Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche52Inicial', $diente20Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche52Inicial', $diente20Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche52Inicial', $diente20Inicial->parteDerecha));
+        //diente 21
+        array_push($odontogramaInicial2array, array('cleche51Inicial', $diente21Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche51Inicial', $diente21Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche51Inicial', $diente21Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche51Inicial', $diente21Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche51Inicial', $diente21Inicial->parteDerecha));
+        //diente 22
+        array_push($odontogramaInicial2array, array('cleche61Inicial', $diente22Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche61Inicial', $diente22Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche61Inicial', $diente22Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche61Inicial', $diente22Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche61Inicial', $diente22Inicial->parteDerecha));
+        //diente 23
+        array_push($odontogramaInicial2array, array('cleche62Inicial', $diente23Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche62Inicial', $diente23Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche62Inicial', $diente23Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche62Inicial', $diente23Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche62Inicial', $diente23Inicial->parteDerecha));
+        //diente 24
+        array_push($odontogramaInicial2array, array('cleche63Inicial', $diente24Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche63Inicial', $diente24Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche63Inicial', $diente24Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche63Inicial', $diente24Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche63Inicial', $diente24Inicial->parteDerecha));
+        //diente 25
+        array_push($odontogramaInicial2array, array('cleche64Inicial', $diente25Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche64Inicial', $diente25Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche64Inicial', $diente25Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche64Inicial', $diente25Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche64Inicial', $diente25Inicial->parteDerecha));
+        //diente 26
+        array_push($odontogramaInicial2array, array('cleche65Inicial', $diente26Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche65Inicial', $diente26Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche65Inicial', $diente26Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche65Inicial', $diente26Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche65Inicial', $diente26Inicial->parteDerecha));
+
+        //bloque medio inferior
+        //diente 27
+        array_push($odontogramaInicial2array, array('cleche85Inicial', $diente27Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche85Inicial', $diente27Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche85Inicial', $diente27Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche85Inicial', $diente27Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche85Inicial', $diente27Inicial->parteDerecha));
+        //diente 28
+        array_push($odontogramaInicial2array, array('cleche84Inicial', $diente28Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche84Inicial', $diente28Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche84Inicial', $diente28Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche84Inicial', $diente28Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche84Inicial', $diente28Inicial->parteDerecha));
+        //diente 29
+        array_push($odontogramaInicial2array, array('cleche83Inicial', $diente29Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche83Inicial', $diente29Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche83Inicial', $diente29Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche83Inicial', $diente29Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche83Inicial', $diente29Inicial->parteDerecha));
+        //diente 30
+        array_push($odontogramaInicial2array, array('cleche82Inicial', $diente30Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche82Inicial', $diente30Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche82Inicial', $diente30Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche82Inicial', $diente30Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche82Inicial', $diente30Inicial->parteDerecha));
+        //diente 31
+        array_push($odontogramaInicial2array, array('cleche81Inicial', $diente31Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche81Inicial', $diente31Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche81Inicial', $diente31Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche81Inicial', $diente31Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche81Inicial', $diente31Inicial->parteDerecha));
+        //diente 32
+        array_push($odontogramaInicial2array, array('cleche71Inicial', $diente32Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche71Inicial', $diente32Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche71Inicial', $diente32Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche71Inicial', $diente32Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche71Inicial', $diente32Inicial->parteDerecha));
+        //diente 33
+        array_push($odontogramaInicial2array, array('cleche72Inicial', $diente33Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche72Inicial', $diente33Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche72Inicial', $diente33Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche72Inicial', $diente33Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche72Inicial', $diente33Inicial->parteDerecha));
+        //diente 34
+        array_push($odontogramaInicial2array, array('cleche73Inicial', $diente34Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche73Inicial', $diente34Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche73Inicial', $diente34Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche73Inicial', $diente34Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche73Inicial', $diente34Inicial->parteDerecha));
+        //diente 35
+        array_push($odontogramaInicial2array, array('cleche74Inicial', $diente35Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche74Inicial', $diente35Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche74Inicial', $diente35Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche74Inicial', $diente35Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche74Inicial', $diente35Inicial->parteDerecha));
+        //diente 36
+        array_push($odontogramaInicial2array, array('cleche75Inicial', $diente36Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('tleche75Inicial', $diente36Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('bleche75Inicial', $diente36Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('lleche75Inicial', $diente36Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('rleche75Inicial', $diente36Inicial->parteDerecha));
+
+        //Primer bloque inferior
+        //diente 37
+        array_push($odontogramaInicial2array, array('c48Inicial', $diente37Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t48Inicial', $diente37Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b48Inicial', $diente37Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l48Inicial', $diente37Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r48Inicial', $diente37Inicial->parteDerecha));
+        //diente 38
+        array_push($odontogramaInicial2array, array('c47Inicial', $diente38Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t47Inicial', $diente38Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b47Inicial', $diente38Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l47Inicial', $diente38Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r47Inicial', $diente38Inicial->parteDerecha));
+        //diente 39
+        array_push($odontogramaInicial2array, array('c46Inicial', $diente39Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t46Inicial', $diente39Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b46Inicial', $diente39Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l46Inicial', $diente39Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r46Inicial', $diente39Inicial->parteDerecha));
+        //diente 40
+        array_push($odontogramaInicial2array, array('c45Inicial', $diente40Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t45Inicial', $diente40Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b45Inicial', $diente40Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l45Inicial', $diente40Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r45Inicial', $diente40Inicial->parteDerecha));
+        //diente 41
+        array_push($odontogramaInicial2array, array('c44Inicial', $diente41Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t44Inicial', $diente41Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b44Inicial', $diente41Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l44Inicial', $diente41Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r44Inicial', $diente41Inicial->parteDerecha));
+        //diente 42
+        array_push($odontogramaInicial2array, array('c43Inicial', $diente42Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t43Inicial', $diente42Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b43Inicial', $diente42Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l43Inicial', $diente42Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r43Inicial', $diente42Inicial->parteDerecha));
+        //diente 43
+        array_push($odontogramaInicial2array, array('c42Inicial', $diente43Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t42Inicial', $diente43Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b42Inicial', $diente43Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l42Inicial', $diente43Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r42Inicial', $diente43Inicial->parteDerecha));
+        //diente 44
+        array_push($odontogramaInicial2array, array('c41Inicial', $diente44Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t41Inicial', $diente44Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b41Inicial', $diente44Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l41Inicial', $diente44Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r41Inicial', $diente44Inicial->parteDerecha));
+
+        //Segundo bloque inferior
+        //diente 45
+        array_push($odontogramaInicial2array, array('c31Inicial', $diente45Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t31Inicial', $diente45Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b31Inicial', $diente45Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l31Inicial', $diente45Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r31Inicial', $diente45Inicial->parteDerecha));
+        //diente 46
+        array_push($odontogramaInicial2array, array('c32Inicial', $diente46Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t32Inicial', $diente46Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b32Inicial', $diente46Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l32Inicial', $diente46Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r32Inicial', $diente46Inicial->parteDerecha));
+        //diente 47
+        array_push($odontogramaInicial2array, array('c33Inicial', $diente47Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t33Inicial', $diente47Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b33Inicial', $diente47Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l33Inicial', $diente47Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r33Inicial', $diente47Inicial->parteDerecha));
+        //diente 48
+        array_push($odontogramaInicial2array, array('c34Inicial', $diente48Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t34Inicial', $diente48Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b34Inicial', $diente48Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l34Inicial', $diente48Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r34Inicial', $diente48Inicial->parteDerecha));
+        //diente 49
+        array_push($odontogramaInicial2array, array('c35Inicial', $diente49Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t35Inicial', $diente49Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b35Inicial', $diente49Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l35Inicial', $diente49Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r35Inicial', $diente49Inicial->parteDerecha));
+        //diente 50
+        array_push($odontogramaInicial2array, array('c36Inicial', $diente50Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t36Inicial', $diente50Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b36Inicial', $diente50Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l36Inicial', $diente50Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r36Inicial', $diente50Inicial->parteDerecha));
+        //diente 51
+        array_push($odontogramaInicial2array, array('c37Inicial', $diente51Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t37Inicial', $diente51Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b37Inicial', $diente51Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l37Inicial', $diente51Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r37Inicial', $diente51Inicial->parteDerecha));
+        //diente 52
+        array_push($odontogramaInicial2array, array('c38Inicial', $diente52Inicial->parteCentro));
+        array_push($odontogramaInicial2array, array('t38Inicial', $diente52Inicial->parteSuperior));
+        array_push($odontogramaInicial2array, array('b38Inicial', $diente52Inicial->parteInferior));
+        array_push($odontogramaInicial2array, array('l38Inicial', $diente52Inicial->parteIzquierda));
+        array_push($odontogramaInicial2array, array('r38Inicial', $diente52Inicial->parteDerecha));
+
+        //Odontograma modificable
         //Primer bloque superior
         //diente 1
         array_push($odontograma2array, array('c18', $diente1->parteCentro));
@@ -908,7 +2177,6 @@ class HistoriaClinicaController extends Controller
         array_push($odontograma2array, array('r38', $diente52->parteDerecha));
 
         $empresa = Empresa::find($user->idEmpresa);
-        
         if($user->esAdmin){
              return View('HistoriaClinica.crearHistoriaClinica')
             ->with('departamentos',$departamentos)
@@ -917,6 +2185,7 @@ class HistoriaClinicaController extends Controller
             ->with('empresa',$empresa)
             ->with('historia',$historia)
             ->with('procedimientos',$procedimientos)
+            ->with('odontogramaInicial2array', $odontogramaInicial2array)
             ->with('odontograma2array', $odontograma2array);
         }else{
              return View('HistoriaClinica.crearHistoriaClinicaTrabajador')
@@ -926,6 +2195,7 @@ class HistoriaClinicaController extends Controller
             ->with('empresa',$empresa)
             ->with('historia',$historia)
             ->with('procedimientos',$procedimientos)
+            ->with('odontogramaInicial2array', $odontogramaInicial2array)
             ->with('odontograma2array', $odontograma2array);
         }
     }
@@ -1011,6 +2281,7 @@ class HistoriaClinicaController extends Controller
         //Inicio modificar odontograma
 
         $odontograma = Odontograma::find($historia->idOdontograma);
+        $odontogramaInicial = Odontograma::find($historia->idOdontogramaInicial);
 
         //Bloque superior
         //Diente # 18
@@ -1178,16 +2449,16 @@ class HistoriaClinicaController extends Controller
 
         //Diente # 53
         $diente19 = Diente::find($odontograma->idDiente19);
-        $diente19->parteCentro = $request->cleche511;
-        $diente19->parteSuperior = $request->tleche511;
-        $diente19->parteInferior = $request->bleche511;
-        $diente19->parteDerecha = $request->rleche511;
-        $diente19->parteIzquierda = $request->lechel511;
+        $diente19->parteCentro = $request->cleche531;
+        $diente19->parteSuperior = $request->tleche531;
+        $diente19->parteInferior = $request->bleche531;
+        $diente19->parteDerecha = $request->rleche531;
+        $diente19->parteIzquierda = $request->lechel531;
         $diente19->save();
 
         //Diente # 52
         $diente20 = Diente::find($odontograma->idDiente20);
-        $diente20->parteCentro = $request->cleche51;
+        $diente20->parteCentro = $request->cleche521;
         $diente20->parteSuperior = $request->tleche521;
         $diente20->parteInferior = $request->bleche521;
         $diente20->parteDerecha = $request->rleche521;
@@ -1484,51 +2755,593 @@ class HistoriaClinicaController extends Controller
         $diente52->parteIzquierda = $request->l381;
         $diente52->save();
 
+        //Bloque superior
+        //Diente # 18
+        $diente1Inicial = Diente::find($odontogramaInicial->idDiente1);
+        $diente1Inicial->parteCentro = $request->c18Inicial1;
+        $diente1Inicial->parteSuperior = $request->t18Inicial1;
+        $diente1Inicial->parteInferior = $request->b18Inicial1;
+        $diente1Inicial->parteDerecha = $request->r18Inicial1;
+        $diente1Inicial->parteIzquierda = $request->l18Inicial1;
+        $diente1Inicial->save();
+
+        //Diente # 17
+        $diente2Inicial = Diente::find($odontogramaInicial->idDiente2);
+        $diente2Inicial->parteCentro = $request->c17Inicial1;
+        $diente2Inicial->parteSuperior = $request->t17Inicial1;
+        $diente2Inicial->parteInferior = $request->b17Inicial1;
+        $diente2Inicial->parteDerecha = $request->r17Inicial1;
+        $diente2Inicial->parteIzquierda = $request->l17Inicial1;
+        $diente2Inicial->save();
+
+        //Diente # 16
+        $diente3Inicial = Diente::find($odontogramaInicial->idDiente3);
+        $diente3Inicial->parteCentro = $request->c16Inicial1;
+        $diente3Inicial->parteSuperior = $request->t16Inicial1;
+        $diente3Inicial->parteInferior = $request->b16Inicial1;
+        $diente3Inicial->parteDerecha = $request->r16Inicial1;
+        $diente3Inicial->parteIzquierda = $request->l16Inicial1;
+        $diente3Inicial->save();
+
+        //Diente # 15
+        $diente4Inicial = Diente::find($odontogramaInicial->idDiente4);
+        $diente4Inicial->parteCentro = $request->c15Inicial1;
+        $diente4Inicial->parteSuperior = $request->t15Inicial1;
+        $diente4Inicial->parteInferior = $request->b15Inicial1;
+        $diente4Inicial->parteDerecha = $request->r15Inicial1;
+        $diente4Inicial->parteIzquierda = $request->l15Inicial1;
+        $diente4Inicial->save();
+
+        //Diente # 14
+        $diente5Inicial = Diente::find($odontogramaInicial->idDiente5);
+        $diente5Inicial->parteCentro = $request->c14Inicial1;
+        $diente5Inicial->parteSuperior = $request->t14Inicial1;
+        $diente5Inicial->parteInferior = $request->b14Inicial1;
+        $diente5Inicial->parteDerecha = $request->r14Inicial1;
+        $diente5Inicial->parteIzquierda = $request->l14Inicial1;
+        $diente5Inicial->save();
+
+        //Diente # 13
+        $diente6Inicial = Diente::find($odontogramaInicial->idDiente6);
+        $diente6Inicial->parteCentro = $request->c13Inicial1;
+        $diente6Inicial->parteSuperior = $request->t13Inicial1;
+        $diente6Inicial->parteInferior = $request->b13Inicial1;
+        $diente6Inicial->parteDerecha = $request->r13Inicial1;
+        $diente6Inicial->parteIzquierda = $request->l13Inicial1;
+        $diente6Inicial->save();
+
+        //Diente # 12
+        $diente7Inicial = Diente::find($odontogramaInicial->idDiente7);
+        $diente7Inicial->parteCentro = $request->c12Inicial1;
+        $diente7Inicial->parteSuperior = $request->t12Inicial1;
+        $diente7Inicial->parteInferior = $request->b12Inicial1;
+        $diente7Inicial->parteDerecha = $request->r12Inicial1;
+        $diente7Inicial->parteIzquierda = $request->l12Inicial1;
+        $diente7Inicial->save();
+
+        //Diente # 11
+        $diente8Inicial = Diente::find($odontogramaInicial->idDiente8);
+        $diente8Inicial->parteCentro = $request->c11Inicial1;
+        $diente8Inicial->parteSuperior = $request->t11Inicial1;
+        $diente8Inicial->parteInferior = $request->b11Inicial1;
+        $diente8Inicial->parteDerecha = $request->r11Inicial1;
+        $diente8Inicial->parteIzquierda = $request->l11Inicial1;
+        $diente8Inicial->save();
+
+        //Diente # 21
+        $diente9Inicial = Diente::find($odontogramaInicial->idDiente9);
+        $diente9Inicial->parteCentro = $request->c21Inicial1;
+        $diente9Inicial->parteSuperior = $request->t21Inicial1;
+        $diente9Inicial->parteInferior = $request->b21Inicial1;
+        $diente9Inicial->parteDerecha = $request->r21Inicial1;
+        $diente9Inicial->parteIzquierda = $request->l21Inicial1;
+        $diente9Inicial->save();
+
+        //Diente # 22
+        $diente10Inicial = Diente::find($odontogramaInicial->idDiente10);
+        $diente10Inicial->parteCentro = $request->c22Inicial1;
+        $diente10Inicial->parteSuperior = $request->t22Inicial1;
+        $diente10Inicial->parteInferior = $request->b22Inicial1;
+        $diente10Inicial->parteDerecha = $request->r22Inicial1;
+        $diente10Inicial->parteIzquierda = $request->l22Inicial1;
+        $diente10Inicial->save();
+
+        //Diente # 23
+        $diente11Inicial = Diente::find($odontogramaInicial->idDiente11);
+        $diente11Inicial->parteCentro = $request->c23Inicial1;
+        $diente11Inicial->parteSuperior = $request->t23Inicial1;
+        $diente11Inicial->parteInferior = $request->b23Inicial1;
+        $diente11Inicial->parteDerecha = $request->r23Inicial1;
+        $diente11Inicial->parteIzquierda = $request->l23Inicial1;
+        $diente11Inicial->save();
+
+        //Diente # 24
+        $diente12Inicial = Diente::find($odontogramaInicial->idDiente12);
+        $diente12Inicial->parteCentro = $request->c24Inicial1;
+        $diente12Inicial->parteSuperior = $request->t24Inicial1;
+        $diente12Inicial->parteInferior = $request->b24Inicial1;
+        $diente12Inicial->parteDerecha = $request->r24Inicial1;
+        $diente12Inicial->parteIzquierda = $request->l24Inicial1;
+        $diente12Inicial->save();
+
+        //Diente # 25
+        $diente13Inicial = Diente::find($odontogramaInicial->idDiente13);
+        $diente13Inicial->parteCentro = $request->c25Inicial1;
+        $diente13Inicial->parteSuperior = $request->t25Inicial1;
+        $diente13Inicial->parteInferior = $request->b25Inicial1;
+        $diente13Inicial->parteDerecha = $request->r25Inicial1;
+        $diente13Inicial->parteIzquierda = $request->l25Inicial1;
+        $diente13Inicial->save();
+
+        //Diente # 26
+        $diente14Inicial = Diente::find($odontogramaInicial->idDiente14);
+        $diente14Inicial->parteCentro = $request->c26Inicial1;
+        $diente14Inicial->parteSuperior = $request->t26Inicial1;
+        $diente14Inicial->parteInferior = $request->b26Inicial1;
+        $diente14Inicial->parteDerecha = $request->r26Inicial1;
+        $diente14Inicial->parteIzquierda = $request->l26Inicial1;
+        $diente14Inicial->save();
+
+        //Diente # 27
+        $diente15Inicial = Diente::find($odontogramaInicial->idDiente15);
+        $diente15Inicial->parteCentro = $request->c27Inicial1;
+        $diente15Inicial->parteSuperior = $request->t27Inicial1;
+        $diente15Inicial->parteInferior = $request->b27Inicial1;
+        $diente15Inicial->parteDerecha = $request->r27Inicial1;
+        $diente15Inicial->parteIzquierda = $request->l27Inicial1;
+        $diente15Inicial->save();
+
+        //Diente # 28
+        $diente16Inicial = Diente::find($odontogramaInicial->idDiente16);
+        $diente16Inicial->parteCentro = $request->c28Inicial1;
+        $diente16Inicial->parteSuperior = $request->t28Inicial1;
+        $diente16Inicial->parteInferior = $request->b28Inicial1;
+        $diente16Inicial->parteDerecha = $request->r28Inicial1;
+        $diente16Inicial->parteIzquierda = $request->l28Inicial1;
+        $diente16Inicial->save();
+
+        //Bloque medio superior
+        //Diente # 55
+        $diente17Inicial = Diente::find($odontogramaInicial->idDiente17);
+        $diente17Inicial->parteCentro = $request->cleche55Inicial1;
+        $diente17Inicial->parteSuperior = $request->tleche55Inicial1;
+        $diente17Inicial->parteInferior = $request->bleche55Inicial1;
+        $diente17Inicial->parteDerecha = $request->rleche55Inicial1;
+        $diente17Inicial->parteIzquierda = $request->lleche55Inicial1;
+        $diente17Inicial->save();
+
+        //Diente # 54
+        $diente18Inicial = Diente::find($odontogramaInicial->idDiente18);
+        $diente18Inicial->parteCentro = $request->cleche54Inicial1;
+        $diente18Inicial->parteSuperior = $request->tleche54Inicial1;
+        $diente18Inicial->parteInferior = $request->bleche54Inicial1;
+        $diente18Inicial->parteDerecha = $request->rleche54Inicial1;
+        $diente18Inicial->parteIzquierda = $request->lleche54Inicial1;
+        $diente18Inicial->save();
+
+        //Diente # 53
+        $diente19Inicial = Diente::find($odontogramaInicial->idDiente19);
+        $diente19Inicial->parteCentro = $request->cleche53Inicial1;
+        $diente19Inicial->parteSuperior = $request->tleche53Inicial1;
+        $diente19Inicial->parteInferior = $request->bleche53Inicial1;
+        $diente19Inicial->parteDerecha = $request->rleche53Inicial1;
+        $diente19Inicial->parteIzquierda = $request->lleche53Inicial1;
+        $diente19Inicial->save();
+
+        //Diente # 52
+        $diente20Inicial = Diente::find($odontogramaInicial->idDiente20);
+        $diente20Inicial->parteCentro = $request->cleche52Inicial1;
+        $diente20Inicial->parteSuperior = $request->tleche52Inicial1;
+        $diente20Inicial->parteInferior = $request->bleche52Inicial1;
+        $diente20Inicial->parteDerecha = $request->rleche52Inicial1;
+        $diente20Inicial->parteIzquierda = $request->lleche52Inicial1;
+        $diente20Inicial->save();
+
+        //Diente # 51
+        $diente21Inicial = Diente::find($odontogramaInicial->idDiente21);
+        $diente21Inicial->parteCentro = $request->cleche51Inicial1;
+        $diente21Inicial->parteSuperior = $request->tleche51Inicial1;
+        $diente21Inicial->parteInferior = $request->bleche51Inicial1;
+        $diente21Inicial->parteDerecha = $request->rleche51Inicial1;
+        $diente21Inicial->parteIzquierda = $request->lleche51Inicial1;
+        $diente21Inicial->save();
+
+        //Diente # 61
+        $diente22Inicial = Diente::find($odontogramaInicial->idDiente22);
+        $diente22Inicial->parteCentro = $request->cleche61Inicial1;
+        $diente22Inicial->parteSuperior = $request->tleche61Inicial1;
+        $diente22Inicial->parteInferior = $request->bleche61Inicial1;
+        $diente22Inicial->parteDerecha = $request->rleche61Inicial1;
+        $diente22Inicial->parteIzquierda = $request->lleche61Inicial1;
+        $diente22Inicial->save();
+
+        //Diente # 62
+        $diente23Inicial = Diente::find($odontogramaInicial->idDiente23);
+        $diente23Inicial->parteCentro = $request->cleche62Inicial1;
+        $diente23Inicial->parteSuperior = $request->tleche62Inicial1;
+        $diente23Inicial->parteInferior = $request->bleche62Inicial1;
+        $diente23Inicial->parteDerecha = $request->rleche62Inicial1;
+        $diente23Inicial->parteIzquierda = $request->lleche62Inicial1;
+        $diente23Inicial->save();
+
+        //Diente # 63
+        $diente24Inicial = Diente::find($odontogramaInicial->idDiente24);
+        $diente24Inicial->parteCentro = $request->cleche63Inicial1;
+        $diente24Inicial->parteSuperior = $request->tleche63Inicial1;
+        $diente24Inicial->parteInferior = $request->bleche63Inicial1;
+        $diente24Inicial->parteDerecha = $request->rleche63Inicial1;
+        $diente24Inicial->parteIzquierda = $request->lleche63Inicial1;
+        $diente24Inicial->save();
+
+        //Diente # 64
+        $diente25Inicial = Diente::find($odontogramaInicial->idDiente25);
+        $diente25Inicial->parteCentro = $request->cleche64Inicial1;
+        $diente25Inicial->parteSuperior = $request->tleche64Inicial1;
+        $diente25Inicial->parteInferior = $request->bleche64Inicial1;
+        $diente25Inicial->parteDerecha = $request->rleche64Inicial1;
+        $diente25Inicial->parteIzquierda = $request->lleche64Inicial1;
+        $diente25Inicial->save();
+
+        //Diente # 65
+        $diente26Inicial = Diente::find($odontogramaInicial->idDiente26);
+        $diente26Inicial->parteCentro = $request->cleche65Inicial1;
+        $diente26Inicial->parteSuperior = $request->tleche65Inicial1;
+        $diente26Inicial->parteInferior = $request->bleche65Inicial1;
+        $diente26Inicial->parteDerecha = $request->rleche65Inicial1;
+        $diente26Inicial->parteIzquierda = $request->lleche65Inicial1;
+        $diente26Inicial->save();
+
+        //Bloque medio inferior
+        //Diente # 85
+        $diente27Inicial = Diente::find($odontogramaInicial->idDiente27);
+        $diente27Inicial->parteCentro = $request->cleche85Inicial1;
+        $diente27Inicial->parteSuperior = $request->tleche85Inicial1;
+        $diente27Inicial->parteInferior = $request->bleche85Inicial1;
+        $diente27Inicial->parteDerecha = $request->rleche85Inicial1;
+        $diente27Inicial->parteIzquierda = $request->lleche85Inicial1;
+        $diente27Inicial->save();
+
+        //Diente # 84
+        $diente28Inicial = Diente::find($odontogramaInicial->idDiente28);
+        $diente28Inicial->parteCentro = $request->cleche84Inicial1;
+        $diente28Inicial->parteSuperior = $request->tleche84Inicial1;
+        $diente28Inicial->parteInferior = $request->bleche84Inicial1;
+        $diente28Inicial->parteDerecha = $request->rleche84Inicial1;
+        $diente28Inicial->parteIzquierda = $request->lleche84Inicial1;
+        $diente28Inicial->save();
+
+        //Diente # 83
+        $diente29Inicial = Diente::find($odontogramaInicial->idDiente29);
+        $diente29Inicial->parteCentro = $request->cleche83Inicial1;
+        $diente29Inicial->parteSuperior = $request->tleche83Inicial1;
+        $diente29Inicial->parteInferior = $request->bleche83Inicial1;
+        $diente29Inicial->parteDerecha = $request->rleche83Inicial1;
+        $diente29Inicial->parteIzquierda = $request->lleche83Inicial1;
+        $diente29Inicial->save();
+
+        //Diente # 82
+        $diente30Inicial = Diente::find($odontogramaInicial->idDiente30);
+        $diente30Inicial->parteCentro = $request->cleche82Inicial1;
+        $diente30Inicial->parteSuperior = $request->tleche82Inicial1;
+        $diente30Inicial->parteInferior = $request->bleche82Inicial1;
+        $diente30Inicial->parteDerecha = $request->rleche82Inicial1;
+        $diente30Inicial->parteIzquierda = $request->lleche82Inicial1;
+        $diente30Inicial->save();
+
+        //Diente # 81
+        $diente31Inicial = Diente::find($odontogramaInicial->idDiente31);
+        $diente31Inicial->parteCentro = $request->cleche81Inicial1;
+        $diente31Inicial->parteSuperior = $request->tleche81Inicial1;
+        $diente31Inicial->parteInferior = $request->bleche81Inicial1;
+        $diente31Inicial->parteDerecha = $request->rleche81Inicial1;
+        $diente31Inicial->parteIzquierda = $request->lleche81Inicial1;
+        $diente31Inicial->save();
+
+        //Diente # 71
+        $diente32Inicial = Diente::find($odontogramaInicial->idDiente32);
+        $diente32Inicial->parteCentro = $request->cleche71Inicial1;
+        $diente32Inicial->parteSuperior = $request->tleche71Inicial1;
+        $diente32Inicial->parteInferior = $request->bleche71Inicial1;
+        $diente32Inicial->parteDerecha = $request->rleche71Inicial1;
+        $diente32Inicial->parteIzquierda = $request->lleche71Inicial1;
+        $diente32Inicial->save();
+
+        //Diente # 72
+        $diente33Inicial = Diente::find($odontogramaInicial->idDiente33);
+        $diente33Inicial->parteCentro = $request->cleche72Inicial1;
+        $diente33Inicial->parteSuperior = $request->tleche72Inicial1;
+        $diente33Inicial->parteInferior = $request->bleche72Inicial1;
+        $diente33Inicial->parteDerecha = $request->rleche72Inicial1;
+        $diente33Inicial->parteIzquierda = $request->lleche72Inicial1;
+        $diente33Inicial->save();
+
+        //Diente # 73
+        $diente34Inicial = Diente::find($odontogramaInicial->idDiente34);
+        $diente34Inicial->parteCentro = $request->cleche73Inicial1;
+        $diente34Inicial->parteSuperior = $request->tleche73Inicial1;
+        $diente34Inicial->parteInferior = $request->bleche73Inicial1;
+        $diente34Inicial->parteDerecha = $request->rleche73Inicial1;
+        $diente34Inicial->parteIzquierda = $request->lleche73Inicial1;
+        $diente34Inicial->save();
+
+        //Diente # 74
+        $diente35Inicial = Diente::find($odontogramaInicial->idDiente35);
+        $diente35Inicial->parteCentro = $request->cleche74Inicial1;
+        $diente35Inicial->parteSuperior = $request->tleche74Inicial1;
+        $diente35Inicial->parteInferior = $request->bleche74Inicial1;
+        $diente35Inicial->parteDerecha = $request->rleche74Inicial1;
+        $diente35Inicial->parteIzquierda = $request->lleche74Inicial1;
+        $diente35Inicial->save();
+
+        //Diente # 75
+        $diente36Inicial = Diente::find($odontogramaInicial->idDiente36);
+        $diente36Inicial->parteCentro = $request->cleche75Inicial1;
+        $diente36Inicial->parteSuperior = $request->tleche75Inicial1;
+        $diente36Inicial->parteInferior = $request->bleche75Inicial1;
+        $diente36Inicial->parteDerecha = $request->rleche75Inicial1;
+        $diente36Inicial->parteIzquierda = $request->lleche75Inicial1;
+        $diente36Inicial->save();
+
+        //Bloque inferior
+        //Diente # 48
+        $diente37Inicial = Diente::find($odontogramaInicial->idDiente37);
+        $diente37Inicial->parteCentro = $request->c48Inicial1;
+        $diente37Inicial->parteSuperior = $request->t48Inicial1;
+        $diente37Inicial->parteInferior = $request->b48Inicial1;
+        $diente37Inicial->parteDerecha = $request->r48Inicial1;
+        $diente37Inicial->parteIzquierda = $request->l48Inicial1;
+        $diente37Inicial->save();
+
+        //Diente # 47
+        $diente38Inicial = Diente::find($odontogramaInicial->idDiente38);
+        $diente38Inicial->parteCentro = $request->c47Inicial1;
+        $diente38Inicial->parteSuperior = $request->t47Inicial1;
+        $diente38Inicial->parteInferior = $request->b47Inicial1;
+        $diente38Inicial->parteDerecha = $request->r47Inicial1;
+        $diente38Inicial->parteIzquierda = $request->l47Inicial1;
+        $diente38Inicial->save();
+
+        //Diente # 46
+        $diente39Inicial = Diente::find($odontogramaInicial->idDiente39);
+        $diente39Inicial->parteCentro = $request->c46Inicial1;
+        $diente39Inicial->parteSuperior = $request->t46Inicial1;
+        $diente39Inicial->parteInferior = $request->b46Inicial1;
+        $diente39Inicial->parteDerecha = $request->r46Inicial1;
+        $diente39Inicial->parteIzquierda = $request->l46Inicial1;
+        $diente39Inicial->save();
+
+        //Diente # 45
+        $diente40Inicial = Diente::find($odontogramaInicial->idDiente40);
+        $diente40Inicial->parteCentro = $request->c45Inicial1;
+        $diente40Inicial->parteSuperior = $request->t45Inicial1;
+        $diente40Inicial->parteInferior = $request->b45Inicial1;
+        $diente40Inicial->parteDerecha = $request->r45Inicial1;
+        $diente40Inicial->parteIzquierda = $request->l45Inicial1;
+        $diente40Inicial->save();
+
+        //Diente # 44
+        $diente41Inicial = Diente::find($odontogramaInicial->idDiente41);
+        $diente41Inicial->parteCentro = $request->c44Inicial1;
+        $diente41Inicial->parteSuperior = $request->t44Inicial1;
+        $diente41Inicial->parteInferior = $request->b44Inicial1;
+        $diente41Inicial->parteDerecha = $request->r44Inicial1;
+        $diente41Inicial->parteIzquierda = $request->l44Inicial1;
+        $diente41Inicial->save();
+
+        //Diente # 43
+        $diente42Inicial = Diente::find($odontogramaInicial->idDiente42);
+        $diente42Inicial->parteCentro = $request->c43Inicial1;
+        $diente42Inicial->parteSuperior = $request->t43Inicial1;
+        $diente42Inicial->parteInferior = $request->b43Inicial1;
+        $diente42Inicial->parteDerecha = $request->r43Inicial1;
+        $diente42Inicial->parteIzquierda = $request->l43Inicial1;
+        $diente42Inicial->save();
+
+        //Diente # 42
+        $diente43Inicial = Diente::find($odontogramaInicial->idDiente43);
+        $diente43Inicial->parteCentro = $request->c42Inicial1;
+        $diente43Inicial->parteSuperior = $request->t42Inicial1;
+        $diente43Inicial->parteInferior = $request->b42Inicial1;
+        $diente43Inicial->parteDerecha = $request->r42Inicial1;
+        $diente43Inicial->parteIzquierda = $request->l42Inicial1;
+        $diente43Inicial->save();
+
+        //Diente # 41
+        $diente44Inicial = Diente::find($odontogramaInicial->idDiente44);
+        $diente44Inicial->parteCentro = $request->c41Inicial1;
+        $diente44Inicial->parteSuperior = $request->t41Inicial1;
+        $diente44Inicial->parteInferior = $request->b41Inicial1;
+        $diente44Inicial->parteDerecha = $request->r41Inicial1;
+        $diente44Inicial->parteIzquierda = $request->l41Inicial1;
+        $diente44Inicial->save();
+
+        //Diente # 31
+        $diente45Inicial = Diente::find($odontogramaInicial->idDiente45);
+        $diente45Inicial->parteCentro = $request->c31Inicial1;
+        $diente45Inicial->parteSuperior = $request->t31Inicial1;
+        $diente45Inicial->parteInferior = $request->b31Inicial1;
+        $diente45Inicial->parteDerecha = $request->r31Inicial1;
+        $diente45Inicial->parteIzquierda = $request->l31Inicial1;
+        $diente45Inicial->save();
+
+        //Diente # 32
+        $diente46Inicial = Diente::find($odontogramaInicial->idDiente46);
+        $diente46Inicial->parteCentro = $request->c32Inicial1;
+        $diente46Inicial->parteSuperior = $request->t32Inicial1;
+        $diente46Inicial->parteInferior = $request->b32Inicial1;
+        $diente46Inicial->parteDerecha = $request->r32Inicial1;
+        $diente46Inicial->parteIzquierda = $request->l32Inicial1;
+        $diente46Inicial->save();
+
+        //Diente # 33
+        $diente47Inicial = Diente::find($odontogramaInicial->idDiente47);
+        $diente47Inicial->parteCentro = $request->c33Inicial1;
+        $diente47Inicial->parteSuperior = $request->t33Inicial1;
+        $diente47Inicial->parteInferior = $request->b33Inicial1;
+        $diente47Inicial->parteDerecha = $request->r33Inicial1;
+        $diente47Inicial->parteIzquierda = $request->l33Inicial1;
+        $diente47Inicial->save();
+
+        //Diente # 34
+        $diente48Inicial = Diente::find($odontogramaInicial->idDiente48);
+        $diente48Inicial->parteCentro = $request->c34Inicial1;
+        $diente48Inicial->parteSuperior = $request->t34Inicial1;
+        $diente48Inicial->parteInferior = $request->b34Inicial1;
+        $diente48Inicial->parteDerecha = $request->r34Inicial1;
+        $diente48Inicial->parteIzquierda = $request->l34Inicial1;
+        $diente48Inicial->save();
+
+        //Diente # 35
+        $diente49Inicial = Diente::find($odontogramaInicial->idDiente49);
+        $diente49Inicial->parteCentro = $request->c35Inicial1;
+        $diente49Inicial->parteSuperior = $request->t35Inicial1;
+        $diente49Inicial->parteInferior = $request->b35Inicial1;
+        $diente49Inicial->parteDerecha = $request->r35Inicial1;
+        $diente49Inicial->parteIzquierda = $request->l35Inicial1;
+        $diente49Inicial->save();
+
+        //Diente # 36
+        $diente50Inicial = Diente::find($odontogramaInicial->idDiente50);
+        $diente50Inicial->parteCentro = $request->c36Inicial1;
+        $diente50Inicial->parteSuperior = $request->t36Inicial1;
+        $diente50Inicial->parteInferior = $request->b36Inicial1;
+        $diente50Inicial->parteDerecha = $request->r36Inicial1;
+        $diente50Inicial->parteIzquierda = $request->l36Inicial1;
+        $diente50Inicial->save();
+
+        //Diente # 37
+        $diente51Inicial = Diente::find($odontogramaInicial->idDiente51);
+        $diente51Inicial->parteCentro = $request->c37Inicial1;
+        $diente51Inicial->parteSuperior = $request->t37Inicial1;
+        $diente51Inicial->parteInferior = $request->b37Inicial1;
+        $diente51Inicial->parteDerecha = $request->r37Inicial1;
+        $diente51Inicial->parteIzquierda = $request->l37Inicial1;
+        $diente51Inicial->save();
+
+        //Diente # 38
+        $diente52Inicial = Diente::find($odontogramaInicial->idDiente52);
+        $diente52Inicial->parteCentro = $request->c38Inicial1;
+        $diente52Inicial->parteSuperior = $request->t38Inicial1;
+        $diente52Inicial->parteInferior = $request->b38Inicial1;
+        $diente52Inicial->parteDerecha = $request->r38Inicial1;
+        $diente52Inicial->parteIzquierda = $request->l38Inicial1;
+        $diente52Inicial->save();
+
         $historia->save();
 
         //Servicio prestado
         if($request->procedimiento != null){
             $servicio = new Servicio();
-            $servicio->fecha = Carbon::now('COT');
+            $servicio->fecha = Carbon::now()->subHour(5);
             $servicio->idEmpresa = $user->idEmpresa;
             $servicio->idHistoriaClinica = $historia->id;
             $servicio->idProcedimiento = $request->procedimiento;
 
             $servicio->save();
 
-            $cuentas = Cuentas::Empresa($user->idEmpresa)->first(); 
+            $cuentas = Cuentas::Empresa($user->idEmpresa)->get(); 
             $procedimiento = Procedimiento::find($servicio->idProcedimiento);
             
             $fecha = $servicio->fecha;
             
-            if($fecha->month == 1){
-                  $cuentas->enero = $cuentas->enero + $procedimiento->venta;
-            }else if($fecha->month == 2){
-                  $cuentas->febrero = $cuentas->febrero + $procedimiento->venta;
-            }else if($fecha->month == 3){
-                  $cuentas->marzo = $cuentas->marzo + $procedimiento->venta;
-            }else if($fecha->month == 4){
-                  $cuentas->abril = $cuentas->abril + $procedimiento->venta;
-            }else if($fecha->month == 5){
-                  $cuentas->mayo = $cuentas->mayo + $procedimiento->venta;
-            }else if($fecha->month == 6){
-                  $cuentas->junio = $cuentas->junio + $procedimiento->venta;
-            }else if($fecha->month == 7){
-                  $cuentas->julio = $cuentas->julio + $procedimiento->venta;
-            }else if($fecha->month == 8){
-                  $cuentas->agosto = $cuentas->agosto + $procedimiento->venta;
-            }else if($fecha->month == 9){
-                  $cuentas->septiembre = $cuentas->septiembre + $procedimiento->venta;
-            }else if($fecha->month == 10){
-                  $cuentas->octubre = $cuentas->octubre + $procedimiento->venta;
-            }else if($fecha->month == 11){
-                  $cuentas->noviembre = $cuentas->noviembre + $procedimiento->venta;
-            }else if($fecha->month == 12){
-                  $cuentas->diciembre = $cuentas->diciembre + $procedimiento->venta;
-            }
+            for ($i=0; $i < sizeof($cuentas); $i++) { 
 
-            $cuentas->actual = $cuentas->actual + $procedimiento->venta;
-            $cuentas->save();
+                  if($cuentas[$i]->titulo == "Ventas"){
+
+                        if($fecha->month == 1){
+                              $cuentas[$i]->enero = $cuentas[$i]->enero + $procedimiento->venta;
+                        }else if($fecha->month == 2){
+                              $cuentas[$i]->febrero = $cuentas[$i]->febrero + $procedimiento->venta;
+                        }else if($fecha->month == 3){
+                              $cuentas[$i]->marzo = $cuentas[$i]->marzo + $procedimiento->venta;
+                        }else if($fecha->month == 4){
+                              $cuentas[$i]->abril = $cuentas[$i]->abril + $procedimiento->venta;
+                        }else if($fecha->month == 5){
+                              $cuentas[$i]->mayo = $cuentas[$i]->mayo + $procedimiento->venta;
+                        }else if($fecha->month == 6){
+                              $cuentas[$i]->junio = $cuentas[$i]->junio + $procedimiento->venta;
+                        }else if($fecha->month == 7){
+                              $cuentas[$i]->julio = $cuentas[$i]->julio + $procedimiento->venta;
+                        }else if($fecha->month == 8){
+                              $cuentas[$i]->agosto = $cuentas[$i]->agosto + $procedimiento->venta;
+                        }else if($fecha->month == 9){
+                              $cuentas[$i]->septiembre = $cuentas[$i]->septiembre + $procedimiento->venta;
+                        }else if($fecha->month == 10){
+                              $cuentas[$i]->octubre = $cuentas[$i]->octubre + $procedimiento->venta;
+                        }else if($fecha->month == 11){
+                              $cuentas[$i]->noviembre = $cuentas[$i]->noviembre + $procedimiento->venta;
+                        }else if($fecha->month == 12){
+                              $cuentas[$i]->diciembre = $cuentas[$i]->diciembre + $procedimiento->venta;
+                        }
+
+                        $cuentas[$i]->actual = $cuentas[$i]->actual + $procedimiento->venta;
+                        $cuentas[$i]->save();
+
+                  }else if($cuentas[$i]->titulo == "Costos"){
+
+                        if($fecha->month == 1){
+                              $cuentas[$i]->enero = $cuentas[$i]->enero + $procedimiento->costo;
+                        }else if($fecha->month == 2){
+                              $cuentas[$i]->febrero = $cuentas[$i]->febrero + $procedimiento->costo;
+                        }else if($fecha->month == 3){
+                              $cuentas[$i]->marzo = $cuentas[$i]->marzo + $procedimiento->costo;
+                        }else if($fecha->month == 4){
+                              $cuentas[$i]->abril = $cuentas[$i]->abril + $procedimiento->costo;
+                        }else if($fecha->month == 5){
+                              $cuentas[$i]->mayo = $cuentas[$i]->mayo + $procedimiento->costo;
+                        }else if($fecha->month == 6){
+                              $cuentas[$i]->junio = $cuentas[$i]->junio + $procedimiento->costo;
+                        }else if($fecha->month == 7){
+                              $cuentas[$i]->julio = $cuentas[$i]->julio + $procedimiento->costo;
+                        }else if($fecha->month == 8){
+                              $cuentas[$i]->agosto = $cuentas[$i]->agosto + $procedimiento->costo;
+                        }else if($fecha->month == 9){
+                              $cuentas[$i]->septiembre = $cuentas[$i]->septiembre + $procedimiento->costo;
+                        }else if($fecha->month == 10){
+                              $cuentas[$i]->octubre = $cuentas[$i]->octubre + $procedimiento->costo;
+                        }else if($fecha->month == 11){
+                              $cuentas[$i]->noviembre = $cuentas[$i]->noviembre + $procedimiento->costo;
+                        }else if($fecha->month == 12){
+                              $cuentas[$i]->diciembre = $cuentas[$i]->diciembre + $procedimiento->costo;
+                        }
+
+                        $cuentas[$i]->actual = $cuentas[$i]->actual + $procedimiento->costo;
+                        $cuentas[$i]->save();
+
+                  }else if($cuentas[$i]->titulo == "Utilidad"){
+
+                        if($fecha->month == 1){
+                              $cuentas[$i]->enero = $cuentas[$i]->enero + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 2){
+                              $cuentas[$i]->febrero = $cuentas[$i]->febrero + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 3){
+                              $cuentas[$i]->marzo = $cuentas[$i]->marzo + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 4){
+                              $cuentas[$i]->abril = $cuentas[$i]->abril + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 5){
+                              $cuentas[$i]->mayo = $cuentas[$i]->mayo + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 6){
+                              $cuentas[$i]->junio = $cuentas[$i]->junio + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 7){
+                              $cuentas[$i]->julio = $cuentas[$i]->julio + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 8){
+                              $cuentas[$i]->agosto = $cuentas[$i]->agosto + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 9){
+                              $cuentas[$i]->septiembre = $cuentas[$i]->septiembre + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 10){
+                              $cuentas[$i]->octubre = $cuentas[$i]->octubre + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 11){
+                              $cuentas[$i]->noviembre = $cuentas[$i]->noviembre + ($procedimiento->venta - $procedimiento->costo);
+                        }else if($fecha->month == 12){
+                              $cuentas[$i]->diciembre = $cuentas[$i]->diciembre + ($procedimiento->venta - $procedimiento->costo);
+                        }
+
+                        $cuentas[$i]->actual = $cuentas[$i]->actual + ($procedimiento->venta - $procedimiento->costo);
+                        $cuentas[$i]->save();
+
+                  }
+
+            }
         }
         
         session_start();
@@ -1557,6 +3370,61 @@ class HistoriaClinicaController extends Controller
         }
 
         $odontograma2destroy = Odontograma::find($historia2destroy->idOdontograma);
+        $odontogramaInicial2destroy = Odontograma::find($historia2destroy->idOdontogramaInicial);
+
+        $diente1Inicial = Diente::find($odontogramaInicial2destroy->idDiente1);
+        $diente2Inicial = Diente::find($odontogramaInicial2destroy->idDiente2);
+        $diente3Inicial = Diente::find($odontogramaInicial2destroy->idDiente3);
+        $diente4Inicial = Diente::find($odontogramaInicial2destroy->idDiente4);
+        $diente5Inicial = Diente::find($odontogramaInicial2destroy->idDiente5);
+        $diente6Inicial = Diente::find($odontogramaInicial2destroy->idDiente6);
+        $diente7Inicial = Diente::find($odontogramaInicial2destroy->idDiente7);
+        $diente8Inicial = Diente::find($odontogramaInicial2destroy->idDiente8);
+        $diente9Inicial = Diente::find($odontogramaInicial2destroy->idDiente9);
+        $diente10Inicial = Diente::find($odontogramaInicial2destroy->idDiente10);
+        $diente11Inicial = Diente::find($odontogramaInicial2destroy->idDiente11);
+        $diente12Inicial = Diente::find($odontogramaInicial2destroy->idDiente12);
+        $diente13Inicial = Diente::find($odontogramaInicial2destroy->idDiente13);
+        $diente14Inicial = Diente::find($odontogramaInicial2destroy->idDiente14);
+        $diente15Inicial = Diente::find($odontogramaInicial2destroy->idDiente15);
+        $diente16Inicial = Diente::find($odontogramaInicial2destroy->idDiente16);
+        $diente17Inicial = Diente::find($odontogramaInicial2destroy->idDiente17);
+        $diente18Inicial = Diente::find($odontogramaInicial2destroy->idDiente18);
+        $diente19Inicial = Diente::find($odontogramaInicial2destroy->idDiente19);
+        $diente20Inicial = Diente::find($odontogramaInicial2destroy->idDiente20);
+        $diente21Inicial = Diente::find($odontogramaInicial2destroy->idDiente21);
+        $diente22Inicial = Diente::find($odontogramaInicial2destroy->idDiente22);
+        $diente23Inicial = Diente::find($odontogramaInicial2destroy->idDiente23);
+        $diente24Inicial = Diente::find($odontogramaInicial2destroy->idDiente24);
+        $diente25Inicial = Diente::find($odontogramaInicial2destroy->idDiente25);
+        $diente26Inicial = Diente::find($odontogramaInicial2destroy->idDiente26);
+        $diente27Inicial = Diente::find($odontogramaInicial2destroy->idDiente27);
+        $diente28Inicial = Diente::find($odontogramaInicial2destroy->idDiente28);
+        $diente29Inicial = Diente::find($odontogramaInicial2destroy->idDiente29);
+        $diente30Inicial = Diente::find($odontogramaInicial2destroy->idDiente30);
+        $diente31Inicial = Diente::find($odontogramaInicial2destroy->idDiente31);
+        $diente32Inicial = Diente::find($odontogramaInicial2destroy->idDiente32);
+        $diente33Inicial = Diente::find($odontogramaInicial2destroy->idDiente33);
+        $diente34Inicial = Diente::find($odontogramaInicial2destroy->idDiente34);
+        $diente35Inicial = Diente::find($odontogramaInicial2destroy->idDiente35);
+        $diente36Inicial = Diente::find($odontogramaInicial2destroy->idDiente36);
+        $diente37Inicial = Diente::find($odontogramaInicial2destroy->idDiente37);
+        $diente38Inicial = Diente::find($odontogramaInicial2destroy->idDiente38);
+        $diente39Inicial = Diente::find($odontogramaInicial2destroy->idDiente39);
+        $diente40Inicial = Diente::find($odontogramaInicial2destroy->idDiente40);
+        $diente41Inicial = Diente::find($odontogramaInicial2destroy->idDiente41);
+        $diente42Inicial = Diente::find($odontogramaInicial2destroy->idDiente42);
+        $diente43Inicial = Diente::find($odontogramaInicial2destroy->idDiente43);
+        $diente44Inicial = Diente::find($odontogramaInicial2destroy->idDiente44);
+        $diente45Inicial = Diente::find($odontogramaInicial2destroy->idDiente45);
+        $diente46Inicial = Diente::find($odontogramaInicial2destroy->idDiente46);
+        $diente47Inicial = Diente::find($odontogramaInicial2destroy->idDiente47);
+        $diente48Inicial = Diente::find($odontogramaInicial2destroy->idDiente48);
+        $diente49Inicial = Diente::find($odontogramaInicial2destroy->idDiente49);
+        $diente50Inicial = Diente::find($odontogramaInicial2destroy->idDiente50);
+        $diente51Inicial = Diente::find($odontogramaInicial2destroy->idDiente51);
+        $diente52Inicial = Diente::find($odontogramaInicial2destroy->idDiente52);
+
         $diente1 = Diente::find($odontograma2destroy->idDiente1);
         $diente2 = Diente::find($odontograma2destroy->idDiente2);
         $diente3 = Diente::find($odontograma2destroy->idDiente3);
@@ -1612,6 +3480,61 @@ class HistoriaClinicaController extends Controller
 
         $historia2destroy->delete();
         $odontograma2destroy->delete();
+        $odontogramaInicial2destroy->delete();
+
+        $diente1Inicial->delete();
+        $diente2Inicial->delete();
+        $diente3Inicial->delete();
+        $diente4Inicial->delete();
+        $diente5Inicial->delete();
+        $diente6Inicial->delete();
+        $diente7Inicial->delete();
+        $diente8Inicial->delete();
+        $diente9Inicial->delete();
+        $diente10Inicial->delete();
+        $diente11Inicial->delete();
+        $diente12Inicial->delete();
+        $diente13Inicial->delete();
+        $diente14Inicial->delete();
+        $diente15Inicial->delete();
+        $diente16Inicial->delete();
+        $diente17Inicial->delete();
+        $diente18Inicial->delete();
+        $diente19Inicial->delete();
+        $diente20Inicial->delete();
+        $diente21Inicial->delete();
+        $diente22Inicial->delete();
+        $diente23Inicial->delete();
+        $diente24Inicial->delete();
+        $diente25Inicial->delete();
+        $diente26Inicial->delete();
+        $diente27Inicial->delete();
+        $diente28Inicial->delete();
+        $diente29Inicial->delete();
+        $diente30Inicial->delete();
+        $diente31Inicial->delete();
+        $diente32Inicial->delete();
+        $diente33Inicial->delete();
+        $diente34Inicial->delete();
+        $diente35Inicial->delete();
+        $diente36Inicial->delete();
+        $diente37Inicial->delete();
+        $diente38Inicial->delete();
+        $diente39Inicial->delete();
+        $diente40Inicial->delete();
+        $diente41Inicial->delete();
+        $diente42Inicial->delete();
+        $diente43Inicial->delete();
+        $diente44Inicial->delete();
+        $diente45Inicial->delete();
+        $diente46Inicial->delete();
+        $diente47Inicial->delete();
+        $diente48Inicial->delete();
+        $diente49Inicial->delete();
+        $diente50Inicial->delete();
+        $diente51Inicial->delete();
+        $diente52Inicial->delete();
+
         $diente1->delete();
         $diente2->delete();
         $diente3->delete();

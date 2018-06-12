@@ -47,7 +47,7 @@
 	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
 	        	</div>
 	        	<div class="col-md-6">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
+	        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
 	        	</div>
 	        </div>
 	        <div class="row">
@@ -151,7 +151,7 @@
 				        		<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
 				        	</div>
 				        	<div class="col-md-4">
-				        		<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
+				        		<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
 				        	</div>
 				        	<div class="col-md-4">
 				        		<select id="sexo{{$personal->id}}" name="sexo{{$personal->id}}" class="form-control" placeholder="">

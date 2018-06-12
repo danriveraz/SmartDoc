@@ -93,6 +93,10 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getLogin(){
+        return View('Auth.Login');
+    }
+
     public function postLogin(Request $request){
         if($request->email != null && $request->password != null){
 
@@ -116,50 +120,78 @@ class AuthController extends Controller
                             'password' => $request->password
                         ], $request->has('remember')
                         )){
-                        $cuentas = Cuentas::Empresa($user->idEmpresa)->first();
-                        $fecha = Carbon::parse($cuentas->fechaActual);
-                        $fechaActual = Carbon::now('COT');
-                        if($fecha->year != $fechaActual->year){
-                            $cuentas->anterior = 0;
-                            $cuentas->eneroPasado = $cuentas->enero;
-                            $cuentas->enero = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->eneroPasado;
-                            $cuentas->febreroPasado = $cuentas->febrero;
-                            $cuentas->febrero = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->febreroPasado;
-                            $cuentas->marzoPasado = $cuentas->marzo;
-                            $cuentas->marzo = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->marzoPasado;
-                            $cuentas->abrilPasado = $cuentas->abril;
-                            $cuentas->abril = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->abrilPasado;
-                            $cuentas->mayoPasado = $cuentas->mayo;
-                            $cuentas->mayo = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->mayoPasado;
-                            $cuentas->junioPasado = $cuentas->junio;
-                            $cuentas->junio = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->junioPasado;
-                            $cuentas->julioPasado = $cuentas->julio;
-                            $cuentas->julio = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->julioPasado;
-                            $cuentas->agostoPasado = $cuentas->agosto;
-                            $cuentas->agosto = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->agostoPasado;
-                            $cuentas->septiembrePasado = $cuentas->septiembre;
-                            $cuentas->septiembre = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->septiembrePasado;
-                            $cuentas->octubrePasado = $cuentas->octubre;
-                            $cuentas->octubre = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->octubrePasado;
-                            $cuentas->noviembrePasado = $cuentas->noviembre;
-                            $cuentas->noviembre = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->noviembrePasado;
-                            $cuentas->diciembrePasado = $cuentas->diciembre;
-                            $cuentas->diciembre = 0;
-                            $cuentas->anterior = $cuentas->anterior + $cuentas->diciembrePasado;
-                            $cuentas->actual = 0;
-                            $cuentas->fechaActual = $fechaActual;
-                            $cuentas->save();
+                        $cuentas = Cuentas::Empresa($user->idEmpresa)->get();
+
+                        if(sizeof($cuentas) == 1){
+                            if($cuentas[0]->titulo == ""){
+                                $cuentas[0]->titulo = "Ventas";
+                                $cuentas[0]->save();
+                            }
+                        }
+
+                        if(sizeof($cuentas) == 1){
+                            $cuentas2 = new Cuentas();
+                            $cuentas2->idEmpresa = $user->idEmpresa;
+                            $cuentas2->titulo = "Costos";
+                            $cuentas2->fechaActual = Carbon::now()->subHour(5);
+                            $cuentas2->save();
+
+                            $cuentas3 = new Cuentas();
+                            $cuentas3->idEmpresa = $user->idEmpresa;
+                            $cuentas3->titulo = "Utilidad";
+                            $cuentas3->fechaActual = Carbon::now()->subHour(5);
+                            $cuentas3->save();
+                        }
+
+                        for ($i=0; $i < sizeof($cuentas) ; $i++) { 
+
+                            $fecha = Carbon::parse($cuentas[$i]->fechaActual);
+                            $fechaActual = Carbon::now()->subHour(5);
+
+                            if($fecha->year != $fechaActual->year){
+
+                                $cuentas[$i]->anterior = 0;
+                                $cuentas[$i]->eneroPasado = $cuentas[$i]->enero;
+                                $cuentas[$i]->enero = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->eneroPasado;
+                                $cuentas[$i]->febreroPasado = $cuentas[$i]->febrero;
+                                $cuentas[$i]->febrero = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->febreroPasado;
+                                $cuentas[$i]->marzoPasado = $cuentas[$i]->marzo;
+                                $cuentas[$i]->marzo = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->marzoPasado;
+                                $cuentas[$i]->abrilPasado = $cuentas[$i]->abril;
+                                $cuentas[$i]->abril = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->abrilPasado;
+                                $cuentas[$i]->mayoPasado = $cuentas[$i]->mayo;
+                                $cuentas[$i]->mayo = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->mayoPasado;
+                                $cuentas[$i]->junioPasado = $cuentas[$i]->junio;
+                                $cuentas[$i]->junio = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->junioPasado;
+                                $cuentas[$i]->julioPasado = $cuentas[$i]->julio;
+                                $cuentas[$i]->julio = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->julioPasado;
+                                $cuentas[$i]->agostoPasado = $cuentas[$i]->agosto;
+                                $cuentas[$i]->agosto = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->agostoPasado;
+                                $cuentas[$i]->septiembrePasado = $cuentas[$i]->septiembre;
+                                $cuentas[$i]->septiembre = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->septiembrePasado;
+                                $cuentas[$i]->octubrePasado = $cuentas[$i]->octubre;
+                                $cuentas[$i]->octubre = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->octubrePasado;
+                                $cuentas[$i]->noviembrePasado = $cuentas[$i]->noviembre;
+                                $cuentas[$i]->noviembre = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->noviembrePasado;
+                                $cuentas[$i]->diciembrePasado = $cuentas[$i]->diciembre;
+                                $cuentas[$i]->diciembre = 0;
+                                $cuentas[$i]->anterior = $cuentas[$i]->anterior + $cuentas[$i]->diciembrePasado;
+                                $cuentas[$i]->actual = 0;
+                                $cuentas[$i]->fechaActual = $fechaActual;
+                                $cuentas[$i]->save();
+
+                            }
                         }
                         return redirect()->intended($this->redirectPath());
                     }else{
@@ -270,10 +302,23 @@ class AuthController extends Controller
                     $user->idEmpresa = $empresa->id;
                     $user->save();
 
-                    $cuentas = new Cuentas();
-                    $cuentas->idEmpresa = $empresa->id;
-                    $cuentas->fechaActual = Carbon::now('COT');
-                    $cuentas->save();
+                    $cuentas1 = new Cuentas();
+                    $cuentas1->idEmpresa = $empresa->id;
+                    $cuentas1->titulo = "Ventas";
+                    $cuentas1->fechaActual = Carbon::now()->subHour(5);
+                    $cuentas1->save();
+
+                    $cuentas2 = new Cuentas();
+                    $cuentas2->idEmpresa = $empresa->id;
+                    $cuentas2->titulo = "Costos";
+                    $cuentas2->fechaActual = Carbon::now()->subHour(5);
+                    $cuentas2->save();
+
+                    $cuentas3 = new Cuentas();
+                    $cuentas3->idEmpresa = $empresa->id;
+                    $cuentas3->titulo = "Utilidad";
+                    $cuentas3->fechaActual = Carbon::now()->subHour(5);
+                    $cuentas3->save();
 
                     Flash::success('Registro exitoso');
                     return redirect('/Registro');

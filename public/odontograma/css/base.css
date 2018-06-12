@@ -98,6 +98,34 @@
 #bll {
     border-left: 1px solid black;
 }
+
+#tlrInicial {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+#trInicial {
+    border-right: 1px solid black;
+}
+#tllInicial {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+#tlInicial {
+    border-left: 1px solid black;
+}
+
+#blrInicial {
+    border-right: 1px solid black;
+}
+#brInicial {
+    border-right: 1px solid black;
+}
+#blInicial {
+    border-left: 1px solid black;
+}
+#bllInicial {
+    border-left: 1px solid black;
+}
 .click-red {
     background-color: red !important;
 }

@@ -19,17 +19,13 @@
 		          			<div class="row">
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->nombreCompleto != "")
-	          								<label>Nombre completo</label>
-	          							@endif
-	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" value="{{$historia->nombreCompleto}}">
+	          							<label>Nombre completo</label>
+	          							<input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo" value="{{$historia->nombreCompleto}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-	          						@if($historia->tipoDocumento != "")
-          								<label>Tipo de documento</label>
-          							@endif
-          							<select class="form-control" id="tipoDocumento" name="tipoDocumento">
+          							<label>Tipo de documento</label>
+          							<select class="form-control" id="tipoDocumento" name="tipoDocumento" required="true">
           								@if($historia->tipoDocumento=='')
 						                	<option value="" selected="selected">Tipo documento</option>
 						                    <option value="tarjeta">T.I</option>
@@ -45,17 +41,13 @@
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->documento != "")
-	          								<label>Documento</label>
-	          							@endif
-	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento" value="{{$historia->documento}}">
+	          							<label>Documento</label>
+	          							<input class="form-control" type="text" name="documento" id="documento" placeholder="Documento" value="{{$historia->documento}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
-	          						@if($historia->sexo != "")
-          								<label>Sexo</label>
-          							@endif
-	          						<select class="form-control" id="sexo" name="sexo">
+	          						<label>Sexo</label>
+	          						<select class="form-control" id="sexo" name="sexo" required="true">
           								@if($historia->sexo=='')
 						                	<option value="" selected="selected">Seleccionar</option>
 						                    <option value="masculino">Masculino</option>
@@ -76,21 +68,21 @@
 	          							@if($historia->edad != "")
 	          								<label>Edad</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}">
+	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						@if($historia->fechaNacimiento != "0000-00-00")
           								<label>Fecha inicio tratamiento</label>
           							@endif
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" />
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
 	          							@if($historia->direccion != "")
 	          								<label>Dirección</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}">
+	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
@@ -98,7 +90,7 @@
 	          							@if($historia->telefono != "")
 	          								<label>Teléfono</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}">
+	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -140,7 +132,7 @@
 	          							@if($historia->personaResponsable != "")
 	          								<label >Persona responsable</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}">
+	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
@@ -148,7 +140,7 @@
 	          							@if($historia->telefonoResponsable != "")
 	          								<label >Teléfono</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}">
+	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -158,7 +150,7 @@
 	          							@if($historia->motivoConsulta != "")
 	          								<label >Motivo de consulta</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}">
+	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -167,7 +159,7 @@
 					        		@if($historia->motivoConsulta != "")
           								<label >Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)</label>
           							@endif
-					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)">{{$historia->evolucionEstado}}</textarea>
+					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)" required="true">{{$historia->evolucionEstado}}</textarea>
 					        	</div>
 					        </div>
 					        <br>
@@ -177,7 +169,7 @@
 	          							@if($historia->antecedentesFamiliares != "")
 	          								<label>Antecedentes familiares</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}">
+	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -730,94 +722,152 @@
 	    	 		<link href="stylesheets/bootstrap.css" rel="stylesheet">
 	    	 		<div class="card">
 	              		<div class="card-header">
-	                  		<h3 class="card-title">Odontograma</h3>
+	                  		<h3 class="card-title">Paleta diagnostica</h3>
+	              		</div>
+	              		<div class="container">
+	              			<br>
+	              			<div align="center">
+	              				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo1">Ver paleta</button>
+	              			</div>
+						  <div id="demo1" class="collapse">
+		              		<div class="card-body">
+		              			<div class="row">
+		              				<div class="col-md-12">
+				                        <div id="controls" class="panel panel-default">
+				                            <div class="panel-body">
+				                                <div class="btn-group" data-toggle="buttons" style="padding-left: 20%;">
+				                                    <label id="cariado" class="btn btn-danger active" style="margin: 4px; width: 25%; ">
+				                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Cariado
+				                                    </label>
+				                                    <label id="obturado" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option2" autocomplete="off">Obturado
+				                                    </label>
+				                                    <label id="exodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;" >
+				                                        <input type="radio" name="options" id="option3" autocomplete="off">Exodoncia realizada
+				                                    </label>
+				                                    <label id="exodonciaSimple" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option4" autocomplete="off">Exodoncia simple indicada
+				                                    </label>
+				                                    <label id="exodonciaQuirurgica" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option5" autocomplete="off">Exodoncia quirúrgica indc
+				                                    </label>
+				                                    <label id="sinErupcionar" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option6" autocomplete="off"> Sin erupcionar
+				                                    </label>
+				                                    <label id="endodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option7" autocomplete="off" checked>Endodoncia realizada
+				                                    </label>
+				                                    <label id="endodonciaIndicada" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option8" autocomplete="off"> Endodoncia indicada
+				                                    </label>
+				                                    <label id="sellantePresente" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option9" autocomplete="off"> Sellaste presente
+				                                    </label>
+				                                    <label id="sellanteIndicado" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option10" autocomplete="off"> Sellante indicado
+				                                    </label>
+				                                    <label id="erosionAbrasion" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option11" autocomplete="off"> Erosión o abrasión
+				                                    </label>
+				                                    <label id="procedimientoRealizado" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option12" autocomplete="off"> Procedimiento realizado
+				                                    </label>
+				                                    <label id="coronaBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option13" autocomplete="off" checked>Corona buen estado
+				                                    </label>
+				                                    <label id="coronaMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option14" autocomplete="off"> Corona mal estado
+				                                    </label>
+				                                    <label id="provisionalBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option15" autocomplete="off"> Provisional buen estado
+				                                    </label>
+				                                    <label id="provisionalMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option16" autocomplete="off"> Provisional mal estado
+				                                    </label>
+				                                    <label id="nucleoBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option17" autocomplete="off"> Núcleo buen estado
+				                                    </label>
+				                                    <label id="nucleoMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
+				                                        <input type="radio" name="options" id="option18" autocomplete="off">Núcleo mal estado
+				                                    </label>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+		              			</div>
+		              		</div>
+		              	</div>
+		              	<br>
+		              </div>
+	              	</div>
+	    	 		<div class="card">
+	              		<div class="card-header">
+	                  		<h3 class="card-title">Odontograma Inicial</h3>
 	              		</div>
 	              		<!-- inicio del contenedor del campo texto-->
-		          		<div class="card-body">
-			                <div class="row">
-			                    <div class="col-md-12">
-			                        <div id="controls" class="panel panel-default">
-			                            <div class="panel-body">
-			                                <div class="btn-group" data-toggle="buttons" style="padding-left: 20%;">
-			                                    <label id="cariado" class="btn btn-danger active" style="margin: 4px; width: 25%; ">
-			                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Cariado
-			                                    </label>
-			                                    <label id="obturado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option2" autocomplete="off">Obturado
-			                                    </label>
-			                                    <label id="exodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;" >
-			                                        <input type="radio" name="options" id="option3" autocomplete="off">Exodoncia realizada
-			                                    </label>
-			                                    <label id="exodonciaSimple" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option4" autocomplete="off">Exodoncia simple indicada
-			                                    </label>
-			                                    <label id="exodonciaQuirurgica" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option5" autocomplete="off">Exodoncia quirúrgica indc
-			                                    </label>
-			                                    <label id="sinErupcionar" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option6" autocomplete="off"> Sin erupcionar
-			                                    </label>
-			                                    <label id="endodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option7" autocomplete="off" checked>Endodoncia realizada
-			                                    </label>
-			                                    <label id="endodonciaIndicada" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option8" autocomplete="off"> Endodoncia indicada
-			                                    </label>
-			                                    <label id="sellantePresente" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option9" autocomplete="off"> Sellaste presente
-			                                    </label>
-			                                    <label id="sellanteIndicado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option10" autocomplete="off"> Sellante indicado
-			                                    </label>
-			                                    <label id="erosionAbrasion" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option11" autocomplete="off"> Erosión o abrasión
-			                                    </label>
-			                                    <label id="procedimientoRealizado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option12" autocomplete="off"> Procedimiento realizado
-			                                    </label>
-			                                    <label id="coronaBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option13" autocomplete="off" checked>Corona buen estado
-			                                    </label>
-			                                    <label id="coronaMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option14" autocomplete="off"> Corona mal estado
-			                                    </label>
-			                                    <label id="provisionalBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option15" autocomplete="off"> Provisional buen estado
-			                                    </label>
-			                                    <label id="provisionalMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option16" autocomplete="off"> Provisional mal estado
-			                                    </label>
-			                                    <label id="nucleoBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option17" autocomplete="off"> Núcleo buen estado
-			                                    </label>
-			                                    <label id="nucleoMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-			                                        <input type="radio" name="options" id="option18" autocomplete="off">Núcleo mal estado
-			                                    </label>
-			                                </div>
-			                            </div>
-			                        </div>
-			                    </div>
-			                    <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                    <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                    <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-			                    </div>
-			                    <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                </div>
-			                <div class="row">
-			                    <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-			                    </div>
-			                    <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                    <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                    <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			                    </div>
-			                </div>
-			                <br>			                	
-			            </div>
+	              		<div class="container">
+	              			<br>
+	              			<div align="center">
+	              				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo2">Ver odontograma</button>
+	              			</div>
+						  <div id="demo2" class="collapse">
+						    <div class="card-body">
+				                <div class="row">
+				                    <div id="trInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="tlInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="tlrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    </div>
+				                    <div id="tllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                </div>
+				                <div class="row">
+				                    <div id="blrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    </div>
+				                    <div id="bllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="brInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="blInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                </div>
+				                <br>			                	
+				            </div>
+						  </div>
+						  <br>
+						</div>				
+			        </div>
+	    	 		<div class="card">
+	              		<div class="card-header">
+	                  		<h3 class="card-title">Odontograma Actual</h3>
+	              		</div>
+	              		<!-- inicio del contenedor del campo texto-->
+	              		<div class="container">
+			          		<div class="card-body">
+				                <div class="row">
+				                    <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    </div>
+				                    <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                </div>
+				                <div class="row">
+				                    <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    </div>
+				                    <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                    <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    </div>
+				                </div>
+				                <br>			                	
+				            </div>
+				    	</div>
 			        </div>
 			        <div class="card">
 	              		<div class="card-header">
@@ -933,6 +983,107 @@
 	    return str.replace(new RegExp(find, 'g'), replace);
 	}
 
+	function createOdontogramInicial() {
+	    var htmlLecheLeft = "",
+	        htmlLecheRight = "",
+	        htmlLeft = "",
+	        htmlRight = "",
+	        a = 1;
+	    for (var i = 9 - 1; i >= 1; i--) {
+	        //Dientes Definitivos Cuandrante Derecho (Superior/Inferior)
+	        htmlRight += '<div data-name="value" id="dienteindex' + i + 'Inicial" class="diente">' +
+	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+	            '<div id="tindex' + i + '" class="cuadro click">' +
+	            '</div>' +
+	            '<input type="text" id="tindex' + i + 'Inicial1" + name="tindex' + i + 'Inicial1" hidden = true>' +
+	            '<div id="lindex' + i + 'Inicial" class="cuadro izquierdo click">' +
+	            '</div>' +
+	            '<input type="text" id="lindex' + i + 'Inicial1" + name="lindex' + i + 'Inicial1" hidden = true>' +
+	            '<div id="bindex' + i + 'Inicial" class="cuadro debajo click">' +
+	            '</div>' +
+	            '<input type="text" id="bindex' + i + 'Inicial1" + name="bindex' + i + 'Inicial1" hidden = true>' +
+	            '<div id="rindex' + i + 'Inicial" class="cuadro derecha click click">' +
+	            '</div>' +
+	            '<input type="text" id="rindex' + i + 'Inicial1" + name="rindex' + i + 'Inicial1" hidden = true>' +
+	            '<div id="cindex' + i + 'Inicial" class="centro click">' +
+	            '</div>' +
+	            '<input type="text" id="cindex' + i + 'Inicial1" + name="cindex' + i + 'Inicial1" hidden = true>' +
+	            '</div>';
+	        //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
+	        htmlLeft += '<div id="dienteindex' + a + 'Inicial" class="diente">' +
+	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
+	            '<div id="tindex' + a + 'Inicial" class="cuadro click">' +
+	            '</div>' +
+	            '<input type="text" id="tindex' + a + 'Inicial1" + name="tindex' + a + 'Inicial1" hidden = true>' +
+	            '<div id="lindex' + a + 'Inicial" class="cuadro izquierdo click">' +
+	            '</div>' +
+	            '<input type="text" id="lindex' + a + 'Inicial1" + name="lindex' + a + 'Inicial1" hidden = true>' +
+	            '<div id="bindex' + a + 'Inicial" class="cuadro debajo click">' +
+	            '</div>' +
+	            '<input type="text" id="bindex' + a + 'Inicial1" + name="bindex' + a + 'Inicial1" hidden = true>' +
+	            '<div id="rindex' + a + 'Inicial" class="cuadro derecha click click">' +
+	            '</div>' +
+	            '<input type="text" id="rindex' + a + 'Inicial1" + name="rindex' + a + 'Inicial1" hidden = true>' +
+	            '<div id="cindex' + a + 'Inicial" class="centro click">' +
+	            '</div>' +
+	            '<input type="text" id="cindex' + a + 'Inicial1" + name="cindex' + a + 'Inicial1" hidden = true>' +
+	            '</div>';
+	        if (i <= 5) {
+	            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
+	            htmlLecheRight += '<div id="dienteLindex' + i + 'Inicial" style="left: -25%;" class="diente-leche">' +
+	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + i + '</span>' +
+	                '<div id="tlecheindex' + i + 'Inicial" class="cuadro-leche top-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="tlecheindex' + i + 'Inicial1" + name="tlecheindex' + i + 'Inicial1" hidden = true>' +
+	                '<div id="llecheindex' + i + 'Inicial" class="cuadro-leche izquierdo-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="llecheindex' + i + 'Inicial1" + name="llecheindex' + i + 'Inicial1" hidden = true>' +
+	                '<div id="blecheindex' + i + 'Inicial" class="cuadro-leche debajo-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="blecheindex' + i + 'Inicial1" + name="blecheindex' + i + 'Inicial1" hidden = true>' +
+	                '<div id="rlecheindex' + i + 'Inicial" class="cuadro-leche derecha-leche click click">' +
+	                '</div>' +
+	                '<input type="text" id="rlecheindex' + i + 'Inicial1" + name="rlecheindex' + i + 'Inicial1" hidden = true>' +
+	                '<div id="clecheindex' + i + 'Inicial" class="centro-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="clecheindex' + i + 'Inicial1" + name="clecheindex' + i + 'Inicial1" hidden = true>' +
+	                '</div>';
+	        }
+	        if (a < 6) {
+	            //Dientes Temporales Cuandrante Izquierdo (Superior/Inferior)
+	            htmlLecheLeft += '<div id="dienteLindex' + a + 'Inicial" class="diente-leche">' +
+	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + a + '</span>' +
+	                '<div id="tlecheindex' + a + 'Inicial" class="cuadro-leche top-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="tlecheindex' + a + 'Inicial1" + name="tlecheindex' + a + 'Inicial1" hidden = true>' +
+	                '<div id="llecheindex' + a + 'Inicial" class="cuadro-leche izquierdo-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="llecheindex' + a + 'Inicial1" + name="llecheindex' + a + 'Inicial1" hidden = true>' +
+	                '<div id="blecheindex' + a + 'Inicial" class="cuadro-leche debajo-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="blecheindex' + a + 'Inicial1" + name="blecheindex' + a + 'Inicial1" hidden = true>' +
+	                '<div id="rlecheindex' + a + 'Inicial" class="cuadro-leche derecha-leche click click">' +
+	                '</div>' +
+	                '<input type="text" id="rlecheindex' + a + 'Inicial1" + name="rlecheindex' + a + 'Inicial1" hidden = true>' +
+	                '<div id="clecheindex' + a + 'Inicial" class="centro-leche click">' +
+	                '</div>' +
+	                '<input type="text" id="clecheindex' + a + 'Inicial1" + name="clecheindex' + a + 'Inicial1" hidden = true>' +
+	                '</div>';
+	        }
+	        a++;//
+	    }
+	    $("#trInicial").append(replaceAll('index', '1', htmlRight));
+	    $("#tlInicial").append(replaceAll('index', '2', htmlLeft));
+	    $("#tlrInicial").append(replaceAll('index', '5', htmlLecheRight));
+	    $("#tllInicial").append(replaceAll('index', '6', htmlLecheLeft));
+
+
+	    $("#blInicial").append(replaceAll('index', '3', htmlLeft));
+	    $("#brInicial").append(replaceAll('index', '4', htmlRight));
+	    $("#bllInicial").append(replaceAll('index', '7', htmlLecheLeft));
+	    $("#blrInicial").append(replaceAll('index', '8', htmlLecheRight));
+	}
+
 	function createOdontogram() {
 	    var htmlLecheLeft = "",
 	        htmlLecheRight = "",
@@ -1035,6 +1186,7 @@
 	}
 	var arrayPuente = [];
 	$(document).ready(function() {
+		createOdontogramInicial();
 	    createOdontogram();
 	    $(".click").click(function(event) {
 	        var control = $("#controls").children().find('.active').attr('id');
@@ -1064,7 +1216,7 @@
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "cariado";
 	                        $(this).attr('title', 'cariado');
-	                       	//alert(document.getElementById($id).value);
+	                       	//alert($id);
 	                    }
 	                }
 	                break;
@@ -1538,7 +1690,6 @@
 
 <!-- Script para cargar el odontograma-->
 <script>
-
 	var JSONodontograma = eval(<?php echo json_encode($odontograma2array); ?>);
 	$(document).ready(function(){
 		for(i = 0; i < JSONodontograma.length; i++){
@@ -1680,6 +1831,143 @@
 	    	activador.value = 2;
 	    }
 	}
+</script>
+
+<script>
+	var JSONodontogramaInicial = eval(<?php echo json_encode($odontogramaInicial2array); ?>);
+	console.log(JSONodontogramaInicial);
+	$(document).ready(function(){
+		for(i = 0; i < JSONodontogramaInicial.length; i++){
+			switch (JSONodontogramaInicial[i][1]){
+	            case "cariado":
+	            		$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "cariado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "cariado";
+	            break;
+	            case "obturado":
+	            		$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "obturado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "obturado";
+	            break;
+	            case "exodonciaRealizada":
+	            		$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "exodonciaRealizada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "exodonciaRealizada";
+	            break;
+	            case "exodonciaSimple":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "exodonciaSimple";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "exodonciaSimple";
+                break;
+	            case "exodonciaQuirurgica":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "exodonciaQuirurgica";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "exodonciaQuirurgica";
+                break;
+	            case "sinErupcionar":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "sinErupcionar";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sinErupcionar";
+                break;
+	            case "endodonciaRealizada":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "endodonciaRealizada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "endodonciaRealizada";
+                break;
+	            case "endodonciaIndicada":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "endodonciaIndicada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "endodonciaIndicada";
+                break;
+	            case "sellantePresente":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "sellantePresente";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sellantePresente";
+                break;
+	            case "sellanteIndicado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "sellanteIndicado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sellanteIndicado";
+                break;
+	            case "erosionAbrasion":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "erosionAbrasion";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "erosionAbrasion";
+                break;
+	            case "procedimientoRealizado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "procedimientoRealizado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "procedimientoRealizado";
+                break;
+	            case "coronaBuenEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "coronaBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "coronaBuenEstado";
+                break;
+	            case "coronaMalEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "coronaMalEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "coronaMalEstado";
+                break;
+	            case "provisionalBuenEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "provisionalBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "provisionalBuenEstado";
+                break;
+	            case "provisionalMalEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "provisionalMalEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "provisionalMalEstado";
+                break;
+	            case "nucleoBuenEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-blue');
+	            		$element.title = "nucleoBuenEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "nucleoBuenEstado";
+                break;
+	            case "nucleoMalEstado":
+	                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
+	            		$element.classList.add('click-red');
+	            		$element.title = "nucleoMalEstado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "nucleoMalEstado";
+                break;
+	        }
+		}
+	});
 </script>
 
 @endsection

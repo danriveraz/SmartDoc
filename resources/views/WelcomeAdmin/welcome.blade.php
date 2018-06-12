@@ -21,13 +21,13 @@
       </div>
       {!! Form::open(['action' => ['AgendaController@postcrearAgenda'], 'method' => 'POST','enctype' => 'multipart/form-data', 'id' => "formCrear"]) !!}
        	{{ csrf_field() }}
-      	<div class="modal-body">
+      	<div class="modal-body" align="center">
         	<div class="row">
 	        	<div class="col-md-3">
 		          	<input id="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-	        		<input id="fechaInicio" name="fechaInicio" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
+	        		<input id="fechaInicio" name="fechaInicio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
 	        	</div>
 	        	<div class="col-md-3">
 			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
@@ -46,12 +46,17 @@
 			        <input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-			        <input id="emailPaciente" name="emailPaciente" type="email" class="form-control" placeholder="Correo" required="true">
+			        <input id="emailPaciente" name="emailPaciente" type="email" class="form-control" placeholder="Correo">
 	        	</div>
 	        	<div class="col-md-3">
 			        <input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cedula del paciente" required="true">
 	        	</div>
 	        	<div class="col-md-3">
+			        <input id="telefonoPaciente" name="telefonoPaciente" type="text" class="form-control" placeholder="Teléfono del paciente" required="true">
+	        	</div>
+        	</div>
+        	<div class="row" style="width: 25%">
+	        	<div class="col-md-12" >
 			        <input id="color" name="color" type="text" class="form-control" value="Estado: por atender" disabled>
 	        	</div>
         	</div>
@@ -78,7 +83,8 @@
 		                <th width="15%">Titulo</th>
 						<th width="20%">Encargado</th>
 						<th width="20%">Paciente</th>
-						<th width="20%">Cedula</th>
+						<th width="15%">Cedula</th>
+						<th width="5%">Teléfono</th>
 		                <th width="15%">Fecha</th>
 		                <th width="5%">Estado</th>
 		                <th width="10%">Opciones</th>
@@ -98,6 +104,7 @@
 		                </td>
 		                <td>{{$agenda->nombrePaciente}}</td>
 		                <td>{{$agenda->cedulaPaciente}}</td>
+		                <td>{{$agenda->telefonoPaciente}}</td>
 		                <td>{{$agenda->fechaInicio}}</td>
 		                <td align="center">
 		                	@if($agenda->color == "green")
@@ -135,7 +142,7 @@
 								          	<input id="titulo{{$agenda->id}}" name="titulo{{$agenda->id}}" type="text" class="form-control" placeholder="Titulo" required="true" value="{{$agenda->titulo}}">
 							        	</div>
 							        	<div class="col-md-3">
-							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="text" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
+							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
 							        	</div>
 							        	<div class="col-md-3">
 									        <input id="hora{{$agenda->id}}" name="hora{{$agenda->id}}" type="text" class="form-control" placeholder="Hora inicio" required="true" value="{{$agenda->hora}}">
@@ -157,13 +164,18 @@
 									        <input id="nombrePaciente{{$agenda->id}}" name="nombrePaciente{{$agenda->id}}" type="text" class="form-control" placeholder="Nombre del paciente" required="true" value="{{$agenda->nombrePaciente}}">
 							        	</div>
 							        	<div class="col-md-3">
-									        <input id="emailPaciente{{$agenda->id}}" name="emailPaciente{{$agenda->id}}" type="email" class="form-control" placeholder="Correo" required="true" value="{{$agenda->emailPaciente}}">
+									        <input id="emailPaciente{{$agenda->id}}" name="emailPaciente{{$agenda->id}}" type="email" class="form-control" placeholder="Correo" value="{{$agenda->emailPaciente}}">
 							        	</div>
 							        	<div class="col-md-3">
 									        <input id="cedulaPaciente{{$agenda->id}}" name="cedulaPaciente{{$agenda->id}}"" type="text" class="form-control" placeholder="Cedula del paciente" value="{{$agenda->cedulaPaciente}}"" required="true">
 							        	</div>
 							        	<div class="col-md-3">
-									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control">
+									        <input id="telefonoPaciente{{$agenda->id}}" name="telefonoPaciente{{$agenda->id}}"" type="text" class="form-control" placeholder="Teléfono del paciente" value="{{$agenda->telefonoPaciente}}"" required="true">
+							        	</div>
+						        	</div>
+						        	<div class="row" align="center">
+						        		<div class="col-md-12">
+									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control" style="width: 25%">
 									        	<option value="green" 
 									        	@if($agenda->color == "green")
 									        		selected = "true"
@@ -181,7 +193,7 @@
 									        	>Cancelado</option>
 									        </select>
 							        	</div>
-						        	</div>
+							        </div>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="submit" class="btn btn-primary">Guardar</button>

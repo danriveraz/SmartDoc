@@ -12,23 +12,25 @@
 			<table id="example" class="table table-striped" style="width:100%">
 		        <thead>
 		            <tr>
-		                <th width="1.2%">En</th>
-		                <th width="1.2%">Febr</th>
-		                <th width="1.2%">Mzo</th>
-		                <th width="1.2%">Abr</th>
-		                <th width="1.2%">My</th>
-		                <th width="1.2%">Jun</th>
-		                <th width="1.2%">Jul</th>
-		                <th width="1.2%">Ag</th>
-		                <th width="1.2%">Sept</th>
-		                <th width="1.2%">Oct</th>
-		                <th width="1.2%">Nov</th>
-		                <th width="1.2%">Dic</th>
+		            	<th></th>
+		                <th width="8.33%">En</th>
+		                <th width="8.33%">Febr</th>
+		                <th width="8.33%">Mzo</th>
+		                <th width="8.33%">Abr</th>
+		                <th width="8.33%">My</th>
+		                <th width="8.33%">Jun</th>
+		                <th width="8.33%">Jul</th>
+		                <th width="8.33%">Ag</th>
+		                <th width="8.33%">Sept</th>
+		                <th width="8.33%">Oct</th>
+		                <th width="8.33%">Nov</th>
+		                <th width="8.33%">Dic</th>
 		            </tr>
 		        </thead>
 		        <tbody>
 		        	@foreach($cuentas as $cuenta)
 		            <tr>
+		            	<td>{{$cuenta->titulo}}</td>
 		                <td>{{$cuenta->enero}}</td>
 		                <td>{{$cuenta->febrero}}</td>
 		                <td>{{$cuenta->marzo}}</td>
@@ -58,19 +60,21 @@
 				<h4 align="center">Estadísticas Generales</h4>
 		        <thead>
 		            <tr>
-		                <th width="12.5%">1er tri</th>
-		                <th width="12.5%">2do tri</th>
-		                <th width="12.5%">3er tri</th>
-		                <th width="12.5%">4to tri</th>
-		                <th width="12.5%">1er sem</th>
-		                <th width="12.5%">2do sem</th>
-		                <th width="12.5%">Año actual</th>
-		                <th width="12.5%">Año pasado</th>
+		            	<th width="11.11%"> </th>
+		                <th width="11.11%">1er tri</th>
+		                <th width="11.11%">2do tri</th>
+		                <th width="11.11%">3er tri</th>
+		                <th width="11.11%">4to tri</th>
+		                <th width="11.11%">1er sem</th>
+		                <th width="11.11%">2do sem</th>
+		                <th width="11.11%">Año actual</th>
+		                <th width="11.11%">Año pasado</th>
 		            </tr>
 		        </thead>
 		        <tbody>
 		        	@foreach($cuentas as $cuenta)
 		            <tr>
+		            	<td>{{$cuenta->titulo}}</td>
 		                <td>{{$cuenta->enero + $cuenta->febrero + $cuenta->marzo}}</td>
 		                <td>{{$cuenta->abril + $cuenta->mayo + $cuenta->junio}}</td>
 		                <td>{{$cuenta->julio + $cuenta->agosto + $cuenta->septiembre}}</td>
@@ -98,23 +102,25 @@
 				<h4 align="center">Año Anterior</h4>
 		        <thead>
 		            <tr>
-		                <th width="1.2%">En</th>
-		                <th width="1.2%">Febr</th>
-		                <th width="1.2%">Mzo</th>
-		                <th width="1.2%">Abr</th>
-		                <th width="1.2%">My</th>
-		                <th width="1.2%">Jun</th>
-		                <th width="1.2%">Jul</th>
-		                <th width="1.2%">Ag</th>
-		                <th width="1.2%">Sept</th>
-		                <th width="1.2%">Oct</th>
-		                <th width="1.2%">Nov</th>
-		                <th width="1.2%">Dic</th>
+		                <th></th>
+		                <th width="8.33%">En</th>
+		                <th width="8.33%">Febr</th>
+		                <th width="8.33%">Mzo</th>
+		                <th width="8.33%">Abr</th>
+		                <th width="8.33%">My</th>
+		                <th width="8.33%">Jun</th>
+		                <th width="8.33%">Jul</th>
+		                <th width="8.33%">Ag</th>
+		                <th width="8.33%">Sept</th>
+		                <th width="8.33%">Oct</th>
+		                <th width="8.33%">Nov</th>
+		                <th width="8.33%">Dic</th>
 		            </tr>
 		        </thead>
 		        <tbody>
 		        	@foreach($cuentas as $cuenta)
 		            <tr>
+		            	<td>{{$cuenta->titulo}}</td>
 		                <td>{{$cuenta->eneroPasado}}</td>
 		                <td>{{$cuenta->febreroPasado}}</td>
 		                <td>{{$cuenta->marzoPasado}}</td>

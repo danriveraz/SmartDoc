@@ -36,7 +36,7 @@ class WelcomeAdminController extends Controller
         $laboratorio = Laboratorio::Empresa($user->idEmpresa)->get();
 
         $citas2array = array();
-        $fechaActual = Carbon::now('COT');
+        $fechaActual = Carbon::now()->subHour(5);
 
         for ($i=0; $i <sizeof($laboratorio) ; $i++) { 
             $fechaEntrega = Carbon::parse($laboratorio[$i]->fechaEntrega);
