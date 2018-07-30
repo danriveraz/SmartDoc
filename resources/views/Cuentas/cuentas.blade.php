@@ -3,6 +3,14 @@
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <!-- DataTables Example -->
+<div>	
+	<a class="btn btn-pill btn-primary" href="{{url('/Servicio')}}" title="Volver">
+		<span class="fa fa-chevron-left" style="margin-right: 0px;">
+		</span>
+	</a>
+</div>
+<br>
+
 <div class="container main-content">
   <div class="page-title"></div>
   <div class="row">
