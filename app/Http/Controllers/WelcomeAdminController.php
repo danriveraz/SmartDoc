@@ -8,6 +8,7 @@ use App\Agenda;
 use App\Empresa;
 use App\Laboratorio;
 use App\HistoriaClinica;
+use App\Procedimiento;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -34,6 +35,8 @@ class WelcomeAdminController extends Controller
         $agendas = Agenda::Admin($user->idEmpresa)->get();
         $personales = User::Empresa($user->idEmpresa)->get();
         $laboratorio = Laboratorio::Empresa($user->idEmpresa)->get();
+        $procedimientos = Procedimiento::Admin($user->idEmpresa)->get();
+        $historias = HistoriaClinica::admin($user->idEmpresa)->get();
 
         $citas2array = array();
         $fechaActual = Carbon::now()->subHour(5);
@@ -52,6 +55,8 @@ class WelcomeAdminController extends Controller
         ->with('personales',$personales)
         ->with('empresa',$empresa)
         ->with('citas2array',$citas2array)
-        ->with('user',$user);
+        ->with('user',$user)
+        ->with('procedimientos', $procedimientos)
+        ->with('historias', $historias);
     }
 }

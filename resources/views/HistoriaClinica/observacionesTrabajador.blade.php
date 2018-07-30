@@ -4,8 +4,12 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar observacion">
-		<span class="fe fe-plus"></span>
+		<span class="fa fa-plus" style="margin-right: 0px;"></span>
 	</button>	
+	<a class="btn btn-pill btn-primary" href="{{url('/HistoriaClinica')}}" title="Volver">
+		<span class="fa fa-chevron-left" style="margin-right: 0px;">
+		</span>
+	</a>
 </div>
 <br>
 

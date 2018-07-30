@@ -16,5 +16,9 @@ class HistoriaClinica extends Model
     	return $query->where('documento', 'like', '%' .$documento. '%');  	
     }
 
+    public function scopeEmpresaAndId($query, $idEmpresa, $id){
+      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%')
+      				->where('id' , 'like', '%'.$id.'%'); 
+    }
 
 }

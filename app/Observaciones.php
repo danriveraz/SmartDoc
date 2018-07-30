@@ -8,7 +8,7 @@ class Observaciones extends Model
 {
     protected $table = 'observaciones';
 
-    public function scopeSearch($query, $idHistoriaClinica){
+    public function scopeSearchHistoria($query, $idHistoriaClinica){
     	return $query->where('idHistoriaClinica', 'like', '%' .$idHistoriaClinica. '%');
     }
 }

@@ -4,7 +4,7 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
-		<span class="fe fe-plus"> Agregar evento</span>
+		<span class="fa fa-plus" style="margin-right: 0px;"> Agregar evento</span>
 	</button>	
 </div>
 <br>
@@ -14,7 +14,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar evento</h5>
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -22,9 +22,15 @@
       {!! Form::open(['action' => ['AgendaController@postcrearAgenda'], 'method' => 'POST','enctype' => 'multipart/form-data', 'id' => "formCrear"]) !!}
        	{{ csrf_field() }}
       	<div class="modal-body" align="center">
+      		<h4>Información de la cita</h4>
         	<div class="row">
 	        	<div class="col-md-3">
-		          	<input id="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo" required="true">
+		          	<select id="procedimiento" name='procedimiento' class="form-control" placeholder="" required>
+	                  	<option value="" selected="selected">Procedimiento</option>
+	                  	@foreach($procedimientos as $procedimiento)
+		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+		               	@endforeach
+	            	</select>
 	        	</div>
 	        	<div class="col-md-3">
 	        		<input id="fechaInicio" name="fechaInicio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
@@ -41,29 +47,43 @@
 	            	</select>
 	        	</div>
         	</div>
+        	<br>
+        	<h4>
+        		Información del paciente
+        	</h4>
         	<div class="row">
-        		<div class="col-md-3">
-			        <input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
+        		<div class="col-md-4">
+        			<select id="nuevoviejo" name='nuevoviejo' class="form-control" placeholder="" onchange="valor(this.value);">
+	                  	<option value="0" selected="selected">Nuevo</option>
+	                  	<option value="1">Viejo</option>
+	            	</select>
+        		</div>
+        		<div class="col-md-4">
+        			<input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cédula" required="true">
+
+        			<select id="cedulaPacienteViejo" name='cedulaPacienteViejo' class="form-control" placeholder="" style="display: none;">
+        				<option value="" selected="selected">Cédula</option>
+	                  	@foreach($historias as $historia)
+		                    <option value="{{$historia->id}}">{{$historia->documento}}</option>
+		               	@endforeach
+        			</select>
 	        	</div>
-	        	<div class="col-md-3">
+	        	<div class="col-md-4">
 			        <input id="emailPaciente" name="emailPaciente" type="email" class="form-control" placeholder="Correo">
 	        	</div>
-	        	<div class="col-md-3">
-			        <input id="cedulaPaciente" name="cedulaPaciente" type="text" class="form-control" placeholder="Cedula del paciente" required="true">
+        	</div>
+        	<div class="row">
+        		<div class="col-md-6">
+	        		<input id="nombrePaciente" name="nombrePaciente" type="text" class="form-control" placeholder="Nombre del paciente" required="true">
 	        	</div>
-	        	<div class="col-md-3">
+	        	<div class="col-md-6">
 			        <input id="telefonoPaciente" name="telefonoPaciente" type="text" class="form-control" placeholder="Teléfono del paciente" required="true">
 	        	</div>
         	</div>
-        	<div class="row" style="width: 25%">
-	        	<div class="col-md-12" >
-			        <input id="color" name="color" type="text" class="form-control" value="Estado: por atender" disabled>
-	        	</div>
-        	</div>
-      </div>
-      <div class="modal-footer">
-        <a id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar</a>
-      </div>
+      	</div>
+		<div class="modal-footer">
+		<a id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></a>
+		</div>
       {{ Form::close() }}
     </div>
   </div>
@@ -139,7 +159,16 @@
 						      	<div class="modal-body">
 						      		<div class="row">
 							        	<div class="col-md-3">
-								          	<input id="titulo{{$agenda->id}}" name="titulo{{$agenda->id}}" type="text" class="form-control" placeholder="Titulo" required="true" value="{{$agenda->titulo}}">
+								          	<select id="procedimiento{{$agenda->id}}" name="procedimiento{{$agenda->id}}" class="form-control">
+							        			<option value="" selected="selected">Procedimiento</option>
+							        			@foreach($procedimientos as $procedimiento)
+							        				<option value="{{$procedimiento->id}}"
+								                     @if($agenda->idProcedimiento == $procedimiento->id)
+								                     selected = "true"
+								                     @endif
+								                     >{{$procedimiento->nombre}}</option>
+										        @endforeach
+									        </select>
 							        	</div>
 							        	<div class="col-md-3">
 							        		<input id="fechaInicio{{$agenda->id}}" name="fechaInicio{{$agenda->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" value="{{$agenda->fechaInicio}}" />
@@ -175,7 +204,7 @@
 						        	</div>
 						        	<div class="row" align="center">
 						        		<div class="col-md-12">
-									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control" style="width: 25%">
+									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control" style="width: 25%;">
 									        	<option value="green" 
 									        	@if($agenda->color == "green")
 									        		selected = "true"
@@ -196,7 +225,7 @@
 							        </div>
 						      </div>
 						      <div class="modal-footer">
-						        <button type="submit" class="btn btn-primary">Guardar</button>
+						        <button type="submit" class="btn btn-primary">Guardar &nbsp;<li class="fa fa-check"></li></button>
 						      </div>
 						      {{ Form::close() }}
 						    </div>
@@ -224,7 +253,23 @@
 	}
 
 	$(document).ready(function() {
-	    $('#example').DataTable();
+	    //$('#example').DataTable();
+	    
+	    $('#example').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+	                extend:    'excelHtml5',
+	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                titleAttr: 'Descarga Excel'
+	            },
+	            {
+	                extend:    'pdfHtml5',
+	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	} );
 	} );
 
 	require(['input-mask']);
@@ -251,6 +296,38 @@
 			form.submit();
 		}
 	}
+
+	var valor = function(x){
+	    if(x == '1'){
+	      document.getElementById('cedulaPacienteViejo').style.display = "block";
+	      document.getElementById('cedulaPacienteViejo').required = true;
+	      document.getElementById('cedulaPaciente').style.display = "none";
+	      document.getElementById('cedulaPaciente').required = false;
+	      document.getElementById('cedulaPaciente').value = "";
+
+	    }else{
+	      document.getElementById('cedulaPacienteViejo').style.display = "none";
+	      document.getElementById('cedulaPacienteViejo').required = false;
+	      document.getElementById('cedulaPaciente').style.display = "block";
+	      document.getElementById('cedulaPaciente').required = true;
+	    }
+  	};
+
+  	$('#cedulaPacienteViejo').on('change', function (event) {
+    	var id = $(this).find('option:selected').val();
+      	JSONHistorias = eval(<?php echo json_encode($historias);?>);
+      	JSONHistorias.forEach(function(currentValue,index,arr) {
+        	if(currentValue.id == id){
+        		var nombre = document.getElementById("nombrePaciente");
+        		var email = document.getElementById("emailPaciente");
+        		var telefono = document.getElementById("telefonoPaciente");
+        		nombre.value = currentValue.nombreCompleto;
+        		email.value = currentValue.email;
+        		telefono.value = currentValue.telefono;
+        	}
+    	});
+  	});
+
 </script>
 
 <style type="text/css">

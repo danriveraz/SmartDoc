@@ -3348,9 +3348,14 @@ class HistoriaClinicaController extends Controller
         $_SESSION['id'] = $id;
         
         if($request->activador == 1){
-            return redirect()->route('historia.editHistoriaClinica');
+            flash('Modificación exitosa')->success()->important();
+            return redirect()->route('Auth.usuario.showHistoriaClinica');
         }else if($request->activador == 2){
+            flash('Modificación exitosa')->success()->important();
             return redirect()->route('historia.observacionHistoriaClinica');
+        }else if($request->activador == 3){
+            flash('Modificación exitosa')->success()->important();
+            return redirect()->route('Auth.usuario.showcreateLaboratorio');
         }
     }
 
@@ -3602,9 +3607,10 @@ class HistoriaClinicaController extends Controller
       $user = Auth::User();
       session_start();
       $id = $_SESSION['id'];
-      $historia = HistoriaClinica::find($id);
       $empresa = Empresa::find($user->idEmpresa);
-      $observaciones = Observaciones::Search($historia->id)->get();
+      $historia = HistoriaClinica::EmpresaAndId($empresa->id, $id)->first();
+      $observaciones = Observaciones::SearchHistoria($historia->id)->get();
+
       if($user->esAdmin){
             return View('HistoriaClinica.observaciones')
             ->with('observaciones',$observaciones)

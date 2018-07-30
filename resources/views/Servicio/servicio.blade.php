@@ -3,24 +3,29 @@
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <!-- DataTables Example -->
+<a class="btn btn-pill btn-primary" href="{{url('/Cuentas')}}" title="Cuentas">
+	<span class="fa fa-money" style="margin-right: 0px;"></span>
+</a>	
+</div>
+<br>
 <div class="container main-content">
-  <div class="page-title"></div>
-  <div class="row">
-      <div class="col-lg-12">
-        <div class="widget-container fluid-height clearfix">
-          <div class="widget-content padded clearfix">
-			<table id="example" class="table table-striped" style="width:100%">
-		        <thead>
-		            <tr>
-		                <th width="15%">Fecha</th>
-		                <th width="20%">Procedimiento</th>
-		                <th width="25%">Nombre</th>
-		                <th width="20%">Documento</th>
-		                <th width="15%">Valor</th>
-		                <th width="5%">Opciones</th>
-		            </tr>
-		        </thead>
-		        <tbody>
+  	<div class="page-title"></div>
+  	<div class="row">
+      	<div class="col-lg-12">
+        	<div class="widget-container fluid-height clearfix">
+          		<div class="widget-content padded clearfix">
+					<table id="example" class="table table-striped" style="width:100%">
+		        		<thead>
+		            		<tr>
+				                <th width="15%">Fecha</th>
+				                <th width="20%">Procedimiento</th>
+				                <th width="25%">Nombre</th>
+				                <th width="20%">Documento</th>
+				                <th width="15%">Valor</th>
+				                <th width="5%">Opciones</th>
+				            </tr>
+		        		</thead>
+		        	<tbody>
 		        	@foreach($servicios as $servicio)
 		            <tr>
 		                <td>{{$servicio->fecha}}</td>

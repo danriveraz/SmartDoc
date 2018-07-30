@@ -4,7 +4,7 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar historia clinica">
-		<span class="fe fe-plus"></span>
+		<span class="fa fa-plus" style="margin-right: 0px;"></span>
 	</button>	
 </div>
 <br>

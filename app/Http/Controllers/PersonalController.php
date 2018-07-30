@@ -62,6 +62,22 @@ class PersonalController extends Controller
                 $personal->cedula = $cedula;
                 $personal->esEmpleado = 1;
                 $personal->telefono = $request->telefono;
+                $personal->especialidad = $request->especialidad;
+
+                $path = public_path() . '/images/admin/';
+                $file = $request->file('imagen');
+                if($file!=null){// verifica que se haya subido una imagen nueva
+                    //obtenemos el nombre del archivo
+                    $perfilNombre = 'perfil' . time() . '.' . $file->getClientOriginalExtension();
+                    //indicamos que queremos guardar un nuevo archivo en el disco local
+                    $file->move($path, $perfilNombre);
+                    if($personal->imagenPerfil != "perfil.jpg"){
+                        $imagenActual = $path . $personal->imagenPerfil;
+                    }
+                    $personal->imagenPerfil = $perfilNombre;
+                }else{
+                    $personal->imagenPerfil = "perfil.jpg";
+                }
 
                 if(strlen($request->password) > 4 && strlen($request->password) < 18){
                     $personal->password = bcrypt($request->password);
@@ -101,6 +117,7 @@ class PersonalController extends Controller
         $direccion = "direccion".$id;
         $fechaNacimiento = "fechaNacimiento".$id;
         $sexo = "sexo".$id;
+        $especialidad = "especialidad".$id;
 
         $email = $request->$correo;
 
@@ -130,6 +147,7 @@ class PersonalController extends Controller
                 $user2update->direccion = $request->$direccion;
                 $user2update->fechaNacimiento = $request->$fechaNacimiento;
                 $user2update->sexo = $request->$sexo;
+                $user2update->especialidad = $request->$especialidad;
                 $user2update->save();
                 flash('Modificación exitosa')->success()->important();
                 return redirect('/Personal');

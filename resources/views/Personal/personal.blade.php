@@ -4,7 +4,7 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar personal">
-		<span class="fe fe-plus"></span>
+		<span class="fa fa-plus" style="margin-right: 0px;"></span>
 	</button>	
 </div>
 <br>
@@ -23,6 +23,35 @@
       {!! Form::open(['action' => ['PersonalController@postmodificarPersonal'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
        	{{ csrf_field() }}
       	<div class="modal-body">
+      		<div class="row">
+      			<div class="col-md-12" style="text-align: center;">
+                    <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
+                        <div class="gallery-container fileupload-new img-thumbnail">
+							<div id="imgActual" class="gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
+	                            <img src="{{asset('images/admin/perfil.jpg')}}" id="imagenCircular">
+                          		<div class="actions">
+                                	<a  id="modalImagen" href="{{asset ('images/admin/perfil.jpg') }}" title="Imagen">
+                              	 		<img src="images/admin/perfil.jpg" hidden>
+                              	 		<i class="fa fa-search-plus"></i>
+                              		</a>
+                              		<a onclick="$('#imagenPerfil').click()">
+                              	  		<i class="fa fa-pencil"></i>
+                              		</a>
+                              	</div>
+                            </div>
+                        </div>
+                        <div class="gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff; overflow: hidden;">
+                        </div>
+                        <div hidden>
+                            <span class=" btn-file" id="subirImagenNegocio">
+                              <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
+                              <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
+                              <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+      		</div>
         	<div class="row">
 	        	<div class="col-md-6">
 		          	<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" required="true">
@@ -51,7 +80,6 @@
 	        	</div>
 	        </div>
 	        <div class="row">
-	        	
 	        	<div class="col-md-4">
 	        		<select id="sexo" name='sexo' class="form-control" placeholder="">
 	                  	<option value="" selected="selected">Seleccionar sexo</option>
@@ -71,6 +99,11 @@
 	        		<select class="form-control" id="idCiudad" name="idCiudad" required>
 						<option value="">Ciudad</option>
 					</select>
+	        	</div>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-12">
+	        		<textarea id="especialidad" name="especialidad" rows="3" class="form-control" placeholder="Especialidad de la persona" required="true"></textarea>
 	        	</div>
 	        </div>
       </div>
@@ -101,7 +134,7 @@
 			    </div>
 			  </div>
 			  <div class="card-body">
-			  	<span class="avatar avatar-xl" style="background-image: url(images/admin/trabajador.png)"></span>
+			  	<span class="avatar avatar-xl" style="background-image: url(images/admin/{{$personal->imagenPerfil}})"></span>
 			  	<p> </p>
 			  	<div class="row">
 				  	<p class="col-md-6">Cédula: {{$personal->cedula}}</p>
@@ -110,6 +143,9 @@
 			  	<div class="row">
 			  		<p class="col-md-6">Dirección: {{$personal->direccion}}</p>
 			  		<p class="col-md-6">Sexo: {{$personal->sexo}}</p>
+			  	</div>
+			  	<div class="row">
+			  		<p class="col-md-12"><b>Especialidad: </b>{{$personal->especialidad}}</p>
 			  	</div>
 			  </div>
 			  <div class="card-footer">
@@ -169,10 +205,15 @@
 			                	</select>
 				        	</div>
 				        </div>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="submit" class="btn btn-primary">Guardar</button>
-			      </div>
+				        <div class="row">
+				        	<div class="col-md-12">
+				        		<textarea id="especialidad{{$personal->id}}" name="especialidad{{$personal->id}}" rows="3" class="form-control" placeholder="Especialidad de la persona" required="true">{{$personal->especialidad}}</textarea>
+				        	</div>
+				        </div>
+			      	</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
 			      {{ Form::close() }}
 			    </div>
 			  </div>
@@ -185,6 +226,17 @@
 
 
 <script type="text/javascript">
+
+	$(document).ready(function(){
+		$("#modalImagen").fancybox({
+            helpers: {
+                title : {
+                    type : 'float'
+                }
+            }
+        });
+	});
+
 	$('#addModal').on('shown.bs.modal', function () {
 	  $('#btn-add').trigger('focus')
 	})
@@ -227,7 +279,13 @@
 	    }); 
 	  });
 </script>
-
+<style type="text/css">
+	#imagenCircular{
+	  	border-radius: 50%;
+	    width: 150px;
+	    height: 150px;
+	}
+</style>
 
 
 @endsection

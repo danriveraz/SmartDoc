@@ -24,11 +24,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
 
     <!--Scripts-->
+
+    <!-- PARA DATATABLE CON ICONOS -->
+
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
-    {!!Html::style('stylesheets\datatables.css')!!}
+    <!--<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.js"></script>-->
     {!!Html::script("javascripts\datatable-editable.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
+    {!!Html::style('stylesheets\datatables.css')!!}
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css"> -->
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js">
+    </script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+
+    {!!Html::style('css\buttons.dataTables.css')!!}
+    <!-- FIN -->
+
     <script src="{{asset('assets/js/require.min.js')}}"></script>
     
     <script>
@@ -127,9 +147,6 @@
                   </li>
                   <li class="nav-item">
                     <a href="{{url('/Personal')}}" class="nav-link" title="Personal"><span class="fa fa-users" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{url('/Cuentas')}}" class="nav-link" title="Cuentas"><span class="fa fa-money" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
                   </li>
                   <li class="nav-item">
                       <a href="{{url('/Procedimiento')}}" class="nav-link" title="Procedimientos"><span class="fa fa-product-hunt" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>

@@ -13,56 +13,55 @@
                 {!! Form::open(['route' => ['Auth.usuario.editPerfil'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
            	      {{ csrf_field() }}
                   <div class="card-header" style="background-image: url(images/fondoProfile.jpg);"></div>
-                  <div class="card-body text-center">
 
-                      <div class="col-md-12" style="text-align: center; z-index: 1000;">
-                          <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
-                              <div class="gallery-container fileupload-new img-thumbnail">
-                              	 <div class="card-profile-img gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
-                              	     @if($empresa->imagen != '')
-                              	     {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
+                  <div class="card-body text-center">
+                    <div class="col-md-12" style="text-align: center; z-index: 1000;">
+                      <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
+                        <div class="gallery-container fileupload-new img-thumbnail">
+                          <div class="card-profile-img gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
+                            @if($empresa->imagen != '')
+                              {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
                               	     <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
-                              	     @else
-                              	     <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
-                              	     @endif
-                              	       <div class="actions">
-                              	              <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
-                              	                <img src="images/admin/{{$empresa->imagen}}" hidden>
-                              	                <i class="fa fa-search-plus"></i>
-                              	              </a>
-                              	              <a onclick="$('#imagenPerfil').click()">
-                              	                <i class="fa fa-pencil"></i>
-                              	              </a>
-                              	       </div>
-                              	 </div>
+                            @else
+                              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
+                            @endif
+                              <div class="actions">
+                                <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
+                              	 <img src="images/admin/{{$empresa->imagen}}" hidden>
+                              	 <i class="fa fa-search-plus"></i>
+                              	</a>
+                              	<a onclick="$('#imagenPerfil').click()">
+                              	  <i class="fa fa-pencil"></i>
+                              	</a>
                               </div>
-                      <div class="card-profile-img gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff; overflow: hidden;">
-                       </div>
+                            </div>
+                          </div>
+                          <div class="card-profile-img gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff; overflow: hidden;">
+                          </div>
                           <div hidden>
-                              <span class=" btn-file" id="subirImagenNegocio">
-                              	 <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
-                              	 <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
-                              	 <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
-                              </span>
+                            <span class=" btn-file" id="subirImagenNegocio">
+                              <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
+                              <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
+                              <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
+                            </span>
                           </div>
                         </div>
                       </div><!-- fin col lg12 imagen de perfil-->
-
-                                    <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
-                                      <p class="mb-3" style="font-size: 12px;">
-                                        {{$empresa->eslogan}}
-                                      </p>
-                                    <ul class="social-links list-inline mb-0 mt-2">
-                                          <li class="list-inline-item">
-                                            <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
-                                          </li>
-                                          <li class="list-inline-item">
-                                              <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
-                                          </li>
-                                          <li class="list-inline-item">
-                                                  <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
-                                          </li>
-                                    </ul>
+                        <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
+                        <p class="mb-3" style="font-size: 12px;">
+                          {{$empresa->eslogan}}
+                        </p>
+                        <ul class="social-links list-inline mb-0 mt-2">
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
+                          </li>
+                        </ul>
                   </div>
                 </div>
               </div><!-- fin del col lg4-->

@@ -7,6 +7,8 @@ use Auth;
 use Mail;
 use App\User;
 use App\Personal;
+use App\Procedimiento;
+use App\HistoriaClinica;
 use App\Agenda;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
@@ -30,7 +32,24 @@ class AgendaController extends Controller
         $userActual = Auth::user();
         $evento = new Agenda();
 
-        $evento->titulo = $request->titulo;
+        $procedimientos = Procedimiento::Admin($userActual->idEmpresa)->get();
+        $historias = HistoriaClinica::admin($userActual->idEmpresa)->get();
+
+        for ($i=0; $i < sizeof($procedimientos); $i++) { 
+            if($procedimientos[$i]->id == $request->procedimiento){
+                $evento->titulo = $procedimientos[$i]->nombre;
+            }
+        }
+        if($request->nuevoviejo == 1){
+            $evento->cedulaPaciente = $request->cedulaPaciente;
+        }else{
+            for ($i=0; $i < sizeof($historias); $i++) { 
+                if($historias[$i]->id == $request->cedulaPacienteViejo){
+                    $evento->cedulaPaciente = $historias[$i]->nombreCompleto;
+                }
+            }   
+        }
+
         $evento->fechaInicio = $request->fechaInicio;
         $evento->hora = $request->hora;
         $evento->nombrePaciente = $request->nombrePaciente;
@@ -38,6 +57,7 @@ class AgendaController extends Controller
         $evento->cedulaPaciente = $request->cedulaPaciente;
         $evento->telefonoPaciente = $request->telefonoPaciente;
         $evento->idUsuario = $request->personal;
+        $evento->idProcedimiento = $request->procedimiento;
         $evento->idEmpresa = $userActual->idEmpresa;
         $evento->color = "orange";
         $evento->save();
@@ -56,6 +76,7 @@ class AgendaController extends Controller
     }
 
     public function posteditAgenda(Request $request, $id){
+        $userActual = Auth::user();
         $titulo = "titulo".$id;
         $fechaInicio = "fechaInicio".$id;
         $hora = "hora".$id;
@@ -64,11 +85,17 @@ class AgendaController extends Controller
         $cedulaPaciente = "cedulaPaciente".$id;
         $telefonoPaciente = "telefonoPaciente".$id;
         $personal = "personal".$id;
+        $procedimiento = "procedimiento".$id;
         $color = "color".$id;
 
         $agenda2update = Agenda::find($id);
+        $procedimientos = Procedimiento::Admin($userActual->idEmpresa)->get();
 
-        $agenda2update->titulo = $request->$titulo;
+        for ($i=0; $i < sizeof($procedimientos); $i++) { 
+            if($procedimientos[$i]->id == $request->$procedimiento){
+                $agenda2update->titulo = $procedimientos[$i]->nombre;
+            }
+        }
         $agenda2update->fechaInicio = $request->$fechaInicio;
         $agenda2update->hora = $request->$hora;
         $agenda2update->nombrePaciente = $request->$nombrePaciente;
@@ -76,6 +103,7 @@ class AgendaController extends Controller
         $agenda2update->cedulaPaciente = $request->$cedulaPaciente;
         $agenda2update->telefonoPaciente = $request->$telefonoPaciente;
         $agenda2update->idUsuario = $request->$personal;
+        $agenda2update->idProcedimiento = $request->$procedimiento;
         $agenda2update->color = $request->$color;
         $agenda2update->save();
 
