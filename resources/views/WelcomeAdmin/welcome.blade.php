@@ -55,7 +55,7 @@
         		<div class="col-md-4">
         			<select id="nuevoviejo" name='nuevoviejo' class="form-control" placeholder="" onchange="valor(this.value);">
 	                  	<option value="0" selected="selected">Nuevo</option>
-	                  	<option value="1">Viejo</option>
+	                  	<option value="1">Existente</option>
 	            	</select>
         		</div>
         		<div class="col-md-4">

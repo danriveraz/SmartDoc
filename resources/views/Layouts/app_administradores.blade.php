@@ -138,27 +138,51 @@
           </div>
         </div>
         <div class="header-nav d-none d-lg-flex">
-          <div class="container">
-            <div class="row align-items-center">
+          <div class="container-fluid main-nav clearfix">
+            <div class="nav-collapse">
               <div class="col">
-                <ul class="nav nav-tabs">
+                <ul class="nav layout-icons">
                   <li class="nav-item">
-                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link" title="Agenda"><span class="fa fa-calendar" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link" title="Agenda">
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/1.png')}}">
+                      </span>
+                    </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('/Personal')}}" class="nav-link" title="Personal"><span class="fa fa-users" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    <a href="{{url('/Personal')}}" class="nav-link" title="Personal">
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/2.png')}}">
+                      </span>
+                    </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{url('/Procedimiento')}}" class="nav-link" title="Procedimientos"><span class="fa fa-product-hunt" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                      <a href="{{url('/Procedimiento')}}" class="nav-link" title="Procedimientos">
+                        <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/3.png')}}">
+                      </span>
+                      </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{url('/Servicio')}}" class="nav-link" title="Servicios"><span class="fa fa-shopping-bag" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                      <a href="{{url('/Servicio')}}" class="nav-link" title="Servicios">
+                        <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/4.png')}}">
+                      </span>
+                      </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('/Laboratorio')}}" class="nav-link" title="Laboratorio"><span class="fa fa-truck" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    <a href="{{url('/Laboratorio')}}" class="nav-link" title="Laboratorio">
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/5.png')}}">
+                      </span>
+                    </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Historias Clinicas"><span class="fa fa-file-text" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Historias Clinicas">
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/6.png')}}">
+                      </span>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -203,5 +227,17 @@ window.smartsupp||(function(d) {
   c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
 })(document);
 </script>
+<style type="text/css">
+  .nav-item > a img {
+      width: 56px;
+      height: 56px;
+              display: block;
+  }
+
+  .nav-item > a.current {
+    color: #2d0031; 
+    border-bottom: solid #316cbe;
+  }
+</style>
   </body>
 </html>
