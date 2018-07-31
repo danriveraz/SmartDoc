@@ -178,13 +178,12 @@
 		          	</div>
 		          	<div class="card">
 		          		<div class="card-header">
-		          			<div class="col-md-11">
-		          				<h3 class="card-title" style="margin-top: 10px;">Antecedentes Odontológico y Médicos Generales</h3>
-		          			</div>
-		          			<div class="col-md-1">
-		          				<button type="button" class="btn btn-pill btn-primary" data-toggle="collapse" data-target="#antecedentes" style="border-radius: 10rem;">
-	              					<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	              				</button>
+		          			<div class="col-md-12">
+		          				<a id="btnAntecedentes" type="" class="btn-pill" data-toggle="collapse" data-target="#antecedentes">
+	              					<span id="spanAntecedentesPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanAntecedentesMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	              				</a>
+		          				<h3 class="card-title" style="display: initial;">Antecedentes Odontológico y Médicos Generales</h3>
 		          			</div>
 	              		</div>
 	              		<div class="container">
@@ -453,13 +452,12 @@
 		          	</div>
 		          	<div class="card">
 		          		<div class="card-header">
-	                  		<div class="col-md-11">
-		          				<h3 class="card-title" style="margin-top: 10px;">Exámen Estomatológico / Articulación temporo mandibular (Hallazgo Clínicos)</h3>
-		          			</div>
-		          			<div class="col-md-1">
-		          				<button type="button" class="btn btn-pill btn-primary" data-toggle="collapse" data-target="#examen" style="border-radius: 10rem;">
-	              					<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	              				</button>
+		          			<div class="col-md-12">
+		          				<a id="btnExamen" type="" class="btn-pill" data-toggle="collapse" data-target="#examen">
+	              					<span id="spanExamenPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanExamenMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	              				</a>
+		          				<h3 class="card-title" style="display: initial;">Exámen Estomatológico / Articulación temporo mandibular (Hallazgo Clínicos)</h3>
 		          			</div>
 	              		</div>
 	              		<div class="container">
@@ -744,17 +742,16 @@
 	    	 		<link href="stylesheets/bootstrap.css" rel="stylesheet">
 	    	 		<div class="card">
 	              		<div class="card-header">
-	                  		<div class="col-md-11">
-		          				<h3 class="card-title" style="margin-top: 10px;">Paleta diagnostica</h3>
-		          			</div>
-		          			<div class="col-md-1">
-		          				<button type="button" class="btn btn-pill btn-primary" data-toggle="collapse" data-target="#demo1" style="border-radius: 10rem;">
-	              					<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	              				</button>
+		          			<div class="col-md-12">
+		          				<a id="btnPaleta" type="" class="btn-pill" data-toggle="collapse" data-target="#paleta">
+	              					<span id="spanPaletaPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanPaletaMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	              				</a>
+		          				<h3 class="card-title" style="display: initial;">Paleta diagnostica</h3>
 		          			</div>
 	              		</div>
 	              		<div class="container">
-						  <div id="demo1" class="collapse">
+						  <div id="paleta" class="collapse">
 		              		<div class="card-body">
 		              			<div class="row">
 		              				<div class="col-md-12">
@@ -827,18 +824,17 @@
 	              	</div>
 	    	 		<div class="card">
 	              		<div class="card-header">
-	                  		<div class="col-md-11">
-		          				<h3 class="card-title" style="margin-top: 10px;">Odontograma Inicial</h3>
-		          			</div>
-		          			<div class="col-md-1">
-		          				<button type="button" class="btn btn-pill btn-primary" data-toggle="collapse" data-target="#demo2" style="border-radius: 10rem;">
-	              					<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	              				</button>
+		          			<div class="col-md-12">
+		          				<a id="btnOdontogramaInicial" type="" class="btn-pill" data-toggle="collapse" data-target="#odontogramaInicial">
+	              					<span id="spanOdontogramaInicialPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanOdontogramaInicialMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	              				</a>
+		          				<h3 class="card-title" style="display: initial;">Odontograma Inicial</h3>
 		          			</div>
 	              		</div>
 	              		<!-- inicio del contenedor del campo texto-->
 	              		<div class="container">
-						  <div id="demo2" class="collapse">
+						  <div id="odontogramaInicial" class="collapse">
 						    <div class="card-body">
 				                <div class="row">
 				                    <div id="trInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -899,8 +895,12 @@
 			        </div>
 			        <div class="card">
 	              		<div class="card-header">
-	                  		<div class="col-md-4">
-	                  			<h3 class="card-title" style="margin-top: 10px;">Plan de tratamiento aprobado</h3>
+	                  		<div class="col-md-5">
+	                  			<a id="btnPlanTratamiento" type="" class="btn-pill" data-toggle="collapse" data-target="#planTratamiento">
+	              					<span id="spanPlanTratamientoPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanPlanTratamientoMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	              				</a>
+		          				<h3 class="card-title" style="display: initial;">Plan de tratamiento aprobado</h3>
 	                  		</div>
 	                  		<div class="col-md-3">
 			        			@if($historia->costoTratamiento == 0)
@@ -916,11 +916,6 @@
 					                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
 					               	@endforeach
 				            	</select>
-	                  		</div>
-	                  		<div class="col-md-1">
-	                  			<button type="button" class="btn btn-pill btn-primary" data-toggle="collapse" data-target="#planTratamiento" style="border-radius: 10rem;">
-	              					<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	              				</button>
 	                  		</div>
 	              		</div>
 	              		<!-- inicio del contenedor del campo texto-->
@@ -988,6 +983,55 @@
 	    }
 	});
 
+	$( '#btnAntecedentes' ).on( 'click', function() {
+		if($('#antecedentes').attr('class') == "collapse"){
+			document.getElementById('spanAntecedentesPlus').style.display = "none";
+			document.getElementById('spanAntecedentesMinus').style.display = "";
+		}else{
+			document.getElementById('spanAntecedentesPlus').style.display = "";
+			document.getElementById('spanAntecedentesMinus').style.display = "none";
+		}
+	});
+
+	$( '#btnExamen' ).on( 'click', function() {
+		if($('#examen').attr('class') == "collapse"){
+			document.getElementById('spanExamenPlus').style.display = "none";
+			document.getElementById('spanExamenMinus').style.display = "";
+		}else{
+			document.getElementById('spanExamenPlus').style.display = "";
+			document.getElementById('spanExamenMinus').style.display = "none";
+		}
+	});
+
+	$( '#btnPaleta' ).on( 'click', function() {
+		if($('#paleta').attr('class') == "collapse"){
+			document.getElementById('spanPaletaPlus').style.display = "none";
+			document.getElementById('spanPaletaMinus').style.display = "";
+		}else{
+			document.getElementById('spanPaletaPlus').style.display = "";
+			document.getElementById('spanPaletaMinus').style.display = "none";
+		}
+	});
+
+	$( '#btnOdontogramaInicial' ).on( 'click', function() {
+		if($('#odontogramaInicial').attr('class') == "collapse"){
+			document.getElementById('spanOdontogramaInicialPlus').style.display = "none";
+			document.getElementById('spanOdontogramaInicialMinus').style.display = "";
+		}else{
+			document.getElementById('spanOdontogramaInicialPlus').style.display = "";
+			document.getElementById('spanOdontogramaInicialMinus').style.display = "none";
+		}
+	});
+
+	$( '#btnPlanTratamiento' ).on( 'click', function() {
+		if($('#planTratamiento').attr('class') == "collapse"){
+			document.getElementById('spanPlanTratamientoPlus').style.display = "none";
+			document.getElementById('spanPlanTratamientoMinus').style.display = "";
+		}else{
+			document.getElementById('spanPlanTratamientoPlus').style.display = "";
+			document.getElementById('spanPlanTratamientoMinus').style.display = "none";
+		}
+	});
 </script>
 
 <style type="text/css">
@@ -1216,7 +1260,6 @@
 	    $(".click").click(function(event) {
 	        var control = $("#controls").children().find('.active').attr('id');
 	        var cuadro = $(this).find("input[name=cuadro]:hidden").val();
-	        console.log($(this).attr('id'))
 	        switch (control) {
 	            case "cariado":
 	                if ($(this).hasClass("click-blue")) {
@@ -1237,7 +1280,6 @@
 	                    } else {
 	                        $(this).addClass('click-red');
 	                        $id = $(this).attr("id") + 1;
-	                        console.log($(this));
 	                        //alert(document.getElementById($id).id);
 	                        document.getElementById($id).value = "cariado";
 	                        $(this).attr('title', 'cariado');
@@ -1862,7 +1904,6 @@
 
 <script>
 	var JSONodontogramaInicial = eval(<?php echo json_encode($odontogramaInicial2array); ?>);
-	console.log(JSONodontogramaInicial);
 	$(document).ready(function(){
 		for(i = 0; i < JSONodontogramaInicial.length; i++){
 			switch (JSONodontogramaInicial[i][1]){
@@ -1996,5 +2037,19 @@
 		}
 	});
 </script>
+<style type="text/css">
+	.btn-pill{
+		background-color: #FFFFFF;
+	}
 
+	.fa-plus{
+		color: #3276b1;
+		border-radius: 0px;
+	}
+
+	.fa-minus{
+		color: #3276b1;
+		border-radius: 0px;
+	}
+</style>
 @endsection
