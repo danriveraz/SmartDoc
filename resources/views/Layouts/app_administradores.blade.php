@@ -111,7 +111,7 @@
           </div>
         </div>
           <div class="container-fluid main-nav clearfix">
-            <div class="nav-collapse">
+            <div class="nav-collapse" style="margin-bottom: -0.5%;">
               <div class="col">
                 <ul class="nav layout-icons">
                   <li class="nav-item">

@@ -132,7 +132,7 @@ a {
 .headingPocket a {
   color: #E9E9E9; }
   a:hover {
-    color: #FFFFFF;
+    color: #111;
     text-decoration: none; }
 
 ul.no-style {
@@ -542,8 +542,7 @@ body.login2 {
               .navbar .container-fluid.main-nav .nav-collapse .nav > li > a.current .caret {
                 border-top-color: #2d0031; }
             .navbar .container-fluid.main-nav .nav-collapse .nav > li > a:hover {
-              background: #f8f8f8;
-              background: rgba(0, 0, 0, 0.04); }
+              background: #FAF9FC; }
 /*
           .navbar .container-fluid.main-nav .nav-collapse .nav > li .dropdown-menu {
             text-align: left; }
