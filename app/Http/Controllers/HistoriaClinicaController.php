@@ -31,16 +31,19 @@ class HistoriaClinicaController extends Controller
         $user = Auth::User();
         $historiasClinicas = HistoriaClinica::admin($user->idEmpresa)->get();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "historia";
         if($user->esAdmin){
             return View('HistoriaClinica.historiaClinica')
             ->with('user', $user)
             ->with('empresa',$empresa)
-            ->with('historiasClinicas', $historiasClinicas);
+            ->with('historiasClinicas', $historiasClinicas)
+            ->with('flag', $flag);
         }else{
             return View('HistoriaClinica.historiaClinicaTrabajador')
             ->with('user', $user)
             ->with('empresa',$empresa)
-            ->with('historiasClinicas', $historiasClinicas);
+            ->with('historiasClinicas', $historiasClinicas)
+            ->with('flag', $flag);
         }
     }
 
@@ -2177,6 +2180,7 @@ class HistoriaClinicaController extends Controller
         array_push($odontograma2array, array('r38', $diente52->parteDerecha));
 
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "historia";
         if($user->esAdmin){
              return View('HistoriaClinica.crearHistoriaClinica')
             ->with('departamentos',$departamentos)
@@ -2186,7 +2190,8 @@ class HistoriaClinicaController extends Controller
             ->with('historia',$historia)
             ->with('procedimientos',$procedimientos)
             ->with('odontogramaInicial2array', $odontogramaInicial2array)
-            ->with('odontograma2array', $odontograma2array);
+            ->with('odontograma2array', $odontograma2array)
+            ->with('flag', $flag);
         }else{
              return View('HistoriaClinica.crearHistoriaClinicaTrabajador')
             ->with('departamentos',$departamentos)
@@ -2196,7 +2201,8 @@ class HistoriaClinicaController extends Controller
             ->with('historia',$historia)
             ->with('procedimientos',$procedimientos)
             ->with('odontogramaInicial2array', $odontogramaInicial2array)
-            ->with('odontograma2array', $odontograma2array);
+            ->with('odontograma2array', $odontograma2array)
+            ->with('flag', $flag);
         }
     }
 
@@ -3610,17 +3616,19 @@ class HistoriaClinicaController extends Controller
       $empresa = Empresa::find($user->idEmpresa);
       $historia = HistoriaClinica::EmpresaAndId($empresa->id, $id)->first();
       $observaciones = Observaciones::SearchHistoria($historia->id)->get();
-
+      $flag = "historia";
       if($user->esAdmin){
             return View('HistoriaClinica.observaciones')
             ->with('observaciones',$observaciones)
             ->with('empresa',$empresa)
-            ->with('historia',$historia);
+            ->with('historia',$historia)
+            ->with('flag',$flag);
       }else{
             return View('HistoriaClinica.observacionesTrabajador')
             ->with('observaciones',$observaciones)
             ->with('empresa',$empresa)
-            ->with('historia',$historia);
+            ->with('historia',$historia)
+            ->with('flag',$flag);
       }
     }
 

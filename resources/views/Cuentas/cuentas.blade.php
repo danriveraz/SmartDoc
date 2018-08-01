@@ -156,9 +156,53 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-	    $('#example').DataTable();
-	    $('#example2').DataTable();
-	    $('#example3').DataTable();
+		$('#example').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+	                extend:    'excelHtml5',
+	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                titleAttr: 'Descarga Excel'
+	            },
+	            {
+	                extend:    'pdfHtml5',
+	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	} );
+	    
+	    $('#example2').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+	                extend:    'excelHtml5',
+	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                titleAttr: 'Descarga Excel'
+	            },
+	            {
+	                extend:    'pdfHtml5',
+	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	} );
+	    
+	    $('#example3').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+	                extend:    'excelHtml5',
+	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                titleAttr: 'Descarga Excel'
+	            },
+	            {
+	                extend:    'pdfHtml5',
+	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	} );
 	} );
 </script>
 	<!-- end DataTables Example -->

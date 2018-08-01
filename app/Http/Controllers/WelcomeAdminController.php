@@ -50,6 +50,8 @@ class WelcomeAdminController extends Controller
             }
         }
 
+        $flag = "agenda";
+
         return View('WelcomeAdmin.welcome')
         ->with('agendas',$agendas)
         ->with('personales',$personales)
@@ -57,6 +59,7 @@ class WelcomeAdminController extends Controller
         ->with('citas2array',$citas2array)
         ->with('user',$user)
         ->with('procedimientos', $procedimientos)
-        ->with('historias', $historias);
+        ->with('historias', $historias)
+        ->with('flag', $flag);
     }
 }

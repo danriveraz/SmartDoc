@@ -110,7 +110,7 @@
           <div class="container">
             <div class="d-flex">
               <a class="navbar-brand" href="{{url('/WelcomeAdmin')}}">
-                <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
+                <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo" title="Inicio">
               </a>
               <div class="ml-auto d-flex order-lg-2">
                 
@@ -143,42 +143,66 @@
               <div class="col">
                 <ul class="nav layout-icons">
                   <li class="nav-item">
+                    @if($flag == "agenda")
+                    <a href="{{url('/WelcomeAdmin')}}" class="nav-link current" title="Agenda">
+                    @else
                     <a href="{{url('/WelcomeAdmin')}}" class="nav-link" title="Agenda">
+                    @endif
                       <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/1.png')}}">
                       </span>
                     </a>
                   </li>
                   <li class="nav-item">
+                    @if($flag == "personal")
+                    <a href="{{url('/Personal')}}" class="nav-link current" title="Personal">
+                    @else
                     <a href="{{url('/Personal')}}" class="nav-link" title="Personal">
+                    @endif
                       <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/2.png')}}">
                       </span>
                     </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{url('/Procedimiento')}}" class="nav-link" title="Procedimientos">
+                    @if($flag == "procedimiento")
+                    <a href="{{url('/Procedimiento')}}" class="nav-link current" title="Procedimientos">
+                    @else
+                    <a href="{{url('/Procedimiento')}}" class="nav-link" title="Procedimientos">
+                    @endif
                         <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/3.png')}}">
                       </span>
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{url('/Servicio')}}" class="nav-link" title="Servicios">
+                    @if($flag == "servicio")
+                    <a href="{{url('/Servicio')}}" class="nav-link current" title="Servicios">
+                    @else
+                    <a href="{{url('/Servicio')}}" class="nav-link" title="Servicios">
+                    @endif
                         <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/4.png')}}">
                       </span>
                       </a>
                   </li>
                   <li class="nav-item">
+                    @if($flag == "laboratorio")
+                    <a href="{{url('/Laboratorio')}}" class="nav-link current" title="Laboratorio">
+                    @else
                     <a href="{{url('/Laboratorio')}}" class="nav-link" title="Laboratorio">
+                    @endif
                       <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/5.png')}}">
                       </span>
                     </a>
                   </li>
                   <li class="nav-item">
+                    @if($flag == "historia")
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link current" title="Historias Clinicas">
+                    @else
                     <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Historias Clinicas">
+                    @endif
                       <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/6.png')}}">
                       </span>

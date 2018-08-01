@@ -33,11 +33,13 @@ class PersonalController extends Controller
         $empresa = Empresa::find($user->idEmpresa);
     	$departamentos = Departamento::all();
         $ciudades = Ciudad::all();
+        $flag = "personal";
     	return View('Personal.personal')->with('user',$user)
         ->with('empresa',$empresa)
     	->with('departamentos',$departamentos)
         ->with('ciudades', $ciudades)
-        ->with('personales', $personales);
+        ->with('personales', $personales)
+        ->with('flag', $flag);
     }
 
      public function postmodificarPersonal(Request $request){

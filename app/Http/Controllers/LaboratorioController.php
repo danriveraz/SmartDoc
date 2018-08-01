@@ -31,11 +31,13 @@ class LaboratorioController extends Controller
         $historiasClinicas = HistoriaClinica::admin($user->idEmpresa)->get();
         $laboratorios = Laboratorio::Empresa($user->idEmpresa)->get();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "laboratorio";
        	return View('Laboratorio.laboratorio')
        	->with('user',$user)
         ->with('empresa',$empresa)
         ->with('laboratorios',$laboratorios)
-       	->with('historiasClinicas',$historiasClinicas);
+       	->with('historiasClinicas',$historiasClinicas)
+        ->with('flag', $flag);
     }
 
     public function postcreateLaboratorio(Request $request){

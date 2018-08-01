@@ -28,10 +28,11 @@ class CuentasController extends Controller
     	$user = Auth::User();
       $cuentas = Cuentas::Empresa($user->idEmpresa)->get();
       $empresa = Empresa::find($user->idEmpresa);
-      
+      $flag = "servicio";
     	return View('Cuentas.cuentas')
     	->with('cuentas',$cuentas)
     	->with('empresa',$empresa)
-    	->with('user',$user);
+    	->with('user',$user)
+      ->with('flag', $flag);
     }
 }

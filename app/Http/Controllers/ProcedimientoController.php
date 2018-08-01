@@ -31,10 +31,12 @@ class ProcedimientoController extends Controller
         $user = Auth::User();
         $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "procedimiento";
        	return View('Procedimiento.procedimientos')
        	->with('user',$user)
         ->with('empresa',$empresa)
-       	->with('procedimientos',$procedimientos);
+       	->with('procedimientos',$procedimientos)
+        ->with('flag', $flag);
     }
 
     public function postmodificarProcedimiento(Request $request){

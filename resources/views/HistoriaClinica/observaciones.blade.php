@@ -160,7 +160,21 @@
 	}
 
 	$(document).ready(function() {
-	    $('#example').DataTable();
+		$('#example').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+	                extend:    'excelHtml5',
+	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                titleAttr: 'Descarga Excel'
+	            },
+	            {
+	                extend:    'pdfHtml5',
+	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	} );
 	} );
 	require(['input-mask']);
 </script>

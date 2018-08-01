@@ -35,12 +35,14 @@ class ServicioController extends Controller
         $procedimientos = Procedimiento::admin($user->idEmpresa)->get();
         $servicios = Servicio::Empresa($user->idEmpresa)->get();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "servicio";
        	return View('Servicio.servicio')
        	->with('user',$user)
         ->with('empresa',$empresa)
         ->with('procedimientos',$procedimientos)
         ->with('servicios',$servicios)
-       	->with('historiasClinicas',$historiasClinicas);
+       	->with('historiasClinicas',$historiasClinicas)
+        ->with('flag', $flag);
     }
 
     public function postdeleteServicio($id){
