@@ -3883,7 +3883,7 @@ tbody.collapse.show {
 }
 
 .navbar {
-  position: relative;
+  /*position: relative;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -3892,7 +3892,7 @@ tbody.collapse.show {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;*/
 }
 
 .navbar > .container,
@@ -11582,7 +11582,7 @@ a.icon:hover {
 
 .nav-link {
   display: block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.7rem;
 }
 
 .btn {

@@ -10,9 +10,7 @@
 	</a>
 </div>
 <br>
-
-<div class="container main-content">
-  <div class="page-title"></div>
+<div class="container">
   <div class="row">
       <div class="col-lg-12">
         <div class="widget-container fluid-height clearfix">
