@@ -124,9 +124,9 @@ strong {
   font-weight: 700; }
 
 a {
-  color: #2d0031; }
+  color: #495057 ; }
   a:hover {
-    color: #2f0033;
+    color: #495057 ;
     text-decoration: none; }
 
 .headingPocket a {

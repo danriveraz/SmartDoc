@@ -20,8 +20,13 @@
     <link type="image/x-icon" rel="shortcut icon" src="{{asset('assetsNew/images/icon(2).png')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-    <!-- PARA DATATABLE CON ICONOS -->
+    
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <!-- Croppie -->
+    {!!Html::style('assets\css\croppie.css')!!}
+    {!!Html::script("assets\js\croppie.js")!!}
+    <!-- Fin croppie -->
+    <!-- PARA DATATABLE CON ICONOS -->
     {!!Html::script("javascripts\datatable-editable.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.min.js")!!}
@@ -36,6 +41,7 @@
     </script>
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js">
     </script>
+
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
     {!!Html::style('css\buttons.dataTables.css')!!}
     <script src="{{asset('assets/js/require.min.js')}}"></script>
@@ -69,8 +75,10 @@
     <script src="{{asset('assets/plugins/input-mask/plugin.js')}}"></script>
     {!!Html::style('stylesheets\jquery.fileupload-ui.css')!!}
     {!!Html::script("javascripts\bootstrap-fileupload.js")!!}
+
     {!!Html::style('stylesheets\jquery.fancybox.css')!!}
     {!!Html::script("javascripts\jquery.fancybox.pack.js")!!}
+
     {!!Html::style('stylesheets/style.css')!!}
     {!!Html::style('stylesheetspropio\stylePropio.css')!!}
   </head>

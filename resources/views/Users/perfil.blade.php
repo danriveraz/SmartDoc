@@ -1,8 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
+
 @include('flash::message')
-
-
 <!-- archivos nuevos-->
       <div class="page-content">
           <div class="container">
@@ -45,8 +44,33 @@
                               <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
                             </span>
                           </div>
+                          <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
+                          <label for="upload_image">Cambiar imagen</label>
+                          <br />
+                          <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div>
                         </div>
                       </div><!-- fin col lg12 imagen de perfil-->
+                      <div id="uploadimageModal" class="modal" role="dialog">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h4 class="modal-title">Subir imagen de perfil</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div id="image_demo" style="width: 350px; margin-top: 30px;">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary crop_image"> Guardar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                         <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
                         <p class="mb-3" style="font-size: 12px;">
                           {{$empresa->eslogan}}
@@ -254,12 +278,114 @@
 	});
 </script>
 
+<!-- IMAGEN PERFIL -->
+<script type="text/javascript">
+  var routeModificar = "http://localhost/SmartDoc/public/Perfil/imagen";
+
+  $(document).ready(function(){
+
+    $image_crop = $('#image_demo').croppie({
+      enableExif: true,
+      viewport: {
+        width:200,
+        height:200,
+        type:'circle' //circle
+      },
+      boundary:{
+        width:300,
+        height:300
+      }
+    });
+
+    $('#upload_image').on('change', function(){
+      var reader = new FileReader();
+      reader.onload = function(event){
+        $image_crop.croppie('bind', {
+           url:event.target.result
+        }).then(function(){
+          console.log("jQuery bind complete");
+        })
+      }
+      reader.readAsDataURL(this.files[0]);
+      $('#uploadimageModal').modal('show');
+    });
+
+    $('.crop_image').click(function(event){
+      $image_crop.croppie('result', {
+        type: 'square',
+        size: 'viewport'
+      }).then(function(response){
+        $.ajax({
+          url: routeModificar,
+          method: "POST",
+          data:{"image":response},
+          success:function(data)
+          {
+            $("#uploadimageModal").modal('hide');
+            $("#upload_image").html(data);
+          }
+        });
+      })
+    });
+
+  });
+</script>
+<!-- FIN IMAGEN PERFIL -->
+
+
 <style type="text/css">
   #imagenCircular{
   	border-radius: 50%;
     width: 150px;
     height: 150px;
   }
+
+  /*INPUT FILE */
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #467fcf;
+    display: inline-block;
+  }
+
+  .inputfile + label {
+    max-width: 80%;
+    font-size: 1rem;
+    /* 20px */
+    border-radius: 5%;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.25rem 1rem;
+    /* 10px 20px */
+  }
+
+  .inputfile:focus + label,
+  .inputfile + label:hover {
+      background-color: #B3B2FE;
+  }
+  .inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+  }
+
+  .inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+
 </style>
 
 

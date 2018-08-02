@@ -10,6 +10,7 @@
     "bootstrap-sass": "^3.0.0"
   },
   "dependencies": {
+    "croppie": "^2.6.2",
     "datatables.net": "^1.10.16"
   }
 }

@@ -13038,7 +13038,7 @@ a.icon:hover {
 .card-profile-img {
   /*max-width: 6rem;*/
   margin-top: -8rem;
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
 	background-color: #467fcf;
   /*border: 3px solid #fff;*/
   border-radius: 100%;

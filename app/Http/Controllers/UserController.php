@@ -32,10 +32,12 @@ class UserController extends Controller
         $ciudades = Ciudad::all();
     	$user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "none";
         return View('Users.perfil')->with('user',$user)
         ->with('empresa',$empresa)
         ->with('departamentos',$departamentos)
-        ->with('ciudades', $ciudades);
+        ->with('ciudades', $ciudades)
+        ->with('flag',$flag);
     }
 
     public function postmodificarPerfil(Request $request){
@@ -75,14 +77,17 @@ class UserController extends Controller
     public function modificarConfiguracion(){
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
+        $flag = "none";
         if($user->esAdmin){
             return View('Users.configuracion')
             ->with('empresa', $empresa)
-            ->with('user',$user);
+            ->with('user',$user)
+            ->with('flag',$flag);
         }else{
             return View('Users.configuracionTrabajador')
             ->with('empresa', $empresa)
-            ->with('user',$user);
+            ->with('user',$user)
+            ->with('flag',$flag);
         }
     }
 
