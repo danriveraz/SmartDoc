@@ -1,6 +1,6 @@
 @extends('Layouts.app_administradores')
 @section('content')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @include('flash::message')
 <!-- archivos nuevos-->
       <div class="page-content">
@@ -15,62 +15,50 @@
 
                   <div class="card-body text-center">
                     <div class="col-md-12" style="text-align: center; z-index: 1000;">
-                      <div class="widget-content fileupload fileupload-new" data-provides="fileupload" >
+                      <div class="widget-content fileupload fileupload-new">
                         <div class="gallery-container fileupload-new img-thumbnail">
-                          <div class="card-profile-img gallery-item filter1" rel="" style="border-radius: 50%; width: 150px; height: 150px;">
+                          <div class="card-profile-img gallery-item filter1" style="border-radius: 50%; width: 150px; height: 150px;">
                             @if($empresa->imagen != '')
                               {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
-                              	     <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
+                                           <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
                             @else
                               <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
                             @endif
-                              <div class="actions">
-                                <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
-                              	 <img src="images/admin/{{$empresa->imagen}}" hidden>
-                              	 <i class="fa fa-search-plus"></i>
-                              	</a>
-                              	<a onclick="$('#imagenPerfil').click()">
-                              	  <i class="fa fa-pencil"></i>
-                              	</a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-profile-img gallery-item fileupload-preview fileupload-exists img-thumbnail" style="border-radius: 50%; width: 150px; height: 150px; background: #ffffff; overflow: hidden;">
-                          </div>
-                          <div hidden>
-                            <span class=" btn-file" id="subirImagenNegocio">
-                              <span class="fileupload-new"><i class="fa fa-pencil"></i></span>
-                              <span class="fileupload-exists"><i class="fa fa-search-plus"></i></span>
-                              <input type="file" class="form-control" name="imagen"  id="imagenPerfil">
-                            </span>
-                          </div>
-                          <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
-                          <label for="upload_image">Cambiar imagen</label>
-                          <br />
-                          <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div>
-                        </div>
-                      </div><!-- fin col lg12 imagen de perfil-->
-                      <div id="uploadimageModal" class="modal" role="dialog">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h4 class="modal-title">Subir imagen de perfil</h4>
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                              <div class="row">
-                                <div class="col-md-12">
-                                  <div id="image_demo" style="width: 350px; margin-top: 30px;">
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button class="btn btn-primary crop_image"> Guardar</button>
+                            <div class="actions">
+                              <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
+                               <img src="images/admin/{{$empresa->imagen}}" hidden>
+                               <i class="fa fa-search-plus"></i>
+                              </a>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
+                      <label for="upload_image">Cambiar imagen</label>
+                      <br />
+                      <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div> 
+                    </div><!-- fin col lg12 imagen de perfil-->
+                    <div id="uploadimageModal" class="modal" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Subir imagen de perfil</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div id="image_demo" style="width: 350px; margin-top: 30px;">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <a class="btn btn-primary crop_image">Guardar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                         <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
                         <p class="mb-3" style="font-size: 12px;">
                           {{$empresa->eslogan}}
@@ -280,6 +268,11 @@
 
 <!-- IMAGEN PERFIL -->
 <script type="text/javascript">
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
   var routeModificar = "http://localhost/SmartDoc/public/Perfil/imagen";
 
   $(document).ready(function(){
@@ -307,22 +300,28 @@
         })
       }
       reader.readAsDataURL(this.files[0]);
+      console.log(this.files[0]);
       $('#uploadimageModal').modal('show');
     });
 
     $('.crop_image').click(function(event){
       $image_crop.croppie('result', {
-        type: 'square',
+        type: 'canvas',
         size: 'viewport'
-      }).then(function(response){
+      }).then(function(img){
         $.ajax({
           url: routeModificar,
           method: "POST",
-          data:{"image":response},
-          success:function(data)
+          data:{"image":img},
+          success: function(data)
           {
+            console.log(data);
             $("#uploadimageModal").modal('hide');
-            $("#upload_image").html(data);
+            $("#imagenCircular").html(data);
+          },
+          error: function(data){
+            alert(data);
+            alert('Ooops disculpanos, la verdad no sé que putas pasó!');
           }
         });
       })

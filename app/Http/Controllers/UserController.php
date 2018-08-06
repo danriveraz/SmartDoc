@@ -40,6 +40,17 @@ class UserController extends Controller
         ->with('flag',$flag);
     }
 
+    public function imagen(Request $request){
+        /*$image = $request->upload_image;
+        list($type, $image) = explode(';', $image);
+        list(, $image)      = explode(',', $image);
+        $image = base64_decode($image);
+        $image_name= time().'.png';
+        $path = public_path('/images/admin/'.$image_name);
+        file_put_contents($path, $image);*/
+        return response()->json(['status'=>'success']);
+    }
+
     public function postmodificarPerfil(Request $request){
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
