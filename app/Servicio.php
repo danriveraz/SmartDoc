@@ -19,4 +19,8 @@ class Servicio extends Model
     public function scopeHistoriaClinica($query, $idHistoriaClinica){
       return $query->where('idHistoriaClinica', 'like', '%' .$idHistoriaClinica. '%');
     }
+
+    public function procedimiento(){
+      return $this->belongsTo('App\procedimiento', 'idProcedimiento');
+    }
 }

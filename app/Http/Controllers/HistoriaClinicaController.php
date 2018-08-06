@@ -17,6 +17,7 @@ use App\Diente;
 use App\PDiente;
 use App\Observaciones;
 use App\Odontograma;
+use App\Factura;
 use Carbon\Carbon;
 use App\Http\Requests;
 

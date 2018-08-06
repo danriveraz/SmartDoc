@@ -894,42 +894,45 @@
 				    	</div>
 			        </div>
 			        <div class="card">
+			        	@foreach($historia->servicios as $servicio)
 	              		<div class="card-header">
 	                  		<div class="col-md-5">
-	                  			<a id="btnPlanTratamiento" type="" class="btn-pill" data-toggle="collapse" data-target="#planTratamiento">
-	              					<span id="spanPlanTratamientoPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
-	              					<span id="spanPlanTratamientoMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+	                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
+	              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
+	              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
 	              				</a>
-		          				<h3 class="card-title" style="display: initial;">Plan de tratamiento aprobado</h3>
+		          				<h3 class="card-title" style="display: initial;">{{$servicio->procedimiento->nombre}} </h3>
 	                  		</div>
 	                  		<div class="col-md-3">
-			        			@if($historia->costoTratamiento == 0)
-			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="">
+			        			@if($servicio->costoTratamiento == 0)
+			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}} ">
 			        			@else
-			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$historia->costoTratamiento}}">
+			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}">
 			        			@endif
 	                  		</div>
-	                  		<div class="col-md-3">
-	                  			<select id="procedimiento" name='procedimiento' class="form-control" placeholder="">
-				                  	<option value="" selected="selected">Procedimiento realizado</option>
-				                  	@foreach($procedimientos as $procedimiento)
-					                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
-					               	@endforeach
-				            	</select>
+	                  		<div class="col-md-3" align="center">
+	                  			<?php 
+	                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+									$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+ 									$date = new DateTime($servicio->fecha);
+										echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+								?>
 	                  		</div>
 	              		</div>
 	              		<!-- inicio del contenedor del campo texto-->
 	              		<div class="container">
-	              			<div id="planTratamiento" class="collapse">
+	              			<div id="{{$servicio->id}}" class="collapse">
 	              				<div class="card-body">
 				          			<div class="row">
 							        	<div class="col-md-12">
-							        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción">{{$historia->planTratamientoAprobado}}</textarea>
+							        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción">{{$servicio->descripcion}}</textarea>
 							        	</div>
 							        </div>
 				          		</div>	
 	              			</div>
 	              		</div>
+	              		@endforeach
+
 		          	</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center;">
@@ -1023,15 +1026,17 @@
 		}
 	});
 
-	$( '#btnPlanTratamiento' ).on( 'click', function() {
-		if($('#planTratamiento').attr('class') == "collapse"){
-			document.getElementById('spanPlanTratamientoPlus').style.display = "none";
-			document.getElementById('spanPlanTratamientoMinus').style.display = "";
+	function info(id){
+		if(document.getElementById('btnPlanTratamiento'+id).dataset.expanded != "false"){
+			document.getElementById('spanPlanTratamientoPlus'+id).style.display = "";
+			document.getElementById('spanPlanTratamientoMinus'+id).style.display = "none";
+			document.getElementById('btnPlanTratamiento'+id).dataset.expanded = "false"
 		}else{
-			document.getElementById('spanPlanTratamientoPlus').style.display = "";
-			document.getElementById('spanPlanTratamientoMinus').style.display = "none";
+			document.getElementById('spanPlanTratamientoPlus'+id).style.display = "none";
+			document.getElementById('spanPlanTratamientoMinus'+id).style.display = "";
+			document.getElementById('btnPlanTratamiento'+id).dataset.expanded = "true"
 		}
-	});
+	}
 </script>
 
 <style type="text/css">
