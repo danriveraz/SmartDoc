@@ -22,11 +22,9 @@ Route::get('Consultorio/', 'UserController@index');
 Route::get('Registro', 'UserController@registro');
 
 //Perfil admin
-Route::post('Perfil', ['uses' => 'UserController@postmodificarPerfil', 'as' => 'Auth.usuario.editPerfil']);
+Route::get('Perfil/edit', ['uses' => 'UserController@postmodificarPerfil', 'as' => 'Auth.usuario.editPerfil']);
 Route::get('Perfil', ['uses' => 'UserController@modificarPerfil', 'as' => 'Auth.usuario.showeditPerfil']);
-
-Route::post('Perfil/imagen', ['uses'=>'UserController@imagen', 'as'=> 'user.imagen']);
-
+Route::post('Perfil', ['uses'=>'UserController@imagen', 'as'=> 'user.imagen']);
 Route::post('Configuracion', ['uses' => 'UserController@postmodificarConfiguracion', 'as' => 'Auth.usuario.editConfiguracion']);
 Route::get('Configuracion', ['uses' => 'UserController@modificarConfiguracion', 'as' => 'Auth.usuario.showeditConfiguracion']);
 

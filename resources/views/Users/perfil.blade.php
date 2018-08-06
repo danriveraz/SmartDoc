@@ -1,208 +1,188 @@
 @extends('Layouts.app_administradores')
 @section('content')
-<meta name="csrf-token" content="{{ csrf_token() }}">
 @include('flash::message')
-<!-- archivos nuevos-->
-      <div class="page-content">
-          <div class="container">
-
-            <div class="row row-cards">
-              <div class="col-lg-4">
-                <div class="card card-profile">
-                {!! Form::open(['route' => ['Auth.usuario.editPerfil'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
-           	      {{ csrf_field() }}
-                  <div class="card-header" style="background-image: url(images/fondoProfile.jpg);"></div>
-
-                  <div class="card-body text-center">
-                    <div class="col-md-12" style="text-align: center; z-index: 1000;">
-                      <div class="widget-content fileupload fileupload-new">
-                        <div class="gallery-container fileupload-new img-thumbnail">
-                          <div class="card-profile-img gallery-item filter1" style="border-radius: 50%; width: 150px; height: 150px;">
-                            @if($empresa->imagen != '')
-                              {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
-                                           <!-- clase circular -> , array('class' => 'img-responsive img-circle user-photo') -->
-                            @else
-                              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
-                            @endif
-                            <div class="actions">
-                              <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
-                               <img src="images/admin/{{$empresa->imagen}}" hidden>
-                               <i class="fa fa-search-plus"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
-                      <label for="upload_image">Cambiar imagen</label>
-                      <br />
-                      <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div> 
-                    </div><!-- fin col lg12 imagen de perfil-->
-                    <div id="uploadimageModal" class="modal" role="dialog">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h4 class="modal-title">Subir imagen de perfil</h4>
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div id="image_demo" style="width: 350px; margin-top: 30px;">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <a class="btn btn-primary crop_image">Guardar</a>
-                          </div>
-                        </div>
-                      </div>
+<div class="page-content">
+  <div class="container">
+    <div class="row row-cards">
+      <div class="col-lg-4">
+        <div class="card card-profile">
+          {!! Form::open(['route' => ['Auth.usuario.editPerfil'], 'method' => 'GET','enctype' => 'multipart/form-data']) !!}
+   	      {{ csrf_field() }}
+          <div class="card-header" style="background-image: url(images/fondoProfile.jpg);"></div>
+          <div class="card-body text-center">
+            <div class="col-md-12" style="text-align: center; z-index: 1000;">
+              <div class="widget-content fileupload fileupload-new">
+                <div class="gallery-container fileupload-new img-thumbnail">
+                  <div class="card-profile-img gallery-item filter1" style="border-radius: 50%; width: 150px; height: 150px;">
+                    @if($empresa->imagen != '')
+                      {!! Html::image('images/admin/'.$empresa->imagen,  'imagen de perfil', array('class' => 'img-responsive img-circle user-photo', 'id' => 'imagenCircular')) !!}
+                    @else
+                      <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image">
+                    @endif
+                    <div class="actions">
+                      <a  id="modalImagen" href="{{ asset ('images/admin/'.$empresa->imagen) }}" title="Imagen">
+                       <img src="images/admin/{{$empresa->imagen}}" hidden>
+                       <i class="fa fa-search-plus"></i>
+                      </a>
                     </div>
-                        <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
-                        <p class="mb-3" style="font-size: 12px;">
-                          {{$empresa->eslogan}}
-                        </p>
-                        <ul class="social-links list-inline mb-0 mt-2">
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
-                          </li>
-                        </ul>
                   </div>
                 </div>
-              </div><!-- fin del col lg4-->
-
-              <!-- INICIO DEL CONTENEDOR DE LOS CAMPOS DE TEXTO -->
-              <div class="col-lg-8 pull-right">
-              <div class="card">
-              <div class="card-header">
-                  <h3 class="card-title">Configuración De Perfil</h3>
               </div>
-
-              <div class="card-body">
-                <!-- inicio del contenedor del campo texto-->
-              <div class="row row-cards row-deck">
-                  <div class="col-md-6">
-
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-user"></i>
-                            </span>
-                            <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$empresa->nombreEstablecimiento}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-credit-card"></i>
-                            </span>
-                            <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$empresa->nit}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-phone-call"></i>
-                            </span>
-                            <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$empresa->telefono}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-map"></i>
-                            </span>
-                      <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
-                        <option value="">Departamento</option>
-                          @foreach($departamentos as $departamento)
-                              @if($user->departamento == $departamento->id)
-                                <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
-                              @else
-                                <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-                              @endif
-                          @endforeach
-                              </select>
-                    </div>
-                      </div>
+              <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
+              <label for="upload_image">Cambiar imagen</label>
+              <br />
+              <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div> 
+            </div><!-- fin col lg12 imagen de perfil-->
+            <div id="uploadimageModal" class="modal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Subir imagen de perfil</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div id="image_demo" style="width: 350px; margin-top: 30px;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a class="btn btn-primary crop_image">Guardar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
+            <p class="mb-3" style="font-size: 12px;">
+              {{$empresa->eslogan}}
+            </p>
+            <ul class="social-links list-inline mb-0 mt-2">
+              <li class="list-inline-item">
+                <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><!-- fin del col lg4-->
+      <div class="col-lg-8 pull-right">
+        <div class="card">
+          <div class="card-header">
+              <h3 class="card-title">Configuración De Perfil</h3>
+          </div>
+          <div class="card-body">
+            <div class="row row-cards row-deck">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-user"></i>
+                    </span>
+                    <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$empresa->nombreEstablecimiento}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-credit-card"></i>
+                    </span>
+                    <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$empresa->nit}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-phone-call"></i>
+                    </span>
+                    <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$empresa->telefono}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-map"></i>
+                    </span>
+                    <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
+                      <option value="">Departamento</option>
+                      @foreach($departamentos as $departamento)
+                          @if($user->departamento == $departamento->id)
+                            <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
+                          @else
+                            <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+                          @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+              </div>
                 <!-- lado izquierdo-->
-                  <div class="col-md-6">
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-user"></i>
-                            </span>
-                            <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$empresa->eslogan}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-tag"></i>
-                            </span>
-                            <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$empresa->direccion}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-smartphone"></i>
-                            </span>
-                            <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$empresa->celular}}">
-                          </div>
-                      </div>
-                  <div class="form-group">
-                    <div class="input-icon">
-                            <span class="input-icon-addon">
-                              <i class="fe fe-map"></i>
-                            </span>
-                              <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
-                              <option value="">Ciudad</option>
-                                @foreach($ciudades as $ciudad)
-                                    @if($user->departamento == $ciudad->idDepartamento)
-                                      @if($user->ciudad == $ciudad->id)
-                                        <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
-                                      @else
-                                        <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
-                                      @endif
-                                    @endif
-                                @endforeach
-                              </select>
-                    </div>
-                      </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-user"></i>
+                    </span>
+                    <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$empresa->eslogan}}">
                   </div>
-                <!-- Fin del lado izquierdo-->
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-tag"></i>
+                    </span>
+                    <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$empresa->direccion}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-smartphone"></i>
+                    </span>
+                    <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$empresa->celular}}">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">
+                    <span class="input-icon-addon">
+                      <i class="fe fe-map"></i>
+                    </span>
+                    <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
+                      <option value="">Ciudad</option>
+                      @foreach($ciudades as $ciudad)
+                          @if($user->departamento == $ciudad->idDepartamento)
+                            @if($user->ciudad == $ciudad->id)
+                              <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
+                            @else
+                              <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
+                            @endif
+                          @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
               </div>
-                <!-- Fin del contenedor del campo texto-->
-              </div><!-- Fin del card-body-->
-              </div><!-- fin card-->
-
-              <!-- FIN DEL CONTENEDOR DE LOS CAMPOS DE TEXTO -->
-                  <div class="form-footer">
-                    <button type="submit"  class="btn btn-primary pull-right"><i class="fe fe-check-square"></i> Guardar Información Perfil</button>
-                  </div>
-              </div><!-- Fin del col-lg-8-->
-          </div><!-- fin del row row-cards -->
-{{ Form::close() }}
-
-          <div class="row">
-            <div class="col-lg-12">
-
-            </div><!-- fin del col lg 12-->
-          </div><!-- fin del row -->
-
-        </div><!-- fin container-->
-      </div><!-- fin page-content -->
-
-<!-- fin de archivos nuevos-->
-
+            </div>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button type="submit"  class="btn btn-primary pull-right"><i class="fe fe-check-square"></i> Guardar Información Perfil</button>
+        </div>
+      </div>
+    </div>
+    {{ Form::close() }}
+    <div class="row">
+      <div class="col-lg-12">
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 	require(['input-mask']);
 
@@ -231,16 +211,15 @@
 
 	$(document).ready(function(){
 		$("#modalImagen").fancybox({
-            helpers: {
-                title : {
-                    type : 'float'
-                }
-            }
-        });
+      helpers: {
+        title : {
+          type : 'float'
+        }
+      }
+    });
 	});
 
 	$(function() {
-  	// We can attach the `fileselect` event to all file inputs on the page
 	  $(document).on('change', ':file', function() {
 	    var input = $(this),
 	        numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -248,10 +227,8 @@
 	    input.trigger('fileselect', [numFiles, label]);
 	  });
 
-	  // We can watch for our custom `fileselect` event like this
 	  $(document).ready( function() {
 	      $(':file').on('fileselect', function(event, numFiles, label) {
-
 	          var input = $(this).parents('.input-group').find(':text'),
 	              log = numFiles > 1 ? numFiles + ' files selected' : label;
 
@@ -260,7 +237,6 @@
 	          } else {
 
 	          }
-
 	      });
 	  });
 	});
@@ -268,16 +244,60 @@
 
 <!-- IMAGEN PERFIL -->
 <script type="text/javascript">
-  $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  $(function() {
+
+    var base64ImageToBlob = function(str) {
+        // extract content type and base64 payload from original string
+        var pos = str.indexOf(';base64,');
+        var type = str.substring(5, pos);
+        var b64 = str.substr(pos + 8);
+      
+        // decode base64
+        var imageContent = atob(b64);
+      
+        // create an ArrayBuffer and a view (as unsigned 8-bit)
+        var buffer = new ArrayBuffer(imageContent.length);
+        var view = new Uint8Array(buffer);
+      
+        // fill the view, using the decoded base64
+        for (var n = 0; n < imageContent.length; n++) {
+          view[n] = imageContent.charCodeAt(n);
+        }
+      
+        // convert ArrayBuffer to Blob
+        var blob = new Blob([buffer], { type: type });
+      
+        return blob;
     }
-  });
-  var routeModificar = "http://localhost/SmartDoc/public/Perfil/imagen";
 
-  $(document).ready(function(){
+    function b64toBlob(b64Data, contentType, sliceSize) {
+      contentType = contentType || '';
+      sliceSize = sliceSize || 512;
 
-    $image_crop = $('#image_demo').croppie({
+      var b64DataString = b64Data.substr(b64Data.indexOf(',') + 1);      
+      var byteCharacters = atob(b64DataString);
+      var byteArrays = [];
+
+      for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+          byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+      }
+
+      var blob = new Blob(byteArrays, {
+        type: contentType
+      });
+      return blob;
+    }
+
+    var image_crop = $('#image_demo').croppie({
       enableExif: true,
       viewport: {
         width:200,
@@ -290,34 +310,47 @@
       }
     });
 
+    console.log(image_crop);
+
     $('#upload_image').on('change', function(){
       var reader = new FileReader();
       reader.onload = function(event){
-        $image_crop.croppie('bind', {
+        image_crop.croppie('bind', {
            url:event.target.result
-        }).then(function(){
-          console.log("jQuery bind complete");
-        })
+        });
       }
       reader.readAsDataURL(this.files[0]);
-      console.log(this.files[0]);
       $('#uploadimageModal').modal('show');
     });
 
     $('.crop_image').click(function(event){
-      $image_crop.croppie('result', {
+      image_crop.croppie('result', {
         type: 'canvas',
         size: 'viewport'
       }).then(function(img){
+
+        $("#imagenCircular").attr("src","images/ajax-loader.gif");
+        $("#uploadimageModal").modal('hide');
+
+        var routeModificar = "http://localhost/SmartDoc/public/Perfil";
+        var formData = new FormData();
+        formData.append("perfil", base64ImageToBlob(img));
+
+        console.log(formData);
+
+        $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+
         $.ajax({
           url: routeModificar,
           method: "POST",
-          data:{"image":img},
+          data: {"image":img},
           success: function(data)
           {
-            console.log(data);
-            $("#uploadimageModal").modal('hide');
-            $("#imagenCircular").html(data);
+            $("#imagenCircular").attr("src", img);
           },
           error: function(data){
             alert(data);
@@ -326,7 +359,6 @@
         });
       })
     });
-
   });
 </script>
 <!-- FIN IMAGEN PERFIL -->

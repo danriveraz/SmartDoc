@@ -41,13 +41,26 @@ class UserController extends Controller
     }
 
     public function imagen(Request $request){
-        /*$image = $request->upload_image;
-        list($type, $image) = explode(';', $image);
-        list(, $image)      = explode(',', $image);
-        $image = base64_decode($image);
-        $image_name= time().'.png';
-        $path = public_path('/images/admin/'.$image_name);
-        file_put_contents($path, $image);*/
+        $user = Auth::User();
+        $empresa = Empresa::find($user->idEmpresa);
+
+        $image = $_POST["image"];
+        $image_array_1 = explode(";", $image);
+        $image_array_2 = explode(",", $image_array_1[1]);
+        $image = base64_decode($image_array_2[1]);
+        $imageName= 'perfil' .time().'.png';
+        $path = public_path('/images/admin/'.$imageName);
+
+        file_put_contents($path, $image);
+
+        if($empresa->imagen != "perfil.jpg"){
+            $imagenActual = 'images/admin/'.$empresa->imagen;
+            unlink($imagenActual);
+        }
+        
+        $empresa->imagen = $imageName;
+        $empresa->save();
+
         return response()->json(['status'=>'success']);
     }
 
