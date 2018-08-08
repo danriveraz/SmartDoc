@@ -3,7 +3,45 @@
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <link href="odontograma/css/base.css" rel="stylesheet">
-
+<!--Espacio modal add procedimiento-->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" >Agregar servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="bootstrapOn();">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {!! Form::open(['route' => ['servicio.nuevo'], 'method' => 'Post','enctype' => 'multipart/form-data', 'id' => 'formGuardar']) !!}
+       			{{ csrf_field() }}
+       	<input type="text" name="id" hidden="" value="{{$historia->id}} ">
+      	<div class="modal-body" align="center">
+        	<div class="row">
+	        	<div class="col-md-6">
+		          	<select id="servicioNuevo" name='servicioNuevo' class="form-control" placeholder="Procedimiento" required style="text-align:center;">
+	                  	<option value="" selected="selected">Procedimiento</option>
+	        			@foreach($procedimientos as $procedimiento)
+	        				<option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+				        @endforeach
+	            	</select>
+	            </div>
+	        	<div class="col-md-6">
+	        		<input type="number" class="form-control" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
+	        	</div>	
+	        	&nbsp;
+	        	<div class="col-md-12">
+	        		<textarea id="descripcionNueva" name="descripcionNueva" rows="3" class="form-control" placeholder="Descripción"></textarea>
+	        	</div>	        	
+        	</div>
+      	</div>
+		<div class="modal-footer">
+		<button id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></button>
+		</div>
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
 <div class="page-content">
 	<div class="container">
 	    <div class="row row-cards">
@@ -739,7 +777,7 @@
 	              		</div>
 		          	</div>
 	    	 		<!--Inicio odontograma -->
-	    	 		<link href="stylesheets/bootstrap.css" rel="stylesheet">
+	    	 		<link href="stylesheets/bootstrap.css" rel="stylesheet" id="bootstrap">
 	    	 		<div class="card">
 	              		<div class="card-header">
 		          			<div class="col-md-12">
@@ -893,47 +931,81 @@
 				            </div>
 				    	</div>
 			        </div>
-			        <div class="card">
-			        	@foreach($historia->servicios as $servicio)
-	              		<div class="card-header">
-	                  		<div class="col-md-5">
-	                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
-	              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
-	              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-	              				</a>
-		          				<h3 class="card-title" style="display: initial;">{{$servicio->procedimiento->nombre}} </h3>
-	                  		</div>
-	                  		<div class="col-md-3">
-			        			@if($servicio->costoTratamiento == 0)
-			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}} ">
-			        			@else
-			        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}">
-			        			@endif
-	                  		</div>
-	                  		<div class="col-md-3" align="center">
-	                  			<?php 
-	                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
-									$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
- 									$date = new DateTime($servicio->fecha);
-										echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
-								?>
-	                  		</div>
-	              		</div>
-	              		<!-- inicio del contenedor del campo texto-->
-	              		<div class="container">
-	              			<div id="{{$servicio->id}}" class="collapse">
-	              				<div class="card-body">
-				          			<div class="row">
-							        	<div class="col-md-12">
-							        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción">{{$servicio->descripcion}}</textarea>
-							        	</div>
-							        </div>
-				          		</div>	
-	              			</div>
-	              		</div>
-	              		@endforeach
+			        <div>
+			        	<div class="card" style="margin: 0">
+							<div class="card-header">
+								<div class="col-md-10">
+									<a id="btnServicios" type="" class="btn-pill" data-toggle="collapse" data-target="#servicio">
+										<span id="spanServicioPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+										<span id="spanServicioMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+									</a>
+									<h3 class="card-title" style="display: initial;">Servicios prestados</h3>
+								</div>
+								<div class="col-md-2" style='text-align:right'>
+					          		<a id="btn-add" class="btn btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento" onclick="bootstrapOff();">
+										 Agregar servicio
+									</a>	
+								</div>
+							</div>
+							<!-- inicio del contenedor del campo texto-->
+							<div class="container">
+								<div id="servicio" class="collapse">
+									<div class="card-body">
+						  			<div class="row">							 
+						  				<div class="card" style="margin: 0">
+								        	@foreach($historia->servicios as $servicio)
+						              		<div class="card-header">
+						                  		<div class="col-md-4">
+						                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
+						              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
+						              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+						              				</a>
+							          				<h5  style="display: initial;">{{$servicio->procedimiento->nombre}} </h5>
+						                  		</div>
+						                  		<div class="col-md-3">
+								        			@if($servicio->costoTratamiento == 0)
+								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" disabled="">
+								        			@else
+								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}" disabled="">
+								        			@endif
+						                  		</div>
+						                  		<div class="col-md-3" align="center">
+						                  			<?php 
+						                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+														$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+					 									$date = new DateTime($servicio->fecha);
+															echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+													?>
+						                  		</div>
+						                  		<div class="col-md-3" align="center">
+						                  			{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
+								       				{{ csrf_field() }}
+											        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
+											        {{ Form::close() }}
+											    </div>
+						              		</div>
+						              		<!-- inicio del contenedor del campo texto-->
+						              		<div class="container">
+						              			<div id="{{$servicio->id}}" class="collapse">
+						              				<div class="card-body">
+									          			<div class="row">
+												        	<div class="col-md-12">
+												        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$servicio->descripcion}}</textarea>
+												        	</div>
+												        </div>
+									          		</div>	
+						              			</div>
+						              		</div>
+						              		@endforeach
+							          	</div>
 
-		          	</div>
+
+							        </div>
+						  		</div>	
+								</div>
+							</div>
+						</div>
+				</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center;">
 		                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">
@@ -976,16 +1048,6 @@
 	    }); 
 	  });
 
-	$( '.checkbox' ).on( 'click', function() {
-	    if( $(this).is(':checked') ){
-	        // Hacer algo si el checkbox ha sido seleccionado
-	        $(this).val("1");
-	    } else {
-	        // Hacer algo si el checkbox ha sido deseleccionado
-	        $(this).val("0");
-	    }
-	});
-
 	$( '#btnAntecedentes' ).on( 'click', function() {
 		if($('#antecedentes').attr('class') == "collapse"){
 			document.getElementById('spanAntecedentesPlus').style.display = "none";
@@ -1013,6 +1075,16 @@
 		}else{
 			document.getElementById('spanPaletaPlus').style.display = "";
 			document.getElementById('spanPaletaMinus').style.display = "none";
+		}
+	});
+
+	$( '#btnServicios' ).on( 'click', function() {
+		if($('#servicio').attr('class') == "collapse"){
+			document.getElementById('spanServicioPlus').style.display = "none";
+			document.getElementById('spanServicioMinus').style.display = "";
+		}else{
+			document.getElementById('spanServicioPlus').style.display = "";
+			document.getElementById('spanServicioMinus').style.display = "none";
 		}
 	});
 
@@ -1055,6 +1127,20 @@
 
 	function replaceAll(find, replace, str) {
 	    return str.replace(new RegExp(find, 'g'), replace);
+	}
+
+	function eliminar(id){
+		if(confirm('¿Desea eliminar este servicio? Se perderán todos los datos y se restará este servicio de Cuentas.')){
+			var form = document.getElementById("form"+id);
+			form.submit();
+		}
+	}
+	function bootstrapOff(){
+		parent.removeChild(bootstrap);
+	}
+
+	function bootstrapOn(){
+		parent.appendChild(bootstrap);
 	}
 
 	function createOdontogramInicial() {
@@ -1259,6 +1345,8 @@
 	    $("#blr").append(replaceAll('index', '8', htmlLecheRight));
 	}
 	var arrayPuente = [];
+	var bootstrap = document.getElementById('bootstrap');
+	var parent = bootstrap.parentNode;
 	$(document).ready(function() {
 		createOdontogramInicial();
 	    createOdontogram();

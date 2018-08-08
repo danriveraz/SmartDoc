@@ -155,6 +155,20 @@ class ServicioController extends Controller
         $servicio2delete->delete();
         
         flash('Eliminación exitoso')->success()->important();
-        return redirect('/Servicio');
+        return redirect()->back();
+    }
+
+    public function nuevo(Request $request){
+      $user = Auth::User();
+      $servicio = new Servicio();
+      $servicio->idEmpresa = $user->idEmpresa;
+      $servicio->idHistoriaClinica = $request->id;
+      $servicio->idProcedimiento = $request->servicioNuevo;
+      $servicio->costoTratamiento = $request->costoTratamientoNuevo;
+      $servicio->descripcion = $request->descripcionNueva;
+      $servicio->fecha = Carbon::now()->subHour(5);
+      $servicio->save();
+      flash('Servicio guardado exitosamente')->success()->important();
+      return redirect()->back();
     }
 }
