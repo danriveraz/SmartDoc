@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\HistoriaClinica;
 use App\Procedimiento;
+use App\Abono;
 use App\Servicio;
 use App\Empresa;
 use App\Cuentas;
@@ -170,5 +171,18 @@ class ServicioController extends Controller
       $servicio->save();
       flash('Servicio guardado exitosamente')->success()->important();
       return redirect()->back();
+    }
+
+    public function showpayment(Request $request){
+      $flag = "servicio";
+      $user = Auth::User();
+      $empresa = Empresa::find($user->idEmpresa);
+      $servicio = Servicio::find($request->id);
+      $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
+      return View('Servicio.abonos')
+      ->with('empresa',$empresa)
+      ->with('servicio',$servicio)
+      ->with('historiaClinica',$historiaClinica)
+      ->with('flag', $flag);
     }
 }

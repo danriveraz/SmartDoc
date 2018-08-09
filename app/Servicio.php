@@ -23,4 +23,8 @@ class Servicio extends Model
     public function procedimiento(){
       return $this->belongsTo('App\procedimiento', 'idProcedimiento');
     }
+
+    public function abonos(){
+      return $this->hasMany('App\Abono', 'idServicio', 'id');
+    }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAbonoTable extends Migration
+class AltertableAbono extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,9 @@ class CreateAbonoTable extends Migration
      */
     public function up()
     {
-        Schema::create('abono', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('abono');
-            $table->date('fecha');
-
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('abono', function ($table) {
+            $table->integer('idServicio')->unsigned()->after("abono");
+            $table->foreign('idServicio')->references('id')->on('servicio')->onDelete('cascade');
         });
     }
 
