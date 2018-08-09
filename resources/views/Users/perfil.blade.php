@@ -353,8 +353,7 @@
             $("#imagenCircular").attr("src", img);
           },
           error: function(data){
-            alert(data);
-            alert('Ooops disculpanos, la verdad no sé que putas pasó!');
+            alert('Ooops disculpanos, no se pudo actualizar la foto de perfil!');
           }
         });
       })
