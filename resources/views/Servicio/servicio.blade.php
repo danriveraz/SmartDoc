@@ -58,10 +58,21 @@
 		                	@endforeach
 		                </td>
 		                <td>
-	                      	{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
-		       				{{ csrf_field() }}
-					        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
-					        {{ Form::close() }}
+		                	<div class="row" style="align-items: center;">
+		                		<div class="col-md-6">
+							        {!! Form::open(['route' => ['servicio.abonos'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
+				       				{{ csrf_field() }}
+				       					<input type="text" name="id" value="{{$servicio->id}}" hidden="">
+							        	<a class="btn btn-primary btn-sm ml-2" title="Abonar" onclick="abonar({{$servicio->id}})"><i class="fa fa-dollar" style="margin: 0;"></i></a>
+							        {{ Form::close() }}
+			                	</div>	   
+			                	<div class="col-md-6">
+			                		{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
+			       				{{ csrf_field() }}
+						        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
+						        {{ Form::close() }}
+						    	</div>					    	     
+		                	</div>         
 		                </td>
 		            </tr>
 		           @endforeach
@@ -82,6 +93,11 @@
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}
+	}
+
+	function abonar(id){
+		var form = document.getElementById("form"+id);
+		form.submit();	
 	}
 
 	$(document).ready(function() {
