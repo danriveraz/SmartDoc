@@ -2,7 +2,8 @@
     position: static;
     width: 0px;
     height: auto;
-    margin-left: 50px;
+    margin-left: 52px;
+    padding-right: 2px;
     display: inline-block;
 }
 
@@ -12,14 +13,14 @@
     position: relative;
     width: 25px;
     height: 15px;
-    left: 45px;
+    left: 5px;
     -webkit-border-radius: 80px 80px 0px 15px;
     -moz-border-radius: 80px 80px 0px 15px;
     border-radius: 80px 80px 0px 15px;
 }
 
 .completo {
-    margin-left: 35px;
+    margin-left: -8px;
     width: 51px;
     height: 48px;
 }
@@ -36,7 +37,7 @@
 
 .izquierdo {
     top: 1px !important;
-    left: 28px !important;
+    left: -14px !important;
     -webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
@@ -46,7 +47,7 @@
 
 .debajo {
     top: 2px !important;
-    left: 45px !important;
+    left: 5px !important;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -56,7 +57,7 @@
 
 .derecha {
     top: -29px !important;
-    left: 61px !important;
+    left: 24px !important;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -70,7 +71,7 @@
     width: 25px;
     height: 25px;
     top: -49px;
-    left: 45px;
+    left: 5px;
     position: relative;
 }
 
@@ -142,6 +143,10 @@
 
 .click-blue {
     background-color: blue !important;
+}
+
+.click-black{
+    background-color: black !important;
 }
 
 .click-delete {
