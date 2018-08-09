@@ -781,88 +781,6 @@
 	    	 		<div class="card">
 	              		<div class="card-header">
 		          			<div class="col-md-12">
-		          				<a id="btnPaleta" type="" class="btn-pill" data-toggle="collapse" data-target="#paleta">
-	              					<span id="spanPaletaPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
-	              					<span id="spanPaletaMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-	              				</a>
-		          				<h3 class="card-title" style="display: initial;">Paleta diagnostica</h3>
-		          			</div>
-	              		</div>
-	              		<div class="container">
-						  <div id="paleta" class="collapse">
-		              		<div class="card-body">
-		              			<div class="row">
-		              				<div class="col-md-12">
-				                        <div id="controls" class="panel panel-default">
-				                            <div class="panel-body">
-				                                <div class="btn-group" data-toggle="buttons" style="padding-left: 20%;">
-				                                    <label id="cariado" class="btn btn-danger active" style="margin: 4px; width: 25%; ">
-				                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Cariado
-				                                    </label>
-				                                    <label id="obturado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option2" autocomplete="off">Obturado
-				                                    </label>
-				                                    <label id="exodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;" >
-				                                        <input type="radio" name="options" id="option3" autocomplete="off">Exodoncia realizada
-				                                    </label>
-				                                    <label id="exodonciaSimple" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option4" autocomplete="off">Exodoncia simple indicada
-				                                    </label>
-				                                    <label id="exodonciaQuirurgica" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option5" autocomplete="off">Exodoncia quirúrgica indc
-				                                    </label>
-				                                    <label id="sinErupcionar" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option6" autocomplete="off"> Sin erupcionar
-				                                    </label>
-				                                    <label id="endodonciaRealizada" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option7" autocomplete="off" checked>Endodoncia realizada
-				                                    </label>
-				                                    <label id="endodonciaIndicada" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option8" autocomplete="off"> Endodoncia indicada
-				                                    </label>
-				                                    <label id="sellantePresente" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option9" autocomplete="off"> Sellaste presente
-				                                    </label>
-				                                    <label id="sellanteIndicado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option10" autocomplete="off"> Sellante indicado
-				                                    </label>
-				                                    <label id="erosionAbrasion" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option11" autocomplete="off"> Erosión o abrasión
-				                                    </label>
-				                                    <label id="procedimientoRealizado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option12" autocomplete="off"> Procedimiento realizado
-				                                    </label>
-				                                    <label id="coronaBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option13" autocomplete="off" checked>Corona buen estado
-				                                    </label>
-				                                    <label id="coronaMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option14" autocomplete="off"> Corona mal estado
-				                                    </label>
-				                                    <label id="provisionalBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option15" autocomplete="off"> Provisional buen estado
-				                                    </label>
-				                                    <label id="provisionalMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option16" autocomplete="off"> Provisional mal estado
-				                                    </label>
-				                                    <label id="nucleoBuenEstado" class="btn btn-primary" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option17" autocomplete="off"> Núcleo buen estado
-				                                    </label>
-				                                    <label id="nucleoMalEstado" class="btn btn-danger" style="margin: 4px; width: 25%;">
-				                                        <input type="radio" name="options" id="option18" autocomplete="off">Núcleo mal estado
-				                                    </label>
-				                                </div>
-				                            </div>
-				                        </div>
-				                    </div>
-		              			</div>
-		              		</div>
-		              	</div>
-		              	<br>
-		              </div>
-	              	</div>
-	    	 		<div class="card">
-	              		<div class="card-header">
-		          			<div class="col-md-12">
 		          				<a id="btnOdontogramaInicial" type="" class="btn-pill" data-toggle="collapse" data-target="#odontogramaInicial">
 	              					<span id="spanOdontogramaInicialPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
 	              					<span id="spanOdontogramaInicialMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
@@ -902,29 +820,125 @@
 			        </div>
 	    	 		<div class="card">
 	              		<div class="card-header">
-	                  		<h3 class="card-title">Odontograma Actual</h3>
+	                  		<h3 class="card-title">Odontograma Geométrico</h3>
 	              		</div>
 	              		<!-- inicio del contenedor del campo texto-->
 	              		<div class="container">
 			          		<div class="card-body">
+			          			<div class="col-md-12">
+				                        <div id="controls" class="panel panel-default">
+				                            <div class="panel-body">
+				                                <div class="btn-group" data-toggle="buttons" style="padding-left: 5	%;">
+				                                	<label id="sano" class="btn active" style="margin: 4px;
+				                                	width: 48px; height: 48px; background-image: url(odontograma/images/dientes/sano.png); background-size: contain;" title="Sano">
+				                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>
+				                                    </label>
+				                                    <label id="cariado" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/caries.png); background-size: contain;" title="Cariado">
+				                                        <input type="radio" name="options" id="option2" autocomplete="off" checked>
+				                                    </label>
+				                                    <label id="obturado" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/obturacion.png); background-size: contain;" title="Obturado">
+				                                        <input type="radio" name="options" id="option3" autocomplete="off">
+				                                    </label>
+				                                    <label id="amalgama" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/amalgama.png); background-size: contain;" title="Amalgama">
+				                                        <input type="radio" name="options" id="option4" autocomplete="off">
+				                                    </label>
+				                                    <label id="ausente" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/ausente.png); background-size: contain;" title="Ausente">
+				                                        <input type="radio" name="options" id="option5" autocomplete="off">
+				                                    </label>
+				                                    <label id="sinErupcionar" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/sinerupcionar.png); background-size: contain;" title="Sin erupcionar">
+				                                        <input type="radio" name="options" id="option6" autocomplete="off">
+				                                    </label>
+				                                    <label id="exodonciaRealizada" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/exodonciarealizada.png); background-size: contain;" title="Exodoncia realizada">
+				                                        <input type="radio" name="options" id="option7" autocomplete="off">
+				                                    </label>
+				                                    <label id="exodonciaIndicada" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/exodonciaindicada.png); background-size: contain;" title="Exodoncia indicada">
+				                                        <input type="radio" name="options" id="option8" autocomplete="off" checked>
+				                                    </label>
+				                                    <label id="sellante" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/sellante.png); background-size: contain;" title="Sellante">
+				                                        <input type="radio" name="options" id="option9" autocomplete="off">
+				                                    </label>
+				                                    <label id="sinSellante" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/sinsellante.png); background-size: contain;" title="Sin sellante">
+				                                        <input type="radio" name="options" id="option10" autocomplete="off">
+				                                    </label>
+				                                    <label id="endodoncia" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/endodoncia.png); background-size: contain;" title="Endodoncia">
+				                                        <input type="radio" name="options" id="option11" autocomplete="off">
+				                                    </label>
+				                                    <label id="sinEndodoncia" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/sinendodoncia.png); background-size: contain;" title="Necesita endodoncia">
+				                                        <input type="radio" name="options" id="option12" autocomplete="off">
+				                                    </label>
+				                                    <label id="ionomeroDeVidrio" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/ionomerodevidrio.png); background-size: contain;" title="Ionomero de vidrio">
+				                                        <input type="radio" name="options" id="option13" autocomplete="off">
+				                                    </label>
+				                                    <label id="resinaFisica" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/resinafisica.png); background-size: contain;" title="Resina física">
+				                                        <input type="radio" name="options" id="option14" autocomplete="off" checked>
+				                                    </label>
+				                                    <label id="recurrente" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/recurrente.png); background-size: contain;" title="Recurrente">
+				                                        <input type="radio" name="options" id="option15" autocomplete="off">
+				                                    </label>
+				                                    <label id="enerupcion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/enerupcion.png); background-size: contain;" title="En erupción">
+				                                        <input type="radio" name="options" id="option16" autocomplete="off">
+				                                    </label>
+				                                    <label id="protesis" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/protesis.png); background-size: contain;" title="Protesis">
+				                                        <input type="radio" name="options" id="option17" autocomplete="off">
+				                                    </label>
+				                                    <label id="giroversion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/giroversion.png); background-size: contain;" title="Giroversión">
+				                                        <input type="radio" name="options" id="option18" autocomplete="off">
+				                                    </label>
+				                                    <label id="semiIncluido" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/semi-incluido.png); background-size: contain;" title="Semi-incluido">
+				                                        <input type="radio" name="options" id="option19" autocomplete="off">
+				                                    </label>
+				                                    <label id="provisional" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/provisional.png); background-size: contain;" title="Provisional">
+				                                        <input type="radio" name="options" id="option20" autocomplete="off">
+				                                    </label>
+				                                    <label id="nucleoARealizar" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/nucleoarealizar.png); background-size: contain;" title="Nucleo a realizar">
+				                                        <input type="radio" name="options" id="option21" autocomplete="off">
+				                                    </label>
+				                                    <label id="nucleoBueno" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/nucleobueno.png); background-size: contain;" title="Nucleo bueno">
+				                                        <input type="radio" name="options" id="option22" autocomplete="off">
+				                                    </label>
+				                                    <label id="protesisIndicada" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/protesisindicada.png); background-size: contain;" title="Protesis indicada">
+				                                        <input type="radio" name="options" id="option23" autocomplete="off">
+				                                    </label>
+				                                    <label id="fractura" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/fractura.png); background-size: contain;" title="Fractura">
+				                                        <input type="radio" name="options" id="option24" autocomplete="off">
+				                                    </label>
+				                                    <label id="trauma" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/trauma.png); background-size: contain;" title="Trauma">
+				                                        <input type="radio" name="options" id="option25" autocomplete="off">
+				                                    </label>
+				                                    <label id="coronaBuenEstado" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/coronaenbuenestado.png); background-size: contain;" title="Corona buen estado">
+				                                        <input type="radio" name="options" id="option26" autocomplete="off">
+				                                    </label>
+				                                    <label id="coronaARealizar" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/coronaarealizar.png); background-size: contain;" title="Corona a realizar">
+				                                        <input type="radio" name="options" id="option27" autocomplete="off">
+				                                    </label>
+				                                    <label id="atricion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/atricion.png); background-size: contain;" title="Atrición">
+				                                        <input type="radio" name="options" id="option28" autocomplete="off">
+				                                    </label>
+				                                    <label id="abrasion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/abrasion.png); background-size: contain;" title="Abrasión">
+				                                        <input type="radio" name="options" id="option29" autocomplete="off">
+				                                    </label>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
 				                <div class="row">
-				                    <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    <div id="tlr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="tll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
 				                </div>
 				                <div class="row">
-				                    <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+				                    <div id="blr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="bll" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="br" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
-				                    <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				                    <div id="bl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 				                    </div>
 				                </div>
 				                <br>			                	
@@ -1152,7 +1166,12 @@
 	    for (var i = 9 - 1; i >= 1; i--) {
 	        //Dientes Definitivos Cuandrante Derecho (Superior/Inferior)
 	        htmlRight += '<div data-name="value" id="dienteindex' + i + 'Inicial" class="diente">' +
-	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+
+	            '<div id="completoInicial' + i + 'Inicial" class="completo" style="display:none;">' +
+                '</div>' +
+
+                '<div id="dienteCompleto' + i + 'Inicial">' +
 	            '<div id="tindex' + i + '" class="cuadro click">' +
 	            '</div>' +
 	            '<input type="text" id="tindex' + i + 'Inicial1" + name="tindex' + i + 'Inicial1" hidden = true>' +
@@ -1168,10 +1187,11 @@
 	            '<div id="cindex' + i + 'Inicial" class="centro click">' +
 	            '</div>' +
 	            '<input type="text" id="cindex' + i + 'Inicial1" + name="cindex' + i + 'Inicial1" hidden = true>' +
+	            '</div>' +
 	            '</div>';
 	        //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
 	        htmlLeft += '<div id="dienteindex' + a + 'Inicial" class="diente">' +
-	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
+	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
 	            '<div id="tindex' + a + 'Inicial" class="cuadro click">' +
 	            '</div>' +
 	            '<input type="text" id="tindex' + a + 'Inicial1" + name="tindex' + a + 'Inicial1" hidden = true>' +
@@ -1253,7 +1273,13 @@
 	    for (var i = 9 - 1; i >= 1; i--) {
 	        //Dientes Definitivos Cuandrante Derecho (Superior/Inferior)
 	        htmlRight += '<div data-name="value" id="dienteindex' + i + '" class="diente">' +
-	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
+
+	            '<div id="completoindex' + i + '" class="completo click" style="display:none;">' +
+                '</div>' +
+                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden = true>' +
+
+                '<div id="dienteCompletoindex' + i + '" style="width: 50px; height:50px; margin-right5px;">' +
 	            '<div id="tindex' + i + '" class="cuadro click">' +
 	            '</div>' +
 	            '<input type="text" id="tindex' + i + '1" + name="tindex' + i + '1" hidden = true>' +
@@ -1269,10 +1295,17 @@
 	            '<div id="cindex' + i + '" class="centro click">' +
 	            '</div>' +
 	            '<input type="text" id="cindex' + i + '1" + name="cindex' + i + '1" hidden = true>' +
+	            '</div>' +
 	            '</div>';
 	        //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
 	        htmlLeft += '<div id="dienteindex' + a + '" class="diente">' +
-	            '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
+	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
+
+	            '<div id="completoindex' + a + '" class="completo click" style="display:none;">' +
+                '</div>' +
+                '<input type="text" id="completoindex' + a + '1" + name="completoindex' + a + '1" hidden = true>' +
+                '<div id="dienteCompletoindex' + a + '">' +
+
 	            '<div id="tindex' + a + '" class="cuadro click">' +
 	            '</div>' +
 	            '<input type="text" id="tindex' + a + '1" + name="tindex' + a + '1" hidden = true>' +
@@ -1288,11 +1321,17 @@
 	            '<div id="cindex' + a + '" class="centro click">' +
 	            '</div>' +
 	            '<input type="text" id="cindex' + a + '1" + name="cindex' + a + '1" hidden = true>' +
+	            '</div>' +
 	            '</div>';
 	        if (i <= 5) {
 	            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 	            htmlLecheRight += '<div id="dienteLindex' + i + '" style="left: -25%;" class="diente-leche">' +
 	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + i + '</span>' +
+	                '<div id="completoindex' + i + '" class="completo click" style="display:none;">' +
+	                '</div>' +
+	                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden = true>' +
+                	'<div id="lecheCompletoindex' + i + '">' +
+
 	                '<div id="tlecheindex' + i + '" class="cuadro-leche top-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="tlecheindex' + i + '1" + name="tlecheindex' + i + '1" hidden = true>' +
@@ -1308,12 +1347,18 @@
 	                '<div id="clecheindex' + i + '" class="centro-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="clecheindex' + i + '1" + name="clecheindex' + i + '1" hidden = true>' +
+	                '</div>' +
 	                '</div>';
 	        }
 	        if (a < 6) {
 	            //Dientes Temporales Cuandrante Izquierdo (Superior/Inferior)
 	            htmlLecheLeft += '<div id="dienteLindex' + a + '" class="diente-leche">' +
 	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + a + '</span>' +
+	                '<div id="completoindex' + a + '" class="completo click" style="display:none;">' +
+	                '</div>' +
+	                '<input type="text" id="completoindex' + a + '1" + name="completoindex' + a + '1" hidden = true>' +
+	                '<div id="lecheCompletoindex' + a + '">' +
+
 	                '<div id="tlecheindex' + a + '" class="cuadro-leche top-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="tlecheindex' + a + '1" + name="tlecheindex' + a + '1" hidden = true>' +
@@ -1329,6 +1374,7 @@
 	                '<div id="clecheindex' + a + '" class="centro-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="clecheindex' + a + '1" + name="clecheindex' + a + '1" hidden = true>' +
+	                '</div>' +
 	                '</div>';
 	        }
 	        a++;//
@@ -1354,6 +1400,34 @@
 	        var control = $("#controls").children().find('.active').attr('id');
 	        var cuadro = $(this).find("input[name=cuadro]:hidden").val();
 	        switch (control) {
+	        	case "sano":
+	        		if($(this).hasClass("sano")){
+	        			$(this).removeClass('sano');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idNormal = $id.substring(6,8);
+	        				document.getElementById('lecheCompleto' + $idNormal).style.display = 'none';
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "sano";
+			        	$div.style.display = 'block';
+			        	$($div).addClass('sano');
+	        		}
+	        	break;
 	            case "cariado":
 	                if ($(this).hasClass("click-blue")) {
 	                    $(this).removeClass('click-blue');
