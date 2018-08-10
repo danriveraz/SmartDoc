@@ -1272,55 +1272,67 @@
 	        a = 1;
 	    for (var i = 9 - 1; i >= 1; i--) {
 	        //Dientes Definitivos Cuandrante Derecho (Superior/Inferior)
-	        htmlRight += '<div data-name="value" id="dienteindex' + i + '" class="diente">' +
+	        htmlRight += 
+	        	'<div id="dienteindex' + i + '" class="diente">' +
 	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
 
 	            '<div id="completoindex' + i + '" class="completo click" style="display:none;">' +
                 '</div>' +
-                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden = true>' +
+                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden>' +
+                '<div id="dienteCompletoindex' + i + '">' +
 
-                '<div id="dienteCompletoindex' + i + '" style="width: 50px; height:50px; margin-right5px;">' +
-	            '<div id="tindex' + i + '" class="cuadro click">' +
+	            '<div id="nindex' + i + '" class="cuadro click">' +
 	            '</div>' +
-	            '<input type="text" id="tindex' + i + '1" + name="tindex' + i + '1" hidden = true>' +
+	            '<input type="text" id="nindex' + i + '1" + name="nindex' + i + '1" hidden>' +
+
 	            '<div id="lindex' + i + '" class="cuadro izquierdo click">' +
 	            '</div>' +
-	            '<input type="text" id="lindex' + i + '1" + name="lindex' + i + '1" hidden = true>' +
+	            '<input type="text" id="lindex' + i + '1" + name="lindex' + i + '1" hidden>' +
+
 	            '<div id="bindex' + i + '" class="cuadro debajo click">' +
 	            '</div>' +
-	            '<input type="text" id="bindex' + i + '1" + name="bindex' + i + '1" hidden = true>' +
+	            '<input type="text" id="bindex' + i + '1" + name="bindex' + i + '1" hidden>' +
+
 	            '<div id="rindex' + i + '" class="cuadro derecha click click">' +
 	            '</div>' +
-	            '<input type="text" id="rindex' + i + '1" + name="rindex' + i + '1" hidden = true>' +
+	            '<input type="text" id="rindex' + i + '1" + name="rindex' + i + '1" hidden>' +
+
 	            '<div id="cindex' + i + '" class="centro click">' +
 	            '</div>' +
-	            '<input type="text" id="cindex' + i + '1" + name="cindex' + i + '1" hidden = true>' +
+	            '<input type="text" id="cindex' + i + '1" + name="cindex' + i + '1" hidden>' +
+
 	            '</div>' +
 	            '</div>';
 	        //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
-	        htmlLeft += '<div id="dienteindex' + a + '" class="diente">' +
+	        htmlLeft += 
+	        	'<div id="dienteindex' + a + '" class="diente">' +
 	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
 
 	            '<div id="completoindex' + a + '" class="completo click" style="display:none;">' +
                 '</div>' +
-                '<input type="text" id="completoindex' + a + '1" + name="completoindex' + a + '1" hidden = true>' +
+                '<input type="text" id="completoindex' + a + '1" + name="completoindex' + a + '1" hidden>' +
                 '<div id="dienteCompletoindex' + a + '">' +
 
-	            '<div id="tindex' + a + '" class="cuadro click">' +
+	            '<div id="nindex' + a + '" class="cuadro click">' +
 	            '</div>' +
-	            '<input type="text" id="tindex' + a + '1" + name="tindex' + a + '1" hidden = true>' +
+	            '<input type="text" id="nindex' + a + '1" + name="nindex' + a + '1" hidden>' +
+
 	            '<div id="lindex' + a + '" class="cuadro izquierdo click">' +
 	            '</div>' +
-	            '<input type="text" id="lindex' + a + '1" + name="lindex' + a + '1" hidden = true>' +
+	            '<input type="text" id="lindex' + a + '1" + name="lindex' + a + '1" hidden>' +
+
 	            '<div id="bindex' + a + '" class="cuadro debajo click">' +
 	            '</div>' +
-	            '<input type="text" id="bindex' + a + '1" + name="bindex' + a + '1" hidden = true>' +
+	            '<input type="text" id="bindex' + a + '1" + name="bindex' + a + '1" hidden>' +
+
 	            '<div id="rindex' + a + '" class="cuadro derecha click click">' +
 	            '</div>' +
-	            '<input type="text" id="rindex' + a + '1" + name="rindex' + a + '1" hidden = true>' +
+	            '<input type="text" id="rindex' + a + '1" + name="rindex' + a + '1" hidden>' +
+
 	            '<div id="cindex' + a + '" class="centro click">' +
 	            '</div>' +
-	            '<input type="text" id="cindex' + a + '1" + name="cindex' + a + '1" hidden = true>' +
+	            '<input type="text" id="cindex' + a + '1" + name="cindex' + a + '1" hidden>' +
+
 	            '</div>' +
 	            '</div>';
 	        if (i <= 5) {
@@ -1330,11 +1342,11 @@
 	                '<div id="completoindex' + i + '" class="completo click" style="display:none;">' +
 	                '</div>' +
 	                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden = true>' +
-                	'<div id="lecheCompletoindex' + i + '">' +
+                	'<div id="dienteCompletoindex' + i + '">' +
 
-	                '<div id="tlecheindex' + i + '" class="cuadro-leche top-leche click">' +
+	                '<div id="nlecheindex' + i + '" class="cuadro-leche top-leche click">' +
 	                '</div>' +
-	                '<input type="text" id="tlecheindex' + i + '1" + name="tlecheindex' + i + '1" hidden = true>' +
+	                '<input type="text" id="nlecheindex' + i + '1" + name="nlecheindex' + i + '1" hidden = true>' +
 	                '<div id="llecheindex' + i + '" class="cuadro-leche izquierdo-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="llecheindex' + i + '1" + name="llecheindex' + i + '1" hidden = true>' +
@@ -1357,11 +1369,11 @@
 	                '<div id="completoindex' + a + '" class="completo click" style="display:none;">' +
 	                '</div>' +
 	                '<input type="text" id="completoindex' + a + '1" + name="completoindex' + a + '1" hidden = true>' +
-	                '<div id="lecheCompletoindex' + a + '">' +
+	                '<div id="dienteCompletoindex' + a + '">' +
 
-	                '<div id="tlecheindex' + a + '" class="cuadro-leche top-leche click">' +
+	                '<div id="nlecheindex' + a + '" class="cuadro-leche top-leche click">' +
 	                '</div>' +
-	                '<input type="text" id="tlecheindex' + a + '1" + name="tlecheindex' + a + '1" hidden = true>' +
+	                '<input type="text" id="nlecheindex' + a + '1" + name="nlecheindex' + a + '1" hidden = true>' +
 	                '<div id="llecheindex' + a + '" class="cuadro-leche izquierdo-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="llecheindex' + a + '1" + name="llecheindex' + a + '1" hidden = true>' +
@@ -1401,12 +1413,13 @@
 	        var cuadro = $(this).find("input[name=cuadro]:hidden").val();
 	        switch (control) {
 	        	case "sano":
-	        		if($(this).hasClass("sano")){
-	        			$(this).removeClass('sano');
+	        		if($(this).hasClass("click-sano")){
+	        			$(this).removeClass('click-sano');
 	        			$id = $(this).attr("id") + 1;
 		        		$idNormal = $id.substring(8,10);
 	        			$div = document.getElementById('completo'+ $idNormal);
 		        		$div.style.display = 'none';
+		        		$div.title ="";
 		        		document.getElementById('completo'+ $idNormal + '1').value = "";
 		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
 		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
@@ -1416,8 +1429,18 @@
 	        		}else{
 	        			$id = $(this).attr("id") + 1;
 	        			if($id.length >= 9){
-	        				$idNormal = $id.substring(6,8);
-	        				document.getElementById('lecheCompleto' + $idNormal).style.display = 'none';
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(6,8);
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
 	        			}else{
 	        				$idNormal = $id.substring(1,3);
 	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
@@ -1425,494 +1448,182 @@
 	        			$div = document.getElementById('completo'+ $idNormal);
 	        			document.getElementById('completo'+ $idNormal + '1').value = "sano";
 			        	$div.style.display = 'block';
-			        	$($div).addClass('sano');
+			        	$div.title ="Sano";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	$($div).addClass('click-sano');
 	        		}
 	        	break;
 	            case "cariado":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-                        document.getElementById($id).value = "cariado";
-                        $(this).attr('title', 'cariado');
-                        //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-	                        //alert(document.getElementById($id).id);
-	                        document.getElementById($id).value = "";
-	                        $(this).attr('title', '');
-	                        //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-	                        //alert(document.getElementById($id).id);
+	            	$id = $(this).attr("id") + 1;
+					$idNormal = $id.substring(6,8);
+					$idCompleto = "completo" + $idNormal;
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(8,10);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(1,3);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+        			if(document.getElementById($idCompleto).style.display == "none"){
+	            		if ($(this).hasClass("click-blue")) {
+		                    $(this).removeClass('click-blue');
+		                    $(this).addClass('click-red');
 	                        document.getElementById($id).value = "cariado";
-	                        $(this).attr('title', 'cariado');
-	                       	//alert($id);
-	                    }
-	                }
+	                        $(this).attr('title', 'Cariado');
+		                } else {
+		                    if ($(this).hasClass("click-black")) {
+		                        $(this).removeClass('click-black');
+		                        $(this).addClass('click-red');
+		                        document.getElementById($id).value = "cariado";
+		                        $(this).attr('title', 'Cariado');
+		                    } else {
+		                    	if($(this).hasClass("click-red")){
+			                    	$(this).removeClass('click-red');
+			                        document.getElementById($id).value = "";
+			                        $(this).attr('title', '');
+		                    	}else{
+		                    		$(this).addClass('click-red');
+			                        document.getElementById($id).value = "cariado";
+			                        $(this).attr('title', 'Cariado');
+		                    	}
+		                    }
+		                }
+	            	}else{
+	            		if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){	
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        				}else{
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}
+	            	}
 	                break;
 	            case "obturado":
 	                if ($(this).hasClass("click-red")) {
 	                    $(this).removeClass('click-red');
 	                    $(this).addClass('click-blue');
 	                    $id = $(this).attr("id") + 1;
-                        //alert(document.getElementById($id).id);
                         document.getElementById($id).value = "obturado";
-                        $(this).attr('title', 'obturado');
-                        //alert(document.getElementById($id).value);
+                        $(this).attr('title', 'Obturado');
 	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $(this).val("obturado");
-	                        //alert(document.getElementById($id).id);
-	                        document.getElementById($id).value = "";
-	                        $(this).attr('title', '');
-	                        //alert(document.getElementById($id).value);
-	                    } else {
+	                	if ($(this).hasClass("click-black")) {
+	                        $(this).removeClass('click-black');
 	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "obturado";
-		                    $(this).attr('title', 'obturado');
-		                    //alert(document.getElementById($id).value);
+		                    $id = $(this).attr("id") + 1;
+	                        document.getElementById($id).value = "obturado";
+	                        $(this).attr('title', 'Obturado');
+	                    }else{
+	                    	if ($(this).hasClass("click-blue")) {
+		                        $(this).removeClass('click-blue');
+		                        $(this).val("obturado");
+		                        document.getElementById($id).value = "";
+		                        $(this).attr('title', '');
+		                    } else {
+		                        $(this).addClass('click-blue');
+		                        $id = $(this).attr("id") + 1;
+			                    document.getElementById($id).value = "obturado";
+			                    $(this).attr('title', 'Obturado');
+		                    }
 	                    }
 	                }
 	                break;
-	            case "exodonciaRealizada":
+	            case "amalgama":
 	                if ($(this).hasClass("click-red")) {
 	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
+	                    $(this).addClass('click-black');
 	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "exodonciaRealizada";
-	                    $(this).attr('title', 'exodonciaRealizada');
-	                    //alert(document.getElementById($id).value);
+                        document.getElementById($id).value = "amalgama";
+                        $(this).attr('title', 'Amalgama');
 	                } else {
-	                    if ($(this).hasClass("click-blue")) {
+	                	if ($(this).hasClass("click-blue")) {
 	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "exodonciaRealizada";
-		                    $(this).attr('title', 'exodonciaRealizada');
-		                    //alert(document.getElementById($id).value);
+	                        $(this).addClass('click-black');
+		                    $id = $(this).attr("id") + 1;
+	                        document.getElementById($id).value = "amalgama";
+	                        $(this).attr('title', 'Amalgama');
+	                    }else{
+	                    	if ($(this).hasClass("click-black")) {
+		                        $(this).removeClass('click-black');
+		                        $(this).val("amalgama");
+		                        document.getElementById($id).value = "";
+		                        $(this).attr('title', '');
+		                    } else {
+		                        $(this).addClass('click-black');
+		                        $id = $(this).attr("id") + 1;
+			                    document.getElementById($id).value = "amalgama";
+			                    $(this).attr('title', 'Amalgama');
+		                    }
 	                    }
 	                }
 	                break;
-	            case "exodonciaSimple":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "exodonciaSimple";
-	                    $(this).attr('title', 'exodonciaSimple');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "exodonciaSimple";
-		                    $(this).attr('title', 'exodonciaSimple');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "exodonciaQuirurgica":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "exodonciaQuirurgica";
-	                    $(this).attr('title', 'exodonciaQuirurgica');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "exodonciaQuirurgica";
-		                    $(this).attr('title', 'exodonciaQuirurgica');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "sinErupcionar":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "sinErupcionar";
-	                    $(this).attr('title', 'sinErupcionar');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                      	$id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "sinErupcionar";
-		                    $(this).attr('title', 'sinErupcionar');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "endodonciaRealizada":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "endodonciaRealizada";
-	                    $(this).attr('title', 'endodonciaRealizada');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "endodonciaRealizada";
-		                    $(this).attr('title', 'endodonciaRealizada');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "endodonciaIndicada":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "endodonciaIndicada";
-	                    $(this).attr('title', 'endodonciaIndicada');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "endodonciaIndicada";
-		                    $(this).attr('title', 'endodonciaIndicada');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "sellantePresente":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                   // alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "sellantePresente";
-	                    $(this).attr('title', 'sellantePresente');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "sellantePresente";
-		                    $(this).attr('title', 'sellantePresente');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "sellanteIndicado":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "sellanteIndicado";
-	                    $(this).attr('title', 'sellanteIndicado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "sellanteIndicado";
-		                    $(this).attr('title', 'sellanteIndicado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "erosionAbrasion":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "erosionAbrasion";
-	                    $(this).attr('title', 'erosionAbrasion');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                   // alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                       	$id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "erosionAbrasion";
-		                    $(this).attr('title', 'erosionAbrasion');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "procedimientoRealizado":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "procedimientoRealizado";
-	                    $(this).attr('title', 'procedimientoRealizado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "procedimientoRealizado";
-		                    $(this).attr('title', 'procedimientoRealizado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "coronaBuenEstado":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                   // alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "coronaBuenEstado";
-	                    $(this).attr('title', 'coronaBuenEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "coronaBuenEstado";
-		                    $(this).attr('title', 'coronaBuenEstado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "coronaMalEstado":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "coronaMalEstado";
-	                    $(this).attr('title', 'coronaMalEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        //$id = $(this).attr("id") + 1;
-		                    alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "coronaMalEstado";
-		                    $(this).attr('title', 'coronaMalEstado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "provisionalBuenEstado":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "provisionalBuenEstado";
-	                    $(this).attr('title', 'provisionalBuenEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "provisionalBuenEstado";
-		                    $(this).attr('title', 'provisionalBuenEstado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "provisionalMalEstado":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                   	$id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "provisionalMalEstado";
-	                    $(this).attr('title', 'provisionalMalEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "provisionalMalEstado";
-		                    $(this).attr('title', 'provisionalMalEstado');
-		                    //alert(document.getElementById($i$(this).attr('title', 'cariado');d).value);
-	                    }
-	                }
-	                break;
-	            case "nucleoBuenEstado":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "nucleoBuenEstado";
-	                    $(this).attr('title', 'nucleoBuenEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-blue');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "nucleoBuenEstado";
-		                    $(this).attr('title', 'nucleoBuenEstado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
-	            case "nucleoMalEstado":
-	                if ($(this).hasClass("click-blue")) {
-	                    $(this).removeClass('click-blue');
-	                    $(this).addClass('click-red');
-	                    $id = $(this).attr("id") + 1;
-	                    //alert(document.getElementById($id).id);
-	                    document.getElementById($id).value = "nucleoMalEstado";
-	                    $(this).attr('title', 'nucleoMalEstado');
-	                    //alert(document.getElementById($id).value);
-	                } else {
-	                    if ($(this).hasClass("click-red")) {
-	                        $(this).removeClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "";
-		                    $(this).attr('title', '');
-		                    //alert(document.getElementById($id).value);
-	                    } else {
-	                        $(this).addClass('click-red');
-	                        $id = $(this).attr("id") + 1;
-		                    //alert(document.getElementById($id).id);
-		                    document.getElementById($id).value = "nucleoMalEstado";
-		                    $(this).attr('title', 'nucleoMalEstado');
-		                    //alert(document.getElementById($id).value);
-	                    }
-	                }
-	                break;
+				case "ausente":
+	        		if($(this).hasClass("click-ausente")){
+	        			$(this).removeClass('click-ausente');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,5);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,7);
+	        					document.getElementById('lecheCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "ausente";
+			        	$div.style.display = 'block';
+			        	$div.title ="Ausente";
+			        	$($div).addClass('click-ausente');
+	        		}
+	        	break;
 	            default:
 	                console.log("borrar case");
 	        }
