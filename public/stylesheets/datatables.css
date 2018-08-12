@@ -61,9 +61,9 @@ table.dataTable {
 }
 
 .dataTables_length {
-  width: 9%;
+  width: 8%;
   float: left;
-  margin: 1.1% 0 10px;
+  /*margin: 1.1% 0 10px;*/
 }
 
 .dataTables_length select {

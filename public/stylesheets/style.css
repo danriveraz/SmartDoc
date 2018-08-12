@@ -982,19 +982,21 @@ body.sidebar-nav {
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid #dddddd;
   padding: 0;
-  min-width: 140px;
-  max-width: 300px; }
+  min-width: 140px; }
   .dropdown-menu > li {
     margin: 0; }
     .dropdown-menu > li > a {
       padding: 9px 15px 9px 2px;
-      border-bottom: 1px solid #e2e2e2;
+      /*border-bottom: 1px solid #e2e2e2;*/
       color: #999999;
       font-size: 12px;
-      margin-left: 14px; }
+      /*margin-left: 14px;*/ }
+
+.dropdown-menu .dropdown-item:hover {background-color: #467fcf; color: white !important;}
+
       .dropdown-menu > li > a:hover, .dropdown-menu > li > a.current {
         border-bottom-color: #2d0031;
-        color: #2d0031;
+        color: white;
         background: transparent; }
       .dropdown-menu > li > a i {
         margin-right: 10px;

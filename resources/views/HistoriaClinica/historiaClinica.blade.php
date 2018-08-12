@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar historia clinica">
 		<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	</button>	
+	</button>
 </div>
 <br>
 
@@ -32,7 +32,7 @@
 						<option value="" selected="">Sexo</option>
 						<option value="masculino">Masculino</option>
 						<option value="femenino">Femenino</option>
-					</select> 
+					</select>
 				</div>
 			</div>
 			<div class="row">
@@ -41,7 +41,7 @@
 						<option value="" selected="">Tipo documento</option>
 						<option value="tarjeta">T.I</option>
 						<option value="cedula">C.C</option>
-					</select> 
+					</select>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
@@ -96,7 +96,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>
@@ -112,8 +112,23 @@
 	}
 
 	$(document).ready(function() {
-	    $('#example').DataTable();
+	    $('#example').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+								extend:    'excelHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/excel.png">',
+								titleAttr: 'Descarga Excel'
+						},
+						{
+								extend:    'pdfHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/pdf.png">',
+								titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	});
 	} );
+
 </script>
 
 @endsection

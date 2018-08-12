@@ -260,12 +260,12 @@
 	        buttons: [
 	            {
 	                extend:    'excelHtml5',
-	                text:      '<i class="fa fa-file-excel-o"></i>',
+	                text:      '<img src="http://localhost/SmartDoc/public/images/table/excel.png">',
 	                titleAttr: 'Descarga Excel'
 	            },
 	            {
 	                extend:    'pdfHtml5',
-	                text:      '<i class="fa fa-file-pdf-o"></i>',
+	                text:      '<img src="http://localhost/SmartDoc/public/images/table/pdf.png">',
 	                titleAttr: 'Descarga PDF'
 	            }
 	        ]

@@ -20,7 +20,7 @@
     <link type="image/x-icon" rel="shortcut icon" src="{{asset('assetsNew/images/icon(2).png')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-    
+
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!-- Croppie -->
     {!!Html::style('assets\css\croppie.css')!!}
@@ -93,7 +93,7 @@
                 <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo" title="Inicio">
               </a>
               <div class="ml-auto d-flex order-lg-2">
-                
+
                 <div class="dropdown">
                   <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$empresa->imagen)}}">
@@ -103,16 +103,30 @@
                       <small class="text-muted d-block mt-1">Administrator</small>
                     </span>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <!--div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                     <a class="dropdown-item" href="{{url('Perfil')}}">
-                      <span>Editar perfil</span>
+                      <i class="fa fa-user-circle"></i>Mi Perfil
                     </a>
                     <a class="dropdown-item" href="{{url('Configuracion')}}">
                       <span>Configuración</span>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{url('Auth/logout')}}">Salir</a>
-                  </div>
+                  </div-->
+                  <ul class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+        					  <li class="dropdown-item"><a href="{{url('Perfil')}}">
+        						<i class="fa fa-user-circle"></i>Mi Perfil</a>
+        					  </li>
+        					  <li class="dropdown-item"><a href="{{url('Configuracion')}}">
+        						<i class="fa fa-gear"></i>Ajuster</a>
+        					  </li>
+        					  <li class="dropdown-item"><a href="{{url('Auth/logout')}}">
+        						<i class="fa fa-sign-out"></i>Cerrar Secion</a>
+        					  </li>
+        					</ul>
+
+
+
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
 		<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	</button>	
+	</button>
 </div>
 <br>
 
@@ -132,7 +132,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>
@@ -154,14 +154,14 @@
 	        dom: 'lBfrtip',
 	        buttons: [
 	            {
-	                extend:    'excelHtml5',
-	                text:      '<i class="fa fa-file-excel-o"></i>',
-	                titleAttr: 'Descarga Excel'
-	            },
-	            {
-	                extend:    'pdfHtml5',
-	                text:      '<i class="fa fa-file-pdf-o"></i>',
-	                titleAttr: 'Descarga PDF'
+								extend:    'excelHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/excel.png">',
+								titleAttr: 'Descarga Excel'
+						},
+						{
+								extend:    'pdfHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/pdf.png">',
+								titleAttr: 'Descarga PDF'
 	            }
 	        ]
     	} );

@@ -4,8 +4,8 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <!-- DataTables Example -->
 <a class="btn btn-pill btn-primary" href="{{url('/Cuentas')}}" title="Cuentas">
-	<span class="fa fa-money" style="margin-right: 0px;"></span>
-</a>	
+	<span class="fa fa-money" style="margin-right: 0px;font-size: 20px;margin-top:5px;"></span>
+</a>
 </div>
 <br>
 <div class="container main-content">
@@ -65,19 +65,19 @@
 				       					<input type="text" name="id" value="{{$servicio->id}}" hidden="">
 							        	<a class="btn btn-primary btn-sm ml-2" title="Abonar" onclick="abonar({{$servicio->id}})"><i class="fa fa-dollar" style="margin: 0;"></i></a>
 							        {{ Form::close() }}
-			                	</div>	   
+			                	</div>
 			                	<div class="col-md-6">
 			                		{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
 			       				{{ csrf_field() }}
 						        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
 						        {{ Form::close() }}
-						    	</div>					    	     
-		                	</div>         
+						    	</div>
+		                	</div>
 		                </td>
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>
@@ -97,7 +97,7 @@
 
 	function abonar(id){
 		var form = document.getElementById("form"+id);
-		form.submit();	
+		form.submit();
 	}
 
 	$(document).ready(function() {
@@ -105,14 +105,14 @@
 	        dom: 'lBfrtip',
 	        buttons: [
 	            {
-	                extend:    'excelHtml5',
-	                text:      '<i class="fa fa-file-excel-o"></i>',
-	                titleAttr: 'Descarga Excel'
-	            },
-	            {
-	                extend:    'pdfHtml5',
-	                text:      '<i class="fa fa-file-pdf-o"></i>',
-	                titleAttr: 'Descarga PDF'
+								extend:    'excelHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/excel.png">',
+								titleAttr: 'Descarga Excel'
+						},
+						{
+								extend:    'pdfHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/pdf.png">',
+								titleAttr: 'Descarga PDF'
 	            }
 	        ]
     	} );
