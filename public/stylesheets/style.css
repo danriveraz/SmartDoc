@@ -84,8 +84,11 @@ html, body {
 html {
   height: 100%; }
 
+body {
+	font-family: "Poppins",sans-serif; !important;}
+
 /*body {
-  font-family: "Lato", sans-serif !important;
+  font-family: "Poppins",sans-serif; !important;
   color: #210B61 ;
   font-size: 14px !important;
   min-height: 100%; }
@@ -515,28 +518,42 @@ body.login2 {
           text-align: center;
           margin: 0 6px;*/ }
           .navbar .container-fluid.main-nav .nav-collapse .nav > li > a {
-            /*display: block;
-            height: 100%;
-            text-align: center;
-            padding: 10px 15px 9px;
-            font-size: 12px;
-            font-weight: 400;
+			font-family: "Poppins",sans-serif;
+            display: block;
+			height: 100%;
+			text-align: center;
+			padding: 10px 15px 5px;
+			font-size: 14px;
+            /*font-weight: 400;
             color: #999999;*/
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s; }
+
+.famy{font-family: "Poppins",sans-serif;
+}
+
+.navbar .container-fluid.main-nav .nav-collapse .nav > li > a {color: #919293}
+
+.navbar .container-fluid.main-nav .nav-collapse .nav > li > a:hover {color: #575757;}
+
+
             .navbar .container-fluid.main-nav .nav-collapse .nav > li > a span {
               font-size: 28px;
               width: 40px;
               height: 40px;
               display: block;
-              margin: 0 auto 2px; }
+              margin: 0 auto 9px; }
+
+            .navbar .container-fluid.main-nav .nav-collapse .nav > li > a label {
+              margin-bottom: 0; }
+
             .navbar .container-fluid.main-nav .nav-collapse .nav > li > a .caret {
               margin-left: 6px;
               margin-right: -6px;
               border-top-color: #999999; }
             .navbar .container-fluid.main-nav .nav-collapse .nav > li > a.current {
-              color: #2d0031; }
+              color: #6b0a74; }
               .navbar .container-fluid.main-nav .nav-collapse .nav > li > a.current span {
                 color: #2d0031; }
               .navbar .container-fluid.main-nav .nav-collapse .nav > li > a.current .caret {

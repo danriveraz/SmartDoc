@@ -4,8 +4,8 @@
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
-		<span class="fa fa-plus" style="margin-right: 0px;"> Agregar evento</span>
-	</button>	
+		<span class="fa fa-plus" style="margin-right: 0px;"><span class="famy">&nbsp;Agregar evento<span></span>
+	</button>
 </div>
 <br>
 
@@ -205,7 +205,7 @@
 						        	<div class="row" align="center">
 						        		<div class="col-md-12">
 									        <select id="color{{$agenda->id}}" name="color{{$agenda->id}}" class="form-control" style="width: 25%;">
-									        	<option value="green" 
+									        	<option value="green"
 									        	@if($agenda->color == "green")
 									        		selected = "true"
 									        	@endif
@@ -215,7 +215,7 @@
 									        		selected = "true"
 									        	@endif
 									        	>Por atender</option>
-									        	<option value="red" 
+									        	<option value="red"
 									        	@if($agenda->color == "red")
 									        		selected = "true"
 									        	@endif
@@ -235,7 +235,7 @@
 		            </tr>
 		           @endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>
@@ -254,7 +254,7 @@
 
 	$(document).ready(function() {
 	    //$('#example').DataTable();
-	    
+
 	    $('#example').DataTable( {
 	        dom: 'Bfrtip',
 	        buttons: [
