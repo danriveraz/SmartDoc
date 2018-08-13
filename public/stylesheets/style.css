@@ -543,7 +543,7 @@ body.login2 {
               width: 40px;
               height: 40px;
               display: block;
-              margin: 0 auto 9px; }
+              margin: 0 auto 0px; }
 
             .navbar .container-fluid.main-nav .nav-collapse .nav > li > a label {
               margin-bottom: 0; }
@@ -3997,8 +3997,8 @@ border-radius: 200px 200px 200px 200px;
 .botonBlanco:visited {color: #ffffff}
 
 .nav-item > a img {
-    width: 46px;
-    height: 46px;
+    width: 35px;
+    height: 35px;
     display: block;
 }
 

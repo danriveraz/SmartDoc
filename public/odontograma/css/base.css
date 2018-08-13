@@ -1,7 +1,7 @@
 .diente {
     position: static;
     width: 0px;
-    height: auto;
+    height: 80px;
     margin-left: 52px;
     padding-right: 2px;
     display: inline-block;
@@ -158,15 +158,344 @@
     background-size: contain;
 }
 
+.click-lechesano{
+    background-image: url("../images/leche/sano.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
 .click-ausente{
     background-image: url("../images/dientes/ausente.png");
     background-size: contain;
 }
 
+.click-lecheausente{
+    background-image: url("../images/leche/ausente.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-sinerupcionar{
+    background-image: url("../images/dientes/sinerupcionar.png");
+    background-size: contain;   
+}
+
+.click-lechesinerupcionar{
+    background-image: url("../images/leche/sinerupcionar.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-exodonciarealizada{
+    background-image: url("../images/dientes/exodonciarealizada.png");
+    background-size: contain;   
+}
+
+.click-lecheexodonciarealizada{
+    background-image: url("../images/leche/exodonciarealizada.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-exodonciaindicada{
+    background-image: url("../images/dientes/exodonciaindicada.png");
+    background-size: contain;   
+}
+
+.click-lecheexodonciaindicada{
+    background-image: url("../images/leche/exodonciaindicada.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-sellante{
+    background-image: url("../images/dientes/sellante.png");
+    background-size: contain;   
+}
+
+.click-lechesellante{
+    background-image: url("../images/leche/sellante.png");
+    background-size: contain; 
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;  
+}
+
+.click-sinsellante{
+    background-image: url("../images/dientes/sinsellante.png");
+    background-size: contain;   
+}
+
+.click-lechesinsellante{
+    background-image: url("../images/leche/sinsellante.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-endodoncia{
+    background-image: url("../images/dientes/endodoncia.png");
+    background-size: contain;   
+}
+
+.click-lecheendodoncia{
+    background-image: url("../images/leche/endodoncia.png");
+    background-size: contain;  
+    margin-left: 41px;
+    width: 32px;
+    height: 32px; 
+}
+
+.click-sinendodoncia{
+    background-image: url("../images/dientes/sinendodoncia.png");
+    background-size: contain;   
+}
+
+.click-lechesinendodoncia{
+    background-image: url("../images/leche/sinendodoncia.png");
+    background-size: contain; 
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;  
+}
+
+.click-ionomerodevidrio{
+    background-image: url("../images/dientes/ionomerodevidrio.png");
+    background-size: contain;   
+}
+
+.click-lecheionomerodevidrio{
+    background-image: url("../images/leche/ionomerodevidrio.png");
+    background-size: contain; 
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;  
+}
+
+.click-resinafisica{
+    background-image: url("../images/dientes/resinafisica.png");
+    background-size: contain;   
+}
+
+.click-lecheresinafisica{
+    background-image: url("../images/leche/resinafisica.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-recurrente{
+    background-image: url("../images/dientes/recurrente.png");
+    background-size: contain;   
+}
+
+.click-lecherecurrente{
+    background-image: url("../images/leche/recurrente.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-enerupcion{
+    background-image: url("../images/dientes/enerupcion.png");
+    background-size: contain;   
+}
+
+.click-lecheenerupcion{
+    background-image: url("../images/leche/enerupcion.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-protesis{
+    background-image: url("../images/dientes/protesis.png");
+    background-size: contain;   
+}
+
+.click-lecheprotesis{
+    background-image: url("../images/leche/protesis.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-giroversion{
+    background-image: url("../images/dientes/giroversion.png");
+    background-size: contain;   
+}
+
+.click-lechegiroversion{
+    background-image: url("../images/leche/giroversion.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-semiincluido{
+    background-image: url("../images/dientes/semi-incluido.png");
+    background-size: contain;   
+}
+
+.click-lechesemiincluido{
+    background-image: url("../images/leche/semi-incluido.png");
+    background-size: contain;
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;   
+}
+
+.click-provisional{
+    background-image: url("../images/dientes/provisional.png");
+    background-size: contain;   
+}
+
+.click-lecheprovisional{
+    background-image: url("../images/leche/provisional.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-nucleoarealizar{
+    background-image: url("../images/dientes/nucleoarealizar.png");
+    background-size: contain;   
+}
+
+.click-lechenucleoarealizar{
+    background-image: url("../images/leche/nucleoarealizar.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-nucleobueno{
+    background-image: url("../images/dientes/nucleobueno.png");
+    background-size: contain;  
+}
+
+.click-lechenucleobueno{
+    background-image: url("../images/leche/nucleobueno.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-protesisindicada{
+    background-image: url("../images/dientes/protesisindicada.png");
+    background-size: contain;   
+}
+
+.click-lecheprotesisindicada{
+    background-image: url("../images/leche/protesisindicada.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-fractura{
+    background-image: url("../images/dientes/fractura.png");
+    background-size: contain;   
+}
+
+.click-lechefractura{
+    background-image: url("../images/leche/fractura.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-trauma{
+    background-image: url("../images/dientes/trauma.png");
+    background-size: contain;   
+}
+
+.click-lechetrauma{
+    background-image: url("../images/leche/trauma.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-coronaenbuenestado{
+    background-image: url("../images/dientes/coronaenbuenestado.png");
+    background-size: contain;   
+}
+
+.click-lechecoronaenbuenestado{
+    background-image: url("../images/leche/coronaenbuenestado.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-coronaarealizar{
+    background-image: url("../images/dientes/coronaarealizar.png");
+    background-size: contain;   
+}
+
+
+.click-lechecoronaarealizar{
+    background-image: url("../images/leche/coronaarealizar.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-atricion{
+    background-image: url("../images/dientes/atricion.png");
+    background-size: contain;   
+}
+
+.click-lecheatricion{
+    background-image: url("../images/leche/atricion.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
+.click-abrasion{
+    background-image: url("../images/dientes/abrasion.png");
+    background-size: contain;   
+}
+
+.click-lecheabrasion{
+    background-image: url("../images/leche/abrasion.png");
+    background-size: contain;   
+    margin-left: 41px;
+    width: 32px;
+    height: 32px;
+}
+
 .diente-leche {
     position: relative;
     width: 0px;
-    height: auto;
+    height: 70px;
     margin-left: 50px;
     display: inline-block;
 }

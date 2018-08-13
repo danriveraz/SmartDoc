@@ -256,7 +256,7 @@
 	    //$('#example').DataTable();
 
 	    $('#example').DataTable( {
-	        dom: 'Bfrtip',
+	        dom: 'lBfrtip',
 	        buttons: [
 	            {
 	                extend:    'excelHtml5',

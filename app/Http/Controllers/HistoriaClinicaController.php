@@ -2282,9 +2282,6 @@ class HistoriaClinicaController extends Controller
         $historia->sanos = $request->sanos;
         $historia->observacionesEE = $request->observacionesEE;
 
-        $historia->planTratamientoAprobado = $request->planTratamientoAprobado;
-        $historia->costoTratamiento = $request->costoTratamiento;
-
         //Inicio modificar odontograma
 
         $odontograma = Odontograma::find($historia->idOdontograma);
@@ -2298,6 +2295,7 @@ class HistoriaClinicaController extends Controller
         $diente1->parteInferior = $request->b181;
         $diente1->parteDerecha = $request->r181;
         $diente1->parteIzquierda = $request->l181;
+        $diente1->completo = $request->completo181;
         $diente1->save();
 
         //Diente # 17
@@ -2307,6 +2305,7 @@ class HistoriaClinicaController extends Controller
         $diente2->parteInferior = $request->b171;
         $diente2->parteDerecha = $request->r171;
         $diente2->parteIzquierda = $request->l171;
+        $diente2->completo = $request->completo171;
         $diente2->save();
 
         //Diente # 16
@@ -2316,6 +2315,7 @@ class HistoriaClinicaController extends Controller
         $diente3->parteInferior = $request->b161;
         $diente3->parteDerecha = $request->r161;
         $diente3->parteIzquierda = $request->l161;
+        $diente3->completo = $request->completo161;
         $diente3->save();
 
         //Diente # 15
@@ -2325,6 +2325,7 @@ class HistoriaClinicaController extends Controller
         $diente4->parteInferior = $request->b151;
         $diente4->parteDerecha = $request->r151;
         $diente4->parteIzquierda = $request->l151;
+        $diente4->completo = $request->completo151;
         $diente4->save();
 
         //Diente # 14
@@ -2334,6 +2335,7 @@ class HistoriaClinicaController extends Controller
         $diente5->parteInferior = $request->b141;
         $diente5->parteDerecha = $request->r141;
         $diente5->parteIzquierda = $request->l141;
+        $diente5->completo = $request->completo141;
         $diente5->save();
 
         //Diente # 13
@@ -2343,6 +2345,7 @@ class HistoriaClinicaController extends Controller
         $diente6->parteInferior = $request->b131;
         $diente6->parteDerecha = $request->r131;
         $diente6->parteIzquierda = $request->l131;
+        $diente6->completo = $request->completo131;
         $diente6->save();
 
         //Diente # 12
@@ -2352,6 +2355,7 @@ class HistoriaClinicaController extends Controller
         $diente7->parteInferior = $request->b121;
         $diente7->parteDerecha = $request->r121;
         $diente7->parteIzquierda = $request->l121;
+        $diente7->completo = $request->completo121;
         $diente7->save();
 
         //Diente # 11
@@ -2361,6 +2365,7 @@ class HistoriaClinicaController extends Controller
         $diente8->parteInferior = $request->b111;
         $diente8->parteDerecha = $request->r111;
         $diente8->parteIzquierda = $request->l111;
+        $diente8->completo = $request->completo111;
         $diente8->save();
 
         //Diente # 21
@@ -2370,6 +2375,7 @@ class HistoriaClinicaController extends Controller
         $diente9->parteInferior = $request->b211;
         $diente9->parteDerecha = $request->r211;
         $diente9->parteIzquierda = $request->l211;
+        $diente9->completo = $request->completo211;
         $diente9->save();
 
         //Diente # 22
@@ -2379,6 +2385,7 @@ class HistoriaClinicaController extends Controller
         $diente10->parteInferior = $request->b221;
         $diente10->parteDerecha = $request->r221;
         $diente10->parteIzquierda = $request->l221;
+        $diente10->completo = $request->completo221;
         $diente10->save();
 
         //Diente # 23
@@ -2388,6 +2395,7 @@ class HistoriaClinicaController extends Controller
         $diente11->parteInferior = $request->b231;
         $diente11->parteDerecha = $request->r231;
         $diente11->parteIzquierda = $request->l231;
+        $diente11->completo = $request->completo231;
         $diente11->save();
 
         //Diente # 24
@@ -2397,6 +2405,7 @@ class HistoriaClinicaController extends Controller
         $diente12->parteInferior = $request->b241;
         $diente12->parteDerecha = $request->r241;
         $diente12->parteIzquierda = $request->l241;
+        $diente12->completo = $request->completo241;
         $diente12->save();
 
         //Diente # 25
@@ -2406,6 +2415,7 @@ class HistoriaClinicaController extends Controller
         $diente13->parteInferior = $request->b251;
         $diente13->parteDerecha = $request->r251;
         $diente13->parteIzquierda = $request->l251;
+        $diente13->completo = $request->completo251;
         $diente13->save();
 
         //Diente # 26
@@ -2415,6 +2425,7 @@ class HistoriaClinicaController extends Controller
         $diente14->parteInferior = $request->b261;
         $diente14->parteDerecha = $request->r261;
         $diente14->parteIzquierda = $request->l261;
+        $diente14->completo = $request->completo261;
         $diente14->save();
 
         //Diente # 27
@@ -2424,6 +2435,7 @@ class HistoriaClinicaController extends Controller
         $diente15->parteInferior = $request->b271;
         $diente15->parteDerecha = $request->r271;
         $diente15->parteIzquierda = $request->l271;
+        $diente15->completo = $request->completo271;
         $diente15->save();
 
         //Diente # 28
@@ -2433,6 +2445,7 @@ class HistoriaClinicaController extends Controller
         $diente16->parteInferior = $request->b281;
         $diente16->parteDerecha = $request->r281;
         $diente16->parteIzquierda = $request->l281;
+        $diente16->completo = $request->completo281;
         $diente16->save();
 
         //Bloque medio superior
@@ -2443,6 +2456,7 @@ class HistoriaClinicaController extends Controller
         $diente17->parteInferior = $request->bleche551;
         $diente17->parteDerecha = $request->rleche551;
         $diente17->parteIzquierda = $request->lleche551;
+        $diente17->completo = $request->completo551;
         $diente17->save();
 
         //Diente # 54
@@ -2452,6 +2466,7 @@ class HistoriaClinicaController extends Controller
         $diente18->parteInferior = $request->bleche541;
         $diente18->parteDerecha = $request->rleche541;
         $diente18->parteIzquierda = $request->lleche541;
+        $diente18->completo = $request->completo541;
         $diente18->save();
 
         //Diente # 53
@@ -2461,6 +2476,7 @@ class HistoriaClinicaController extends Controller
         $diente19->parteInferior = $request->bleche531;
         $diente19->parteDerecha = $request->rleche531;
         $diente19->parteIzquierda = $request->lechel531;
+        $diente19->completo = $request->completo531;
         $diente19->save();
 
         //Diente # 52
@@ -2470,6 +2486,7 @@ class HistoriaClinicaController extends Controller
         $diente20->parteInferior = $request->bleche521;
         $diente20->parteDerecha = $request->rleche521;
         $diente20->parteIzquierda = $request->lleche521;
+        $diente20->completo = $request->completo521;
         $diente20->save();
 
         //Diente # 51
@@ -2479,6 +2496,7 @@ class HistoriaClinicaController extends Controller
         $diente21->parteInferior = $request->bleche511;
         $diente21->parteDerecha = $request->rleche511;
         $diente21->parteIzquierda = $request->lleche511;
+        $diente21->completo = $request->completo511;
         $diente21->save();
 
         //Diente # 61
@@ -2488,6 +2506,7 @@ class HistoriaClinicaController extends Controller
         $diente22->parteInferior = $request->bleche611;
         $diente22->parteDerecha = $request->rleche611;
         $diente22->parteIzquierda = $request->lleche611;
+        $diente22->completo = $request->completo611;
         $diente22->save();
 
         //Diente # 62
@@ -2497,6 +2516,7 @@ class HistoriaClinicaController extends Controller
         $diente23->parteInferior = $request->bleche621;
         $diente23->parteDerecha = $request->rleche621;
         $diente23->parteIzquierda = $request->lleche621;
+        $diente23->completo = $request->completo621;
         $diente23->save();
 
         //Diente # 63
@@ -2506,6 +2526,7 @@ class HistoriaClinicaController extends Controller
         $diente24->parteInferior = $request->bleche631;
         $diente24->parteDerecha = $request->rleche631;
         $diente24->parteIzquierda = $request->lleche631;
+        $diente24->completo = $request->completo631;
         $diente24->save();
 
         //Diente # 64
@@ -2515,6 +2536,7 @@ class HistoriaClinicaController extends Controller
         $diente25->parteInferior = $request->bleche641;
         $diente25->parteDerecha = $request->rleche641;
         $diente25->parteIzquierda = $request->lleche641;
+        $diente25->completo = $request->completo641;
         $diente25->save();
 
         //Diente # 65
@@ -2524,6 +2546,7 @@ class HistoriaClinicaController extends Controller
         $diente26->parteInferior = $request->bleche651;
         $diente26->parteDerecha = $request->rleche651;
         $diente26->parteIzquierda = $request->lleche651;
+        $diente26->completo = $request->completo651;
         $diente26->save();
 
         //Bloque medio inferior
@@ -2534,6 +2557,7 @@ class HistoriaClinicaController extends Controller
         $diente27->parteInferior = $request->bleche851;
         $diente27->parteDerecha = $request->rleche851;
         $diente27->parteIzquierda = $request->lleche851;
+        $diente27->completo = $request->completo851;
         $diente27->save();
 
         //Diente # 84
@@ -2543,6 +2567,7 @@ class HistoriaClinicaController extends Controller
         $diente28->parteInferior = $request->bleche841;
         $diente28->parteDerecha = $request->rleche841;
         $diente28->parteIzquierda = $request->lleche841;
+        $diente28->completo = $request->completo841;
         $diente28->save();
 
         //Diente # 83
@@ -2552,6 +2577,7 @@ class HistoriaClinicaController extends Controller
         $diente29->parteInferior = $request->bleche831;
         $diente29->parteDerecha = $request->rleche831;
         $diente29->parteIzquierda = $request->lleche831;
+        $diente29->completo = $request->completo831;
         $diente29->save();
 
         //Diente # 82
@@ -2561,6 +2587,7 @@ class HistoriaClinicaController extends Controller
         $diente30->parteInferior = $request->bleche821;
         $diente30->parteDerecha = $request->rleche821;
         $diente30->parteIzquierda = $request->lleche821;
+        $diente30->completo = $request->completo821;
         $diente30->save();
 
         //Diente # 81
@@ -2570,6 +2597,7 @@ class HistoriaClinicaController extends Controller
         $diente31->parteInferior = $request->bleche811;
         $diente31->parteDerecha = $request->rleche811;
         $diente31->parteIzquierda = $request->lleche811;
+        $diente3->completo = $request->completo811;
         $diente31->save();
 
         //Diente # 71
@@ -2579,6 +2607,7 @@ class HistoriaClinicaController extends Controller
         $diente32->parteInferior = $request->bleche711;
         $diente32->parteDerecha = $request->rleche711;
         $diente32->parteIzquierda = $request->lleche711;
+        $diente32->completo = $request->completo711;
         $diente32->save();
 
         //Diente # 72
@@ -2588,6 +2617,7 @@ class HistoriaClinicaController extends Controller
         $diente33->parteInferior = $request->bleche721;
         $diente33->parteDerecha = $request->rleche721;
         $diente33->parteIzquierda = $request->lleche721;
+        $diente33->completo = $request->completo721;
         $diente33->save();
 
         //Diente # 73
@@ -2597,6 +2627,7 @@ class HistoriaClinicaController extends Controller
         $diente34->parteInferior = $request->bleche731;
         $diente34->parteDerecha = $request->rleche731;
         $diente34->parteIzquierda = $request->lleche731;
+        $diente34->completo = $request->completo731;
         $diente34->save();
 
         //Diente # 74
@@ -2606,6 +2637,7 @@ class HistoriaClinicaController extends Controller
         $diente35->parteInferior = $request->bleche741;
         $diente35->parteDerecha = $request->rleche741;
         $diente35->parteIzquierda = $request->lleche741;
+        $diente35->completo = $request->completo741;
         $diente35->save();
 
         //Diente # 75
@@ -2615,6 +2647,7 @@ class HistoriaClinicaController extends Controller
         $diente36->parteInferior = $request->bleche751;
         $diente36->parteDerecha = $request->rleche751;
         $diente36->parteIzquierda = $request->lleche751;
+        $diente36->completo = $request->completo751;
         $diente36->save();
 
         //Bloque inferior
@@ -2625,6 +2658,7 @@ class HistoriaClinicaController extends Controller
         $diente37->parteInferior = $request->b481;
         $diente37->parteDerecha = $request->r481;
         $diente37->parteIzquierda = $request->l481;
+        $diente37->completo = $request->completo481;
         $diente37->save();
 
         //Diente # 47
@@ -2634,6 +2668,7 @@ class HistoriaClinicaController extends Controller
         $diente38->parteInferior = $request->b471;
         $diente38->parteDerecha = $request->r471;
         $diente38->parteIzquierda = $request->l471;
+        $diente38->completo = $request->completo471;
         $diente38->save();
 
         //Diente # 46
@@ -2643,6 +2678,7 @@ class HistoriaClinicaController extends Controller
         $diente39->parteInferior = $request->b461;
         $diente39->parteDerecha = $request->r461;
         $diente39->parteIzquierda = $request->l461;
+        $diente39->completo = $request->completo461;
         $diente39->save();
 
         //Diente # 45
@@ -2652,6 +2688,7 @@ class HistoriaClinicaController extends Controller
         $diente40->parteInferior = $request->b451;
         $diente40->parteDerecha = $request->r451;
         $diente40->parteIzquierda = $request->l451;
+        $diente40->completo = $request->completo451;
         $diente40->save();
 
         //Diente # 44
@@ -2661,6 +2698,7 @@ class HistoriaClinicaController extends Controller
         $diente41->parteInferior = $request->b441;
         $diente41->parteDerecha = $request->r441;
         $diente41->parteIzquierda = $request->l441;
+        $diente41->completo = $request->completo441;
         $diente41->save();
 
         //Diente # 43
@@ -2670,6 +2708,7 @@ class HistoriaClinicaController extends Controller
         $diente42->parteInferior = $request->b431;
         $diente42->parteDerecha = $request->r431;
         $diente42->parteIzquierda = $request->l431;
+        $diente42->completo = $request->completo431;
         $diente42->save();
 
         //Diente # 42
@@ -2679,6 +2718,7 @@ class HistoriaClinicaController extends Controller
         $diente43->parteInferior = $request->b421;
         $diente43->parteDerecha = $request->r421;
         $diente43->parteIzquierda = $request->l421;
+        $diente43->completo = $request->completo421;
         $diente43->save();
 
         //Diente # 41
@@ -2688,6 +2728,7 @@ class HistoriaClinicaController extends Controller
         $diente44->parteInferior = $request->b411;
         $diente44->parteDerecha = $request->r411;
         $diente44->parteIzquierda = $request->l411;
+        $diente44->completo = $request->completo411;
         $diente44->save();
 
         //Diente # 31
@@ -2697,6 +2738,7 @@ class HistoriaClinicaController extends Controller
         $diente45->parteInferior = $request->b311;
         $diente45->parteDerecha = $request->r311;
         $diente45->parteIzquierda = $request->l311;
+        $diente45->completo = $request->completo311;
         $diente45->save();
 
         //Diente # 32
@@ -2706,6 +2748,7 @@ class HistoriaClinicaController extends Controller
         $diente46->parteInferior = $request->b321;
         $diente46->parteDerecha = $request->r321;
         $diente46->parteIzquierda = $request->l321;
+        $diente46->completo = $request->completo321;
         $diente46->save();
 
         //Diente # 33
@@ -2715,6 +2758,7 @@ class HistoriaClinicaController extends Controller
         $diente47->parteInferior = $request->b331;
         $diente47->parteDerecha = $request->r331;
         $diente47->parteIzquierda = $request->l331;
+        $diente47->completo = $request->completo331;
         $diente47->save();
 
         //Diente # 34
@@ -2724,6 +2768,7 @@ class HistoriaClinicaController extends Controller
         $diente48->parteInferior = $request->b341;
         $diente48->parteDerecha = $request->r341;
         $diente48->parteIzquierda = $request->l341;
+        $diente48->completo = $request->completo341;
         $diente48->save();
 
         //Diente # 35
@@ -2733,6 +2778,7 @@ class HistoriaClinicaController extends Controller
         $diente49->parteInferior = $request->b351;
         $diente49->parteDerecha = $request->r351;
         $diente49->parteIzquierda = $request->l351;
+        $diente49->completo = $request->completo351;
         $diente49->save();
 
         //Diente # 36
@@ -2742,6 +2788,7 @@ class HistoriaClinicaController extends Controller
         $diente50->parteInferior = $request->b361;
         $diente50->parteDerecha = $request->r361;
         $diente50->parteIzquierda = $request->l361;
+        $diente50->completo = $request->completo361;
         $diente50->save();
 
         //Diente # 37
@@ -2751,6 +2798,7 @@ class HistoriaClinicaController extends Controller
         $diente51->parteInferior = $request->b371;
         $diente51->parteDerecha = $request->r371;
         $diente51->parteIzquierda = $request->l371;
+        $diente51->completo = $request->completo371;
         $diente51->save();
 
         //Diente # 38
@@ -2760,6 +2808,7 @@ class HistoriaClinicaController extends Controller
         $diente52->parteInferior = $request->b381;
         $diente52->parteDerecha = $request->r381;
         $diente52->parteIzquierda = $request->l381;
+        $diente52->completo = $request->completo381;
         $diente52->save();
 
         //Bloque superior
@@ -2770,6 +2819,7 @@ class HistoriaClinicaController extends Controller
         $diente1Inicial->parteInferior = $request->b18Inicial1;
         $diente1Inicial->parteDerecha = $request->r18Inicial1;
         $diente1Inicial->parteIzquierda = $request->l18Inicial1;
+        $diente1Inicial->completo = $request->completo18Inicial1;
         $diente1Inicial->save();
 
         //Diente # 17
@@ -2779,6 +2829,7 @@ class HistoriaClinicaController extends Controller
         $diente2Inicial->parteInferior = $request->b17Inicial1;
         $diente2Inicial->parteDerecha = $request->r17Inicial1;
         $diente2Inicial->parteIzquierda = $request->l17Inicial1;
+        $diente2Inicial->completo = $request->completo17Inicial1;
         $diente2Inicial->save();
 
         //Diente # 16
@@ -2788,6 +2839,7 @@ class HistoriaClinicaController extends Controller
         $diente3Inicial->parteInferior = $request->b16Inicial1;
         $diente3Inicial->parteDerecha = $request->r16Inicial1;
         $diente3Inicial->parteIzquierda = $request->l16Inicial1;
+        $diente3Inicial->completo = $request->completo16Inicial1;
         $diente3Inicial->save();
 
         //Diente # 15
@@ -2797,6 +2849,7 @@ class HistoriaClinicaController extends Controller
         $diente4Inicial->parteInferior = $request->b15Inicial1;
         $diente4Inicial->parteDerecha = $request->r15Inicial1;
         $diente4Inicial->parteIzquierda = $request->l15Inicial1;
+        $diente4Inicial->completo = $request->completo15Inicial1;
         $diente4Inicial->save();
 
         //Diente # 14
@@ -2806,6 +2859,7 @@ class HistoriaClinicaController extends Controller
         $diente5Inicial->parteInferior = $request->b14Inicial1;
         $diente5Inicial->parteDerecha = $request->r14Inicial1;
         $diente5Inicial->parteIzquierda = $request->l14Inicial1;
+        $diente5Inicial->completo = $request->completo14Inicial1;
         $diente5Inicial->save();
 
         //Diente # 13
@@ -2815,6 +2869,7 @@ class HistoriaClinicaController extends Controller
         $diente6Inicial->parteInferior = $request->b13Inicial1;
         $diente6Inicial->parteDerecha = $request->r13Inicial1;
         $diente6Inicial->parteIzquierda = $request->l13Inicial1;
+        $diente6Inicial->completo = $request->completo13Inicial1;
         $diente6Inicial->save();
 
         //Diente # 12
@@ -2824,6 +2879,7 @@ class HistoriaClinicaController extends Controller
         $diente7Inicial->parteInferior = $request->b12Inicial1;
         $diente7Inicial->parteDerecha = $request->r12Inicial1;
         $diente7Inicial->parteIzquierda = $request->l12Inicial1;
+        $diente7Inicial->completo = $request->completo12Inicial1;
         $diente7Inicial->save();
 
         //Diente # 11
@@ -2833,6 +2889,7 @@ class HistoriaClinicaController extends Controller
         $diente8Inicial->parteInferior = $request->b11Inicial1;
         $diente8Inicial->parteDerecha = $request->r11Inicial1;
         $diente8Inicial->parteIzquierda = $request->l11Inicial1;
+        $diente8Inicial->completo = $request->completo11Inicial1;
         $diente8Inicial->save();
 
         //Diente # 21
@@ -2842,6 +2899,7 @@ class HistoriaClinicaController extends Controller
         $diente9Inicial->parteInferior = $request->b21Inicial1;
         $diente9Inicial->parteDerecha = $request->r21Inicial1;
         $diente9Inicial->parteIzquierda = $request->l21Inicial1;
+        $diente9Inicial->completo = $request->completo21Inicial1;
         $diente9Inicial->save();
 
         //Diente # 22
@@ -2851,6 +2909,7 @@ class HistoriaClinicaController extends Controller
         $diente10Inicial->parteInferior = $request->b22Inicial1;
         $diente10Inicial->parteDerecha = $request->r22Inicial1;
         $diente10Inicial->parteIzquierda = $request->l22Inicial1;
+        $diente10Inicial->completo = $request->completo22Inicial1;
         $diente10Inicial->save();
 
         //Diente # 23
@@ -2860,6 +2919,7 @@ class HistoriaClinicaController extends Controller
         $diente11Inicial->parteInferior = $request->b23Inicial1;
         $diente11Inicial->parteDerecha = $request->r23Inicial1;
         $diente11Inicial->parteIzquierda = $request->l23Inicial1;
+        $diente11Inicial->completo = $request->completo23Inicial1;
         $diente11Inicial->save();
 
         //Diente # 24
@@ -2869,6 +2929,7 @@ class HistoriaClinicaController extends Controller
         $diente12Inicial->parteInferior = $request->b24Inicial1;
         $diente12Inicial->parteDerecha = $request->r24Inicial1;
         $diente12Inicial->parteIzquierda = $request->l24Inicial1;
+        $diente12Inicial->completo = $request->completo24Inicial1;
         $diente12Inicial->save();
 
         //Diente # 25
@@ -2878,6 +2939,7 @@ class HistoriaClinicaController extends Controller
         $diente13Inicial->parteInferior = $request->b25Inicial1;
         $diente13Inicial->parteDerecha = $request->r25Inicial1;
         $diente13Inicial->parteIzquierda = $request->l25Inicial1;
+        $diente13Inicial->completo = $request->completo25Inicial1;
         $diente13Inicial->save();
 
         //Diente # 26
@@ -2887,6 +2949,7 @@ class HistoriaClinicaController extends Controller
         $diente14Inicial->parteInferior = $request->b26Inicial1;
         $diente14Inicial->parteDerecha = $request->r26Inicial1;
         $diente14Inicial->parteIzquierda = $request->l26Inicial1;
+        $diente14Inicial->completo = $request->completo26Inicial1;
         $diente14Inicial->save();
 
         //Diente # 27
@@ -2896,6 +2959,7 @@ class HistoriaClinicaController extends Controller
         $diente15Inicial->parteInferior = $request->b27Inicial1;
         $diente15Inicial->parteDerecha = $request->r27Inicial1;
         $diente15Inicial->parteIzquierda = $request->l27Inicial1;
+        $diente15Inicial->completo = $request->completo27Inicial1;
         $diente15Inicial->save();
 
         //Diente # 28
@@ -2905,6 +2969,7 @@ class HistoriaClinicaController extends Controller
         $diente16Inicial->parteInferior = $request->b28Inicial1;
         $diente16Inicial->parteDerecha = $request->r28Inicial1;
         $diente16Inicial->parteIzquierda = $request->l28Inicial1;
+        $diente16nicial->completo = $request->completo28Inicial1;
         $diente16Inicial->save();
 
         //Bloque medio superior
@@ -2915,6 +2980,7 @@ class HistoriaClinicaController extends Controller
         $diente17Inicial->parteInferior = $request->bleche55Inicial1;
         $diente17Inicial->parteDerecha = $request->rleche55Inicial1;
         $diente17Inicial->parteIzquierda = $request->lleche55Inicial1;
+        $diente17Inicial->completo = $request->completo55Inicial1;
         $diente17Inicial->save();
 
         //Diente # 54
@@ -2924,6 +2990,7 @@ class HistoriaClinicaController extends Controller
         $diente18Inicial->parteInferior = $request->bleche54Inicial1;
         $diente18Inicial->parteDerecha = $request->rleche54Inicial1;
         $diente18Inicial->parteIzquierda = $request->lleche54Inicial1;
+        $diente18Inicial->completo = $request->completo54Inicial1;
         $diente18Inicial->save();
 
         //Diente # 53
@@ -2933,6 +3000,7 @@ class HistoriaClinicaController extends Controller
         $diente19Inicial->parteInferior = $request->bleche53Inicial1;
         $diente19Inicial->parteDerecha = $request->rleche53Inicial1;
         $diente19Inicial->parteIzquierda = $request->lleche53Inicial1;
+        $diente19Inicial->completo = $request->completo53Inicial1;
         $diente19Inicial->save();
 
         //Diente # 52
@@ -2942,6 +3010,7 @@ class HistoriaClinicaController extends Controller
         $diente20Inicial->parteInferior = $request->bleche52Inicial1;
         $diente20Inicial->parteDerecha = $request->rleche52Inicial1;
         $diente20Inicial->parteIzquierda = $request->lleche52Inicial1;
+        $diente20Inicial->completo = $request->completo52Inicial1;
         $diente20Inicial->save();
 
         //Diente # 51
@@ -2951,6 +3020,7 @@ class HistoriaClinicaController extends Controller
         $diente21Inicial->parteInferior = $request->bleche51Inicial1;
         $diente21Inicial->parteDerecha = $request->rleche51Inicial1;
         $diente21Inicial->parteIzquierda = $request->lleche51Inicial1;
+        $diente21Inicial->completo = $request->completo51Inicial1;
         $diente21Inicial->save();
 
         //Diente # 61
@@ -2960,6 +3030,7 @@ class HistoriaClinicaController extends Controller
         $diente22Inicial->parteInferior = $request->bleche61Inicial1;
         $diente22Inicial->parteDerecha = $request->rleche61Inicial1;
         $diente22Inicial->parteIzquierda = $request->lleche61Inicial1;
+        $diente22Inicial->completo = $request->completo61Inicial1;
         $diente22Inicial->save();
 
         //Diente # 62
@@ -2969,6 +3040,7 @@ class HistoriaClinicaController extends Controller
         $diente23Inicial->parteInferior = $request->bleche62Inicial1;
         $diente23Inicial->parteDerecha = $request->rleche62Inicial1;
         $diente23Inicial->parteIzquierda = $request->lleche62Inicial1;
+        $diente23Inicial->completo = $request->completo62Inicial1;
         $diente23Inicial->save();
 
         //Diente # 63
@@ -2978,6 +3050,7 @@ class HistoriaClinicaController extends Controller
         $diente24Inicial->parteInferior = $request->bleche63Inicial1;
         $diente24Inicial->parteDerecha = $request->rleche63Inicial1;
         $diente24Inicial->parteIzquierda = $request->lleche63Inicial1;
+        $diente24Inicial->completo = $request->completo63Inicial1;
         $diente24Inicial->save();
 
         //Diente # 64
@@ -2987,6 +3060,7 @@ class HistoriaClinicaController extends Controller
         $diente25Inicial->parteInferior = $request->bleche64Inicial1;
         $diente25Inicial->parteDerecha = $request->rleche64Inicial1;
         $diente25Inicial->parteIzquierda = $request->lleche64Inicial1;
+        $diente25Inicial->completo = $request->completo64Inicial1;
         $diente25Inicial->save();
 
         //Diente # 65
@@ -2996,6 +3070,7 @@ class HistoriaClinicaController extends Controller
         $diente26Inicial->parteInferior = $request->bleche65Inicial1;
         $diente26Inicial->parteDerecha = $request->rleche65Inicial1;
         $diente26Inicial->parteIzquierda = $request->lleche65Inicial1;
+        $diente26Inicial->completo = $request->completo65Inicial1;
         $diente26Inicial->save();
 
         //Bloque medio inferior
@@ -3006,6 +3081,7 @@ class HistoriaClinicaController extends Controller
         $diente27Inicial->parteInferior = $request->bleche85Inicial1;
         $diente27Inicial->parteDerecha = $request->rleche85Inicial1;
         $diente27Inicial->parteIzquierda = $request->lleche85Inicial1;
+        $diente27Inicial->completo = $request->completo85Inicial1;
         $diente27Inicial->save();
 
         //Diente # 84
@@ -3015,6 +3091,7 @@ class HistoriaClinicaController extends Controller
         $diente28Inicial->parteInferior = $request->bleche84Inicial1;
         $diente28Inicial->parteDerecha = $request->rleche84Inicial1;
         $diente28Inicial->parteIzquierda = $request->lleche84Inicial1;
+        $diente28Inicial->completo = $request->completo84Inicial1;
         $diente28Inicial->save();
 
         //Diente # 83
@@ -3024,6 +3101,7 @@ class HistoriaClinicaController extends Controller
         $diente29Inicial->parteInferior = $request->bleche83Inicial1;
         $diente29Inicial->parteDerecha = $request->rleche83Inicial1;
         $diente29Inicial->parteIzquierda = $request->lleche83Inicial1;
+        $diente29Inicial->completo = $request->completo29Inicial1;
         $diente29Inicial->save();
 
         //Diente # 82
@@ -3033,6 +3111,7 @@ class HistoriaClinicaController extends Controller
         $diente30Inicial->parteInferior = $request->bleche82Inicial1;
         $diente30Inicial->parteDerecha = $request->rleche82Inicial1;
         $diente30Inicial->parteIzquierda = $request->lleche82Inicial1;
+        $diente30Inicial->completo = $request->completo82Inicial1;
         $diente30Inicial->save();
 
         //Diente # 81
@@ -3042,6 +3121,7 @@ class HistoriaClinicaController extends Controller
         $diente31Inicial->parteInferior = $request->bleche81Inicial1;
         $diente31Inicial->parteDerecha = $request->rleche81Inicial1;
         $diente31Inicial->parteIzquierda = $request->lleche81Inicial1;
+        $diente31Inicial->completo = $request->completo81Inicial1;
         $diente31Inicial->save();
 
         //Diente # 71
@@ -3051,6 +3131,7 @@ class HistoriaClinicaController extends Controller
         $diente32Inicial->parteInferior = $request->bleche71Inicial1;
         $diente32Inicial->parteDerecha = $request->rleche71Inicial1;
         $diente32Inicial->parteIzquierda = $request->lleche71Inicial1;
+        $diente32Inicial->completo = $request->completo71Inicial1;
         $diente32Inicial->save();
 
         //Diente # 72
@@ -3060,6 +3141,7 @@ class HistoriaClinicaController extends Controller
         $diente33Inicial->parteInferior = $request->bleche72Inicial1;
         $diente33Inicial->parteDerecha = $request->rleche72Inicial1;
         $diente33Inicial->parteIzquierda = $request->lleche72Inicial1;
+        $diente33Inicial->completo = $request->completo72Inicial1;
         $diente33Inicial->save();
 
         //Diente # 73
@@ -3069,6 +3151,7 @@ class HistoriaClinicaController extends Controller
         $diente34Inicial->parteInferior = $request->bleche73Inicial1;
         $diente34Inicial->parteDerecha = $request->rleche73Inicial1;
         $diente34Inicial->parteIzquierda = $request->lleche73Inicial1;
+        $diente34Inicial->completo = $request->completo73Inicial1;
         $diente34Inicial->save();
 
         //Diente # 74
@@ -3078,6 +3161,7 @@ class HistoriaClinicaController extends Controller
         $diente35Inicial->parteInferior = $request->bleche74Inicial1;
         $diente35Inicial->parteDerecha = $request->rleche74Inicial1;
         $diente35Inicial->parteIzquierda = $request->lleche74Inicial1;
+        $diente35Inicial->completo = $request->completo74Inicial1;
         $diente35Inicial->save();
 
         //Diente # 75
@@ -3087,6 +3171,7 @@ class HistoriaClinicaController extends Controller
         $diente36Inicial->parteInferior = $request->bleche75Inicial1;
         $diente36Inicial->parteDerecha = $request->rleche75Inicial1;
         $diente36Inicial->parteIzquierda = $request->lleche75Inicial1;
+        $diente36Inicial->completo = $request->completo75Inicial1;
         $diente36Inicial->save();
 
         //Bloque inferior
@@ -3097,6 +3182,7 @@ class HistoriaClinicaController extends Controller
         $diente37Inicial->parteInferior = $request->b48Inicial1;
         $diente37Inicial->parteDerecha = $request->r48Inicial1;
         $diente37Inicial->parteIzquierda = $request->l48Inicial1;
+        $diente37Inicial->completo = $request->completo48Inicial1;
         $diente37Inicial->save();
 
         //Diente # 47
@@ -3115,6 +3201,7 @@ class HistoriaClinicaController extends Controller
         $diente39Inicial->parteInferior = $request->b46Inicial1;
         $diente39Inicial->parteDerecha = $request->r46Inicial1;
         $diente39Inicial->parteIzquierda = $request->l46Inicial1;
+        $diente39Inicial->completo = $request->completo46Inicial1;
         $diente39Inicial->save();
 
         //Diente # 45
@@ -3124,6 +3211,7 @@ class HistoriaClinicaController extends Controller
         $diente40Inicial->parteInferior = $request->b45Inicial1;
         $diente40Inicial->parteDerecha = $request->r45Inicial1;
         $diente40Inicial->parteIzquierda = $request->l45Inicial1;
+        $diente40Inicial->completo = $request->completo45Inicial1;
         $diente40Inicial->save();
 
         //Diente # 44
@@ -3133,6 +3221,7 @@ class HistoriaClinicaController extends Controller
         $diente41Inicial->parteInferior = $request->b44Inicial1;
         $diente41Inicial->parteDerecha = $request->r44Inicial1;
         $diente41Inicial->parteIzquierda = $request->l44Inicial1;
+        $diente41Inicial->completo = $request->completo44Inicial1;
         $diente41Inicial->save();
 
         //Diente # 43
@@ -3142,6 +3231,7 @@ class HistoriaClinicaController extends Controller
         $diente42Inicial->parteInferior = $request->b43Inicial1;
         $diente42Inicial->parteDerecha = $request->r43Inicial1;
         $diente42Inicial->parteIzquierda = $request->l43Inicial1;
+        $diente42Inicial->completo = $request->completo43Inicial1;
         $diente42Inicial->save();
 
         //Diente # 42
@@ -3151,6 +3241,7 @@ class HistoriaClinicaController extends Controller
         $diente43Inicial->parteInferior = $request->b42Inicial1;
         $diente43Inicial->parteDerecha = $request->r42Inicial1;
         $diente43Inicial->parteIzquierda = $request->l42Inicial1;
+        $diente43Inicial->completo = $request->completo42Inicial1;
         $diente43Inicial->save();
 
         //Diente # 41
@@ -3160,6 +3251,7 @@ class HistoriaClinicaController extends Controller
         $diente44Inicial->parteInferior = $request->b41Inicial1;
         $diente44Inicial->parteDerecha = $request->r41Inicial1;
         $diente44Inicial->parteIzquierda = $request->l41Inicial1;
+        $diente44Inicial->completo = $request->completo41Inicial1;
         $diente44Inicial->save();
 
         //Diente # 31
@@ -3169,6 +3261,7 @@ class HistoriaClinicaController extends Controller
         $diente45Inicial->parteInferior = $request->b31Inicial1;
         $diente45Inicial->parteDerecha = $request->r31Inicial1;
         $diente45Inicial->parteIzquierda = $request->l31Inicial1;
+        $diente45Inicial->completo = $request->completo31Inicial1;
         $diente45Inicial->save();
 
         //Diente # 32
@@ -3178,6 +3271,7 @@ class HistoriaClinicaController extends Controller
         $diente46Inicial->parteInferior = $request->b32Inicial1;
         $diente46Inicial->parteDerecha = $request->r32Inicial1;
         $diente46Inicial->parteIzquierda = $request->l32Inicial1;
+        $diente46Inicial->completo = $request->completo32Inicial1;
         $diente46Inicial->save();
 
         //Diente # 33
@@ -3187,6 +3281,7 @@ class HistoriaClinicaController extends Controller
         $diente47Inicial->parteInferior = $request->b33Inicial1;
         $diente47Inicial->parteDerecha = $request->r33Inicial1;
         $diente47Inicial->parteIzquierda = $request->l33Inicial1;
+        $diente47Inicial->completo = $request->completo33Inicial1;
         $diente47Inicial->save();
 
         //Diente # 34
@@ -3196,6 +3291,7 @@ class HistoriaClinicaController extends Controller
         $diente48Inicial->parteInferior = $request->b34Inicial1;
         $diente48Inicial->parteDerecha = $request->r34Inicial1;
         $diente48Inicial->parteIzquierda = $request->l34Inicial1;
+        $diente48Inicial->completo = $request->completo34Inicial1;
         $diente48Inicial->save();
 
         //Diente # 35
@@ -3205,6 +3301,7 @@ class HistoriaClinicaController extends Controller
         $diente49Inicial->parteInferior = $request->b35Inicial1;
         $diente49Inicial->parteDerecha = $request->r35Inicial1;
         $diente49Inicial->parteIzquierda = $request->l35Inicial1;
+        $diente49Inicial->completo = $request->completo35Inicial1;
         $diente49Inicial->save();
 
         //Diente # 36
@@ -3214,6 +3311,7 @@ class HistoriaClinicaController extends Controller
         $diente50Inicial->parteInferior = $request->b36Inicial1;
         $diente50Inicial->parteDerecha = $request->r36Inicial1;
         $diente50Inicial->parteIzquierda = $request->l36Inicial1;
+        $diente50Inicial->completo = $request->completo36Inicial1;
         $diente50Inicial->save();
 
         //Diente # 37
@@ -3223,6 +3321,7 @@ class HistoriaClinicaController extends Controller
         $diente51Inicial->parteInferior = $request->b37Inicial1;
         $diente51Inicial->parteDerecha = $request->r37Inicial1;
         $diente51Inicial->parteIzquierda = $request->l37Inicial1;
+        $diente51Inicial->completo = $request->completo37Inicial1;
         $diente51Inicial->save();
 
         //Diente # 38
@@ -3232,6 +3331,7 @@ class HistoriaClinicaController extends Controller
         $diente52Inicial->parteInferior = $request->b38Inicial1;
         $diente52Inicial->parteDerecha = $request->r38Inicial1;
         $diente52Inicial->parteIzquierda = $request->l38Inicial1;
+        $diente52Inicial->completo = $request->completo38Inicial1;
         $diente52Inicial->save();
 
         $historia->save();

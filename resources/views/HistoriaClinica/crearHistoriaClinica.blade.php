@@ -875,7 +875,7 @@
 				                                    <label id="recurrente" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/recurrente.png); background-size: contain;" title="Recurrente">
 				                                        <input type="radio" name="options" id="option15" autocomplete="off">
 				                                    </label>
-				                                    <label id="enerupcion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/enerupcion.png); background-size: contain;" title="En erupción">
+				                                    <label id="enErupcion" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/enerupcion.png); background-size: contain;" title="En erupción">
 				                                        <input type="radio" name="options" id="option16" autocomplete="off">
 				                                    </label>
 				                                    <label id="protesis" class="btn" style="margin: 4px; width: 48px; height: 48px; background-image: url(odontograma/images/dientes/protesis.png); background-size: contain;" title="Protesis">
@@ -1168,50 +1168,74 @@
 	        htmlRight += '<div data-name="value" id="dienteindex' + i + 'Inicial" class="diente">' +
 	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + i + '</span>' +
 
-	            '<div id="completoInicial' + i + 'Inicial" class="completo" style="display:none;">' +
+	            '<div id="completoindex' + i + 'Inicial" class="completo click" style="display:none;">' +
                 '</div>' +
+                '<input type="text" id="completoindex' + i + 'Inicial1" + name="completoindex' + i + '1" hidden>' +
+                '<div id="dienteCompletoindex' + i + 'Inicial">' +
 
-                '<div id="dienteCompleto' + i + 'Inicial">' +
-	            '<div id="tindex' + i + '" class="cuadro click">' +
+	            '<div id="nindex' + i + '" class="cuadro click">' +
 	            '</div>' +
-	            '<input type="text" id="tindex' + i + 'Inicial1" + name="tindex' + i + 'Inicial1" hidden = true>' +
+	            '<input type="text" id="nindex' + i + 'Inicial1" + name="nindex' + i + 'Inicial1" hidden = true>' +
+
 	            '<div id="lindex' + i + 'Inicial" class="cuadro izquierdo click">' +
 	            '</div>' +
 	            '<input type="text" id="lindex' + i + 'Inicial1" + name="lindex' + i + 'Inicial1" hidden = true>' +
+
 	            '<div id="bindex' + i + 'Inicial" class="cuadro debajo click">' +
 	            '</div>' +
 	            '<input type="text" id="bindex' + i + 'Inicial1" + name="bindex' + i + 'Inicial1" hidden = true>' +
+
 	            '<div id="rindex' + i + 'Inicial" class="cuadro derecha click click">' +
 	            '</div>' +
 	            '<input type="text" id="rindex' + i + 'Inicial1" + name="rindex' + i + 'Inicial1" hidden = true>' +
+
 	            '<div id="cindex' + i + 'Inicial" class="centro click">' +
 	            '</div>' +
 	            '<input type="text" id="cindex' + i + 'Inicial1" + name="cindex' + i + 'Inicial1" hidden = true>' +
+
 	            '</div>' +
 	            '</div>';
 	        //Dientes Definitivos Cuandrante Izquierdo (Superior/Inferior)
 	        htmlLeft += '<div id="dienteindex' + a + 'Inicial" class="diente">' +
 	            '<span style="margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-info">index' + a + '</span>' +
-	            '<div id="tindex' + a + 'Inicial" class="cuadro click">' +
+
+	            '<div id="completoindex' + a + 'Inicial" class="completo click" style="display:none;">' +
+                '</div>' +
+                '<input type="text" id="completoindex' + a + 'Inicial1" + name="completoindex' + a + '1" hidden>' +
+                '<div id="dienteCompletoindex' + a + 'Inicial">' +
+
+	            '<div id="nindex' + a + 'Inicial" class="cuadro click">' +
 	            '</div>' +
-	            '<input type="text" id="tindex' + a + 'Inicial1" + name="tindex' + a + 'Inicial1" hidden = true>' +
+	            '<input type="text" id="nindex' + a + 'Inicial1" + name="nindex' + a + 'Inicial1" hidden = true>' +
+
 	            '<div id="lindex' + a + 'Inicial" class="cuadro izquierdo click">' +
 	            '</div>' +
 	            '<input type="text" id="lindex' + a + 'Inicial1" + name="lindex' + a + 'Inicial1" hidden = true>' +
+
 	            '<div id="bindex' + a + 'Inicial" class="cuadro debajo click">' +
 	            '</div>' +
 	            '<input type="text" id="bindex' + a + 'Inicial1" + name="bindex' + a + 'Inicial1" hidden = true>' +
+
 	            '<div id="rindex' + a + 'Inicial" class="cuadro derecha click click">' +
 	            '</div>' +
 	            '<input type="text" id="rindex' + a + 'Inicial1" + name="rindex' + a + 'Inicial1" hidden = true>' +
+
 	            '<div id="cindex' + a + 'Inicial" class="centro click">' +
 	            '</div>' +
 	            '<input type="text" id="cindex' + a + 'Inicial1" + name="cindex' + a + 'Inicial1" hidden = true>' +
+
+	            '</div>' +
 	            '</div>';
 	        if (i <= 5) {
 	            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 	            htmlLecheRight += '<div id="dienteLindex' + i + 'Inicial" style="left: -25%;" class="diente-leche">' +
 	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + i + '</span>' +
+
+	                '<div id="completoindex' + i + 'Inicial" class="completo click" style="display:none;">' +
+	                '</div>' +
+	                '<input type="text" id="completoindex' + i + 'Inicial1" + name="completoindex' + i + 'Inicial1" hidden = true>' +
+                	'<div id="dienteCompletoindex' + i + '">' +
+
 	                '<div id="tlecheindex' + i + 'Inicial" class="cuadro-leche top-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="tlecheindex' + i + 'Inicial1" + name="tlecheindex' + i + 'Inicial1" hidden = true>' +
@@ -1227,12 +1251,19 @@
 	                '<div id="clecheindex' + i + 'Inicial" class="centro-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="clecheindex' + i + 'Inicial1" + name="clecheindex' + i + 'Inicial1" hidden = true>' +
+	                '</div>' +
 	                '</div>';
 	        }
 	        if (a < 6) {
 	            //Dientes Temporales Cuandrante Izquierdo (Superior/Inferior)
 	            htmlLecheLeft += '<div id="dienteLindex' + a + 'Inicial" class="diente-leche">' +
 	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + a + '</span>' +
+
+	                '<div id="completoindex' + i + 'Inicial" class="completo click" style="display:none;">' +
+	                '</div>' +
+	                '<input type="text" id="completoindex' + i + 'Inicial1" + name="completoindex' + i + 'Inicial1" hidden = true>' +
+                	'<div id="dienteCompletoindex' + i + '">' +
+
 	                '<div id="tlecheindex' + a + 'Inicial" class="cuadro-leche top-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="tlecheindex' + a + 'Inicial1" + name="tlecheindex' + a + 'Inicial1" hidden = true>' +
@@ -1248,6 +1279,7 @@
 	                '<div id="clecheindex' + a + 'Inicial" class="centro-leche click">' +
 	                '</div>' +
 	                '<input type="text" id="clecheindex' + a + 'Inicial1" + name="clecheindex' + a + 'Inicial1" hidden = true>' +
+	                '</div>' +
 	                '</div>';
 	        }
 	        a++;//
@@ -1339,6 +1371,7 @@
 	            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 	            htmlLecheRight += '<div id="dienteLindex' + i + '" style="left: -25%;" class="diente-leche">' +
 	                '<span style="margin-left: 45px; margin-bottom:5px; display: inline-block !important; border-radius: 10px !important;" class="label label-primary">index' + i + '</span>' +
+
 	                '<div id="completoindex' + i + '" class="completo click" style="display:none;">' +
 	                '</div>' +
 	                '<input type="text" id="completoindex' + i + '1" + name="completoindex' + i + '1" hidden = true>' +
@@ -1413,8 +1446,22 @@
 	        var cuadro = $(this).find("input[name=cuadro]:hidden").val();
 	        switch (control) {
 	        	case "sano":
+	        		$leche = false;
 	        		if($(this).hasClass("click-sano")){
 	        			$(this).removeClass('click-sano');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesano")){
+	        			$(this).removeClass('click-lechesano');
 	        			$id = $(this).attr("id") + 1;
 		        		$idNormal = $id.substring(8,10);
 	        			$div = document.getElementById('completo'+ $idNormal);
@@ -1432,12 +1479,17 @@
 	        				$idLeche = $id.substring(1,6);
 	        				if($idLeche == "leche"){
 	        					$idNormal = $id.substring(6,8);
-	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					$leche = true;
 	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
 	        				}else{
-	        					$idNormal = $id.substring(6,8);
-	        					document.getElementById('completo' + $idNormal).style.display = 'none';
-	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
 	        					$(this).removeClass();
 	        					$(this).addClass('completo click');
 	        				}
@@ -1471,7 +1523,12 @@
 			        	$($divCentro).removeClass();
 			        	$($divCentro).addClass('centro click');
 			        	$($divCentro).attr('title', '');
-			        	$($div).addClass('click-sano');
+
+			        	if(!$leche){
+			        		$($div).addClass('click-sano');
+			        	}else{
+			        		$($div).addClass('click-lechesano');
+			        	}
 	        		}
 	        	break;
 	            case "cariado":
@@ -1529,66 +1586,130 @@
 	            	}
 	                break;
 	            case "obturado":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-blue');
-	                    $id = $(this).attr("id") + 1;
-                        document.getElementById($id).value = "obturado";
-                        $(this).attr('title', 'Obturado');
-	                } else {
-	                	if ($(this).hasClass("click-black")) {
-	                        $(this).removeClass('click-black');
-	                        $(this).addClass('click-blue');
-		                    $id = $(this).attr("id") + 1;
+	                $id = $(this).attr("id") + 1;
+					$idNormal = $id.substring(6,8);
+					$idCompleto = "completo" + $idNormal;
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(8,10);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(1,3);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+        			if(document.getElementById($idCompleto).style.display == "none"){
+	            		if ($(this).hasClass("click-red")) {
+		                    $(this).removeClass('click-red');
+		                    $(this).addClass('click-blue');
 	                        document.getElementById($id).value = "obturado";
 	                        $(this).attr('title', 'Obturado');
-	                    }else{
-	                    	if ($(this).hasClass("click-blue")) {
-		                        $(this).removeClass('click-blue');
-		                        $(this).val("obturado");
-		                        document.getElementById($id).value = "";
-		                        $(this).attr('title', '');
-		                    } else {
+		                } else {
+		                    if ($(this).hasClass("click-black")) {
+		                        $(this).removeClass('click-black');
 		                        $(this).addClass('click-blue');
-		                        $id = $(this).attr("id") + 1;
-			                    document.getElementById($id).value = "obturado";
-			                    $(this).attr('title', 'Obturado');
+		                        document.getElementById($id).value = "obturado";
+		                        $(this).attr('title', 'Obturado');
+		                    } else {
+		                    	if($(this).hasClass("click-blue")){
+			                    	$(this).removeClass('click-blue');
+			                        document.getElementById($id).value = "";
+			                        $(this).attr('title', '');
+		                    	}else{
+		                    		$(this).addClass('click-blue');
+			                        document.getElementById($id).value = "obturado";
+			                        $(this).attr('title', 'Obturado');
+		                    	}
 		                    }
-	                    }
-	                }
-	                break;
+		                }
+	            	}else{
+	            		if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){	
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        				}else{
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}
+	            	}
+	            break;
 	            case "amalgama":
-	                if ($(this).hasClass("click-red")) {
-	                    $(this).removeClass('click-red');
-	                    $(this).addClass('click-black');
-	                    $id = $(this).attr("id") + 1;
-                        document.getElementById($id).value = "amalgama";
-                        $(this).attr('title', 'Amalgama');
-	                } else {
-	                	if ($(this).hasClass("click-blue")) {
-	                        $(this).removeClass('click-blue');
-	                        $(this).addClass('click-black');
-		                    $id = $(this).attr("id") + 1;
+	                $id = $(this).attr("id") + 1;
+					$idNormal = $id.substring(6,8);
+					$idCompleto = "completo" + $idNormal;
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(8,10);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+					if(document.getElementById($idCompleto) == null){
+						$idNormal = $id.substring(1,3);
+						$idCompleto = "completo" + $idNormal;
+					}
+
+        			if(document.getElementById($idCompleto).style.display == "none"){
+	            		if ($(this).hasClass("click-blue")) {
+		                    $(this).removeClass('click-blue');
+		                    $(this).addClass('click-black');
 	                        document.getElementById($id).value = "amalgama";
 	                        $(this).attr('title', 'Amalgama');
-	                    }else{
-	                    	if ($(this).hasClass("click-black")) {
-		                        $(this).removeClass('click-black');
-		                        $(this).val("amalgama");
-		                        document.getElementById($id).value = "";
-		                        $(this).attr('title', '');
-		                    } else {
+		                } else {
+		                    if ($(this).hasClass("click-red")) {
+		                        $(this).removeClass('click-red');
 		                        $(this).addClass('click-black');
-		                        $id = $(this).attr("id") + 1;
-			                    document.getElementById($id).value = "amalgama";
-			                    $(this).attr('title', 'Amalgama');
+		                        document.getElementById($id).value = "amalgama";
+		                        $(this).attr('title', 'Amalgama');
+		                    } else {
+		                    	if($(this).hasClass("click-black")){
+			                    	$(this).removeClass('click-black');
+			                        document.getElementById($id).value = "";
+			                        $(this).attr('title', '');
+		                    	}else{
+		                    		$(this).addClass('click-black');
+			                        document.getElementById($id).value = "amalgama";
+			                        $(this).attr('title', 'Amalgama');
+		                    	}
 		                    }
-	                    }
-	                }
+		                }
+	            	}else{
+	            		if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){	
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        				}else{
+	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}
+	            	}
 	                break;
 				case "ausente":
+					$leche = false;
 	        		if($(this).hasClass("click-ausente")){
 	        			$(this).removeClass('click-ausente');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheausente")){
+	        			$(this).removeClass('click-lecheausente');
 	        			$id = $(this).attr("id") + 1;
 		        		$idNormal = $id.substring(8,10);
 	        			$div = document.getElementById('completo'+ $idNormal);
@@ -1603,13 +1724,20 @@
 	        		}else{
 	        			$id = $(this).attr("id") + 1;
 	        			if($id.length >= 9){
-	        				$idLeche = $id.substring(1,5);
+	        				$idLeche = $id.substring(1,6);
 	        				if($idLeche == "leche"){
-	        					$idNormal = $id.substring(6,7);
-	        					document.getElementById('lecheCompleto' + $idNormal).style.display = 'none';
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
 	        				}else{
 	        					$idNormal = $id.substring(8,10);
-	        					document.getElementById('completo' + $idNormal).style.display = 'none';
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
 	        					$(this).removeClass();
 	        					$(this).addClass('completo click');
 	        				}
@@ -1621,7 +1749,2073 @@
 	        			document.getElementById('completo'+ $idNormal + '1').value = "ausente";
 			        	$div.style.display = 'block';
 			        	$div.title ="Ausente";
-			        	$($div).addClass('click-ausente');
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-ausente');
+			        	}else{
+			        		$($div).addClass('click-lecheausente');
+			        	}
+	        		}
+	        	break;
+	        	case "sinErupcionar":
+	        		$leche = false;
+	        		if($(this).hasClass("click-sinerupcionar")){
+	        			$(this).removeClass('click-sinerupcionar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesinerupcionar")){
+	        			$(this).removeClass('click-lechesinerupcionar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "sinerupcionar";
+			        	$div.style.display = 'block';
+			        	$div.title ="Sin erupcionar";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-sinerupcionar');
+						}else{
+							$($div).addClass('click-lechesinerupcionar');
+						}
+	        		}
+	        	break;
+	        	case "exodonciaRealizada":
+	        		$leche = false;
+	        		if($(this).hasClass("click-exodonciarealizada")){
+	        			$(this).removeClass('click-exodonciarealizada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheexodonciarealizada")){
+	        			$(this).removeClass('click-lecheexodonciarealizada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "exodonciarealizada";
+			        	$div.style.display = 'block';
+			        	$div.title ="Exodoncia realizada";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-exodonciarealizada');
+						}else{
+							$($div).addClass('click-lecheexodonciarealizada');
+						}
+	        		}
+	        	break;
+	        	case "exodonciaIndicada":
+	        		$leche = false;
+	        		if($(this).hasClass("click-exodonciaindicada")){
+	        			$(this).removeClass('click-exodonciaindicada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheexodonciaindicada")){
+	        			$(this).removeClass('click-lecheexodonciaindicada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "exodonciaindicada";
+			        	$div.style.display = 'block';
+			        	$div.title ="Exodoncia indicada";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-exodonciaindicada');
+						}else{
+							$($div).addClass('click-lecheexodonciaindicada');
+						}
+	        		}
+	        	break;
+	        	case "sellante":
+	        		$leche = false;
+	        		if($(this).hasClass("click-sellante")){
+	        			$(this).removeClass('click-sellante');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesellante")){
+	        			$(this).removeClass('click-lechesellante');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "sellante";
+			        	$div.style.display = 'block';
+			        	$div.title ="Sellante";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-sellante');
+						}else{
+							$($div).addClass('click-lechesellante');
+						}
+	        		}
+	        	break;
+	        	case "sinSellante":
+	        		$leche = false;
+	        		if($(this).hasClass("click-sinsellante")){
+	        			$(this).removeClass('click-sinsellante');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesinsellante")){
+	        			$(this).removeClass('click-lechesinsellante');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "sinsellante";
+			        	$div.style.display = 'block';
+			        	$div.title ="Sin sellante";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-sinsellante');
+						}else{
+							$($div).addClass('click-lechesinsellante');
+						}
+	        		}
+	        	break;
+	        	case "endodoncia":
+	        		$leche = false;
+	        		if($(this).hasClass("click-endodoncia")){
+	        			$(this).removeClass('click-endodoncia');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheendodoncia")){
+	        			$(this).removeClass('click-lecheendodoncia');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "endodoncia";
+			        	$div.style.display = 'block';
+			        	$div.title ="endodoncia";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-endodoncia');
+						}else{
+							$($div).addClass('click-lecheendodoncia');
+						}
+	        		}
+	        	break;
+	        	case "sinEndodoncia":
+	        		$leche = false;
+	        		if($(this).hasClass("click-sinendodoncia")){
+	        			$(this).removeClass('click-sinendodoncia');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesinendodoncia")){
+	        			$(this).removeClass('click-lechesinendodoncia');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "sinendodoncia";
+			        	$div.style.display = 'block';
+			        	$div.title ="Sin endodoncia";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-sinendodoncia');
+						}else{
+							$($div).addClass('click-lechesinendodoncia');
+						}
+	        		}
+	        	break;
+	        	case "ionomeroDeVidrio":
+	        		$leche = false;
+	        		if($(this).hasClass("click-ionomerodevidrio")){
+	        			$(this).removeClass('click-ionomerodevidrio');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheionomerodevidrio")){
+	        			$(this).removeClass('click-lecheionomerodevidrio');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "ionomerodevidrio";
+			        	$div.style.display = 'block';
+			        	$div.title ="Ionomero de vidrio";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-ionomerodevidrio');
+						}else{
+							$($div).addClass('click-lecheionomerodevidrio');
+						}
+	        		}
+	        	break;
+	        	case "resinaFisica":
+	        		$leche = false;
+	        		if($(this).hasClass("click-resinafisica")){
+	        			$(this).removeClass('click-resinafisica');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheresinafisica")){
+	        			$(this).removeClass('click-lecheresinafisica');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "resinafisica";
+			        	$div.style.display = 'block';
+			        	$div.title ="Resina fisica";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-resinafisica');
+						}else{
+							$($div).addClass('click-lecheresinafisica');
+						}
+	        		}
+	        	break;
+	        	case "recurrente":
+	        		$leche = false;
+	        		if($(this).hasClass("click-recurrente")){
+	        			$(this).removeClass('click-recurrente');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecherecurrente")){
+	        			$(this).removeClass('click-lecherecurrente');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "recurrente";
+			        	$div.style.display = 'block';
+			        	$div.title ="Recurrente";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-recurrente');
+						}else{
+							$($div).addClass('click-lecherecurrente');
+						}
+	        		}
+	        	break;
+	        	case "enErupcion":
+	        		$leche = false;
+	        		if($(this).hasClass("click-enerupcion")){
+	        			$(this).removeClass('click-enerupcion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheenerupcion")){
+	        			$(this).removeClass('click-lecheenerupcion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "enerupcion";
+			        	$div.style.display = 'block';
+			        	$div.title ="En erupción";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-enerupcion');
+						}else{
+							$($div).addClass('click-lecheenerupcion');
+						}
+	        		}
+	        	break;
+	        	case "protesis":
+	        		$leche = false;
+	        		if($(this).hasClass("click-protesis")){
+	        			$(this).removeClass('click-protesis');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheprotesis")){
+	        			$(this).removeClass('click-lecheprotesis');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "protesis";
+			        	$div.style.display = 'block';
+			        	$div.title ="Protesis";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-protesis');
+						}else{
+							$($div).addClass('click-lecheprotesis');
+						}
+	        		}
+	        	break;
+	        	case "giroversion":
+	        		$leche = false;
+	        		if($(this).hasClass("click-giroversion")){
+	        			$(this).removeClass('click-giroversion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechegiroversion")){
+	        			$(this).removeClass('click-lechegiroversion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "giroversion";
+			        	$div.style.display = 'block';
+			        	$div.title ="Giroversión";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-giroversion');
+						}else{
+							$($div).addClass('click-lechegiroversion');
+						}
+	        		}
+	        	break;
+	        	case "semiIncluido":
+	        		$leche = false;
+	        		if($(this).hasClass("click-semiincluido")){
+	        			$(this).removeClass('click-semiincluido');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechesemiincluido")){
+	        			$(this).removeClass('click-lechesemiincluido');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "semiincluido";
+			        	$div.style.display = 'block';
+			        	$div.title ="Semi-incluido";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-semiincluido');
+						}else{
+							$($div).addClass('click-lechesemiincluido');
+						}
+	        		}
+	        	break;
+	        	case "provisional":
+	        		$leche = false;
+	        		if($(this).hasClass("click-provisional")){
+	        			$(this).removeClass('click-provisional');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheprovisional")){
+	        			$(this).removeClass('click-lecheprovisional');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "provisional";
+			        	$div.style.display = 'block';
+			        	$div.title ="Provisional";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-provisional');
+						}else{
+							$($div).addClass('click-lecheprovisional');
+						}
+	        		}
+	        	break;
+	        	case "nucleoARealizar":
+	        		$leche = false;
+	        		if($(this).hasClass("click-nucleoarealizar")){
+	        			$(this).removeClass('click-nucleoarealizar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechenucleoarealizar")){
+	        			$(this).removeClass('click-lechenucleoarealizar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche =true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "nucleoarealizar";
+			        	$div.style.display = 'block';
+			        	$div.title ="Nucleo a realizar";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-nucleoarealizar');
+						}else{
+							$($div).addClass('click-lechenucleoarealizar');
+						}
+	        		}
+	        	break;
+	        	case "nucleoBueno":
+	        		$leche = false;
+	        		if($(this).hasClass("click-nucleobueno")){
+	        			$(this).removeClass('click-nucleobueno');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechenucleobueno")){
+	        			$(this).removeClass('click-lechenucleobueno');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "nucleobueno";
+			        	$div.style.display = 'block';
+			        	$div.title ="Nucleo bueno";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-nucleobueno');
+						}else{
+							$($div).addClass('click-lechenucleobueno');
+						}
+	        		}
+	        	break;
+	        	case "protesisIndicada":
+	        		$leche = false;
+	        		if($(this).hasClass("click-protesisindicada")){
+	        			$(this).removeClass('click-protesisindicada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheprotesisindicada")){
+	        			$(this).removeClass('click-lecheprotesisindicada');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "protesisindicada";
+			        	$div.style.display = 'block';
+			        	$div.title ="Protesis indicada";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-protesisindicada');
+						}else{
+							$($div).addClass('click-lecheprotesisindicada');
+						}
+	        		}
+	        	break;
+	        	case "fractura":
+	        		$leche = false;
+	        		if($(this).hasClass("click-fractura")){
+	        			$(this).removeClass('click-fractura');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechefractura")){
+	        			$(this).removeClass('click-lechefractura');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "fractura";
+			        	$div.style.display = 'block';
+			        	$div.title ="Fractura";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-fractura');
+						}else{
+							$($div).addClass('click-lechefractura');
+						}
+	        		}
+	        	break;
+	        	case "trauma":
+	        		$leche = false;
+	        		if($(this).hasClass("click-trauma")){
+	        			$(this).removeClass('click-trauma');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechetrauma")){
+	        			$(this).removeClass('click-lechetrauma');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "trauma";
+			        	$div.style.display = 'block';
+			        	$div.title ="Trauma";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-trauma');
+						}else{
+							$($div).addClass('click-lechetrauma');
+						}
+	        		}
+	        	break;
+	        	case "coronaBuenEstado":
+	        		$leche = false;
+	        		if($(this).hasClass("click-coronaenbuenestado")){
+	        			$(this).removeClass('click-coronaenbuenestado');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechecoronaenbuenestado")){
+	        			$(this).removeClass('click-lechecoronaenbuenestado');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "coronaenbuenestado";
+			        	$div.style.display = 'block';
+			        	$div.title ="Corona en buen estado";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-coronaenbuenestado');
+						}else{
+							$($div).addClass('click-lechecoronaenbuenestado');
+						}
+	        		}
+	        	break;
+	        	case "coronaARealizar":
+	        		$leche = false;
+	        		if($(this).hasClass("click-coronaarealizar")){
+	        			$(this).removeClass('click-coronaarealizar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lechecoronaarealizar")){
+	        			$(this).removeClass('click-lechecoronaarealizar');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "coronaarealizar";
+			        	$div.style.display = 'block';
+			        	$div.title ="Corona a realizar";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-coronaarealizar');
+						}else{
+							$($div).addClass('click-lechecoronaarealizar');
+						}
+	        		}
+	        	break;
+	        	case "atricion":
+	        		$leche = false;
+	        		if($(this).hasClass("click-atricion")){
+	        			$(this).removeClass('click-atricion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheeCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheatricion")){
+	        			$(this).removeClass('click-lecheatricion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheeCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "atricion";
+			        	$div.style.display = 'block';
+			        	$div.title ="Atricion";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-atricion');
+						}else{
+							$($div).addClass('click-lecheatricion');
+						}
+	        		}
+	        	break;
+	        	case "abrasion":
+	        		$leche = false;
+	        		if($(this).hasClass("click-abrasion")){
+	        			$(this).removeClass('click-abrasion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else if($(this).hasClass("click-lecheabrasion")){
+	        			$(this).removeClass('click-lecheabrasion');
+	        			$id = $(this).attr("id") + 1;
+		        		$idNormal = $id.substring(8,10);
+	        			$div = document.getElementById('completo'+ $idNormal);
+		        		$div.style.display = 'none';
+		        		$div.title ="";
+		        		document.getElementById('completo'+ $idNormal + '1').value = "";
+		        		if(document.getElementById('lecheCompleto' + $idNormal) == null){
+		        			document.getElementById('dienteCompleto' + $idNormal).style.display = 'block';
+		        		}else{
+		        			document.getElementById('lecheCompleto' + $idNormal).style.display = 'block';
+		        		}
+	        		}else{
+	        			$id = $(this).attr("id") + 1;
+	        			if($id.length >= 9){
+	        				$idLeche = $id.substring(1,6);
+	        				if($idLeche == "leche"){
+	        					$idNormal = $id.substring(6,8);
+	        					$leche = true;
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        				}else{
+	        					$idNormal = $id.substring(8,10);
+	        					if(($idNormal >= 51 && $idNormal <= 55) ||
+	        					   ($idNormal >= 61 && $idNormal <= 65) ||
+	        					   ($idNormal >= 81 && $idNormal <= 85) ||
+	        					   ($idNormal >= 71 && $idNormal <= 75)){
+	        						$leche = true;
+	        					}
+	        					document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        					$(this).removeClass();
+	        					$(this).addClass('completo click');
+	        				}
+	        			}else{
+	        				$idNormal = $id.substring(1,3);
+	        				document.getElementById('dienteCompleto' + $idNormal).style.display = 'none';
+	        			}
+	        			$div = document.getElementById('completo'+ $idNormal);
+	        			document.getElementById('completo'+ $idNormal + '1').value = "abrasion";
+			        	$div.style.display = 'block';
+			        	$div.title ="Abrasion";
+
+			        	//validación carie-obturado-amalgama
+			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$($divCuadro).removeClass();
+			        	$($divCuadro).addClass('cuadro click');
+			        	$($divCuadro).attr('title', '');
+			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$($divIzquierdo).removeClass();
+			        	$($divIzquierdo).addClass('cuadro izquierdo click');
+			        	$($divIzquierdo).attr('title', '');
+			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$($divDebajo).removeClass();
+			        	$($divDebajo).addClass('cuadro debajo click');
+			        	$($divDebajo).attr('title', '');
+			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$($divDerecha).removeClass();
+			        	$($divDerecha).addClass('cuadro derecha click click');
+			        	$($divDerecha).attr('title', '');
+			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$($divCentro).removeClass();
+			        	$($divCentro).addClass('centro click');
+			        	$($divCentro).attr('title', '');
+			        	if(!$leche){
+			        		$($div).addClass('click-abrasion');
+						}else{
+							$($div).addClass('click-lecheabrasion');
+						}
 	        		}
 	        	break;
 	            default:
