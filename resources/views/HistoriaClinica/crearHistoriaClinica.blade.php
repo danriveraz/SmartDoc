@@ -1504,26 +1504,35 @@
 
 			        	//validación carie-obturado-amalgama
 			        	$divCuadro = document.getElementById('n'+$idNormal);
+			        	$divCuadro1 = document.getElementById('n'+$idNormal + '1');
 			        	$($divCuadro).removeClass();
 			        	$($divCuadro).addClass('cuadro click');
 			        	$($divCuadro).attr('title', '');
+			        	$($divCuadro1).val('');
 			        	$divIzquierdo = document.getElementById('l'+$idNormal);
+			        	$divIzquierdo1 = document.getElementById('l'+$idNormal + '1');
 			        	$($divIzquierdo).removeClass();
 			        	$($divIzquierdo).addClass('cuadro izquierdo click');
 			        	$($divIzquierdo).attr('title', '');
+			        	$($divIzquierdo1).val('');
 			        	$divDebajo = document.getElementById('b'+$idNormal);
+			        	$divDebajo1 = document.getElementById('b'+$idNormal + '1');
 			        	$($divDebajo).removeClass();
 			        	$($divDebajo).addClass('cuadro debajo click');
 			        	$($divDebajo).attr('title', '');
+			        	$($divDebajo1).val('');
 			        	$divDerecha = document.getElementById('r'+$idNormal);
+			        	$divDerecha1 = document.getElementById('r'+$idNormal + '1');
 			        	$($divDerecha).removeClass();
 			        	$($divDerecha).addClass('cuadro derecha click click');
 			        	$($divDerecha).attr('title', '');
+			        	$($divDerecha1).val('');
 			        	$divCentro = document.getElementById('c'+$idNormal);
+			        	$divCentro1 = document.getElementById('c'+$idNormal + '1');
 			        	$($divCentro).removeClass();
 			        	$($divCentro).addClass('centro click');
 			        	$($divCentro).attr('title', '');
-
+			        	$($divCentro1).val('');
 			        	if(!$leche){
 			        		$($div).addClass('click-sano');
 			        	}else{

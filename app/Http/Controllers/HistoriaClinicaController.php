@@ -2969,7 +2969,7 @@ class HistoriaClinicaController extends Controller
         $diente16Inicial->parteInferior = $request->b28Inicial1;
         $diente16Inicial->parteDerecha = $request->r28Inicial1;
         $diente16Inicial->parteIzquierda = $request->l28Inicial1;
-        $diente16nicial->completo = $request->completo28Inicial1;
+        $diente16Inicial->completo = $request->completo28Inicial1;
         $diente16Inicial->save();
 
         //Bloque medio superior
