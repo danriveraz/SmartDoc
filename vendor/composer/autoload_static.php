@@ -347,6 +347,7 @@ class ComposerStaticInit8d360b6947c39d0f44c189a47b6709f2
         'AlterTableAgendaProcedimiento' => __DIR__ . '/../..' . '/database/migrations/2018_07_30_200238_alter_table_agendaProcedimiento.php',
         'AlterTableDienteCompleto' => __DIR__ . '/../..' . '/database/migrations/2018_08_13_210341_alter_table_dienteCompleto.php',
         'AlterTableHistoriaclinica3' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_203326_alter_table_historiaclinica3.php',
+        'AlterTableOdontogramaHistoriaClinica' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_155743_alter_table_odontogramaHistoriaClinica.php',
         'AlterTableServicio2' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_204238_alter_table_servicio2.php',
         'AlterTableServicio3' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_224420_alter_table_servicio3.php',
         'AlterTableUsersImagenPerfil' => __DIR__ . '/../..' . '/database/migrations/2018_07_30_214856_alter_table_usersImagenPerfil.php',

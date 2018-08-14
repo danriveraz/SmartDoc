@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterTableHistoriaclinica3 extends Migration
+class AlterTableOdontogramaHistoriaClinica extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class AlterTableHistoriaclinica3 extends Migration
      */
     public function up()
     {
-        Schema::table('historiaClinica', function ($table) {
-            $table->dropColumn('costoTratamiento');
-            $table->dropColumn('planTratamientoAprobado');
+         Schema::table('historiaClinica', function ($table) {
+            $table->boolean('primerOdontograma')->after('observacionesEE');
         });
     }
 
