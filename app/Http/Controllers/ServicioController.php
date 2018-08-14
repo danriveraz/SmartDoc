@@ -12,7 +12,7 @@ use App\Servicio;
 use App\Empresa;
 use App\Cuentas;
 use Carbon\Carbon;
-use App\Http\Requests;
+use App\Http\Requests, PDF;
 use Laracasts\Flash\Flash;
 
 class ServicioController extends Controller
@@ -174,15 +174,85 @@ class ServicioController extends Controller
     }
 
     public function showpayment(Request $request){
+      session_start();
+      $id = $_SESSION['id'];
+      $flag = "servicio";
+      $user = Auth::User();
+      $empresa = Empresa::find($user->idEmpresa);
+      $servicio = Servicio::find($id);
+      $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
+      $cuota = sizeof($servicio->abonos) + 1;
+      $saldo = $servicio->costoTratamiento;
+      foreach ($servicio->abonos as $abono) {
+        $saldo -= $abono->abono;
+      }
+      $contadorCuotas = 0;
+      $saldoRestante = $servicio->costoTratamiento;
+      return View('Servicio.abonos')
+      ->with('empresa',$empresa)
+      ->with('servicio',$servicio)
+      ->with('cuota',$cuota)
+      ->with('saldo',$saldo)
+      ->with('saldoRestante',$saldoRestante)
+      ->with('contadorCuotas',$contadorCuotas)
+      ->with('historiaClinica',$historiaClinica)
+      ->with('flag', $flag);
+    }
+
+    public function dopayment(Request $request){
+      if($request->abono > 0){
+        $abono = new Abono();
+        $abono->abono = $request->abono;
+        $abono->fecha = Carbon::now()->subHour(5);
+        $abono->idServicio = $request->id;
+        $abono->save();  
+          flash('Abono realizado')->success()->important();
+          return back();  
+      }
+      else{
+          flash('Por favor ingrese cantidad a abonar')->error()->important();
+          return back();
+      }
+    }
+
+    public function showInvoice(Request $request){
       $flag = "servicio";
       $user = Auth::User();
       $empresa = Empresa::find($user->idEmpresa);
       $servicio = Servicio::find($request->id);
       $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
-      return View('Servicio.abonos')
+      $saldo = $servicio->costoTratamiento;
+      return View('Factura.factura')
       ->with('empresa',$empresa)
       ->with('servicio',$servicio)
+      ->with('saldo',$saldo)
       ->with('historiaClinica',$historiaClinica)
       ->with('flag', $flag);
-    }
+    }    
+
+
+    public function printPayment(Request $request){
+      $user = Auth::User();
+      $empresa = Empresa::find($user->idEmpresa);
+      $servicio = Servicio::find($request->id);
+      $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
+      $cuota = sizeof($servicio->abonos) + 1;
+      $saldo = $servicio->costoTratamiento;
+      foreach ($servicio->abonos as $abono) {
+        $saldo -= $abono->abono;
+      }
+      $contadorCuotas = 0;
+      $saldoRestante = $servicio->costoTratamiento;
+      $pdf = PDF::loadView('Servicio.pdfPayment', ['servicio' => $servicio, 'empresa' => $empresa, 'historiaClinica' => $historiaClinica, 'cuota' => $cuota, 'saldo' => $saldo, 'contadorCuotas' => $contadorCuotas, 'saldoRestante' => $saldoRestante]);
+      /*return View('Servicio.pdfPayment')
+       ->with('empresa',$empresa)
+      ->with('servicio',$servicio)
+      ->with('cuota',$cuota)
+      ->with('saldo',$saldo)
+      ->with('saldoRestante',$saldoRestante)
+      ->with('contadorCuotas',$contadorCuotas)
+      ->with('historiaClinica',$historiaClinica);*/
+      return $pdf->download('Payment.pdf');
+    }    
+
 }

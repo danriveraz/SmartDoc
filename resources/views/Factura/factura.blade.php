@@ -106,18 +106,18 @@
 			    <div class="col-lg-12">
 		            <div class="headers clearfix" style="margin-bottom: 10px;">
 		            	<div class="row" style="align-items: center; border-bottom: 1px solid #EBECEE; color: #A2A6AC;">
-			              	<div class="col-sm-1" style="padding-right: 5px; padding-left: 5px;">Cuota</div>
-			                <div class="col-sm-7">Servicio</div>
-			                <div class="FactPocket col-sm-2 text-center">Abono</div>
-			                <div class="FactPocket col-sm-2 text-right">Saldo</div>
+			              	<div class="col-sm-1 text-center" style="padding-right: 5px; padding-left: 5px;">No</div>
+			                <div class="col-sm-6">Servicio</div>
+			                <div class="FactPocket col-sm-3 text-center">Estado</div>
+			                <div class="FactPocket col-sm-2 text-right">Valor</div>
 		            	</div>
 		            </div>
 		            <div class="items" id="tabla" style="margin-bottom: 20px;">
 		                <div class="row item" style="align-items: center; padding-bottom: 8px; border-bottom: 1px solid #EBECEE">
-		                	<div class="col-sm-1 desc text-center" >{{$cuota}} </div>
-		                  	<div class="FactPocket col-sm-7 amount text-left">{{$servicio->procedimiento->nombre}} </div>
-		                  	<div class="FactPocket col-sm-2 amount text-center">
-		                  		<input  type="number" class="popover-trigger" value="0" style="text-align:right;" onkeyup="validarMinMax();" name="abono" id="abono" max="{{$saldo}}" min="0">  
+		                	<div class="col-sm-1 desc text-center" >1</div>
+		                  	<div class="FactPocket col-sm-6 amount text-left">{{$servicio->procedimiento->nombre}} </div>
+		                  	<div class="FactPocket col-sm-3 amount text-center">
+		                  		{{$servicio->estado}}
 		                 	</div>
 		                  	<div class="FactPocket col-sm-2 amount text-right"> $<?php echo number_format($saldo,0,",","."); ?></div>        
 		                </div>
@@ -129,24 +129,6 @@
 
 
 		<div class="row">
-            <div class="col-lg-12">   
-            <div class="col-md-3 pull-right"> 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-refresh"></i></span>
-                    <input class="form-control" id="cambio" disabled="" placeholder="Cambio" type="text" style="color: #20A720; font-weight: bold;">
-                  </div>
-                </div>            
-              </div>                       
-              <div class="col-md-3 pull-right"> 
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                    <input class="form-control" placeholder="Efectivo" onkeyup="validarEfectivo();" type="text" id="efectivo">
-                  </div>
-                </div>            
-              </div>   
-          </div>
           <div class="col-lg-12"> 
               @if($empresa->tipoRegimen == "comun")
                 <br>
@@ -156,133 +138,13 @@
               </div>
                 @endif
             </div>
-        	<div class="col-lg-12" style="margin-top: 40px;">
-              <button class="factBot btn btn-bitbucket pull-right" style="background-color: rgb(49, 108, 190);" id="pagar"><i class="fa fa-money"></i>Pagar</button>
-              </form>
-              
-              	<input type="text" name="id" value="{{$servicio->id}}" hidden="">
-              <a class="factBot btn btn-bitbucket pull-right" id="imprimir" style="background-color: rgb(49, 108, 190);" onclick="imprimr();"><i class="fa fa-print"></i>Imprimir</a>   
-                     
+        	<div class="col-lg-12" style="margin-top: 40px;">              
+              <button class="factBot btn btn-bitbucket pull-right" onclick="nada();" style="background-color: rgb(49, 108, 190);"><i class="fa fa-print"></i>Imprimir</button>              
         	</div>
           </div>  
-      
-			</div>
-			<!-- fin del contenedor del campo texto-->
-			<div class="row" style="margin-top: 10px;" id="historial">
-				<div class="col-lg-12">
-					<div class="widget-container fluid-height clearfix">
-						<div class="widget-content padded clearfix">
-							<div class="row" id="toggle" style="margin-bottom: 20px;">
-								<div class="col-md-12 text-center">
-								  <a class="invoice-client mrg10T pocketMorado" >Historial de abonos:</a>
-								</div>
-							</div>
-							<table id="example" class="table table-striped" style="width:100%">
-					    		<thead>
-					        		<tr>
-						                <th width="15%">Cuota</th>
-						                <th width="20%">Fecha</th>
-						                <th width="25%">Abono realizado</th>
-						                <th width="20%">Saldo restante</th> 
-						            </tr>
-					    		</thead>
-						    	<tbody>
-						    		@foreach($servicio->abonos as $abono)
-						            <tr>
-						                <td>{{$contadorCuotas+=1}}</td>
-						                <td>{{$abono->fecha}}</td>
-						                <td>{{$abono->abono}}</td>
-						                <td>{{$saldoRestante -=  $abono->abono}}</td>
-						            </tr>
-		           					@endforeach
-								</tbody>
-							</table>	
-						</div>
-					</div>
-				</div>
+      </form>
 			</div>
     	</div>
 	</div>
 </div>
-<script type="text/javascript">
-
-	function validarMinMax() {
-	    var valor = parseInt($("#abono").val());
-	    var max = parseInt($("#abono").attr("max"));
-	    if(valor > max) {
-	        $("#abono").val(max);
-	    } 
-	    if (valor < 0){
-	        $("#abono").val(0);
-	    }
-	    if(isNaN(valor)){
-	      $("#abono").val(0);
-	      valor = 0;
-	    }
-	    validarEfectivo();
-	};
-
-	function imprimr() {
-		swal({
-        title: "Seguro que quieres hacer esto?",
-          text: "Esta acción ya no se podrá deshacer, Así que piénsalo bien.",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Si, estoy seguro',
-          cancelButtonText: "Cancelar"
-        });
-        
-		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
-		document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
-		document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
-		document.getElementById('imprimir').style.display = 'None';
-		document.getElementById('pagar').style.display = 'None';
-		document.getElementById('example_filter').style.display = 'None';
-		if(confirm('¿Desea Imprimir solo el abono?')){
-			document.getElementById('historial').style.display = 'None';
-		}else{
-		}
-		print();
-		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
-		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
-
-		document.getElementsByClassName('card-body')[0].style.paddingBottom = '50px';
-		document.getElementById('imprimir').style.display = 'Block';
-		document.getElementById('pagar').style.display = 'Block';
-		document.getElementById('historial').style.display = 'Block';
-		document.getElementById('example_filter').style.display = 'Block';
-	};
-
-	function validarEfectivo() {
-	    var efectivo = $("#efectivo").val();
-	    if(efectivo != ""){
-	      var total = parseInt($("#abono").val());
-	      var cambio = efectivo - total;  
-	      if(Math.sign(cambio) != -1){
-	        $("#cambio").val("$" + Intl.NumberFormat().format(cambio));
-	      } 
-	      else{
-		      $("#cambio").val("");
-		    }
-	    }
-	    else{
-	      $("#cambio").val("");
-	    }
-	    
-	}
-	
-	$(document).ready(function() {
-	    $('#example').DataTable( {
-	        dom: 'Bfrtip',
-	        buttons: [
-	           
-	        ]
-    	} );
-
-	} );
-</script>
-	<!-- end DataTables Example -->
-
 @endsection
