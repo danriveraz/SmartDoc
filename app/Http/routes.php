@@ -83,7 +83,7 @@ Route::get('observaciones/{id}/destroy', ['uses' => 'HistoriaClinicaController@p
 
 Route::get('editHistoriaClinica', ['uses' => 'HistoriaClinicaController@editHistoriaClinica', 'as' => 'historia.editHistoriaClinica']);
 
-Route::get('editHistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@posteditHistoriaClinica', 'as' => 'historia.posteditHistoriaClinica']);
+Route::post('editHistoriaClinica/edit', ['uses' => 'HistoriaClinicaController@posteditHistoriaClinica', 'as' => 'historia.posteditHistoriaClinica']);
 
 Route::get('editHistoriaClinica/{id}/observacion', ['uses' => 'HistoriaClinicaController@postobservacionHistoriaClinica', 'as' => 'historia.postobservacionHistoriaClinica']);
 Route::get('editHistoriaClinica/{id}/destroy', ['uses' => 'HistoriaClinicaController@postdeleteHistoriaClinica', 'as' => 'historia.postdeleteHistoriaClinica']);

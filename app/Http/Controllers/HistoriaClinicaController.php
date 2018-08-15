@@ -1843,14 +1843,14 @@ class HistoriaClinicaController extends Controller
         array_push($odontogramaInicial2array, array('b42Inicial', $diente43Inicial->parteInferior));
         array_push($odontogramaInicial2array, array('l42Inicial', $diente43Inicial->parteIzquierda));
         array_push($odontogramaInicial2array, array('r42Inicial', $diente43Inicial->parteDerecha));
-        array_push($odontogramaInicial2array, array('completor42Inicial', $diente43Inicial->completo));
+        array_push($odontogramaInicial2array, array('completo42Inicial', $diente43Inicial->completo));
         //diente 44
         array_push($odontogramaInicial2array, array('c41Inicial', $diente44Inicial->parteCentro));
         array_push($odontogramaInicial2array, array('t41Inicial', $diente44Inicial->parteSuperior));
         array_push($odontogramaInicial2array, array('b41Inicial', $diente44Inicial->parteInferior));
         array_push($odontogramaInicial2array, array('l41Inicial', $diente44Inicial->parteIzquierda));
-        array_push($odontogramaInicial2array, array('r42Inicial', $diente43Inicial->parteDerecha));
-        array_push($odontogramaInicial2array, array('completo42Inicial', $diente43Inicial->completo));
+        array_push($odontogramaInicial2array, array('r41Inicial', $diente43Inicial->parteDerecha));
+        array_push($odontogramaInicial2array, array('completo41Inicial', $diente43Inicial->completo));
 
         //Segundo bloque inferior
         //diente 45
@@ -2316,85 +2316,85 @@ class HistoriaClinicaController extends Controller
         }
     }
 
-    public function posteditHistoriaClinica(Request $request, $id){
-        $user = Auth::User();
-        $departamentos = Departamento::all();
-        $ciudades = Ciudad::all();
+    public function posteditHistoriaClinica(Request $request){
+      $user = Auth::User();
+      $departamentos = Departamento::all();
+      $ciudades = Ciudad::all();
 
-        $historia = HistoriaClinica::find($id);
-        //Información personal
-        $historia->nombreCompleto = $request->nombreCompleto;
-        $historia->tipoDocumento = $request->tipoDocumento;
-        $historia->documento = $request->documento;
-        $historia->sexo = $request->sexo;
-        $historia->edad = $request->edad;
-        $historia->fechaNacimiento = $request->fechaNacimiento;
-        $historia->direccion = $request->direccion;
-        $historia->telefono = $request->telefono;
-        $historia->departamento = $request->idDepto;
-        $historia->ciudad = $request->idCiudad;
-        $historia->personaResponsable = $request->personaResponsable;
-        $historia->telefonoResponsable = $request->telefonoResponsable;
-        $historia->motivoConsulta = $request->motivoConsulta;
-        $historia->evolucionEstado = $request->evolucionEstado;
-        $historia->antecedentesFamiliares = $request->antecedentesFamiliares;
+      $historia = HistoriaClinica::find($request->historiaID);
+      //Información personal
+      $historia->nombreCompleto = $request->nombreCompleto;
+      $historia->tipoDocumento = $request->tipoDocumento;
+      $historia->documento = $request->documento;
+      $historia->sexo = $request->sexo;
+      $historia->edad = $request->edad;
+      $historia->fechaNacimiento = $request->fechaNacimiento;
+      $historia->direccion = $request->direccion;
+      $historia->telefono = $request->telefono;
+      $historia->departamento = $request->idDepto;
+      $historia->ciudad = $request->idCiudad;
+      $historia->personaResponsable = $request->personaResponsable;
+      $historia->telefonoResponsable = $request->telefonoResponsable;
+      $historia->motivoConsulta = $request->motivoConsulta;
+      $historia->evolucionEstado = $request->evolucionEstado;
+      $historia->antecedentesFamiliares = $request->antecedentesFamiliares;
 
-        //Antecedentes Odontológico y Médicos Generales
-        $historia->alergias = $request->alergias;
-        $historia->hepatitis = $request->hepatitis;
-        $historia->transtornoGastricos = $request->transtornoGastricos;
-        $historia->discrasiasSangineas = $request->discrasiasSangineas;
-        $historia->diabetis = $request->diabetis;
-        $historia->transtornoEmocional = $request->transtornoEmocional;
-        $historia->cardiopatias = $request->cardiopatias;
-        $historia->fiebreReumatica = $request->fiebreReumatica;
-        $historia->sinusitis = $request->sinusitis;
-        $historia->embarazo = $request->embarazo;
-        $historia->hvisida = $request->hvisida;
-        $historia->cirugias = $request->cirugias;
-        $historia->altPresionArterial = $request->altPresionArterial;
-        $historia->inmunosupresion = $request->inmunosupresion;
-        $historia->exodoncias = $request->exodoncias;
-        $historia->tomaMedicamentos = $request->tomaMedicamentos;
-        $historia->patologiaRenales = $request->patologiaRenales;
-        $historia->enfermedadesOrales = $request->enfermedadesOrales;
-        $historia->tratMedActual = $request->tratMedActual;
-        $historia->patologiaRespiratoria = $request->patologiaRespiratoria;
-        $historia->protesis = $request->protesis;
-        $historia->otrasPatologiasAntecedentes = $request->otrasPatologiasAntecedentes;
-        $historia->observacionesAntecedentes = $request->observacionesAntecedentes;
+      //Antecedentes Odontológico y Médicos Generales
+      $historia->alergias = $request->alergias;
+      $historia->hepatitis = $request->hepatitis;
+      $historia->transtornoGastricos = $request->transtornoGastricos;
+      $historia->discrasiasSangineas = $request->discrasiasSangineas;
+      $historia->diabetis = $request->diabetis;
+      $historia->transtornoEmocional = $request->transtornoEmocional;
+      $historia->cardiopatias = $request->cardiopatias;
+      $historia->fiebreReumatica = $request->fiebreReumatica;
+      $historia->sinusitis = $request->sinusitis;
+      $historia->embarazo = $request->embarazo;
+      $historia->hvisida = $request->hvisida;
+      $historia->cirugias = $request->cirugias;
+      $historia->altPresionArterial = $request->altPresionArterial;
+      $historia->inmunosupresion = $request->inmunosupresion;
+      $historia->exodoncias = $request->exodoncias;
+      $historia->tomaMedicamentos = $request->tomaMedicamentos;
+      $historia->patologiaRenales = $request->patologiaRenales;
+      $historia->enfermedadesOrales = $request->enfermedadesOrales;
+      $historia->tratMedActual = $request->tratMedActual;
+      $historia->patologiaRespiratoria = $request->patologiaRespiratoria;
+      $historia->protesis = $request->protesis;
+      $historia->otrasPatologiasAntecedentes = $request->otrasPatologiasAntecedentes;
+      $historia->observacionesAntecedentes = $request->observacionesAntecedentes;
 
-        //Exámen Estomatológico / Articulación temporo mandibular (Hallazgo Clínicos)
-        $historia->labioInferior = $request->labioInferior;
-        $historia->orofaringe = $request->orofaringe;
-        $historia->desviacion = $request->desviacion;
-        $historia->labioSuperior = $request->labioSuperior;
-        $historia->paladar = $request->paladar;
-        $historia->cambioVolumen = $request->cambioVolumen;
-        $historia->comisuras = $request->comisuras;
-        $historia->glandulasSalivales = $request->glandulasSalivales;
-        $historia->bloqueoMandibular = $request->bloqueoMandibular;
-        $historia->mucuosaOral = $request->mucuosaOral;
-        $historia->pisoDeBoca = $request->pisoDeBoca;
-        $historia->limitacionMandibula = $request->limitacionMandibula;
-        $historia->surcosYugales = $request->surcosYugales;
-        $historia->dorsoLengua = $request->dorsoLengua;
-        $historia->dolorArticular = $request->dolorArticular;
-        $historia->frenillos = $request->frenillos;
-        $historia->vientreLengua = $request->vientreLengua;
-        $historia->ruidos = $request->ruidos;
-        $historia->dolorMuscular = $request->dolorMuscular;
+      //Exámen Estomatológico / Articulación temporo mandibular (Hallazgo Clínicos)
+      $historia->labioInferior = $request->labioInferior;
+      $historia->orofaringe = $request->orofaringe;
+      $historia->desviacion = $request->desviacion;
+      $historia->labioSuperior = $request->labioSuperior;
+      $historia->paladar = $request->paladar;
+      $historia->cambioVolumen = $request->cambioVolumen;
+      $historia->comisuras = $request->comisuras;
+      $historia->glandulasSalivales = $request->glandulasSalivales;
+      $historia->bloqueoMandibular = $request->bloqueoMandibular;
+      $historia->mucuosaOral = $request->mucuosaOral;
+      $historia->pisoDeBoca = $request->pisoDeBoca;
+      $historia->limitacionMandibula = $request->limitacionMandibula;
+      $historia->surcosYugales = $request->surcosYugales;
+      $historia->dorsoLengua = $request->dorsoLengua;
+      $historia->dolorArticular = $request->dolorArticular;
+      $historia->frenillos = $request->frenillos;
+      $historia->vientreLengua = $request->vientreLengua;
+      $historia->ruidos = $request->ruidos;
+      $historia->dolorMuscular = $request->dolorMuscular;
 
-        $historia->cariados = $request->cariados;
-        $historia->obturados = $request->obturados;
-        $historia->exfoliados = $request->exfoliados;
-        $historia->sanos = $request->sanos;
-        $historia->observacionesEE = $request->observacionesEE;
+      $historia->cariados = $request->cariados;
+      $historia->obturados = $request->obturados;
+      $historia->exfoliados = $request->exfoliados;
+      $historia->sanos = $request->sanos;
+      $historia->observacionesEE = $request->observacionesEE;
 
-        //Inicio modificar odontograma
+      //Inicio modificar odontograma
 
-        $odontograma = Odontograma::find($historia->idOdontograma);
-        $odontogramaInicial = Odontograma::find($historia->idOdontogramaInicial);
+      $odontograma = Odontograma::find($historia->idOdontograma);
+      $odontogramaInicial = Odontograma::find($historia->idOdontogramaInicial);
 
       if($historia->primerOdontograma == 0){
             //Bloque superior
@@ -2708,7 +2708,7 @@ class HistoriaClinicaController extends Controller
                   $diente31->parteInferior = $request->bleche811;
                   $diente31->parteDerecha = $request->rleche811;
                   $diente31->parteIzquierda = $request->lleche811;
-                  $diente3->completo = $request->completo811;
+                  $diente31->completo = $request->completo811;
                   $diente31->save();
 
                   //Diente # 71
@@ -3235,7 +3235,7 @@ class HistoriaClinicaController extends Controller
                   $diente31->parteInferior = $request->bleche811;
                   $diente31->parteDerecha = $request->rleche811;
                   $diente31->parteIzquierda = $request->lleche811;
-                  $diente3->completo = $request->completo811;
+                  $diente31->completo = $request->completo811;
                   $diente31->save();
 
                   //Diente # 71
@@ -3455,7 +3455,7 @@ class HistoriaClinicaController extends Controller
         $historia->save();
 
         //Servicio prestado
-        if($request->procedimiento != null){
+      if($request->procedimiento != null){
             $servicio = new Servicio();
             $servicio->fecha = Carbon::now()->subHour(5);
             $servicio->idEmpresa = $user->idEmpresa;
@@ -3466,9 +3466,9 @@ class HistoriaClinicaController extends Controller
 
             $cuentas = Cuentas::Empresa($user->idEmpresa)->get(); 
             $procedimiento = Procedimiento::find($servicio->idProcedimiento);
-            
+
             $fecha = $servicio->fecha;
-            
+
             for ($i=0; $i < sizeof($cuentas); $i++) { 
 
                   if($cuentas[$i]->titulo == "Ventas"){
@@ -3567,22 +3567,27 @@ class HistoriaClinicaController extends Controller
                   }
 
             }
-        }
+      }
         
-        session_start();
-        $_SESSION['id'] = $id;
-        
-        if($request->activador == 1){
+      session_start();
+      $_SESSION['id'] = $request->historiaID;
+
+      if($request->activador == 1){
             flash('Modificación exitosa')->success()->important();
             return redirect()->route('Auth.usuario.showHistoriaClinica');
-        }else if($request->activador == 2){
+      }else if($request->activador == 2){
             flash('Modificación exitosa')->success()->important();
             return redirect()->route('historia.observacionHistoriaClinica');
-        }else if($request->activador == 3){
+      }else if($request->activador == 3){
             flash('Modificación exitosa')->success()->important();
             return redirect()->route('Auth.usuario.showcreateLaboratorio');
-        }
-    }
+      }else if($request->activador == 4){
+            $historia->primerOdontograma = 0;
+            $historia->save();
+            flash('Ahora puede editar el odontograma inicial')->success()->important();
+            return redirect()->route('historia.editHistoriaClinica');
+      }
+}
 
     public function postdeleteHistoriaClinica(Request $request, $id){
         $historia2destroy = HistoriaClinica::find($id);

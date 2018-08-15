@@ -13,8 +13,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {!! Form::open(['route' => ['servicio.nuevo'], 'method' => 'Post','enctype' => 'multipart/form-data', 'id' => 'formGuardar']) !!}
-       			{{ csrf_field() }}
+      {!! Form::open(['route' => ['servicio.nuevo'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+       {{ csrf_field() }}
        	<input type="text" name="id" hidden="" value="{{$historia->id}} ">
       	<div class="modal-body" align="center">
         	<div class="row">
@@ -46,8 +46,9 @@
 	<div class="container">
 	    <div class="row row-cards">
     	 	<div class="col-lg-12">
-    	 		{!! Form::open(['route' => ['historia.posteditHistoriaClinica', $historia], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => 'formGuardar']) !!}
+    	 		{!! Form::open(['route' => ['historia.posteditHistoriaClinica'], 'method' => 'POST','enctype' => 'multipart/form-data', 'id' => 'formGuardar']) !!}
        			{{ csrf_field() }}
+   					<input type="text" name="historiaID" id="historiaID" value="{{$historia->id}}" hidden>
     	 			<div class="card">
 	              		<div class="card-header">
 	                  		<h3 class="card-title">Identificación Paciente</h3>
@@ -952,6 +953,7 @@
 				            </div>
 				    	</div>
 			        </div>
+					<input type="text" name="activador" id="activador" value="0" hidden>
 			        <div>
 			        	<div class="card" style="margin: 0">
 							<div class="card-header">
@@ -1019,13 +1021,11 @@
 						              		</div>
 						              		@endforeach
 							          	</div>
-
-
 							        </div>
 						  		</div>	
-								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center; margin-top: 10px;">
@@ -1038,9 +1038,9 @@
 		                    <button type="submit" class="btn btn-primary" name="laboratorio" id="laboratorio" onclick="setValue(this)">
 		                    	Añadir pedido
 		                    </button>
-		                    <div class="form-group" hidden="true">
-		                    	<input type="text" name="activador" id="activador" value="">
-		                    </div>
+		                    <button type="submit" class="btn btn-primary" name="editarOdontograma" id="editarOdontograma" onclick="setValue(this)" title="Editar odontograma inicial">
+		                    	Editar Odontograma Inicial
+		                    </button>
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -4280,7 +4280,7 @@
 	        			if($leche){
 	        				$element.classList.add('click-lechenucleoarealizar');
 	        			}else{
-	        				$element.classList.add('click-sano');
+	        				$element.classList.add('click-nucleoarealizar');
 	        			}
 	            		$element.title = "Nucleo a realizar";
 	            		$inputElement = document.getElementById(JSONodontograma[i][0] + '1');
@@ -4477,11 +4477,17 @@
 
 	function setValue(idBtn) {
 		if(idBtn.id == "guardar"){
-	    	activador.value = 1;
+			document.getElementById('activador').value = 1;
+	    	formGuardar.submit();
 	    }else if(idBtn.id == "observacion"){
-	    	activador.value = 2;
+	    	document.getElementById('activador').value = 2;
+	    	formGuardar.submit();
 	    }else if(idBtn.id == "laboratorio"){
-	    	activador.value = 3;
+	    	document.getElementById('activador').value = 3;
+	    	formGuardar.submit();
+	    }else if(idBtn.id == "editarOdontograma"){
+	    	document.getElementById('activador').value = 4;
+	    	formGuardar.submit();
 	    }
 	}
 </script>
@@ -4493,6 +4499,29 @@
 		$(document).ready(function(){
 			for(i = 0; i < JSONodontogramaInicial.length; i++){
 				switch (JSONodontogramaInicial[i][1]){
+		            case "sano":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesano');
+	        			}else{
+	        				$element.classList.add('click-sano');
+	        			}
+	            		$element.title = "Sano";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sano";
+					break;
 		            case "cariado":
 		            		$element = document.getElementById(JSONodontogramaInicial[i][0]);
 		            		$element.classList.add('click-red');
@@ -4507,118 +4536,589 @@
 		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
 		            		$inputElement.value = "obturado";
 		            break;
-		            case "exodonciaRealizada":
+		            case "amalgama":
 		            		$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "exodonciaRealizada";
+		            		$element.classList.add('click-black');
+		            		$element.title = "Amalgama";
 		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "exodonciaRealizada";
+		            		$inputElement.value = "amalgama";
 		            break;
-		            case "exodonciaSimple":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "exodonciaSimple";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "exodonciaSimple";
-	                break;
-		            case "exodonciaQuirurgica":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "exodonciaQuirurgica";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "exodonciaQuirurgica";
-	                break;
-		            case "sinErupcionar":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "sinErupcionar";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "sinErupcionar";
-	                break;
-		            case "endodonciaRealizada":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "endodonciaRealizada";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "endodonciaRealizada";
-	                break;
-		            case "endodonciaIndicada":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "endodonciaIndicada";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "endodonciaIndicada";
-	                break;
-		            case "sellantePresente":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "sellantePresente";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "sellantePresente";
-	                break;
-		            case "sellanteIndicado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "sellanteIndicado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "sellanteIndicado";
-	                break;
-		            case "erosionAbrasion":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "erosionAbrasion";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "erosionAbrasion";
-	                break;
-		            case "procedimientoRealizado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "procedimientoRealizado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "procedimientoRealizado";
-	                break;
-		            case "coronaBuenEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "coronaBuenEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "coronaBuenEstado";
-	                break;
-		            case "coronaMalEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "coronaMalEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "coronaMalEstado";
-	                break;
-		            case "provisionalBuenEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "provisionalBuenEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "provisionalBuenEstado";
-	                break;
-		            case "provisionalMalEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "provisionalMalEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "provisionalMalEstado";
-	                break;
-		            case "nucleoBuenEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-blue');
-		            		$element.title = "nucleoBuenEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "nucleoBuenEstado";
-	                break;
-		            case "nucleoMalEstado":
-		                	$element = document.getElementById(JSONodontogramaInicial[i][0]);
-		            		$element.classList.add('click-red');
-		            		$element.title = "nucleoMalEstado";
-		            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
-		            		$inputElement.value = "nucleoMalEstado";
-	                break;
+		            case "ausente":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheausente');
+	        			}else{
+	        				$element.classList.add('click-ausente');
+	        			}
+	            		$element.title = "Ausente";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "ausente";
+					break;
+					case "sinerupcionar":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesinerupcionar');
+	        			}else{
+	        				$element.classList.add('click-sinerupcionar');
+	        			}
+	            		$element.title = "Sin erupcionar";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sinerupcionar";
+					break;
+					case "exodonciarealizada":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheexodonciarealizada');
+	        			}else{
+	        				$element.classList.add('click-exodonciarealizada');
+	        			}
+	            		$element.title = "Exodoncia realizada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "exodonciarealizada";
+					break;
+					case "exodonciaindicada":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheexodonciaindicada');
+	        			}else{
+	        				$element.classList.add('click-exodonciaindicada');
+	        			}
+	            		$element.title = "Exodoncia indicada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "exodonciaindicada";
+					break;
+					case "sellante":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesellante');
+	        			}else{
+	        				$element.classList.add('click-sellante');
+	        			}
+	            		$element.title = "Sellante";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sellante";
+					break;
+					case "sinsellante":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesinsellante');
+	        			}else{
+	        				$element.classList.add('click-sano');
+	        			}
+	            		$element.title = "Sin sellante";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sinsellante";
+					break;
+					case "endodoncia":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheendodoncia');
+	        			}else{
+	        				$element.classList.add('click-endodoncia');
+	        			}
+	            		$element.title = "Endodoncia";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "endodoncia";
+					break;
+					case "sinendodoncia":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesinendodoncia');
+	        			}else{
+	        				$element.classList.add('click-sinendodoncia');
+	        			}
+	            		$element.title = "Necesita endodoncia";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "sinendodoncia";
+					break;
+					case "ionomerodevidrio":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheionomerodevidrio');
+	        			}else{
+	        				$element.classList.add('click-ionomerodevidrio');
+	        			}
+	            		$element.title = "Ionomero de vidrio";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "ionomerodevidrio";
+					break;
+					case "resinafisica":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheresinafisica');
+	        			}else{
+	        				$element.classList.add('click-resinafisica');
+	        			}
+	            		$element.title = "Resina fisica";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "resinaFisica";
+					break;
+					case "recurrente":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecherecurrente');
+	        			}else{
+	        				$element.classList.add('click-recurrente');
+	        			}
+	            		$element.title = "Recurrente";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "recurrente";
+					break;
+					case "enerupcion":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheenerupcion');
+	        			}else{
+	        				$element.classList.add('click-enerupcion');
+	        			}
+	            		$element.title = "En erupción";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "enerupcion";
+					break;
+					case "protesis":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheprotesis');
+	        			}else{
+	        				$element.classList.add('click-protesis');
+	        			}
+	            		$element.title = "Protesis";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "protesis";
+					break;
+					case "giroversion":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechegiroversion');
+	        			}else{
+	        				$element.classList.add('click-giroversion');
+	        			}
+	            		$element.title = "Giroversión";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "giroversion";
+					break;
+					case "semiincluido":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechesemiincluido');
+	        			}else{
+	        				$element.classList.add('click-semiincluido');
+	        			}
+	            		$element.title = "Semi-incluido";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "semiincluido";
+					break;
+					case "provisional":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheprovisional');
+	        			}else{
+	        				$element.classList.add('click-provisional');
+	        			}
+	            		$element.title = "Provisional";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "provisional";
+					break;
+					case "nucleoarealizar":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechenucleoarealizar');
+	        			}else{
+	        				$element.classList.add('click-sano');
+	        			}
+	            		$element.title = "Nucleo a realizar";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "nucleoarealizar";
+					break;
+					case "nucleobueno":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechenucleobueno');
+	        			}else{
+	        				$element.classList.add('click-nucleobueno');
+	        			}
+	            		$element.title = "Nucleo bueno";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "nucleobueno";
+					break;
+					case "protesisindicada":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheprotesisindicada');
+	        			}else{
+	        				$element.classList.add('click-protesisindicada');
+	        			}
+	            		$element.title = "Protesis indicada";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "protesisindicada";
+					break;
+					case "fractura":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechefractura');
+	        			}else{
+	        				$element.classList.add('click-fractura');
+	        			}
+	            		$element.title = "Fractura";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "fractura";
+					break;
+					case "trauma":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechetrauma');
+	        			}else{
+	        				$element.classList.add('click-trauma');
+	        			}
+	            		$element.title = "Trauma";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "trauma";
+					break;
+					case "coronaenbuenestado":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						console.log(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechecoronaenbuenestado');
+	        			}else{
+	        				$element.classList.add('click-coronaenbuenestado');
+	        			}
+	            		$element.title = "Corona buen estado";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "coronaenbuenestado";
+					break;
+					case "coronaarealizar":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lechecoronaarealizar');
+	        			}else{
+	        				$element.classList.add('click-coronaarealizar');
+	        			}
+	            		$element.title = "Corona a realizar";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "coronaarealizar";
+					break;
+					case "atricion":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheatricion');
+	        			}else{
+	        				$element.classList.add('click-atricion');
+	        			}
+	            		$element.title = "Atrición";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "atricion";
+					break;
+					case "abrasion":
+						$leche = false;
+						$element = document.getElementById(JSONodontogramaInicial[i][0]);
+						$element.style.display = "block";
+						$id = $($element).attr("id");
+						$idNormal = $id.substring(8,10);
+						if(($idNormal >= 51 && $idNormal <= 55) ||
+    					   ($idNormal >= 61 && $idNormal <= 65) ||
+    					   ($idNormal >= 81 && $idNormal <= 85) ||
+    					   ($idNormal >= 71 && $idNormal <= 75)){
+    						$leche = true;
+    					}
+	        			$div = document.getElementById('dienteCompleto'+ $idNormal + 'Inicial');
+	        			$div.style.display = "none";
+	        			if($leche){
+	        				$element.classList.add('click-lecheabrasion');
+	        			}else{
+	        				$element.classList.add('click-abrasion');
+	        			}
+	            		$element.title = "Abrasión";
+	            		$inputElement = document.getElementById(JSONodontogramaInicial[i][0] + '1');
+	            		$inputElement.value = "abrasion";
+					break;
 		        }
 			}
 		});
