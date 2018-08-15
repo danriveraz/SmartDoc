@@ -53,7 +53,7 @@ Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal 
 Route::get('Servicio', ['uses' => 'ServicioController@createLaboratorio', 'as' => 'Auth.usuario.showcreateServicio']);//Esta ruta es la principal de Servicio, sirve para crear.
 Route::get('Servicio/{id}/destroy', ['uses' => 'ServicioController@postdeleteServicio', 'as' => 'Auth.usuario.deleteServicio']);//Esta ruta sirve para eliminar un "Servicio"
 
-Route::get('Abonos/', ['uses' => 'ServicioController@showpayment', 'as' => 'servicio.abonos']);//Esta ruta sirve para ver los abonos de un "Servicio"
+Route::post('Abonos/', ['uses' => 'ServicioController@showpayment', 'as' => 'servicio.abonos']);//Esta ruta sirve para ver los abonos de un "Servicio"
 
 Route::post('Abonos/abonar', ['uses' => 'ServicioController@dopayment', 'as' => 'servicio.abonar']);//Esta ruta sirve para ver los abonos de un "Servicio"
 

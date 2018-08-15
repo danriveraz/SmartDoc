@@ -174,12 +174,10 @@ class ServicioController extends Controller
     }
 
     public function showpayment(Request $request){
-      session_start();
-      $id = $_SESSION['id'];
       $flag = "servicio";
       $user = Auth::User();
       $empresa = Empresa::find($user->idEmpresa);
-      $servicio = Servicio::find($id);
+      $servicio = Servicio::find($request->id);
       $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
       $cuota = sizeof($servicio->abonos) + 1;
       $saldo = $servicio->costoTratamiento;

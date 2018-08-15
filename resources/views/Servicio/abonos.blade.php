@@ -223,25 +223,31 @@
 	};
 
 	function imprimr() {
-		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
-		document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
-		document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
-		document.getElementById('imprimir').style.display = 'None';
-		document.getElementById('pagar').style.display = 'None';
-		document.getElementById('example_filter').style.display = 'None';
-		if(confirm('¿Desea Imprimir solo el abono?')){
-			document.getElementById('historial').style.display = 'None';
-		}else{
-		}
-		print();
-		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
-		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
+	    var valor = parseInt($("#abono").val());
+		if(valor > 0){
+			document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
+			document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
+			document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
+			document.getElementById('imprimir').style.display = 'None';
+			document.getElementById('pagar').style.display = 'None';
+			document.getElementById('example_filter').style.display = 'None';
+			if(confirm('¿Desea Imprimir solo el abono?')){
+				document.getElementById('historial').style.display = 'None';
+			}else{
+			}
+			print();
+			document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
+			document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
 
-		document.getElementsByClassName('card-body')[0].style.paddingBottom = '50px';
-		document.getElementById('imprimir').style.display = 'Block';
-		document.getElementById('pagar').style.display = 'Block';
-		document.getElementById('historial').style.display = 'Block';
-		document.getElementById('example_filter').style.display = 'Block';
+			document.getElementsByClassName('card-body')[0].style.paddingBottom = '50px';
+			document.getElementById('imprimir').style.display = 'Block';
+			document.getElementById('pagar').style.display = 'Block';
+			document.getElementById('historial').style.display = 'Block';
+			document.getElementById('example_filter').style.display = 'Block';
+		}
+		else{
+			alert("Debe existir un valor a abonar");
+		}
 	};
 
 	function validarEfectivo() {

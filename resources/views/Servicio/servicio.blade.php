@@ -66,8 +66,12 @@
 							        	<button class="btn btn-primary btn-sm ml-2" title="Ver factura" onclick="abonar({{$servicio->id}})" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
 						        	{{ Form::close() }}
 			                	</div>	 
-		                		<div class="col-md-4" style="padding: 0px;">		       				
-							        	<a class="btn btn-primary btn-sm ml-2" title="Abonar" onclick="abonar({{$servicio->id}})" href="{{ url('Abonos') }}"><i class="fa fa-dollar" style="margin: 0;"></i></a>
+		                		<div class="col-md-4" style="padding: 0px;">	
+		                			{!! Form::open(['route' => ['servicio.abonos'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form2$servicio->id"]) !!}
+			       						{{ csrf_field() }}	 	       	
+			       						<input type="text" name="id" hidden="" value="{{$servicio->id}}">
+							        	<button class="btn btn-primary btn-sm ml-2" title="Abonar"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        {{ Form::close() }}
 			                	</div>	   
 			                	<div class="col-md-4" style="padding: 0px;">
 			                		{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
@@ -96,15 +100,6 @@
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}
-	}
-
-	function abonar(id){
-		<?php  
-			session_start();
-	      	$_SESSION['id'] = $servicio->id;
-      	?>
-		var form = document.getElementById("form"+id);
-		form.submit();	
 	}
 
 	$(document).ready(function() {
