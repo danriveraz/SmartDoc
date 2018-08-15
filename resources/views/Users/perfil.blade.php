@@ -1,6 +1,27 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
+
+{!!Html::style('assetsIntena/css/linearicons.css')!!}
+{!!Html::style('assetsIntena/css/styleTapProfile.css')!!}
+{!!Html::style('assetsIntena/css/main.css')!!}
+{!!Html::style('assetsIntena/css/rainbow-pricing-table.css')!!}
+
+
+{!!Html::script("assetsIntena/js/main.js")!!}
+{!!Html::script("assetsIntena/js/JsTapProfile.js")!!}
+
+<style>
+.profile-content {
+padding: 20px;
+background: #fff;
+}
+.col-sm-4 {
+float: left;
+}
+
+</style>
+
 <div class="page-content">
   <div class="container">
     <div class="row row-cards">
@@ -31,7 +52,7 @@
               <input class="inputfile" type="file" name="upload_image" id="upload_image" accept="image/*">
               <label for="upload_image">Cambiar imagen</label>
               <br />
-              <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div> 
+              <div id="uploaded_image" style="width: 350px; margin-top: 30px;"></div>
             </div><!-- fin col lg12 imagen de perfil-->
             <div id="uploadimageModal" class="modal" role="dialog">
               <div class="modal-dialog">
@@ -74,106 +95,344 @@
       </div><!-- fin del col lg4-->
       <div class="col-lg-8 pull-right">
         <div class="card">
-          <div class="card-header">
-              <h3 class="card-title">Configuración De Perfil</h3>
+          <!-- Inicio de tap -->
+          <div class="profile-content">
+            <!-- Nav tabs contenedor -->
+            <div id="tabs" class="tabs">
+      				<nav>
+      					<ul>
+      						<li><a href="#section-1" class="icon-shop"><span>Empresa</span></a></li>
+      						<li><a href="#section-2" class="icon-shop"><span>Configuración</span></a></li>
+      						<li><a href="#section-3" class="icon-food"><span>PocketClub</span></a></li>
+      					</ul>
+      				</nav>
+              <!-- INICIO DEL CONTENIDO -->
+      				<div class="content">
+      					<section id="section-1" style="background-color: white;">
+                  <div class="card-body">
+                    <div class="row row-cards row-deck">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-user"></i>
+                            </span>
+                            <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$empresa->nombreEstablecimiento}}">
+                          </div>
+                        </div>
+                        <div class="form-group" style="background-color: ">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-credit-card"></i>
+                            </span>
+                            <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$empresa->direccion}}">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-phone-call"></i>
+                            </span>
+                            <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$empresa->telefono}}">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-phone-call"></i>
+                            </span>
+                            <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$empresa->celular}}">
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-map"></i>
+                            </span>
+                            <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
+                              <option value="">Departamento</option>
+                              @foreach($departamentos as $departamento)
+                                  @if($user->departamento == $departamento->id)
+                                    <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
+                                  @else
+                                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+                                  @endif
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-map"></i>
+                            </span>
+                            <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
+                              <option value="">Ciudad</option>
+                              @foreach($ciudades as $ciudad)
+                                  @if($user->departamento == $ciudad->idDepartamento)
+                                    @if($user->ciudad == $ciudad->id)
+                                      <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
+                                    @else
+                                      <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
+                                    @endif
+                                  @endif
+                              @endforeach
+                            </select>
+                          </div>
+                        </div>
+
+
+                      </div>
+                        <!-- lado izquierdo-->
+                      <div class="col-md-6 sise14">
+                        <div class="widget-container">
+                          <div class="card-header" style="border-bottom: none;">
+                          <p class="lead col-centrada" style="margin-bottom: 10px;  font-size:16px;">
+                           Información <span class="text-success">Tributaria</span>
+                          </p>
+                          </div>
+                          <div class="form-group">
+                            <div class="input-icon">
+                              <span class="input-icon-addon">
+                                <i class="fe fe-credit-card"></i>
+                              </span>
+                              @if($empresa->nit == 0)
+        											<input name="nit" type="text" class="form-control" placeholder="Ingrese su nit xxxxxxx-xx" required="true">
+        										  @else
+        											<input name="nit" type="text" class="form-control" placeholder="Ingrese su nit xxxxxxx-xx" value="{{$empresa->nit}}" required="true">
+        										  @endif
+                            </div>
+                          </div>
+
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-credit-card"></i>
+                            </span>
+                            <select id="tipoRegimen" name="" class="form-control" onChange="pagoOnChange(this)">
+                                <option value="comun" selected="selected">Regimen comun</option>
+                                <option value="simplificado" >Regimen  simplificado</option>
+                            </select>
+      									  </div>
+                        </div>
+                        <div id="regimenSimple"  style="display:none;">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <span class="input-icon-addon">
+                              <i class="fe fe-credit-card"></i>
+                            </span>
+                            <input id="NumSimpli" name="NumSimpli" class="form-control" placeholder="Numeración" type="text" value="">
+                          </div>
+                        </div>
+                      </div>
+                        <!--- vomun-->
+                        <div id="regimenComun">
+                          <div class="form-group">
+                            <div class="input-icon">
+                              <span class="input-icon-addon">
+                                <i class="fe fe-credit-card"></i>
+                              </span>
+                              <input class="form-control" id="resolucion" name="resolucion" placeholder="Resolución de facturación" type="text" id="regimen" name="regimen" value="">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="input-icon">
+                              <span class="input-icon-addon">
+                                <i class="fe fe-credit-card"></i>
+                              </span>
+                              <input class="form-control" name="fechaResolucion" id="fechaResolucion" type="date" placeholder="Fecha resolución" value="">
+                            </div>
+                          </div>
+
+                          <div class="input-container">
+                            <div class="input-group">
+                              <div class="col-md-4">
+                                <input name="prefijo" id="prefijo" type="text" class="form-control" placeholder="Prefijo" value="" required="true">
+                              </div>
+                              <div class="col-md-4">
+                                <input name="nInicio" id="nInicio" type="text" class="form-control" placeholder="Del No." value="" required="true">
+                              </div>
+                              <div class="col-md-4">
+                                <input name="nFinal" id="nFinal" type="text" class="form-control" placeholder="Hasta" value="" required="true">
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                        </div>
+                        <!--- vomun-->
+                      </div><!-- widget-container-->
+                    </div><!-- fin de col-md-6-->
+                    </div>
+                  </div>
+                <div class="form-footer" style=" margin-top: 0rem;">
+                  <button type="submit"  class="btn btn-primary"><i class="fe fe-check-square"></i> Guardar Información</button>
+                </div>
+      					</section>
+                <!-- *****************************-->
+                <!-- FIN DE SECTION 1 -->
+      					<section id="section-2" style="background-color: white;">
+                  <div class="card-body">
+                    <div class="row row-cards row-deck">
+                      <div class="col-md-6">
+
+                      </div>
+                        <!-- lado izquierdo-->
+                        <div class="col-md-6 sise14">
+                          <div class="widget-container">
+                            <div class="card-header" style="border-bottom: none;">
+                            <p class="lead col-centrada" style="margin-bottom: 10px;  font-size:16px;">
+                             Información de tu<span class="text-success"> Cuenta</span>
+                            </p>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-icon">
+                                <span class="input-icon-addon">
+                                  <i class="fe fe-credit-card"></i>
+                                </span>
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="text" name="regimen" value="{{$empresa->email}}">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-icon">
+                                <span class="input-icon-addon">
+                                  <i class="fe fe-credit-card"></i>
+                                </span>
+                                <input class="form-control" id="password" name="" placeholder="Contraseña" type="password" name="regimen" value="">
+                                <span class="input-icon-addon">
+                                  <i id="show-password1" class="fa fa-eye"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-icon">
+                                <span class="input-icon-addon">
+                                  <i class="fe fe-credit-card"></i>
+                                </span>
+                                <input class="form-control" id="password1" name="" placeholder="Confirmar Contraseña" type="password" name="regimen" value="">
+                                <span class="input-icon-addon">
+                                  <i id="show-password1" class="fa fa-eye"></i>
+                                </span>
+                              </div>
+                            </div>
+                        </div><!-- widget-container -->
+                      </div><!--col-sm-6-->
+                    </div>
+                </div>
+                <div class="form-footer" style=" margin-top: 0rem;">
+                  <button type="submit"  class="btn btn-primary"><i class="fe fe-check-square"></i> Guardar Información</button>
+                </div>
+      					</section>
+                <!-- *****************************-->
+                <!-- FIN DE SECTION 2 -->
+      					<section id="section-3" style="background-color: white;">
+                <div class="PocketAlertPro">
+                  <div class="alert alert-info backgraundPocket">
+                    <h4>!Estas al día</h4>
+                    <p>
+                      Tu Membresia PocketClub vence en 30 dias faltando 7 dias te recordaremos el vencimiento.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="container">
+                                 <div class="col-md-12">
+                                    <div class="row" style="display: flow-root !important;">
+                                        <div class="bs-pricing-table-three">
+                                            <div class="col-sm-4">
+                                                <div class="bs-pricing-item free active">
+                                                    <div class="head text-center">
+                                                        <div class="head-title">
+                                                            <h2>Única</h2>
+                                                        </div>
+                                                        <div class="price">
+                                                            <h1>$69.990</h1>
+                                                            <span>Mensuales</span> <br />
+                                                            <span>Sin clausulas de permanencia</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <ul class="m-top-40">
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Acceso completo a SmartDoc</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Máximo 7 Empleados</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Información segura por 2 meses</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Sólo a promociones Únicas, Smartshop</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>No tienes ahorro, ni días gratis</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Donamos $3.000 Fundación para todos</span></li>
+                                                    </ul>
+
+                                                    <div class="bs-btns text-center">
+                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- End col-md-4 -->
+                                            <div class="col-sm-4">
+                                                <div class="bs-pricing-item xs-m-top-50 standard">
+                                                    <div class="head text-center">
+                                                        <div class="head-title">
+                                                            <h2>Élite</h2>
+                                                        </div>
+                                                        <div class="price">
+                                                            <h1>$799.780</h1>
+                                                            <span>Anual</span> <br/>
+                                                            <span>Sin clausulas de permanencia</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <ul class="m-top-40">
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Acceso completo a SmartDoc</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Empleados Infinitos</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Información segura por 18 meses</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Todas las promociones, Smartshop</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Ahorras $40.100 más 10 días Gratis</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Donamos $5.000 Fundación para todos</span></li>
+                                                    </ul>
+                                                    <div class="bs-btns text-center">
+                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- End col-md-4 -->
+                                            <div class="col-sm-4">
+                                                <div class="bs-pricing-item sm-m-top-50 plus">
+                                                    <div class="head text-center">
+                                                        <div class="head-title">
+                                                            <h2>Estandar</h2>
+                                                        </div>
+                                                        <div class="price">
+                                                            <h1>$399.490</h1>
+                                                            <span>Semestre</span> <br />
+                                                            <span>Sin clausulas de permanencia</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <ul class="m-top-40">
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Acceso completo a SmartDoc</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Empleados Infinitos</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Información segura por 10 meses</span></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Todas las promociones, Smartshop</span>
+                                                            <li><i class="fa fa-dot-circle-o"></i> <span>Ahorras $20.450 más 7 días gratis</span></li></li>
+                                                        <li><i class="fa fa-dot-circle-o"></i> <span>Donamos $4.000 Fundación para todos</span></li>
+                                                    </ul>
+
+                                                    <div class="bs-btns text-center">
+                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- End col-md-4 -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+      					</section>
+                <!-- *****************************-->
+                <!-- FIN DE SECTION 3 -->
+      				</div><!-- /content -->
+      			</div><!-- /tabs -->
+
+            <!-- Nav tabs -->
           </div>
-          <div class="card-body">
-            <div class="row row-cards row-deck">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-user"></i>
-                    </span>
-                    <input id="nombreEstablecimiento" name="nombreEstablecimiento" class="form-control" placeholder="Nombre Establecimiento" type="text" value="{{$empresa->nombreEstablecimiento}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-credit-card"></i>
-                    </span>
-                    <input id="nit" name="nit" class="form-control" placeholder="Nit" type="text" value="{{$empresa->nit}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-phone-call"></i>
-                    </span>
-                    <input id="telefono" name="telefono" class="form-control" placeholder="Teléfono" type="text" value="{{$empresa->telefono}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-map"></i>
-                    </span>
-                    <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
-                      <option value="">Departamento</option>
-                      @foreach($departamentos as $departamento)
-                          @if($user->departamento == $departamento->id)
-                            <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
-                          @else
-                            <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-                          @endif
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-              </div>
-                <!-- lado izquierdo-->
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-user"></i>
-                    </span>
-                    <input id="eslogan" name="eslogan" class="form-control" placeholder="ESlogan" type="text" value="{{$empresa->eslogan}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-tag"></i>
-                    </span>
-                    <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text" value="{{$empresa->direccion}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-smartphone"></i>
-                    </span>
-                    <input id="celular" name="celular" class="form-control" placeholder="Celular" type="text" value="{{$empresa->celular}}">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-icon">
-                    <span class="input-icon-addon">
-                      <i class="fe fe-map"></i>
-                    </span>
-                    <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
-                      <option value="">Ciudad</option>
-                      @foreach($ciudades as $ciudad)
-                          @if($user->departamento == $ciudad->idDepartamento)
-                            @if($user->ciudad == $ciudad->id)
-                              <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
-                            @else
-                              <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
-                            @endif
-                          @endif
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-footer">
-          <button type="submit"  class="btn btn-primary pull-right"><i class="fe fe-check-square"></i> Guardar Información Perfil</button>
-        </div>
+          <!-- Fin de tap-->
       </div>
     </div>
     {{ Form::close() }}
@@ -183,6 +442,33 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  new CBPFWTabs( document.getElementById( 'tabs' ) );
+</script>
+
+
+<script>
+function pagoOnChange(sel) {
+      if (sel.value=="simplificado"){
+           divC = document.getElementById("regimenSimple");
+           divC.style.display = "";
+
+           divT = document.getElementById("regimenComun");
+           divT.style.display = "none";
+
+      }else{
+           divC = document.getElementById("regimenSimple");
+           divC.style.display="none";
+
+           divT = document.getElementById("regimenComun");
+           divT.style.display = "";
+      }
+}
+
+</script>
+
 <script>
 	require(['input-mask']);
 
@@ -251,22 +537,22 @@
         var pos = str.indexOf(';base64,');
         var type = str.substring(5, pos);
         var b64 = str.substr(pos + 8);
-      
+
         // decode base64
         var imageContent = atob(b64);
-      
+
         // create an ArrayBuffer and a view (as unsigned 8-bit)
         var buffer = new ArrayBuffer(imageContent.length);
         var view = new Uint8Array(buffer);
-      
+
         // fill the view, using the decoded base64
         for (var n = 0; n < imageContent.length; n++) {
           view[n] = imageContent.charCodeAt(n);
         }
-      
+
         // convert ArrayBuffer to Blob
         var blob = new Blob([buffer], { type: type });
-      
+
         return blob;
     }
 
@@ -274,7 +560,7 @@
       contentType = contentType || '';
       sliceSize = sliceSize || 512;
 
-      var b64DataString = b64Data.substr(b64Data.indexOf(',') + 1);      
+      var b64DataString = b64Data.substr(b64Data.indexOf(',') + 1);
       var byteCharacters = atob(b64DataString);
       var byteArrays = [];
 
