@@ -74,6 +74,12 @@ class UserController extends Controller
         $empresa->telefono = $request->telefono;
         $empresa->celular = $request->celular;
         $empresa->direccion = $request->direccion;
+        $empresa->tipoRegimen = $request->tipoRegimen;
+        $empresa->prefijo = $request->prefijo;
+        $empresa->nResolucionFacturacion = $request->resolucion;
+        $empresa->fechaResolucion = $request->fechaResolucion;
+        $empresa->nInicioFactura = $request->nInicio;
+        $empresa->nFinFactura = $request->nFinal;
         $user->departamento = $request->idDepto;
         $user->ciudad = $request->idCiudad;
 

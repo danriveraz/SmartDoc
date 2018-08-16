@@ -214,9 +214,9 @@ float: left;
                             <span class="input-icon-addon">
                               <i class="fe fe-credit-card"></i>
                             </span>
-                            <select id="tipoRegimen" name="" class="form-control" onChange="pagoOnChange(this)">
-                                <option value="comun" selected="selected">Regimen comun</option>
-                                <option value="simplificado" >Regimen  simplificado</option>
+                            <select id="tipoRegimen" name="tipoRegimen" class="form-control" onChange="pagoOnChange(this)" value="{{$empresa->tipoRegimen}} ">
+                                <option value="comun" <?php if($empresa->tipoRegimen == "comun") echo 'selected="selected"'; ?> >Regimen comun</option>
+                                <option value="simplificado" <?php if($empresa->tipoRegimen == "simplificado") echo 'selected="selected"'; ?> >Regimen  simplificado</option>
                             </select>
       									  </div>
                         </div>
@@ -237,7 +237,7 @@ float: left;
                               <span class="input-icon-addon">
                                 <i class="fe fe-credit-card"></i>
                               </span>
-                              <input class="form-control" id="resolucion" name="resolucion" placeholder="Resolución de facturación" type="text" id="regimen" name="regimen" value="">
+                              <input class="form-control" id="resolucion" name="resolucion" placeholder="Resolución de facturación" type="text" id="regimen" name="regimen" value="{{$empresa->nResolucionFacturacion}}">
                             </div>
                           </div>
 
@@ -246,20 +246,20 @@ float: left;
                               <span class="input-icon-addon">
                                 <i class="fe fe-credit-card"></i>
                               </span>
-                              <input class="form-control" name="fechaResolucion" id="fechaResolucion" type="date" placeholder="Fecha resolución" value="">
+                              <input class="form-control" name="fechaResolucion" id="fechaResolucion" type="date" placeholder="Fecha resolución" value="{{$empresa->fechaResolucion}}">
                             </div>
                           </div>
 
                           <div class="input-container">
                             <div class="input-group">
                               <div class="col-md-4">
-                                <input name="prefijo" id="prefijo" type="text" class="form-control" placeholder="Prefijo" value="" required="true">
+                                <input name="prefijo" id="prefijo" type="text" class="form-control" placeholder="Prefijo" value="{{$empresa->prefijo}}" required="true">
                               </div>
                               <div class="col-md-4">
-                                <input name="nInicio" id="nInicio" type="text" class="form-control" placeholder="Del No." value="" required="true">
+                                <input name="nInicio" id="nInicio" type="text" class="form-control" placeholder="Del No." value="{{$empresa->nInicioFactura}}" required="true">
                               </div>
                               <div class="col-md-4">
-                                <input name="nFinal" id="nFinal" type="text" class="form-control" placeholder="Hasta" value="" required="true">
+                                <input name="nFinal" id="nFinal" type="text" class="form-control" placeholder="Hasta" value="{{$empresa->nFinFactura}}" required="true">
                               </div>
                             </div>
                           </div>
@@ -458,10 +458,13 @@ float: left;
           width: 'auto', //auto or any width like 600px
           fit: true   // 100% fit in a container
         });
+         pagoOnChange(document.getElementById("tipoRegimen"));
       });
+     
     </script>
 
 <script>
+
 function pagoOnChange(sel) {
       if (sel.value=="simplificado"){
            divC = document.getElementById("regimenSimple");
