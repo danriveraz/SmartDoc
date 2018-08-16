@@ -2328,6 +2328,8 @@ class HistoriaClinicaController extends Controller
       $historia->documento = $request->documento;
       $historia->sexo = $request->sexo;
       $historia->edad = $request->edad;
+      $historia->email = $request->email;
+      $historia->exoneradoImpuestos = $request->impuestos;
       $historia->fechaNacimiento = $request->fechaNacimiento;
       $historia->direccion = $request->direccion;
       $historia->telefono = $request->telefono;
