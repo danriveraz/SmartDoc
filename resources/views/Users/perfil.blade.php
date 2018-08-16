@@ -107,8 +107,7 @@ float: left;
       				<nav>
       					<ul>
       						<li><a href="#section-1" class="icon-shop"><span>Empresa</span></a></li>
-      						<li><a href="#section-2" class="icon-shop"><span>Configuración</span></a></li>
-      						<li><a href="#section-3" class="icon-food"><span>PocketClub</span></a></li>
+      						<li><a href="#section-2" class="icon-food"><span>PocketClub</span></a></li>
       					</ul>
       				</nav>
               <!-- INICIO DEL CONTENIDO -->
@@ -277,61 +276,8 @@ float: left;
       					</section>
                 <!-- *****************************-->
                 <!-- FIN DE SECTION 1 -->
-      					<section id="section-2" style="background-color: white;">
-                  <div class="card-body">
-                    <div class="row row-cards row-deck">
-                      <div class="col-md-6">
-
-                      </div>
-                        <!-- lado izquierdo-->
-                        <div class="col-md-6 sise14">
-                          <div class="widget-container">
-                            <div class="card-header" style="border-bottom: none;">
-                            <p class="lead col-centrada" style="margin-bottom: 10px;  font-size:16px;">
-                             Información de tu<span class="text-success"> Cuenta</span>
-                            </p>
-                            </div>
-                            <div class="form-group">
-                              <div class="input-icon">
-                                <span class="input-icon-addon">
-                                  <i class="fe fe-credit-card"></i>
-                                </span>
-                                <input class="form-control" id="email" name="email" placeholder="Email" type="text" name="regimen" value="{{$empresa->email}}">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="input-icon">
-                                <span class="input-icon-addon">
-                                  <i class="fe fe-credit-card"></i>
-                                </span>
-                                <input class="form-control" id="password" name="" placeholder="Contraseña" type="password" name="regimen" value="">
-                                <span class="input-icon-addon">
-                                  <i id="show-password1" class="fa fa-eye"></i>
-                                </span>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <div class="input-icon">
-                                <span class="input-icon-addon">
-                                  <i class="fe fe-credit-card"></i>
-                                </span>
-                                <input class="form-control" id="password1" name="" placeholder="Confirmar Contraseña" type="password" name="regimen" value="">
-                                <span class="input-icon-addon">
-                                  <i id="show-password1" class="fa fa-eye"></i>
-                                </span>
-                              </div>
-                            </div>
-                        </div><!-- widget-container -->
-                      </div><!--col-sm-6-->
-                    </div>
-                </div>
-                <div class="form-footer" style=" margin-top: 0rem;">
-                  <button type="submit"  class="btn btn-primary"><i class="fe fe-check-square"></i> Guardar Información</button>
-                </div>
-      					</section>
                 <!-- *****************************-->
-                <!-- FIN DE SECTION 2 -->
-      					<section id="section-3" style="background-color: white;">
+      					<section id="section-2" style="background-color: white;">
                 <div class="PocketAlertPro">
                   <div class="alert alert-info backgraundPocket">
                     <h4>!Estas al día</h4>
@@ -419,7 +365,7 @@ float: left;
                                                     </ul>
 
                                                     <div class="bs-btns text-center">
-                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                        <a href="" class="btn">Plan Actual</a>
                                                     </div>
                                                 </div>
                                             </div><!-- End col-md-4 -->
