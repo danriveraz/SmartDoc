@@ -112,7 +112,7 @@
       	<div class="modal-body" align="center">
         	<div class="row">
 	        	<div class="col-md-6">
-		          	<select id="servicioNuevo" name='servicioNuevo' class="form-control" placeholder="Procedimiento" required style="text-align:center;" id="procedimientoo">
+		          	<select id="servicioNuevo" name='servicioNuevo' class="form-control" placeholder="Procedimiento" required style="text-align:center;">
 	                  	<option value="" selected="selected">Procedimiento</option>
 	        			@foreach($procedimientos as $procedimiento)
 	        				<option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
@@ -120,7 +120,7 @@
 	            	</select>
 	            </div>
 	        	<div class="col-md-6">
-	        		<input type="number" class="form-control" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
+	        		<input type="number" class="form-control" id="costoTratamientoNuevo" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
 	        	</div>	
 	        	&nbsp;
 	        	<div class="col-md-12">
@@ -5243,24 +5243,22 @@
 			}
 		});
 	}
-	$('#procedimientoo').on('change', function (event) {
+</script>
+<script type="text/javascript">
+	$('#servicioNuevo').on('change', function (event) {
 	    var id = $(this).find('option:selected').val();
-	    console.log(id);
-	    alert(id);
-	     /* $('#idCiudad').empty();
-	      $('#idCiudad').append($('<option>', {
-	            value: 0,
-	            text: 'Elija una opción'
-	        }));
-	      JSONCiudades = eval(<?php echo json_encode($ciudades);?>);
-	      JSONCiudades.forEach(function(currentValue,index,arr) {
-	        if(currentValue.idDepartamento == id){
-	          $('#idCiudad').append($('<option>', {
-	            value: currentValue.id,
-	            text: currentValue.nombre
-	        }));
-	        }
-	    });*/
+	    if(id != ""){
+			JSONProcedimientos = eval(<?php echo json_encode($procedimientos);?>);
+			JSONProcedimientos.forEach(function(currentValue,index,arr) {
+		        if(currentValue.id == id){
+	    			$("#costoTratamientoNuevo").val(currentValue.venta);
+		        }
+		    });
+	          
+	    }
+	    
+
+		
 	  });
 </script>
 <style type="text/css">
