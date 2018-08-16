@@ -6,6 +6,7 @@
 {!!Html::style('assetsIntena/css/styleTapProfile.css')!!}
 {!!Html::style('assetsIntena/css/main.css')!!}
 {!!Html::style('assetsIntena/css/rainbow-pricing-table.css')!!}
+{!!Html::style('assetsIntena/css/stylePayment.css')!!}
 
 
 {!!Html::script("assetsIntena/js/main.js")!!}
@@ -17,6 +18,10 @@ padding: 20px;
 background: #fff;
 }
 .col-sm-4 {
+float: left;
+}
+
+.col-sm-6 {
 float: left;
 }
 
@@ -335,7 +340,58 @@ float: left;
                     </p>
                   </div>
                 </div>
+<!-- contenido de metodos de pago -->
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+  <div class="sap_tabs">
+  							<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+  								<div class="pay-tabs ">
+  									<h2>Slecione Metodo de Pago</h2>
+  									  <ul class="resp-tabs-list">
+  										  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span><label class="pic3"></label>PayU</span></li>
+  										  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span><label class="pic1"></label>PayPal</span></li>
+  										  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label class="pic2"></label>MercadoPago</span></li>
+  										  <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span><label class="pic4"></label>Factura</span></li>
+  										  <div class="clear"></div>
+  									  </ul>
+  								</div>
+  								<div class="resp-tabs-container">
+  									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+  										<div class="payment-info">
+  											<h3>Personal Information</h3>
 
+  										</div>
+  									</div>
+  									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+  										<div class="payment-info">
+  											<h3>Net Banking</h3>
+
+  										</div>
+  									</div>
+
+  									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+  										<div class="payment-info">
+
+  										</div>
+  									</div>
+
+  									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+  										<div class="payment-info">
+
+  											<h3 class="pay-title">Dedit Card Info</h3>
+
+
+  										</div>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+</div>
+</div>
+
+</div>
+<!--- contenido de membresias -->
                 <div class="container">
                                  <div class="col-md-12">
                                     <div class="row" style="display: flow-root !important;">
@@ -448,6 +504,16 @@ float: left;
   new CBPFWTabs( document.getElementById( 'tabs' ) );
 </script>
 
+{!!Html::script("assetsIntena/js/payment/easyResponsiveTabs.js")!!}
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+          type: 'default', //Types: default, vertical, accordion
+          width: 'auto', //auto or any width like 600px
+          fit: true   // 100% fit in a container
+        });
+      });
+    </script>
 
 <script>
 function pagoOnChange(sel) {
