@@ -80,6 +80,9 @@ class UserController extends Controller
         $empresa->fechaResolucion = $request->fechaResolucion;
         $empresa->nInicioFactura = $request->nInicio;
         $empresa->nFinFactura = $request->nFinal;
+        if($request->tipoRegimen == "simplificado"){
+            $empresa->nInicioFactura = $request->NumSimpli;
+        }
         $user->departamento = $request->idDepto;
         $user->ciudad = $request->idCiudad;
 

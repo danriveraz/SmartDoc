@@ -226,7 +226,7 @@ float: left;
                             <span class="input-icon-addon">
                               <i class="fe fe-credit-card"></i>
                             </span>
-                            <input id="NumSimpli" name="NumSimpli" class="form-control" placeholder="Numeración" type="text" value="">
+                            <input id="NumSimpli" name="NumSimpli" class="form-control" placeholder="Numeración" type="text" value="{{$empresa->nInicioFactura}}">
                           </div>
                         </div>
                       </div>
