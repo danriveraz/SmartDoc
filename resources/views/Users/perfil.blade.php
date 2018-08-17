@@ -80,21 +80,35 @@ float: left;
                 </div>
               </div>
             </div>
-            <h3 class="mb-1">{{$empresa->nombreEstablecimiento}}</h3>
-            <p class="mb-3" style="font-size: 12px;">
-              {{$empresa->eslogan}}
-            </p>
-            <ul class="social-links list-inline mb-0 mt-2">
-              <li class="list-inline-item">
-                <a href="javascript:void(0)" title="Facebook" data-toggle="tooltip"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="javascript:void(0)" title="Twitter" data-toggle="tooltip"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="javascript:void(0)" title="instagram" data-toggle="tooltip"><i class="fa fa-instagram"></i></a>
-              </li>
-            </ul>
+            <!-- Inicio de cambio de contraseña -->
+            <form>
+              <div class="form-group">
+                  <label class="form-label" style="text-align: left">Email-Usuario</label>
+                  <input class="form-control" placeholder="your-email@domain.com" value="{{$user->email}}" disabled="">
+              </div>
+    					<div class="form-group">
+                  <label class="form-label" style="text-align: left">Password</label>
+                  <div class="input-icon">
+                    <input class="form-control" id="password" name="" placeholder="**********" type="password" name="regimen" value="">
+                  <span class="input-icon-addon">
+                    <i id="show-password1" class="fa fa-eye"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="form-label" style="text-align: left">Confirmar Password</label>
+                  <div class="input-icon">
+                    <input class="form-control" id="password1" name="" placeholder="**********" type="password" name="regimen" value="">
+                  <span class="input-icon-addon">
+                    <i id="show-password1" class="fa fa-eye"></i>
+                  </span>
+                </div>
+              </div>
+    					<div class="form-footer">
+                  <button class="btn btn-primary btn-block">Guardar</button>
+              </div>
+            </form>
+            <!-- Fin de cambio de contraseña -->
           </div>
         </div>
       </div><!-- fin del col lg4-->
@@ -460,7 +474,7 @@ float: left;
         });
          pagoOnChange(document.getElementById("tipoRegimen"));
       });
-     
+
     </script>
 
 <script>
