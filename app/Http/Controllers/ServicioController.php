@@ -161,16 +161,37 @@ class ServicioController extends Controller
 
     public function nuevo(Request $request){
       $user = Auth::User();
+      $empresa = Empresa::find($user->idEmpresa);
       $servicio = new Servicio();
       $servicio->idEmpresa = $user->idEmpresa;
       $servicio->idHistoriaClinica = $request->id;
+      $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
       $servicio->idProcedimiento = $request->servicioNuevo;
       $servicio->costoTratamiento = $request->costoTratamientoNuevo;
+      $valorTratamiento = $request->costoTratamientoNuevo;
+      if(!$historiaClinica->exoneradoImpuestos){
+        $servicio->costoTratamiento += $valorTratamiento*(($empresa->iva+0.0)/100);
+        if($empresa->impuesto1 != ""){
+          $servicio->costoTratamiento += $valorTratamiento*($empresa->valorImpuesto1/100);
+        }
+        if($empresa->impuesto2 != ""){
+          $servicio->costoTratamiento += $valorTratamiento*($empresa->valorImpuesto2/100);
+        }
+      }
       $servicio->descripcion = $request->descripcionNueva;
       $servicio->fecha = Carbon::now()->subHour(5);
-      $servicio->save();
-      flash('Servicio guardado exitosamente')->success()->important();
-      return redirect()->back();
+      $servicio->estado = "Pendiente";
+      $servicio->nFactura = $empresa->contradorFacturacion + 1;
+      $empresa->contradorFacturacion +=1;
+      $empresa->save();
+      if($servicio->nFactura >= $empresa->nFinFactura and $empresa->tipoRegimen == "comun"){
+        flash('No hay numerración dispenible para la factura')->error()->important();
+        return redirect()->back();
+      }else{
+        $servicio->save();
+        flash('Servicio guardado exitosamente')->success()->important();
+        return redirect()->back();
+      }
     }
 
     public function showpayment(Request $request){
