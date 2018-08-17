@@ -1,100 +1,7 @@
 @extends('Layouts.app_administradores')
 @section('content')
 @include('flash::message')
-<!--Realizado por Daniel Alejandro Rivera, Luis Felipe Castaño, ing-->
-<style type="text/css">
-	.radio {
-  padding-left: 20px; }
-  .radio label {
-    display: inline-block;
-    position: relative;
-    padding-left: 5px; }
-    .radio label::before {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      width: 17px;
-      height: 17px;
-      left: 0;
-      margin-left: -20px;
-      border: 1px solid #cccccc;
-      border-radius: 50%;
-      background-color: #fff;
-      -webkit-transition: border 0.15s ease-in-out;
-      -o-transition: border 0.15s ease-in-out;
-      transition: border 0.15s ease-in-out; }
-    .radio label::after {
-      display: inline-block;
-      position: absolute;
-      content: " ";
-      width: 11px;
-      height: 11px;
-      left: 3px;
-      top: 3px;
-      margin-left: -20px;
-      border-radius: 50%;
-      background-color: #555555;
-      -webkit-transform: scale(0, 0);
-      -ms-transform: scale(0, 0);
-      -o-transform: scale(0, 0);
-      transform: scale(0, 0);
-      -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
-      transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
-  .radio input[type="radio"] {
-    opacity: 0; }
-    .radio input[type="radio"]:focus + label::before {
-      outline: thin dotted;
-      outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px; }
-    .radio input[type="radio"]:checked + label::after {
-      -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-      -o-transform: scale(1, 1);
-      transform: scale(1, 1); }
-    .radio input[type="radio"]:disabled + label {
-      opacity: 0.65; }
-      .radio input[type="radio"]:disabled + label::before {
-        cursor: not-allowed; }
-  .radio.radio-inline {
-    margin-top: 0; }
-
-.radio-primary input[type="radio"] + label::after {
-  background-color: #428bca; }
-.radio-primary input[type="radio"]:checked + label::before {
-  border-color: #428bca; }
-.radio-primary input[type="radio"]:checked + label::after {
-  background-color: #428bca; }
-
-.radio-danger input[type="radio"] + label::after {
-  background-color: #d9534f; }
-.radio-danger input[type="radio"]:checked + label::before {
-  border-color: #d9534f; }
-.radio-danger input[type="radio"]:checked + label::after {
-  background-color: #d9534f; }
-
-.radio-info input[type="radio"] + label::after {
-  background-color: #5bc0de; }
-.radio-info input[type="radio"]:checked + label::before {
-  border-color: #5bc0de; }
-.radio-info input[type="radio"]:checked + label::after {
-  background-color: #5bc0de; }
-
-.radio-warning input[type="radio"] + label::after {
-  background-color: #f0ad4e; }
-.radio-warning input[type="radio"]:checked + label::before {
-  border-color: #f0ad4e; }
-.radio-warning input[type="radio"]:checked + label::after {
-  background-color: #f0ad4e; }
-
-.radio-success input[type="radio"] + label::after {
-  background-color: #5cb85c; }
-.radio-success input[type="radio"]:checked + label::before {
-  border-color: #5cb85c; }
-.radio-success input[type="radio"]:checked + label::after {
-  background-color: #5cb85c; }
-</style>
+<!--Realizado por Daniel Alejandro Rivera, ing-->
 <link href="odontograma/css/base.css" rel="stylesheet">
 <!--Espacio modal add procedimiento-->
 <div class="text-center" id="divTitulo" style="display: none;">
@@ -123,7 +30,7 @@
 	            	</select>
 	            </div>
 	        	<div class="col-md-6">
-	        		<input type="number" class="form-control" id="costoTratamientoNuevo" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
+	        		<input type="number" class="form-control" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
 	        	</div>	
 	        	&nbsp;
 	        	<div class="col-md-12">
@@ -276,33 +183,6 @@
 	          								<label >Teléfono</label>
 	          							@endif
 	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}" required="true">
-	          						</div>
-	          					</div>
-	          					<div class="col-md-3">
-	          						<div class="form-group">
-	          							@if($historia->email != "")
-	          								<label >Email</label>
-	          							@endif
-	          							<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{$historia->email}}" required="true">
-	          						</div>
-	          					</div>
-	          					<div class="col-md-6">
-	          						<div class="form-group" id="exonerarImpuestos">
-	          							<label >Exonerar de impuestos?</label>
-	          							<div class="col-md-12">
-	          								<div class="col-md-3">
-	          							<div class="radio radio-info radio-inline">
-					                        <input type="radio" id="inlineRadio1" value="1" name="impuestos" <?php if($historia->exoneradoImpuestos == 1) echo 'checked=""';?> >
-					                        <label for="inlineRadio1" > Si </label>
-					                    </div>
-					                </div>
-					                <div class="col-md-9">
-					                    <div class="radio radio-info radio-inline">
-					                        <input type="radio" id="inlineRadio2" value="0" name="impuestos" <?php if($historia->exoneradoImpuestos == 0) echo 'checked=""';?>>
-					                        <label for="inlineRadio2"> No </label>
-					                    </div>
-					                </div>
-					                	</div>
 	          						</div>
 	          					</div>
 		          			</div>
@@ -1053,7 +933,7 @@
 				                        </div>
 				                    </div>
 				                <div id="odontogramaGeometrico" style="background: #FFFFFF;">
-				                	<div class="row">
+				                	 <div class="row">
 					                    <div id="tr" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
 					                    </div>
 					                    <div id="tl" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
@@ -1077,7 +957,7 @@
 				                <br>
 				                <div class="text-center">
 				                	<a class="btn btn-primary" id="dOdontogramaGeometrico" title="Descargar odontograma geométrico">Descargar</a>
-				                </div>			                	
+				                </div>	
 				            </div>
 				    	</div>
 			        </div>
@@ -1171,7 +1051,7 @@
 			                    	Editar Odontograma Inicial
 			                    </button>
 		                    @endif
-		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="imprimr();"><i class="fa fa-print"></i>Imprimir</a>  
+		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="imprimr();"><i class="fa fa-print"></i>Imprimir</a>   
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -1586,7 +1466,7 @@
 	var bootstrap = document.getElementById('bootstrap');
 	var parent = bootstrap.parentNode;
 	$(document).ready(function() {
-
+		
 		$("#dOdontogramaGeometrico").on('click', function () {
 		    html2canvas($('#odontogramaGeometrico'), {
 				onrendered: function(canvas) {
@@ -5279,26 +5159,21 @@
 		document.getElementById('editarOdontograma').style.display = 'none';
 		document.getElementById('divOdontogramaGeometrico').style.display = 'none';
 		document.getElementById('divPrimerOdontograma').style.display = 'none';
-		document.getElementById('exonerarImpuestos').style.display = 'none';
 		document.getElementById('divTitulo').style.display = 'block';
 
 		if(!($('#antecedentes').hasClass("show"))){
 			$('#antecedentes').addClass('show');
-			document.getElementById('antecedentes').style.marginLeft = '-10px';
-			document.getElementById('antecedentes').style.marginRight = '60px';
 		}
 
 		if(!($('#examen').hasClass("show"))){
 			$('#examen').addClass('show');
-			document.getElementById('examen').style.marginLeft = '-10px';
-			document.getElementById('examen').style.marginRight = '60px';
 		}
-
-		print();
 
 		if(!($('#odontogramaInicial').hasClass("show"))){
 			$('#odontogramaInicial').addClass('show');
 		}
+
+		print();
 
 		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
 		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
@@ -5311,13 +5186,10 @@
 		document.getElementById('editarOdontograma').style.display = 'initial';
 		document.getElementById('divOdontogramaGeometrico').style.display = 'block';
 		document.getElementById('divPrimerOdontograma').style.display = 'block';
-		document.getElementById('exonerarImpuestos').style.display = 'block';
 		document.getElementById('divTitulo').style.display = 'none';
 
-		document.getElementById('antecedentes').style.marginLeft = '0px';
-		document.getElementById('antecedentes').style.marginRight = '1%';
 
-		if($('#antecedentes').hasClass("collapse")){
+		if($('#antecedentes').attr('class') == "collapse"){
 			document.getElementById('spanAntecedentesPlus').style.display = "none";
 			document.getElementById('spanAntecedentesMinus').style.display = "";
 		}else{
@@ -5325,7 +5197,7 @@
 			document.getElementById('spanAntecedentesMinus').style.display = "none";
 		}
 
-		if($('#examen').hasClass("collapse")){
+		if($('#examen').attr('class') == "collapse"){
 			document.getElementById('spanExamenPlus').style.display = "none";
 			document.getElementById('spanExamenMinus').style.display = "";
 		}else{
@@ -5333,7 +5205,7 @@
 			document.getElementById('spanExamenMinus').style.display = "none";
 		}
 
-		if($('#odontogramaInicial').hasClass("collapse")){
+		if($('#odontogramaInicial').attr('class') == "collapse"){
 			document.getElementById('spanOdontogramaInicialPlus').style.display = "none";
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "";
 		}else{
@@ -5341,24 +5213,6 @@
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "none";
 		}
 	};
-
-</script>
-<script type="text/javascript">
-	$('#servicioNuevo').on('change', function (event) {
-	    var id = $(this).find('option:selected').val();
-	    if(id != ""){
-			JSONProcedimientos = eval(<?php echo json_encode($procedimientos);?>);
-			JSONProcedimientos.forEach(function(currentValue,index,arr) {
-		        if(currentValue.id == id){
-	    			$("#costoTratamientoNuevo").val(currentValue.venta);
-		        }
-		    });
-	          
-	    }
-	    
-
-		
-	  });
 </script>
 <style type="text/css">
 	.btn-pill{
