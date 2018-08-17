@@ -225,12 +225,22 @@ class ServicioController extends Controller
         $abono->fecha = Carbon::now()->subHour(5);
         $abono->idServicio = $request->id;
         $abono->save();  
-          flash('Abono realizado')->success()->important();
-          return back();  
+
+        $servicio = Servicio::find($request->id);
+        $saldo = $servicio->costoTratamiento;
+        foreach ($servicio->abonos as $abono) {
+          $saldo -= $abono->abono;
+        }
+        if($saldo == 0){
+          $servicio->estado = "Finalizada";
+          $servicio->save();
+        }
+        flash('Abono realizado')->success()->important();
+        return redirect('/Servicio')->send(); 
       }
       else{
-          flash('Por favor ingrese cantidad a abonar')->error()->important();
-          return back();
+          flash('Error al abonar: por favor ingrese cantidad a abonar')->error()->important();
+          return redirect('/Servicio')->send();
       }
     }
 

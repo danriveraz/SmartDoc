@@ -29,48 +29,33 @@
 		        	@foreach($servicios as $servicio)
 		            <tr>
 		                <td>{{$servicio->fecha}}</td>
-		                <td>
-		                	@foreach($procedimientos as $procedimiento)
-		                		@if($servicio->idProcedimiento == $procedimiento->id)
-		                			{{$procedimiento->nombre}}
-		                		@endif
-		                	@endforeach
-		                </td>
-		                <td>
-		                	@foreach($historiasClinicas as $historia)
-		                		@if($servicio->idHistoriaClinica == $historia->id)
-		                			{{$historia->nombreCompleto}}
-		                		@endif
-		                	@endforeach
-		                </td>
-		                <td>
-		                	@foreach($historiasClinicas as $historia)
-		                		@if($servicio->idHistoriaClinica == $historia->id)
-		                			{{$historia->documento}}
-		                		@endif
-		                	@endforeach
-		                </td>
-		                <td>
-		                	@foreach($procedimientos as $procedimiento)
-		                		@if($servicio->idProcedimiento == $procedimiento->id)
-		                			{{$procedimiento->venta}}
-		                		@endif
-		                	@endforeach
-		                </td>
+		                <td>{{$servicio->procedimiento->nombre}}</td>
+		                <td>{{$servicio->historiaClinica->nombreCompleto}}</td>
+		                <td>{{$servicio->historiaClinica->documento}}</td>
+		                <td>{{$servicio->costoTratamiento}}</td>
 		                <td>
 		                	<div class="row" style="align-items: center;">
 		                		<div class="col-md-4" style="padding: 0px;">	
 		                			{!! Form::open(['route' => ['factura'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
 			       						{{ csrf_field() }}	       	
 			       						<input type="text" name="id" hidden="" value="{{$servicio->id}}">
-							        	<button class="btn btn-primary btn-sm ml-2" title="Ver factura" onclick="abonar({{$servicio->id}})" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+			       						@if($servicio->estado == "Pendiente")
+							        	<button class="btn btn-primary btn-sm ml-2" title="Ver factura" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	@else
+							        	<button class="btn btn-success btn-sm ml-2" title="Factura completamente paga" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	@endif
+							        	
 						        	{{ Form::close() }}
 			                	</div>	 
 		                		<div class="col-md-4" style="padding: 0px;">	
 		                			{!! Form::open(['route' => ['servicio.abonos'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form2$servicio->id"]) !!}
 			       						{{ csrf_field() }}	 	       	
 			       						<input type="text" name="id" hidden="" value="{{$servicio->id}}">
+			       						@if($servicio->estado == "Pendiente")
 							        	<button class="btn btn-primary btn-sm ml-2" title="Abonar"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	@else
+							        	<button class="btn btn-success btn-sm ml-2" title="Factura completamente paga"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	@endif
 							        {{ Form::close() }}
 			                	</div>	   
 			                	<div class="col-md-4" style="padding: 0px;">

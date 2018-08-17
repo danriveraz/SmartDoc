@@ -225,6 +225,7 @@
 	function imprimr() {
 	    var valor = parseInt($("#abono").val());
 		if(valor > 0){
+			document.title = "Pocket Company S.A.S - Regimen común - Nit: 901158690-1 Cel: 3182811441";
 			document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
 			document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
 			document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
@@ -244,6 +245,7 @@
 			document.getElementById('pagar').style.display = 'Block';
 			document.getElementById('historial').style.display = 'Block';
 			document.getElementById('example_filter').style.display = 'Block';
+			document.title = "SmartDoc";
 		}
 		else{
 			alert("Debe existir un valor a abonar");

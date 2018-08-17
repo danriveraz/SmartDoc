@@ -24,6 +24,10 @@ class Servicio extends Model
       return $this->belongsTo('App\procedimiento', 'idProcedimiento');
     }
 
+    public function HistoriaClinica(){
+      return $this->belongsTo('App\HistoriaClinica', 'idHistoriaClinica');
+    }
+
     public function abonos(){
       return $this->hasMany('App\Abono', 'idServicio', 'id');
     }

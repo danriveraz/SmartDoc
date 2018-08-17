@@ -119,8 +119,66 @@
 		                  	<div class="FactPocket col-sm-3 amount text-center">
 		                  		{{$servicio->estado}}
 		                 	</div>
-		                  	<div class="FactPocket col-sm-2 amount text-right"> $<?php echo number_format($saldo,0,",","."); ?></div>        
+		                  	<div class="FactPocket col-sm-2 amount text-right"> $<?php echo number_format($servicio->procedimiento->venta,0,",","."); ?></div>        
 		                </div>
+		            </div>
+		            <div class="total">
+		            	<div class="row info">
+		            		<div class="col-sm-12">
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<span id="subtotal">$<?php echo number_format($servicio->procedimiento->venta,0,",","."); ?></span>
+								</div>
+		            			<div class="field col-sm-2 pull-right  text-right">
+									Subtotal
+								</div>
+							</div>
+		            	</div>
+		            	@if($empresa->tipoRegimen == 'comun')
+		            	<div class="row info" style="margin-top: 0;">
+		            		<div class="col-sm-12">
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<span id="iva" data-regimen="comun">$<?php echo number_format($servicio->procedimiento->venta*($empresa->iva/100),0,",","."); ?></span>
+								</div>
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<label>Iva {{$empresa->iva}}%</label>
+								</div>
+							</div>
+		            	</div>
+		            	@if($empresa->impuesto1 != "")
+		            	<div class="row info"  style="margin-top: 0;">
+		            		<div class="col-sm-12">
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<span id="valorImpuesto1" data-regimen="comun">$<?php echo number_format($servicio->procedimiento->venta*($empresa->valorImpuesto1/100),0,",","."); ?></span>
+								</div>
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<label>{{$empresa->impuesto1}} {{$empresa->valorImpuesto1}}% </label>
+								</div>
+							</div>
+		            	</div>
+		            	@endif
+		            	@if($empresa->impuesto2 != "")
+		            	<div class="row info" style="margin-top: 0;">
+		            		<div class="col-sm-12">
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<span id="valorImpuesto2" data-regimen="comun">$<?php echo number_format($servicio->procedimiento->venta*($empresa->valorImpuesto2/100),0,",","."); ?></span>
+								</div>
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<label>{{$empresa->impuesto2}} {{$empresa->valorImpuesto2}}%</label>
+								</div>
+							</div>
+		            	</div>
+		            	@endif
+             			@endif
+		            	<div class="row info" style="margin-top: 0px;">
+		            		<div class="col-sm-12">
+		            			<div class="field col-sm-2 pull-right  text-right">
+									<span id="subtotal">$<?php echo number_format($saldo,0,",","."); ?></span>
+								</div>
+		            			<div class="field col-sm-2 pull-right  text-right">
+									Total
+								</div>
+							</div>
+		            	</div>
 		            </div>
           		</div>
 			</div>
@@ -139,7 +197,7 @@
                 @endif
             </div>
         	<div class="col-lg-12" style="margin-top: 40px;">              
-              <button class="factBot btn btn-bitbucket pull-right" onclick="nada();" style="background-color: rgb(49, 108, 190);"><i class="fa fa-print"></i>Imprimir</button>              
+              <a class="factBot btn btn-bitbucket pull-right" id="imprimir" style="background-color: rgb(49, 108, 190);" onclick="imprimr();"><i class="fa fa-print"></i>Imprimir</a>               
         	</div>
           </div>  
       </form>
@@ -147,4 +205,45 @@
     	</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function imprimr() {
+		document.title = "Pocket Company S.A.S - Regimen común - Nit: 901158690-1 Cel: 3182811441";
+		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
+		document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
+		document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
+		document.getElementById('imprimir').style.display = 'None';
+
+
+		document.getElementsByClassName('row row-cards')[0].style.paddingBottom = '50px';
+		document.getElementsByClassName('info-cliente')[0].style.paddingBottom = '50px';
+		document.getElementsByClassName('items')[0].style.paddingBottom = '50px';//-20
+		document.getElementsByClassName('total')[0].style.paddingBottom = '480px';//-20
+		var objs = document.getElementsByClassName('row info');
+		arr = [].slice.call(objs); //I have converted the HTML Collection an array
+	    arr.forEach(function(v,i,a) {
+	        v.style.paddingBottom = '10px';
+	    });
+		
+
+		print();
+		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
+		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
+		document.getElementsByClassName('card-body')[0].style.paddingBottom = '50px';
+		document.getElementById('imprimir').style.display = 'Block';
+
+
+
+		document.title = "SmartDoc";
+		document.getElementsByClassName('row row-cards')[0].style.paddingBottom = '0';
+		document.getElementsByClassName('info-cliente')[0].style.paddingBottom = '0';
+		document.getElementsByClassName('items')[0].style.paddingBottom = '20px';//-20
+		document.getElementsByClassName('total')[0].style.paddingBottom = '0';//-20
+		var objs = document.getElementsByClassName('row info');
+		arr = [].slice.call(objs); //I have converted the HTML Collection an array
+	    arr.forEach(function(v,i,a) {
+	        v.style.paddingBottom = '0';
+	    });
+		
+	};
+</script>
 @endsection
