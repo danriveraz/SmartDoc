@@ -1914,56 +1914,56 @@ class HistoriaClinicaController extends Controller
         //Primer bloque superior
         //diente 1
         array_push($odontograma2array, array('c18', $diente1->parteCentro));
-        array_push($odontograma2array, array('t18', $diente1->parteSuperior));
+        array_push($odontograma2array, array('n18', $diente1->parteSuperior));
         array_push($odontograma2array, array('b18', $diente1->parteInferior));
         array_push($odontograma2array, array('l18', $diente1->parteIzquierda));
         array_push($odontograma2array, array('r18', $diente1->parteDerecha));
         array_push($odontograma2array, array('completo18', $diente1->completo));
         //diente 2
         array_push($odontograma2array, array('c17', $diente2->parteCentro));
-        array_push($odontograma2array, array('t17', $diente2->parteSuperior));
+        array_push($odontograma2array, array('n17', $diente2->parteSuperior));
         array_push($odontograma2array, array('b17', $diente2->parteInferior));
         array_push($odontograma2array, array('l17', $diente2->parteIzquierda));
         array_push($odontograma2array, array('r17', $diente2->parteDerecha));
         array_push($odontograma2array, array('completo17', $diente2->completo));
         //diente 3
         array_push($odontograma2array, array('c16', $diente3->parteCentro));
-        array_push($odontograma2array, array('t16', $diente3->parteSuperior));
+        array_push($odontograma2array, array('n16', $diente3->parteSuperior));
         array_push($odontograma2array, array('b16', $diente3->parteInferior));
         array_push($odontograma2array, array('l16', $diente3->parteIzquierda));
         array_push($odontograma2array, array('r16', $diente3->parteDerecha));
         array_push($odontograma2array, array('completo16', $diente3->completo));
         //diente 4
         array_push($odontograma2array, array('c15', $diente4->parteCentro));
-        array_push($odontograma2array, array('t15', $diente4->parteSuperior));
+        array_push($odontograma2array, array('n15', $diente4->parteSuperior));
         array_push($odontograma2array, array('b15', $diente4->parteInferior));
         array_push($odontograma2array, array('l15', $diente4->parteIzquierda));
         array_push($odontograma2array, array('r15', $diente4->parteDerecha));
         array_push($odontograma2array, array('completo15', $diente4->completo));
         //diente 5
         array_push($odontograma2array, array('c14', $diente5->parteCentro));
-        array_push($odontograma2array, array('t14', $diente5->parteSuperior));
+        array_push($odontograma2array, array('n14', $diente5->parteSuperior));
         array_push($odontograma2array, array('b14', $diente5->parteInferior));
         array_push($odontograma2array, array('l14', $diente5->parteIzquierda));
         array_push($odontograma2array, array('r14', $diente5->parteDerecha));
         array_push($odontograma2array, array('completo14', $diente5->completo));
         //diente 6
         array_push($odontograma2array, array('c13', $diente6->parteCentro));
-        array_push($odontograma2array, array('t13', $diente6->parteSuperior));
+        array_push($odontograma2array, array('n13', $diente6->parteSuperior));
         array_push($odontograma2array, array('b13', $diente6->parteInferior));
         array_push($odontograma2array, array('l13', $diente6->parteIzquierda));
         array_push($odontograma2array, array('r13', $diente6->parteDerecha));
         array_push($odontograma2array, array('completo13', $diente6->completo));
         //diente 7
         array_push($odontograma2array, array('c12', $diente7->parteCentro));
-        array_push($odontograma2array, array('t12', $diente7->parteSuperior));
+        array_push($odontograma2array, array('n12', $diente7->parteSuperior));
         array_push($odontograma2array, array('b12', $diente7->parteInferior));
         array_push($odontograma2array, array('l12', $diente7->parteIzquierda));
         array_push($odontograma2array, array('r12', $diente7->parteDerecha));
         array_push($odontograma2array, array('completo12', $diente7->completo));
         //diente 8
         array_push($odontograma2array, array('c11', $diente8->parteCentro));
-        array_push($odontograma2array, array('t11', $diente8->parteSuperior));
+        array_push($odontograma2array, array('n11', $diente8->parteSuperior));
         array_push($odontograma2array, array('b11', $diente8->parteInferior));
         array_push($odontograma2array, array('l11', $diente8->parteIzquierda));
         array_push($odontograma2array, array('r11', $diente8->parteDerecha));
