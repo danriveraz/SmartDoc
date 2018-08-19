@@ -95,10 +95,24 @@
 .radio-success input[type="radio"]:checked + label::after {
   background-color: #5cb85c; }
 </style>
+
 <link href="odontograma/css/base.css" rel="stylesheet">
 <!--Espacio modal add procedimiento-->
 <div class="text-center" id="divTitulo" style="display: none;">
 	<h3>HISTORIA CLINICA ODONTOLÓGICA</h3>
+</div>
+<div  class="text-center" id="datosEmpresa" style="display: none;">
+	<label>
+		{{$empresa->nombreEstablecimiento}} - NIT: {{$empresa->nit}}
+	</label>
+	<br>
+	<label>
+		Dirección: {{$empresa->direccion}}
+	</label>
+	<br>
+	<label>
+		Teléfono: {{$empresa->telefono}}
+	</label>
 </div>
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-lg" role="document">
@@ -918,26 +932,28 @@
 		              		<div class="container">
 							  <div id="odontogramaInicial" class="collapse">
 							    <div class="card-body">
-					                <div class="row">
-					                    <div id="trInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                    <div id="tlInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                    <div id="tlrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-					                    </div>
-					                    <div id="tllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                </div>
-					                <div class="row">
-					                    <div id="blrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-					                    </div>
-					                    <div id="bllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                    <div id="brInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                    <div id="blInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					                    </div>
-					                </div>
+							    	<div id="odontogramaInicial2Imagen" style="background: #FFFFFF;">
+							    		<div class="row" style="padding-left: 0px;">
+						                    <div id="trInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="tlInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="tlrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="tllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                </div>
+						                <div class="row">
+						                    <div id="blrInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="bllInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="brInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                    <div id="blInicial" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-left: 0px;">
+						                    </div>
+						                </div>
+							    	</div>
 					                <br>			                	
 					            </div>
 							  </div>
@@ -1074,12 +1090,27 @@
 					                    </div>
 					                </div>
 				                </div>
-				                <br>
-				                <div class="text-center">
-				                	<a class="btn btn-primary" id="dOdontogramaGeometrico" title="Descargar odontograma geométrico">Descargar</a>
-				                </div>			                	
+				                <br>			                	
 				            </div>
 				    	</div>
+			        </div>
+			        <br>
+			        <h3 class="text-center" id="titleOdontogramaInicial" style="display: none">Odontograma Inicial</h3>
+			        <div class="card" id="divOdontogramaInicialAImprimir" style="display: none;">
+			        	<div class="card-header">
+	              		</div>
+	              		<div class="card-body">
+			        		<div class="container" id="odontogramaInicialAImprimir"></div>
+			        	</div>
+			        </div>
+			        <br>
+			        <h3 class="text-center" id="titleOdontogramaGeometrico" style="display: none">Odontograma Geométrico</h3>
+			        <div class="card" id="divOdontogramaAImprimir" style="display: none;">
+			        	<div class="card-header">
+	              		</div>
+	              		<div class="card-body">
+			        		<div class="container" id="odontogramaAImprimir"></div>
+			        	</div>
 			        </div>
 					<input type="text" name="activador" id="activador" value="0" hidden>
 			        <div>
@@ -1161,17 +1192,17 @@
 		                    	Guardar
 		                    </button>
 		                    <button type="submit" class="btn btn-primary" name="observacion" id="observacion" onclick="setValue(this)">
-		                    	Añadir observación
+		                    	Agregar observación
 		                    </button>
 		                    <button type="submit" class="btn btn-primary" name="laboratorio" id="laboratorio" onclick="setValue(this)">
-		                    	Añadir pedido
+		                    	Agregar pedido
 		                    </button>
 		                    @if($historia->primerOdontograma)
 			                    <button type="submit" class="btn btn-primary" name="editarOdontograma" id="editarOdontograma" onclick="setValue(this)" title="Editar odontograma inicial">
 			                    	Editar Odontograma Inicial
 			                    </button>
 		                    @endif
-		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="imprimr();"><i class="fa fa-print"></i>Imprimir</a>  
+		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="cargarOdontograma();"><i class="fa fa-print"></i>Imprimir</a>  
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -1586,17 +1617,6 @@
 	var bootstrap = document.getElementById('bootstrap');
 	var parent = bootstrap.parentNode;
 	$(document).ready(function() {
-
-		$("#dOdontogramaGeometrico").on('click', function () {
-		    html2canvas($('#odontogramaGeometrico'), {
-				onrendered: function(canvas) {
-			    	var imgageData = canvas.toDataURL("image/jpg");
-			    	var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-		    		$("#dOdontogramaGeometrico").attr("download", "Odontograma"+JSONhistoria.nombreCompleto+".jpg").attr("href", newData);
-			  	}
-			});
-		});
-
 		createOdontogramInicial();
 	    createOdontogram();
 	    $(".click").click(function(event) {
@@ -4624,12 +4644,16 @@
 	function setValue(idBtn) {
 		if(idBtn.id == "guardar"){
 			document.getElementById('activador').value = 1;
+			formGuardar.submit();
 	    }else if(idBtn.id == "observacion"){
 	    	document.getElementById('activador').value = 2;
+	    	formGuardar.submit();
 	    }else if(idBtn.id == "laboratorio"){
 	    	document.getElementById('activador').value = 3;
+	    	formGuardar.submit();
 	    }else if(idBtn.id == "editarOdontograma"){
 	    	document.getElementById('activador').value = 4;
+	    	formGuardar.submit();
 	    }
 	}
 </script>
@@ -5267,8 +5291,7 @@
 	}
 
 	//IMPRESION
-
-	function imprimr() {
+	function imprimir() {
 		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '20px';
 		document.getElementsByClassName('card-body')[0].style.borderBottom = 0;
 		document.getElementsByClassName('card-body')[0].style.paddingBottom = 0;
@@ -5281,6 +5304,7 @@
 		document.getElementById('divPrimerOdontograma').style.display = 'none';
 		document.getElementById('exonerarImpuestos').style.display = 'none';
 		document.getElementById('divTitulo').style.display = 'block';
+		document.getElementById('datosEmpresa').style.display = 'block';
 
 		if(!($('#antecedentes').hasClass("show"))){
 			$('#antecedentes').addClass('show');
@@ -5294,11 +5318,16 @@
 			document.getElementById('examen').style.marginRight = '60px';
 		}
 
-		print();
+		document.getElementById('divOdontogramaInicialAImprimir').style.display = 'block';
+		document.getElementById('titleOdontogramaInicial').style.display = 'block';
+		$('canvas').css('width','900');
 
-		if(!($('#odontogramaInicial').hasClass("show"))){
-			$('#odontogramaInicial').addClass('show');
-		}
+		document.getElementById('divOdontogramaAImprimir').style.display = 'block';
+		document.getElementById('titleOdontogramaGeometrico').style.display = 'block';
+		$('canvas').css('width','900');
+
+
+		print();
 
 		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
 		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
@@ -5313,9 +5342,13 @@
 		document.getElementById('divPrimerOdontograma').style.display = 'block';
 		document.getElementById('exonerarImpuestos').style.display = 'block';
 		document.getElementById('divTitulo').style.display = 'none';
+		document.getElementById('datosEmpresa').style.display = 'none';
 
 		document.getElementById('antecedentes').style.marginLeft = '0px';
 		document.getElementById('antecedentes').style.marginRight = '1%';
+
+		document.getElementById('examen').style.marginLeft = '0px';
+		document.getElementById('examen').style.marginRight = '1%';
 
 		if($('#antecedentes').hasClass("collapse")){
 			document.getElementById('spanAntecedentesPlus').style.display = "none";
@@ -5341,6 +5374,32 @@
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "none";
 		}
 	};
+
+	function cargarOdontograma(){
+
+		if(!($('#odontogramaInicial').hasClass("show"))){
+			$('#odontogramaInicial').addClass('show');
+		}
+				
+		html2canvas($('#odontogramaInicial2Imagen'), {
+			onrendered: function(canvas) {
+		    	var imgageData = canvas.toDataURL("image/png");
+		    	/*var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+	    		$("#dOdontogramaGeometrico").attr("download", "Odontograma"+JSONhistoria.nombreCompleto+".jpg").attr("href", newData);*/
+	    		$("#odontogramaInicialAImprimir").empty();
+	    		$("#odontogramaInicialAImprimir").append(canvas);
+		  	}
+		});
+
+		html2canvas($('#odontogramaGeometrico'), {
+			onrendered: function(canvas) {
+		    	var imgageData = canvas.toDataURL("image/png");
+	    		$("#odontogramaAImprimir").empty();
+	    		$("#odontogramaAImprimir").append(canvas);
+	    		imprimir();
+		  	}
+		});
+	}
 
 </script>
 <script type="text/javascript">
