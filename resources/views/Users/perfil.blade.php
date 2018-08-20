@@ -2,7 +2,6 @@
 @section('content')
 @include('flash::message')
 
-{!!Html::style('assetsIntena/css/linearicons.css')!!}
 {!!Html::style('assetsIntena/css/styleTapProfile.css')!!}
 {!!Html::style('assetsIntena/css/main.css')!!}
 {!!Html::style('assetsIntena/css/rainbow-pricing-table.css')!!}
@@ -81,33 +80,7 @@ float: left;
               </div>
             </div>
             <!-- Inicio de cambio de contraseña -->
-            <form>
-              <div class="form-group">
-                  <label class="form-label" style="text-align: left">Email-Usuario</label>
-                  <input class="form-control" placeholder="your-email@domain.com" value="{{$user->email}}" disabled="">
-              </div>
-    					<div class="form-group">
-                  <label class="form-label" style="text-align: left">Password</label>
-                  <div class="input-icon">
-                    <input class="form-control" id="password" name="" placeholder="**********" type="password" name="regimen" value="">
-                  <span class="input-icon-addon">
-                    <i id="show-password1" class="fa fa-eye"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="form-group">
-                  <label class="form-label" style="text-align: left">Confirmar Password</label>
-                  <div class="input-icon">
-                    <input class="form-control" id="password1" name="" placeholder="**********" type="password" name="regimen" value="">
-                  <span class="input-icon-addon">
-                    <i id="show-password1" class="fa fa-eye"></i>
-                  </span>
-                </div>
-              </div>
-    					<div class="form-footer">
-                  <button class="btn btn-primary btn-block">Guardar</button>
-              </div>
-            </form>
+
             <!-- Fin de cambio de contraseña -->
           </div>
         </div>
@@ -274,6 +247,27 @@ float: left;
                               </div>
                               <div class="col-md-4">
                                 <input name="nFinal" id="nFinal" type="text" class="form-control" placeholder="Hasta" value="{{$empresa->nFinFactura}}" required="true">
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="input-container">
+                            <p class="lead col-centrada" style="margin-bottom: 10px;  font-size:16px;">
+                              Agrega tus impuestos </p>
+                            <div class="input-group">
+                              <div class="col-md-6">
+                                <input name="impuesto1" id="impuesto1" type="text" class="form-control" placeholder="Nombre" value="{{$empresa->impuesto1}}">
+                              </div>
+                              <div class="col-md-6">
+                                <input name="valori1" id="valori1" type="text" class="form-control" placeholder="Valor" value="{{$empresa->valorImpuesto1}}" required="true">
+                              </div>
+                            </div><br>
+                            <div class="input-group">
+                              <div class="col-md-6">
+                                <input name="impuesto2" id="impuesto2" type="text" class="form-control" placeholder="Nombre" value="{{$empresa->impuesto2}}">
+                              </div>
+                              <div class="col-md-6">
+                                <input name="valori2" id="valori2" type="text" class="form-control" placeholder="Valor" value="{{$empresa->valorImpuesto2}}" required="true">
                               </div>
                             </div>
                           </div>

@@ -67,7 +67,6 @@ class UserController extends Controller
     public function postmodificarPerfil(Request $request){
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
-
         $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
         $empresa->eslogan = $request->eslogan;        
         $empresa->nit = $request->nit;
@@ -80,9 +79,14 @@ class UserController extends Controller
         $empresa->fechaResolucion = $request->fechaResolucion;
         $empresa->nInicioFactura = $request->nInicio;
         $empresa->nFinFactura = $request->nFinal;
+
         if($request->tipoRegimen == "simplificado"){
             $empresa->nInicioFactura = $request->NumSimpli;
         }
+        $empresa->impuesto1 = $request->impuesto1;
+        $empresa->impuesto2 = $request->impuesto2;
+        $empresa->valorImpuesto1 = $request->valori1;
+        $empresa->valorImpuesto2 = $request->valori2;
         $user->departamento = $request->idDepto;
         $user->ciudad = $request->idCiudad;
 

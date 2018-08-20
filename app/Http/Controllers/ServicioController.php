@@ -181,8 +181,8 @@ class ServicioController extends Controller
       $servicio->descripcion = $request->descripcionNueva;
       $servicio->fecha = Carbon::now()->subHour(5);
       $servicio->estado = "Pendiente";
-      $servicio->nFactura = $empresa->contradorFacturacion + 1;
-      $empresa->contradorFacturacion +=1;
+      $servicio->nFactura = $empresa->contadorFacturacion + 1;
+      $empresa->contadorFacturacion +=1;
       $empresa->save();
       if($servicio->nFactura >= $empresa->nFinFactura and $empresa->tipoRegimen == "comun"){
         flash('No hay numerración dispenible para la factura')->error()->important();
