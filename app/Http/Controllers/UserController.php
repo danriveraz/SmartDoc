@@ -10,6 +10,7 @@ use App\Departamento;
 use App\Ciudad;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
+use App\HistorialResoluciones;
 
 class UserController extends Controller
 {
@@ -74,6 +75,20 @@ class UserController extends Controller
         $empresa->celular = $request->celular;
         $empresa->direccion = $request->direccion;
         $empresa->tipoRegimen = $request->tipoRegimen;
+        if($empresa->prefijo != $request->prefijo or $empresa->nResolucionFacturacion != $request->resolucion
+            or $empresa->fechaResolucion != $request->fechaResolucion or $empresa->nInicioFactura != $request->nInicio
+            or $empresa->nFinFactura != $request->nFinal){
+            $resolucion = new HistorialResoluciones();
+            $resolucion->idEmpresa = $empresa->id;
+            $resolucion->prefijo = $request->prefijo;
+            $resolucion->nResolucionFacturacion = $request->resolucion;
+            $resolucion->fechaResolucion = $request->fechaResolucion;
+            $resolucion->nInicioFactura = $request->nInicio;
+            $resolucion->nFinFactura = $request->nFinal;
+            $resolucion->save();
+            $empresa->contadorFacturacion = $request->nInicio-1;
+
+        }
         $empresa->prefijo = $request->prefijo;
         $empresa->nResolucionFacturacion = $request->resolucion;
         $empresa->fechaResolucion = $request->fechaResolucion;
