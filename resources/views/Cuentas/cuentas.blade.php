@@ -49,8 +49,16 @@
 		                <td>{{$cuenta->octubre}}</td>
 		                <td>{{$cuenta->noviembre}}</td>
 		                <td>{{$cuenta->diciembre}}</td>
-		            </tr>
+		            </tr>		            
 		           @endforeach
+		           <tr>
+		            	<td>Cartera</td>
+		            	@foreach($cartera as $c)
+		                <td>
+		                	{{$c}}
+		                </td>
+		                @endforeach		               
+		            </tr>
 		        </tbody>
 		    </table>	
 		  </div>
@@ -93,6 +101,18 @@
 		                <td>{{$cuenta->anterior}}</td>
 		            </tr>
 		           @endforeach
+		           <tr>
+		           		<td>Cartera</td>
+		           		<td>{{$cartera[0]+$cartera[1]+$cartera[2]}}</td>
+		           		<td>{{$cartera[3]+$cartera[4]+$cartera[5]}}</td>
+		           		<td>{{$cartera[6]+$cartera[7]+$cartera[8]}}</td>
+		           		<td>{{$cartera[9]+$cartera[10]+$cartera[11]}}</td>
+		           		<td>{{$cartera[0]+$cartera[1]+$cartera[2]+$cartera[3]+$cartera[4]+$cartera[5]}}</td>
+		           		<td>{{$cartera[6]+$cartera[7]+$cartera[8]+$cartera[9]+$cartera[10]+$cartera[11]}}</td>
+		           		<td>{{$cartera[0]+$cartera[1]+$cartera[2]+$cartera[3]+$cartera[4]+$cartera[5]+$cartera[6]+$cartera[7]+$cartera[8]+$cartera[9]+$cartera[10]+$cartera[11]}}</td>
+		           		<td>{{$carteraAnterior[0]+$carteraAnterior[1]+$carteraAnterior[2]+$carteraAnterior[3]+$carteraAnterior[4]+$carteraAnterior[5]+$carteraAnterior[6]+$carteraAnterior[7]+$carteraAnterior[8]+$carteraAnterior[9]+$carteraAnterior[10]+$carteraAnterior[11]}}</td>
+
+		           </tr>
 		        </tbody>
 		    </table>	
 		  </div>
@@ -141,6 +161,14 @@
 		                <td>{{$cuenta->diciembrePasado}}</td>
 		            </tr>
 		           @endforeach
+		           <tr>
+		            	<td>Cartera</td>
+		            	@foreach($carteraAnterior as $c)
+		                <td>
+		                	{{$c}}
+		                </td>
+		                @endforeach			               
+		            </tr>
 		        </tbody>
 		    </table>	
 		  </div>

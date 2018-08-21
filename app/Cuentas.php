@@ -11,4 +11,5 @@ class Cuentas extends Model
     public function scopeEmpresa($query, $idEmpresa){
       return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');
     }
+   
 }
