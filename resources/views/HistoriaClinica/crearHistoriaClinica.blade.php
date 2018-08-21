@@ -95,9 +95,10 @@
 .radio-success input[type="radio"]:checked + label::after {
   background-color: #5cb85c; }
 </style>
-
-<link href="odontograma/css/base.css" rel="stylesheet">
 <!--Espacio modal add procedimiento-->
+<div class="text-center" id="logoSmartDoc" style="display: none;">
+	<img src="{{asset('images/logo smartdoc 290x72.png')}}" class="navbar-brand-img" alt="logo" title="SmartDoc">
+</div>
 <div class="text-center" id="divTitulo" style="display: none;">
 	<h3>HISTORIA CLINICA ODONTOLÓGICA</h3>
 </div>
@@ -916,7 +917,8 @@
 		          	</div>
 	    	 		<!--Inicio odontograma -->
 	    	 		<link href="stylesheets/bootstrap.css" rel="stylesheet" id="bootstrap">
-
+					<link href="odontograma/css/base.css" rel="stylesheet" id="base">
+					<link href="odontograma/css/baseDientes.css" rel="stylesheet" id="baseDientes">
 	    	 		@if($historia->primerOdontograma)
 		    	 		<div class="card" id="divPrimerOdontograma">
 		              		<div class="card-header">
@@ -1615,8 +1617,11 @@
 	}
 	var arrayPuente = [];
 	var bootstrap = document.getElementById('bootstrap');
+	var base = document.getElementById('base');
+	var baseDientes = document.getElementById('baseDientes');
 	var parent = bootstrap.parentNode;
 	$(document).ready(function() {
+		parent.removeChild(baseDientes);
 		createOdontogramInicial();
 	    createOdontogram();
 	    $(".click").click(function(event) {
@@ -5305,6 +5310,9 @@
 		document.getElementById('exonerarImpuestos').style.display = 'none';
 		document.getElementById('divTitulo').style.display = 'block';
 		document.getElementById('datosEmpresa').style.display = 'block';
+		document.getElementById('logoSmartDoc').style.display = 'block';
+
+		//parent.removeChild(base);
 
 		if(!($('#antecedentes').hasClass("show"))){
 			$('#antecedentes').addClass('show');
@@ -5324,10 +5332,12 @@
 
 		document.getElementById('divOdontogramaAImprimir').style.display = 'block';
 		document.getElementById('titleOdontogramaGeometrico').style.display = 'block';
-		$('canvas').css('width','900');
-
+		$('canvas').css('width','900');	
 
 		print();
+
+		parent.removeChild(baseDientes);
+		parent.appendChild(base);
 
 		document.getElementsByClassName('page-header-fixed')[0].style.paddingTop = '148px';
 		document.getElementsByClassName('card-body')[0].style.borderBottom = '1px solid rgb(177, 192, 224)';
@@ -5343,6 +5353,7 @@
 		document.getElementById('exonerarImpuestos').style.display = 'block';
 		document.getElementById('divTitulo').style.display = 'none';
 		document.getElementById('datosEmpresa').style.display = 'none';
+		document.getElementById('logoSmartDoc').style.display = 'none';
 
 		document.getElementById('antecedentes').style.marginLeft = '0px';
 		document.getElementById('antecedentes').style.marginRight = '1%';
@@ -5373,9 +5384,16 @@
 			document.getElementById('spanOdontogramaInicialPlus').style.display = "";
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "none";
 		}
+
+		document.getElementById('divOdontogramaInicialAImprimir').style.display = 'none';
+		document.getElementById('titleOdontogramaInicial').style.display = 'none';
+
+		document.getElementById('divOdontogramaAImprimir').style.display = 'none';
+		document.getElementById('titleOdontogramaGeometrico').style.display = 'none';
 	};
 
 	function cargarOdontograma(){
+		parent.appendChild(baseDientes);
 
 		if(!($('#odontogramaInicial').hasClass("show"))){
 			$('#odontogramaInicial').addClass('show');
@@ -5414,10 +5432,7 @@
 		    });
 	          
 	    }
-	    
-
-		
-	  });
+	});
 </script>
 <style type="text/css">
 	.btn-pill{

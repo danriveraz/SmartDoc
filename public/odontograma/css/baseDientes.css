@@ -44,10 +44,10 @@
     cursor: pointer;
 }
 
-/*left: -12px !important;*/
+/*left: -14px !important;*/
 .izquierdo {
     top: 1px !important;
-    left: -14px !important;
+    left: -12px !important;
     -webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
     -ms-transform: rotate(270deg);
@@ -55,10 +55,10 @@
     transform: rotate(270deg);
 }
 
-/*left: 7px !important;*/
+/*left: 5px !important;*/
 .debajo {
     top: 2px !important;
-    left: 5px !important;
+    left: 7px !important;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -66,10 +66,10 @@
     transform: rotate(180deg);
 }
 
-/*left: 25px !important;*/
+/*left: 24px !important;*/
 .derecha {
     top: -29px !important;
-    left: 24px !important;
+    left: 25px !important;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -511,7 +511,7 @@
 .diente-leche {
     position: relative;
     width: 0px;
-    height: 70px;
+    height: 60px;
     margin-left: 50px;
     display: inline-block;
 }
@@ -548,8 +548,10 @@
 
 .debajo-leche {
     width: 15px;
-    top: -8px !important;
-    left: 47px !important;
+    height: 12px;
+    position: relative;
+    top: -6px !important;
+    left: 48px !important;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -558,8 +560,10 @@
 }
 
 .derecha-leche {
-    top: -30px !important;
-    left: 58px !important;
+    width: 13px;
+    height: 12px;
+    top: -29px !important;
+    left: 62px !important;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -568,7 +572,7 @@
 }
 
 .centro-leche {
-    background: #F3F3F3;
+    background: #FFFFFF;
     border: 1px solid #7F7F7F;
     width: 15px;
     height: 13px;
