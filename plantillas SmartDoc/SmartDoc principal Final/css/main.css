@@ -1,3 +1,173 @@
+
+
+/*--thank you pop starts here--*/
+.thank-you-pop{
+	width:100%;
+ 	padding:0px;
+	text-align:center;
+}
+.thank-you-pop img{
+	width:76px;
+	height:auto;
+	margin:0 auto;
+	display:block;
+	margin-bottom:25px;
+}
+
+.thank-you-pop h1{
+	font-size: 32px;
+    margin-bottom: 0px;
+	color:#5C5C5C;
+}
+.thank-you-pop p{
+	font-size: 20px;
+    margin-bottom: 27px;
+ 	color:#5C5C5C;
+}
+.thank-you-pop h3.cupon-pop{
+	font-size: 25px;
+    margin-bottom: 40px;
+	color:#222;
+	display:inline-block;
+	text-align:center;
+	padding:10px 20px;
+	border:2px dashed #222;
+	clear:both;
+	font-weight:normal;
+}
+.thank-you-pop h3.cupon-pop span{
+	color:#03A9F4;
+}
+.thank-you-pop a{
+	display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 17px;
+}
+.thank-you-pop a i{
+	margin-right:5px;
+	color:#fff;
+}
+#ignismyModal .modal-header{
+    border:0px;
+}
+	
+.thank-you-pop input[type='checkbox'] {		
+			
+	 -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+	width: 20px;
+    box-shadow: none;
+    display: inline;		
+}
+
+.thank-you-pop .form-group-checkbox {
+    display: table;
+    width: 100%;
+    max-width: 790px;
+    margin: auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/*------------Membresias --------------*/
+.unica{
+	display: flex;
+    background-image:url(../img/planes/membreciasUnica.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+	width:100%;
+}
+
+.elite{
+	display: flex;
+    background-image:url(../img/planes/membreciasElite.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+	width:100%;
+}
+
+.standar{
+	display: flex;
+    background-image:url(../img/planes/membreciasStandar.jpg);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+	width:100%;
+}
+
+
+
+.membresia {
+padding-top: 390px;
+padding-left: 30px;
+padding-bottom: 20px;
+}
+	
+
+.bt-Unica {
+color: #fff;
+background: #ff6c02;
+border: 1px solid transparent;
+font-family: 'Lato', sans-serif;
+font-weight: bold !important;
+font-size: 16px !important;
+}
+
+.bt-Elite {
+color: #fff;
+background: #222d61;
+border: 1px solid transparent;
+font-family: 'Lato', sans-serif;
+font-weight: bold !important;
+font-size: 16px !important;
+}
+
+.bt-Standar {
+color: #fff;
+background: #1595e5;
+border: 1px solid transparent;
+font-family: 'Lato', sans-serif;
+font-weight: bold !important;
+font-size: 16px !important;
+}
+
+
+
+.bt-Unica:hover {
+    color: #fff;
+    background: #ef6400;
+    border: 1px solid transparent;
+}
+
+.bt-Elite:hover {
+    color: #fff;
+    background: #3e4d96;
+    border: 1px solid transparent;
+}
+
+.bt-Standar:hover {
+    color: #fff;
+    background: #0b74b6;
+    border: 1px solid transparent;
+}
+			
+/*--thank you pop ends here--*/
+
+		
+
+/* membreais */
 .cards-basic .col {
     margin-left: 1%;
     padding: 1rem 2rem;
@@ -21,6 +191,15 @@ margin: auto;
 	max-width: 80%;
 	margin: 13px 0px;	
 }
+
+.imgPlanes img {
+	width: 100%;	
+}
+
+.llamar span a { color: yellow; text-decoration: none;}
+
+.llamar span a:hover { color: yellow; text-decoration: none;font-size: 15px;}
+
  /*
 .img-fluid{padding-left: 60px;}
 */
