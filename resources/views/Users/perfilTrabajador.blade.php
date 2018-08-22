@@ -382,6 +382,7 @@ float: left;
           success: function(data)
           {
             $("#imagenCircular").attr("src", img);
+            window.location.reload();
           },
           error: function(data){
             alert('Ooops disculpanos, no se pudo actualizar la foto de perfil!');
