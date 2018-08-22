@@ -115,10 +115,10 @@
                   </div-->
                   <ul class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
         					  <li class="dropdown-item"><a href="{{url('Perfil')}}">
-        						<i class="fa fa-user-circle"></i>Mi Perfil</a>
+        						<i class="fa fa-user-circle"></i>Empresa</a>
         					  </li>
         					  <li class="dropdown-item"><a href="{{url('Configuracion')}}">
-        						<i class="fa fa-gear"></i>Ajuster</a>
+        						<i class="fa fa-gear"></i>Ajustes</a>
         					  </li>
         					  <li class="dropdown-item"><a href="{{url('Auth/logout')}}">
         						<i class="fa fa-sign-out"></i>Cerrar Secion</a>

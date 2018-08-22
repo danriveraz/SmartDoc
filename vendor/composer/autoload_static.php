@@ -343,9 +343,11 @@ class ComposerStaticInit8d360b6947c39d0f44c189a47b6709f2
     );
 
     public static $classMap = array (
+        'AddHistorialResoluciones' => __DIR__ . '/../..' . '/database/migrations/2018_08_21_023807_add_historialResoluciones.php',
         'AlterServicio5' => __DIR__ . '/../..' . '/database/migrations/2018_08_09_225637_alter_servicio5.php',
         'AlterTableAgendaProcedimiento' => __DIR__ . '/../..' . '/database/migrations/2018_07_30_200238_alter_table_agendaProcedimiento.php',
         'AlterTableDienteCompleto' => __DIR__ . '/../..' . '/database/migrations/2018_08_13_210341_alter_table_dienteCompleto.php',
+        'AlterTableHistoriaClinica6' => __DIR__ . '/../..' . '/database/migrations/2018_08_22_134252_alter_table_HistoriaClinica6.php',
         'AlterTableHistoriaclinica3' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_203326_alter_table_historiaclinica3.php',
         'AlterTableOdontogramaHistoriaClinica' => __DIR__ . '/../..' . '/database/migrations/2018_08_14_155743_alter_table_odontogramaHistoriaClinica.php',
         'AlterTableServicio2' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_204238_alter_table_servicio2.php',
@@ -365,6 +367,7 @@ class ComposerStaticInit8d360b6947c39d0f44c189a47b6709f2
         'AltertableEmpresa2' => __DIR__ . '/../..' . '/database/migrations/2018_08_09_204918_altertable_empresa2.php',
         'AltertableHistoriaClinica2' => __DIR__ . '/../..' . '/database/migrations/2018_05_29_200652_altertable_historiaClinica2.php',
         'AltertableHistoriaClinica4' => __DIR__ . '/../..' . '/database/migrations/2018_08_09_225817_altertable_historiaClinica4.php',
+        'AltertableHistoriaClinica5' => __DIR__ . '/../..' . '/database/migrations/2018_08_16_161736_altertable_historiaClinica5.php',
         'AltertableHistoriaclinica' => __DIR__ . '/../..' . '/database/migrations/2018_05_08_220515_altertable_historiaclinica.php',
         'AltertableServicio' => __DIR__ . '/../..' . '/database/migrations/2018_05_15_142810_altertable_servicio.php',
         'AltertableServicio4' => __DIR__ . '/../..' . '/database/migrations/2018_08_09_204346_altertable_servicio4.php',

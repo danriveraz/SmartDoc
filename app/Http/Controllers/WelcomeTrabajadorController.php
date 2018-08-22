@@ -23,9 +23,12 @@ class WelcomeTrabajadorController extends Controller
         $user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
         $agendas = Agenda::Trabajador($user->id)->get();
+        $flag = "agenda";
+        
         return View('WelcomeTrabajador.welcome')
         ->with('empresa',$empresa)
         ->with('agendas',$agendas)
-        ->with('user',$user);
+        ->with('user',$user)
+        ->with('flag', $flag);
     }
 }

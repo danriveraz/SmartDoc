@@ -85,7 +85,7 @@
 	                  	<option value="" selected="selected">Seleccionar sexo</option>
 	                    <option value="masculino">Masculino</option>
 	                    <option value="femenino">Femenino</option>
-                </select>
+                	</select>
 	        	</div>
 	        	<div class="col-md-4">
 	        		<select class="form-control" id="idDepto"  name="idDepto" required>

@@ -144,7 +144,7 @@ float: left;
                             <select class="form-control custom-select" id="idDepto"  name="idDepto" required>
                               <option value="">Departamento</option>
                               @foreach($departamentos as $departamento)
-                                  @if($user->departamento == $departamento->id)
+                                  @if($empresa->departamento == $departamento->id)
                                     <option value="{{$departamento->id}}" selected="selected">{{$departamento->nombre}}</option>
                                   @else
                                     <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
@@ -161,8 +161,8 @@ float: left;
                             <select class="form-control custom-select" id="idCiudad" name="idCiudad" required>
                               <option value="">Ciudad</option>
                               @foreach($ciudades as $ciudad)
-                                  @if($user->departamento == $ciudad->idDepartamento)
-                                    @if($user->ciudad == $ciudad->id)
+                                  @if($empresa->departamento == $ciudad->idDepartamento)
+                                    @if($empresa->ciudad == $ciudad->id)
                                       <option value="{{$ciudad->id}}" selected="selected">{{$ciudad->nombre}}</option>
                                     @else
                                       <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
@@ -240,7 +240,7 @@ float: left;
                           <div class="input-container">
                             <div class="input-group">
                               <div class="col-md-4">
-                                <input name="prefijo" id="prefijo" type="text" class="form-control" placeholder="Prefijo" value="{{$empresa->prefijo}}" required="true">
+                                <input name="prefijo" id="prefijo" type="text" class="form-control" placeholder="Prefijo" value="{{$empresa->prefijo}}">
                               </div>
                               <div class="col-md-4">
                                 <input name="nInicio" id="nInicio" type="text" class="form-control" placeholder="Del No." value="{{$empresa->nInicioFactura}}" required="true">

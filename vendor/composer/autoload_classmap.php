@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddHistorialResoluciones' => $baseDir . '/database/migrations/2018_08_21_023807_add_historialResoluciones.php',
     'AlterServicio5' => $baseDir . '/database/migrations/2018_08_09_225637_alter_servicio5.php',
     'AlterTableAgendaProcedimiento' => $baseDir . '/database/migrations/2018_07_30_200238_alter_table_agendaProcedimiento.php',
     'AlterTableDienteCompleto' => $baseDir . '/database/migrations/2018_08_13_210341_alter_table_dienteCompleto.php',
+    'AlterTableHistoriaClinica6' => $baseDir . '/database/migrations/2018_08_22_134252_alter_table_HistoriaClinica6.php',
     'AlterTableHistoriaclinica3' => $baseDir . '/database/migrations/2018_08_06_203326_alter_table_historiaclinica3.php',
     'AlterTableOdontogramaHistoriaClinica' => $baseDir . '/database/migrations/2018_08_14_155743_alter_table_odontogramaHistoriaClinica.php',
     'AlterTableServicio2' => $baseDir . '/database/migrations/2018_08_06_204238_alter_table_servicio2.php',
@@ -28,6 +30,7 @@ return array(
     'AltertableEmpresa2' => $baseDir . '/database/migrations/2018_08_09_204918_altertable_empresa2.php',
     'AltertableHistoriaClinica2' => $baseDir . '/database/migrations/2018_05_29_200652_altertable_historiaClinica2.php',
     'AltertableHistoriaClinica4' => $baseDir . '/database/migrations/2018_08_09_225817_altertable_historiaClinica4.php',
+    'AltertableHistoriaClinica5' => $baseDir . '/database/migrations/2018_08_16_161736_altertable_historiaClinica5.php',
     'AltertableHistoriaclinica' => $baseDir . '/database/migrations/2018_05_08_220515_altertable_historiaclinica.php',
     'AltertableServicio' => $baseDir . '/database/migrations/2018_05_15_142810_altertable_servicio.php',
     'AltertableServicio4' => $baseDir . '/database/migrations/2018_08_09_204346_altertable_servicio4.php',

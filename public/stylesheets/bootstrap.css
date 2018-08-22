@@ -2902,13 +2902,13 @@ input[type="button"].btn-block {
   clear: both;
   font-weight: normal;
   line-height: 1.428571429;
-  color: #333333;
+  /*color: #333333;*/
   white-space: nowrap;
 }
 
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: #111111;
+  /*color: #111111;*/
   text-decoration: none;
   /*background-color: #2d0031;*/
 }

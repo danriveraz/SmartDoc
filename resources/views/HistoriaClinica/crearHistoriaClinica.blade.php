@@ -956,7 +956,17 @@
 						                    </div>
 						                </div>
 							    	</div>
-					                <br>			                	
+					                <br>	
+					                <div class="row">
+				          				<div class="col-md-12">
+			          						<div class="form-group">
+			          							@if($historia->observacionesPO != "")
+			          								<label >Observaciones</label>
+			          							@endif
+			          							<textarea id="observacionesPO" name="observacionesPO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesPO}}</textarea>
+			          						</div>
+			          					</div>
+			          				</div>		                	
 					            </div>
 							  </div>
 							  <br>
@@ -1092,7 +1102,17 @@
 					                    </div>
 					                </div>
 				                </div>
-				                <br>			                	
+				                <br>
+				                <div class="row">
+			          				<div class="col-md-12">
+		          						<div class="form-group">
+		          							@if($historia->observacionesO != "")
+		          								<label >Observaciones</label>
+		          							@endif
+		          							<textarea id="observacionesO" name="observacionesO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesO}}</textarea>
+		          						</div>
+		          					</div>
+		          				</div>			                	
 				            </div>
 				    	</div>
 			        </div>

@@ -24,6 +24,9 @@
 
     <!--Scripts-->
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    {!!Html::style('assets\css\croppie.css')!!}
+    {!!Html::script("assets\js\croppie.js")!!}
+    
     {!!Html::style('stylesheets\datatables.css')!!}
     {!!Html::script("javascripts\datatable-editable.js")!!}
     {!!Html::script("javascripts\jquery.dataTables.js")!!}
@@ -81,46 +84,83 @@
     <!-- End scripts-->
 
   </head>
-  <body class="">
-    <div class="page">
+  <body class="page-header-fixed bg-1" style="padding-top: 148px;">
+    <div class="modal-shiftfix" >
       <div class="page-main">
+        <div class="navbar navbar-fixed-top scroll-hide">
         <div class="header">
-          <div class="container">
+          <div class="container-fluid top-bar">
             <div class="d-flex">
               <a class="navbar-brand" href="{{url('/WelcomeAdmin')}}">
-                <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo">
+                <img src="{{asset('images/logo smartdoc 240x50.png')}}" class="navbar-brand-img" alt="logo" title="Inicio">
               </a>
               <div class="ml-auto d-flex order-lg-2">
-                
+
                 <div class="dropdown">
                   <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
-                    <span class="avatar" style="background-image: url({{asset('images/admin/'.$empresa->imagen)}}"></span>
-            <span class="ml-2 d-none d-lg-block">
+                    <span class="avatar" style="background-image: url({{asset('images/admin/'.$user->imagenPerfil)}}">
+                    </span>
+                    <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
-                      <small class="text-muted d-block mt-1">Trabajador</small>
+                      <small class="text-muted d-block mt-1">Trabanador</small>
                     </span>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <!--div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                    <a class="dropdown-item" href="{{url('Perfil')}}">
+                      <i class="fa fa-user-circle"></i>Mi Perfil
+                    </a>
                     <a class="dropdown-item" href="{{url('Configuracion')}}">
                       <span>Configuración</span>
                     </a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{url('Auth/logout')}}">Salir</a>
-                  </div>
+                  </div-->
+                  <ul class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                    <li class="dropdown-item"><a href="{{url('Perfil')}}">
+                    <i class="fa fa-user-circle"></i>Mi Perfil</a>
+                    </li>
+                    <li class="dropdown-item"><a href="{{url('Configuracion')}}">
+                    <i class="fa fa-gear"></i>Ajustes</a>
+                    </li>
+                    <li class="dropdown-item"><a href="{{url('Auth/logout')}}">
+                    <i class="fa fa-sign-out"></i>Cerrar Secion</a>
+                    </li>
+                  </ul>
+
+
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="header-nav d-none d-lg-flex">
-          <div class="container">
-            <div class="row align-items-center">
+          <div class="container-fluid main-nav clearfix">
+            <div class="nav-collapse" style="margin-bottom: -0.5%;">
               <div class="col">
-                <ul class="nav nav-tabs">
+                <ul class="nav layout-icons">
                   <li class="nav-item">
-                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link" title="Agenda" ><span class="fa fa-calendar" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    @if($flag == "agenda")
+                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link current" title="Agenda">
+                    @else
+                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link" title="Agenda">
+                    @endif
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/1.png')}}">
+                      </span>
+                      <label>Agenda</label>
+                    </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Hisorias Clinicas" ><span class="fa fa-file-text" style="width: 28px; height: 28px; font-size: 28px; margin-right: 20px"></span></a>
+                    @if($flag == "historia")
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link current" title="Historias Clinicas">
+                    @else
+                    <a href="{{url('/HistoriaClinica')}}" class="nav-link" title="Historias Clinicas">
+                    @endif
+                      <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/6.png')}}">
+                      </span>
+                      <label>Historias</label>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -129,41 +169,53 @@
         </div>
         <div class="page-content">
           <div class="container">
-            <div class="">
+            <div class="page-content">
               @yield('content')
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container">
-          <div class="row align-items-center flex-row-reverse">
-            <div class="col-auto ml-auto">
-              <div class="row align-items-center">
-                <div class="col-auto">
-                  <ul class="list-inline list-inline-dots mb-0">
-                    <li class="list-inline-item">SmartDoc</li><a href="" target="_blank">- Politicas de Privacidad</a>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-              Copyright © 2018 <a href="."></a>. Theme by <a href="" target="_blank">PocketCompany</a> All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
     <script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = '222eac38faf35490a0ebfeddd86f5d0a5ab3dda2';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = '222eac38faf35490a0ebfeddd86f5d0a5ab3dda2';
+      window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+      })(document);
+    </script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".navbar.scroll-hide").mouseover(function() {
+      $(".page-header-fixed .navbar.scroll-hide").removeClass("closed");
+      return setTimeout((function() {
+        return $(".page-header-fixed .navbar.scroll-hide").css({
+          overflow: "visible"
+        });
+      }), 150);
+    });
+    $(function() {
+      var delta, lastScrollTop;
+      lastScrollTop = 0;
+      delta = 50;
+      return $(window).scroll(function(event) {
+        var st;
+        st = $(this).scrollTop();
+        if (Math.abs(lastScrollTop - st) <= delta) {
+          return;
+        }
+        if (st > lastScrollTop) {
+          $('.page-header-fixed .navbar.scroll-hide').addClass("closed");
+        } else {
+          $('.page-header-fixed .navbar.scroll-hide').removeClass("closed");
+        }
+        return lastScrollTop = st;
+      });
+    });
+  });
 </script>
   </body>
 </html>

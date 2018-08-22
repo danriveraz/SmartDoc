@@ -34,96 +34,142 @@ class UserController extends Controller
     	$user = Auth::User();
         $empresa = Empresa::find($user->idEmpresa);
         $flag = "none";
-        return View('Users.perfil')->with('user',$user)
-        ->with('empresa',$empresa)
-        ->with('departamentos',$departamentos)
-        ->with('ciudades', $ciudades)
-        ->with('flag',$flag);
+
+        if($user->esAdmin){
+            return View('Users.perfil')
+            ->with('user',$user)
+            ->with('empresa',$empresa)
+            ->with('departamentos',$departamentos)
+            ->with('ciudades', $ciudades)
+            ->with('flag',$flag);
+        }else if($user->esEmpleado){
+            return View('Users.perfilTrabajador')
+            ->with('user',$user)
+            ->with('departamentos',$departamentos)
+            ->with('ciudades', $ciudades)
+            ->with('flag',$flag);
+        }
     }
 
     public function imagen(Request $request){
         $user = Auth::User();
-        $empresa = Empresa::find($user->idEmpresa);
+        if($user->esAdmin){
+            $empresa = Empresa::find($user->idEmpresa);
 
-        $image = $_POST["image"];
-        $image_array_1 = explode(";", $image);
-        $image_array_2 = explode(",", $image_array_1[1]);
-        $image = base64_decode($image_array_2[1]);
-        $imageName= 'perfil' .time().'.png';
-        $path = public_path('/images/admin/'.$imageName);
+            $image = $_POST["image"];
+            $image_array_1 = explode(";", $image);
+            $image_array_2 = explode(",", $image_array_1[1]);
+            $image = base64_decode($image_array_2[1]);
+            $imageName= 'perfil' .time().'.png';
+            $path = public_path('/images/admin/'.$imageName);
 
-        file_put_contents($path, $image);
+            file_put_contents($path, $image);
 
-        if($empresa->imagen != "perfil.jpg"){
-            $imagenActual = 'images/admin/'.$empresa->imagen;
-            unlink($imagenActual);
+            if($empresa->imagen != "perfil.jpg"){
+                $imagenActual = 'images/admin/'.$empresa->imagen;
+                unlink($imagenActual);
+            }
+            
+            $empresa->imagen = $imageName;
+            $empresa->save();
+
+            return response()->json(['status'=>'success']);
+        }else if($user->esEmpleado){
+            $image = $_POST["image"];
+            $image_array_1 = explode(";", $image);
+            $image_array_2 = explode(",", $image_array_1[1]);
+            $image = base64_decode($image_array_2[1]);
+            $imageName= 'perfil' .time().'.png';
+            $path = public_path('/images/admin/'.$imageName);
+
+            file_put_contents($path, $image);
+
+            if($user->imagenPerfil != "perfil.jpg"){
+                $imagenActual = 'images/admin/'.$user->imagenPerfil;
+                unlink($imagenActual);
+            }
+            
+            $user->imagenPerfil = $imageName;
+            $user->save();
+
+            return response()->json(['status'=>'success']);
         }
-        
-        $empresa->imagen = $imageName;
-        $empresa->save();
-
-        return response()->json(['status'=>'success']);
     }
 
     public function postmodificarPerfil(Request $request){
         $user = Auth::User();
-        $empresa = Empresa::find($user->idEmpresa);
-        $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
-        $empresa->eslogan = $request->eslogan;        
-        $empresa->nit = $request->nit;
-        $empresa->telefono = $request->telefono;
-        $empresa->celular = $request->celular;
-        $empresa->direccion = $request->direccion;
-        $empresa->tipoRegimen = $request->tipoRegimen;
-        if($empresa->prefijo != $request->prefijo or $empresa->nResolucionFacturacion != $request->resolucion
-            or $empresa->fechaResolucion != $request->fechaResolucion or $empresa->nInicioFactura != $request->nInicio
-            or $empresa->nFinFactura != $request->nFinal){
-            $resolucion = new HistorialResoluciones();
-            $resolucion->idEmpresa = $empresa->id;
-            $resolucion->prefijo = $request->prefijo;
-            $resolucion->nResolucionFacturacion = $request->resolucion;
-            $resolucion->fechaResolucion = $request->fechaResolucion;
-            $resolucion->nInicioFactura = $request->nInicio;
-            $resolucion->nFinFactura = $request->nFinal;
-            $resolucion->save();
-            $empresa->contadorFacturacion = $request->nInicio-1;
+        if($user->esAdmin){
+            $empresa = Empresa::find($user->idEmpresa);
+            $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
+            $empresa->eslogan = $request->eslogan;        
+            $empresa->nit = $request->nit;
+            $empresa->telefono = $request->telefono;
+            $empresa->celular = $request->celular;
+            $empresa->direccion = $request->direccion;
+            $empresa->tipoRegimen = $request->tipoRegimen;
+            if($empresa->prefijo != $request->prefijo or $empresa->nResolucionFacturacion != $request->resolucion
+                or $empresa->fechaResolucion != $request->fechaResolucion or $empresa->nInicioFactura != $request->nInicio
+                or $empresa->nFinFactura != $request->nFinal){
+                $resolucion = new HistorialResoluciones();
+                $resolucion->idEmpresa = $empresa->id;
+                $resolucion->prefijo = $request->prefijo;
+                $resolucion->nResolucionFacturacion = $request->resolucion;
+                $resolucion->fechaResolucion = $request->fechaResolucion;
+                $resolucion->nInicioFactura = $request->nInicio;
+                $resolucion->nFinFactura = $request->nFinal;
+                $resolucion->save();
+                $empresa->contadorFacturacion = $request->nInicio-1;
 
+            }
+            $empresa->prefijo = $request->prefijo;
+            $empresa->nResolucionFacturacion = $request->resolucion;
+            $empresa->fechaResolucion = $request->fechaResolucion;
+            $empresa->nInicioFactura = $request->nInicio;
+            $empresa->nFinFactura = $request->nFinal;
+
+            if($request->tipoRegimen == "simplificado"){
+                $empresa->nInicioFactura = $request->NumSimpli;
+            }
+            $empresa->impuesto1 = $request->impuesto1;
+            $empresa->impuesto2 = $request->impuesto2;
+            $empresa->valorImpuesto1 = $request->valori1;
+            $empresa->valorImpuesto2 = $request->valori2;
+            $empresa->departamento = $request->idDepto;
+            $empresa->ciudad = $request->idCiudad;
+
+            //For the profile image
+            $path = public_path() . '/images/admin/';
+            $file = $request->file('imagen');
+            if($file!=null){// verifica que se haya subido una imagen nueva
+              //obtenemos el nombre del archivo
+              $perfilNombre = 'perfil' . time() . '.' . $file->getClientOriginalExtension();
+              //indicamos que queremos guardar un nuevo archivo en el disco local
+              $file->move($path, $perfilNombre);
+              if($empresa->imagen != "perfil.jpg"){
+                $imagenActual = $path . $empresa->imagen;
+                unlink($imagenActual);
+              }
+              $empresa->imagen = $perfilNombre;
+            }
+
+            $empresa->save();
+            $user->save();
+            flash::success('Perfil modificado exitosamente')->important();
+            return redirect('/Perfil');
+        }else if($user->esEmpleado){
+            $user->nombreCompleto = $request->nombreCompleto;
+            $user->direccion = $request->direccion;
+            $user->telefono = $request->telefono;
+            $user->sexo = $request->sexo;
+            $user->fechaNacimiento = $request->fechaNacimiento;
+            $user->cedula = $request->cedula;
+            $user->departamento = $request->idDepto;
+            $user->ciudad = $request->idCiudad;
+            $user->especialidad = $request->especialidad;
+            $user->save();
+            flash::success('Perfil modificado exitosamente')->important();
+            return redirect('/Perfil');
         }
-        $empresa->prefijo = $request->prefijo;
-        $empresa->nResolucionFacturacion = $request->resolucion;
-        $empresa->fechaResolucion = $request->fechaResolucion;
-        $empresa->nInicioFactura = $request->nInicio;
-        $empresa->nFinFactura = $request->nFinal;
-
-        if($request->tipoRegimen == "simplificado"){
-            $empresa->nInicioFactura = $request->NumSimpli;
-        }
-        $empresa->impuesto1 = $request->impuesto1;
-        $empresa->impuesto2 = $request->impuesto2;
-        $empresa->valorImpuesto1 = $request->valori1;
-        $empresa->valorImpuesto2 = $request->valori2;
-        $user->departamento = $request->idDepto;
-        $user->ciudad = $request->idCiudad;
-
-        //For the profile image
-        $path = public_path() . '/images/admin/';
-        $file = $request->file('imagen');
-        if($file!=null){// verifica que se haya subido una imagen nueva
-          //obtenemos el nombre del archivo
-          $perfilNombre = 'perfil' . time() . '.' . $file->getClientOriginalExtension();
-          //indicamos que queremos guardar un nuevo archivo en el disco local
-          $file->move($path, $perfilNombre);
-          if($empresa->imagen != "perfil.jpg"){
-            $imagenActual = $path . $empresa->imagen;
-            unlink($imagenActual);
-          }
-          $empresa->imagen = $perfilNombre;
-        }
-
-        $empresa->save();
-        $user->save();
-        flash::success('Perfil modificado exitosamente')->important();
-        return redirect('/Perfil');
     }
 
     public function modificarConfiguracion(){
