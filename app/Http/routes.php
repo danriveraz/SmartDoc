@@ -1,15 +1,6 @@
 <?php
 /*Realizado por Daniel Alejandro Rivera, ing*/
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+
 //Inicio
 Route::get('/', 'HomeController@index');
 
@@ -17,12 +8,12 @@ Route::get('/', 'HomeController@index');
 Route::get('/Preguntas', 'HomeController@preguntas');
 Route::get('/PocketClub', 'HomeController@pocketclub');
 
-
 //Login
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('Auth/login', 'Auth\AuthController@postLogin');
+Route::get('/register', 'Auth\AuthController@getRegister');
+Route::get('Auth/register', 'Auth\AuthController@postRegister');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
-
 
 Route::get('Consultorio/', 'UserController@index');
 Route::get('Registro', 'UserController@registro');
@@ -66,9 +57,6 @@ Route::post('Abonos/abonar', ['uses' => 'ServicioController@dopayment', 'as' => 
 Route::post('Abonos/imprimir', ['uses' => 'ServicioController@printPayment', 'as' => 'abono.imprimir']);//Esta ruta sirve para ver los abonos de un "Servicio"
 
 Route::post('Factura/', ['uses' => 'ServicioController@showInvoice', 'as' => 'factura']);//Esta ruta sirve para ver los abonos de un "Servicio"
-
-
-
 
 Route::post('NuevoServicio', ['uses' => 'ServicioController@nuevo', 'as' => 'servicio.nuevo']);//Esta ruta es la principal de Agenda, sirve para crear.
 

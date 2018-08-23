@@ -62,7 +62,7 @@
 					        	<li><a href="{{url('/Preguntas')}}">Preguntas</a></li>
 					        	<li><a href="{{url('/PocketClub')}}">Pocket Club</a></li>
 				            	<li><a href="{{url('/login')}}" class="genric-btn success radius small">Iniciar Sesión</a></li>				          
-					        	<li><a href="#" class="genric-btn primary  radius small">Registrarme</a></li>					  
+					        	<li><a href="{{url('/register')}}" class="genric-btn primary  radius small">Registrarme</a></li>					  
 					        </ul>
 				    	</nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -84,8 +84,8 @@
 									Podrás agendar citas, crear historias clínicas, llevar el control de tus utilidades y empleados, crear, editar e imprimir odontogramas profesionales, mientras tus facturas y abonos se crean de forma automática.
 								</p>
 							</h5>
-							<button type="button" class="btn btn-primary btn-lg">7 Días Gratis
-							</button>
+							<a type="button" class="btn btn-primary btn-lg" href="{{url('/register')}}" style="color: #FFFFFF;" >7 Días Gratis
+							</a>
 						</div>	
 						<div class="banner-content banner-img col-lg-5 col-md-6 align-self-end">
 							<img class="img-fluid" src="{{asset('assetsHome/img/banner-img.png')}}" alt="">

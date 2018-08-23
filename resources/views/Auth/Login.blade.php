@@ -22,7 +22,7 @@
     <aside class="sidebar-large1">
         <div class="user-access">
             <div class="user-access-header">
-                <a href="{{url('PocketCompany')}}" class="logo"><img src="images/logo smartdoc 290x72.png"></a>
+                <a href="{{url('/')}}" class="logo"><img src="images/logo smartdoc 290x72.png"></a>
                 <p class="intro-title" style="color: #210B61">Bienvenido</p>
                 <p class="intro-summary" style="color: #210B61">controla tu negocio con solo unos clicks</p>
             </div>

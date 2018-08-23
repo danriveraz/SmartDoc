@@ -18,6 +18,8 @@ use Socialite;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use App\Departamento;
+use App\Ciudad;
 
 class AuthController extends Controller
 {
@@ -95,6 +97,14 @@ class AuthController extends Controller
 
     public function getLogin(){
         return View('Auth.Login');
+    }
+
+    public function getRegister(){
+        $departamentos = Departamento::all();
+        $ciudades = Ciudad::all();
+        return View('Auth.Register')
+                ->with('departamentos',$departamentos)
+                ->with('ciudades',$ciudades);
     }
 
     public function postLogin(Request $request){

@@ -172,8 +172,6 @@ float: left;
                             </select>
                           </div>
                         </div>
-
-
                       </div>
                         <!-- lado izquierdo-->
                       <div class="col-md-6 sise14">
