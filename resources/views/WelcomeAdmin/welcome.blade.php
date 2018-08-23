@@ -2,11 +2,14 @@
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
+
+<!-- boton de añadir-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento">
-		<span class="fa fa-plus" style="margin-right: 0px;"><span class="famy">&nbsp;Agregar evento<span></span>
+		<i class="fa fa-plus" style="margin-right: 0px;"></i><span style="font-weight: 500"> Añadir Evento</span>
 	</button>
 </div>
+<!-- boton de añadir-->
 <br>
 
 <!--Espacio modal add procedimiento-->
