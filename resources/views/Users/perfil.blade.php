@@ -5,7 +5,7 @@
 {!!Html::style('assetsIntena/css/styleTapProfile.css')!!}
 {!!Html::style('assetsIntena/css/main.css')!!}
 {!!Html::style('assetsIntena/css/rainbow-pricing-table.css')!!}
-{!!Html::style('assetsIntena/css/stylePayment.css')!!}
+<!--{!!Html::style('assetsIntena/css/stylePayment.css')!!}-->
 
 
 {!!Html::script("assetsIntena/js/main.js")!!}
@@ -294,7 +294,7 @@ float: left;
                     </p>
                   </div>
                 </div>
-<!-- contenido de metodos de pago -->
+<!-- contenido de metodos de pago
 <div class="container">
 <div class="row">
 <div class="col-sm-12">
@@ -399,7 +399,7 @@ float: left;
                                                         <li><i class="fa fa-dot-circle-o"></i> <span>Donamos $5.000 Fundación para todos</span></li>
                                                     </ul>
                                                     <div class="bs-btns text-center">
-                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                        <a href="" class="btn">Adquirir!</a>
                                                     </div>
                                                 </div>
                                             </div><!-- End col-md-4 -->
@@ -426,7 +426,7 @@ float: left;
                                                     </ul>
 
                                                     <div class="bs-btns text-center">
-                                                        <a href="" class="btn">Unirte PocketClub</a>
+                                                        <a href="" class="btn">Adquirir!</a>
                                                     </div>
                                                 </div>
                                             </div><!-- End col-md-4 -->
@@ -458,6 +458,7 @@ float: left;
   new CBPFWTabs( document.getElementById( 'tabs' ) );
 </script>
 
+<!--
 {!!Html::script("assetsIntena/js/payment/easyResponsiveTabs.js")!!}
     <script type="text/javascript">
       $(document).ready(function () {
@@ -470,6 +471,7 @@ float: left;
       });
 
     </script>
+-->
 
 <script>
 
