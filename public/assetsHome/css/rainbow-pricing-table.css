@@ -1,0 +1,226 @@
+
+
+/*
+Author: Bootstrapthemes
+Author URI: http://bootstrapthemes.co
+*/
+
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.jumbotron h1 {
+    margin-bottom: 40px;
+}
+
+.m-top-40{
+    margin-top:40px;
+}
+
+.p-top-100{
+    padding-top: 100px;
+}
+.roomy-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+/*============================================
+        BS PRICING TABLE THREE
+==============================================*/
+
+.bs-pricing-table-three{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.bs-pricing-table-three .head-title h2{
+    font-size:30px;
+}
+.bs-pricing-table-three .price h1{
+    font-size:50px;
+}
+.bs-pricing-table-three .bs-pricing-item{
+    border:1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+}
+.bs-pricing-table-three .bs-pricing-item ul li{
+    margin-bottom: 15px;
+}
+.bs-pricing-table-three .bs-pricing-item ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.bs-pricing-table-three .bs-pricing-item ul li i{
+    float: left;
+    margin-right: 10px;
+    font-size: 12px;
+    margin-top: 6px;
+}
+.bs-pricing-table-three .bs-pricing-item ul li span{
+    width:90%;
+    display: inline-bs;
+
+}
+.bs-pricing-table-three .bs-pricing-item .head,
+.bs-pricing-table-three .bs-pricing-item ul{
+    padding:20px 15px 0px 15px;
+}
+.bs-pricing-table-three .head-title{
+    position: relative;
+}
+.bs-pricing-table-three .head-title:after,
+.bs-pricing-table-three .head-title:before{
+    position: absolute;
+    content:"";
+    top:50%;
+    width:20%;
+    height: 1px;
+    background-color: #ddd;
+}
+.bs-pricing-table-three .head-title:before{
+    left:0;
+}
+.bs-pricing-table-three .head-title:after{
+    right:0;
+}
+
+.bs-pricing-table-three .bs-btns{
+    /*position: absolute;*/
+    width:100%;
+    transition: all 0.6s;
+    /*    bottom:0px;
+        left:0;*/
+}
+.bs-pricing-table-three .bs-btns a.btn{
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+    font-size:14px;
+    font-weight: 600;
+    border:1px solid;
+    border-radius: 0px;
+    outline:0;
+
+    width:100%;
+    border:1px solid #ddd;
+    color:#fff;
+    font-size:16px;
+    height: 100%;
+    padding: 12px;
+}
+
+.bs-pricing-table-three .free .price h1,
+.bs-pricing-table-three .free ul li i{
+    color:#7B6BB5;
+}
+.bs-pricing-table-three .free .bs-btns a.btn{
+    background-color: #7B6BB5;
+}
+.bs-pricing-table-three .standard .bs-btns a.btn{
+    background-color: #6BC59C;
+}
+.bs-pricing-table-three .plus .bs-btns a.btn{
+    background-color: #529CDE;
+}
+.bs-pricing-table-three .standard .price h1,
+.bs-pricing-table-three .standard ul li i{
+    color:#6BC59C;
+}
+.bs-pricing-table-three .plus .price h1,
+.bs-pricing-table-three .plus ul li i{
+    color:#529CDE;
+}
+
+.bs-pricing-table-three .free .bs-btns a.btn1{
+    background-color:#7cb342;
+}
+.bs-pricing-table-three .standard .bs-btns a.btn2{
+    background-color: #c0ca33;
+}
+.bs-pricing-table-three .plus .bs-btns a.btn3{
+    background-color: #ffb300;
+}
+
+.bs-pricing-table-three .free1 .price h1,
+.bs-pricing-table-three .free1 ul li i{
+    color:#7cb342;
+}
+.bs-pricing-table-three .standard1 .price h1,
+.bs-pricing-table-three .standard1 ul li i{
+    color:#c0ca33;
+}
+.bs-pricing-table-three .plus1 .price h1,
+.bs-pricing-table-three .plus1 ul li i{
+    color:#ffb300;
+}
+
+
+
+
+
+
+
+/* Portrait tablets and small desktops */
+@media (max-width: 991px) {
+
+
+    .sm-m-top-50{
+        margin-top:50px;
+    }
+    .sm-m-top-140{
+        margin-top:140px;
+    }
+    .bs-pricing-table-two .bs-pricing-item.sm-last-border{
+        border-right: 0px solid;
+    }
+
+
+
+}
+
+
+
+
+
+/* Landscape phones and portrait tablets */
+@media  (max-width: 768px) {
+
+    .xs-m-top-50{
+        margin-top:50px;
+    }
+    .xs-m-top-40{
+        margin-top:40px;
+    }
+
+
+}
+
+
+
+
+
+
+
+/*copyright
+==================*/
+.footer{
+    background-color: #333;
+}
+.copyright{
+    padding: 20px 10px;
+}
+.copyright p {
+    font-size:12px;
+    color:#fff;
+}
+.copyright p i {
+    padding: 0px 5px;
+    color: red;
+}
+.copyright p a {
+    padding: 0px 5px;
+    color: yellow;
+}

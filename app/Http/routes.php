@@ -11,9 +11,15 @@
 |
 */
 //Inicio
-Route::get('/', 'Auth\AuthController@getLogin');
+Route::get('/', 'HomeController@index');
+
+//Home
+Route::get('/Preguntas', 'HomeController@preguntas');
+Route::get('/PocketClub', 'HomeController@pocketclub');
+
 
 //Login
+Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('Auth/login', 'Auth\AuthController@postLogin');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 

@@ -21,6 +21,18 @@ class HomeController extends Controller
         return View('Home.password');
     }
 
+    public function index(){
+        return View('Home.index');
+    }
+
+    public function preguntas(){
+        return View('Home.preguntas');
+    }
+
+    public function pocketclub(){
+        return View('Home.pocketClub');
+    }
+
     public function registroPropietario(){
         return View('Users.registroPropietario');
     }

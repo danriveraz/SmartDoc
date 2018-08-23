@@ -102,19 +102,9 @@
                     </span>
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
-                      <small class="text-muted d-block mt-1">Trabanador</small>
+                      <small class="text-muted d-block mt-1">Trabajador</small>
                     </span>
                   </a>
-                  <!--div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                    <a class="dropdown-item" href="{{url('Perfil')}}">
-                      <i class="fa fa-user-circle"></i>Mi Perfil
-                    </a>
-                    <a class="dropdown-item" href="{{url('Configuracion')}}">
-                      <span>Configuración</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{url('Auth/logout')}}">Salir</a>
-                  </div-->
                   <ul class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                     <li class="dropdown-item"><a href="{{url('Perfil')}}">
                     <i class="fa fa-user-circle"></i>Mi Perfil</a>
@@ -123,12 +113,9 @@
                     <i class="fa fa-gear"></i>Ajustes</a>
                     </li>
                     <li class="dropdown-item"><a href="{{url('Auth/logout')}}">
-                    <i class="fa fa-sign-out"></i>Cerrar Secion</a>
+                    <i class="fa fa-sign-out"></i>Salir</a>
                     </li>
                   </ul>
-
-
-
                 </div>
               </div>
             </div>

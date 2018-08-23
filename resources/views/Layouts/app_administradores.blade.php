@@ -121,12 +121,9 @@
         						<i class="fa fa-gear"></i>Ajustes</a>
         					  </li>
         					  <li class="dropdown-item"><a href="{{url('Auth/logout')}}">
-        						<i class="fa fa-sign-out"></i>Cerrar Secion</a>
+        						<i class="fa fa-sign-out"></i>Salir</a>
         					  </li>
         					</ul>
-
-
-
                 </div>
               </div>
             </div>
