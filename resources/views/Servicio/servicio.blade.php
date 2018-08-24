@@ -3,8 +3,11 @@
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <!-- DataTables Example -->
-<a class="btn btn-pill btn-primary" href="{{url('/Cuentas')}}" title="Cuentas">
-	<span class="fa fa-money" style="margin-right: 0px;font-size: 20px;margin-top:5px;"></span>
+<a class="btn btn-pill btn-primary" href="{{url('/Cuentas')}}" title="Ver Ingresos">
+	<i class="fa fa-money" style="margin-right: 0px;font-size: 20px;margin-top:5px;"></i><span style="font-weight: 500"> Ver Ingresos</span>
+
+
+
 </a>
 </div>
 <br>
@@ -35,36 +38,36 @@
 		                <td>{{$servicio->costoTratamiento}}</td>
 		                <td>
 		                	<div class="row" style="align-items: center;">
-		                		<div class="col-md-4" style="padding: 0px;">	
+		                		<div class="col-md-4" style="padding: 0px;">
 		                			{!! Form::open(['route' => ['factura'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
-			       						{{ csrf_field() }}	       	
+			       						{{ csrf_field() }}
 			       						<input type="text" name="id" hidden="" value="{{$servicio->id}}">
 			       						@if($servicio->estado == "Pendiente")
 							        	<button class="btn btn-primary btn-sm ml-2" title="Ver factura" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
 							        	@else
-							        	<button class="btn btn-success btn-sm ml-2" title="Factura completamente paga" href="{{ url('Factura') }}"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	<button class="btn btn-success btn-sm ml-2" title="Factura completamente paga" href="{{ url('Factura') }}"><i class="fa fa-file-text-o" style="margin: 0;"></i></button>
 							        	@endif
-							        	
+
 						        	{{ Form::close() }}
-			                	</div>	 
-		                		<div class="col-md-4" style="padding: 0px;">	
+			                	</div>
+		                		<div class="col-md-4" style="padding: 0px;">
 		                			{!! Form::open(['route' => ['servicio.abonos'], 'method' => 'post','enctype' => 'multipart/form-data', 'id' => "form2$servicio->id"]) !!}
-			       						{{ csrf_field() }}	 	       	
+			       						{{ csrf_field() }}
 			       						<input type="text" name="id" hidden="" value="{{$servicio->id}}">
 			       						@if($servicio->estado == "Pendiente")
 							        	<button class="btn btn-primary btn-sm ml-2" title="Abonar"><i class="fa fa-dollar" style="margin: 0;"></i></button>
 							        	@else
-							        	<button class="btn btn-success btn-sm ml-2" title="Factura completamente paga"><i class="fa fa-dollar" style="margin: 0;"></i></button>
+							        	<button class="btn btn-success btn-sm ml-2" title="Abonos "><i class="fa fa-dollar" style="margin: 0;"></i></button>
 							        	@endif
 							        {{ Form::close() }}
-			                	</div>	   
+			                	</div>
 			                	<div class="col-md-4" style="padding: 0px;">
 			                		{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
 			       				{{ csrf_field() }}
 						        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
 						        {{ Form::close() }}
-						    	</div>					    	     
-		                	</div>         
+						    	</div>
+		                	</div>
 		                </td>
 		            </tr>
 		           @endforeach
