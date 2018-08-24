@@ -5,21 +5,22 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Empresa;
 use App\Cuentas;
-use Validator;
+use App\Departamento;
+use App\Ciudad;
 use App\Http\Controllers\Controller;
+use Laracasts\Flash\Flash;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Validator;
+use Auth;
+use Mail;
 use Session;
 use Input;
 use Redirect;
 use Socialite;
-use Laracasts\Flash\Flash;
-use Illuminate\Support\Facades\Log;
-use Carbon\Carbon;
-use App\Departamento;
-use App\Ciudad;
 
 class AuthController extends Controller
 {
@@ -228,125 +229,90 @@ class AuthController extends Controller
     }
 
     public function postRegister(Request $request){
-        if($request->esPropietario == "true"){
-            $email = $request->email;
-            $cedula = $request->cedula;
-            if($email == ""){
-                $email = "none";
-            }
-            if($cedula == ""){
-                $cedula = "none";
-            }
-            $user = User::Search($email)->get()->first();
-            $identity = User::identity($cedula)->get()->first();
-            if(sizeOf($user) == 0 && sizeof($identity) == 0){
-                if($request->clavePrimaria == "3317898"){
-                    if($email == "none" || $request->nombre == "" || $cedula == "none" ){
-                        dd($email, $request->nombre, $nit);
-                        Flash::error('Por favor llenar todos los campos');
-                        return redirect('/PocketCompany');
-                    }else{
-                        $empresa = new Empresa();
-                        $empresa->nombreEstablecimiento = "PocketCompany";
-                        $empresa->nit = "901158690-1";
-                        $empresa->save();
+        $email = $request->email;
+        if($email == ""){
+            $email = "none";
+        }
+        $departamentos = Departamento::All();
+        $ciudades = Ciudad::all();
+        $user = User::Search($email)->get()->first();
+        if(sizeOf($user) == 0){
 
-                        $user = new User();
-                        $user->email = $request->email;
-                        $user->password = bcrypt($request->password);
-                        $user->nombreCompleto = $request->nombre;
-                        $user->cedula = $request->cedula;
-                        $user->esPropietario = 1;
-                        $user->idEmpresa = $empresa->id;
-                        $user->save();
-                        return redirect('/')->with('message', 'Por favor iniciar sesión.');
-                    }
-                }else{
-                    Flash::error('Clave de acceso PocketCompany errada');
-                    return redirect('/PocketCompany');
-                }
-            }else{
-                if(sizeof($user) > 0){
-                    Flash::error('Correo en uso');
-                    return redirect('/PocketCompany');
-                }else{
-                    Flash::error('Cedula en uso');
-                    return redirect('/PocketCompany');
-                }
-            }
+            $empresa = new Empresa();
+            $empresa->nombreEstablecimiento = $request->nombreEstablecimiento;
+            $empresa->telefono = $request->telefono;
+            $empresa->direccion = $request->direccion;
+            $empresa->imagen = 'perfil.jpg';
+            $empresa->eslogan = "Ahora todo es más fácil con SmartDoc";
+            $empresa->departamento = $departamentos[($request->idDepto) -1]->nombre;
+            $empresa->ciudad = $ciudades[($request->idCiudad) -1]->nombre;
+            $empresa->save();
+
+            $user = new User();
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->nombreCompleto = "Administrador";
+            $user->esAdmin = 1;
+            $user->imagenPerfil = 'perfil.jpg';
+            $user->idEmpresa = $empresa->id;
+            $user->confirmoEmail = 0;
+            $user->remember_token = str_random(100);
+            $user->confirm_token = str_random(100);
+            $user->save();
+
+            $empresa->usuario_id = $user->id;
+            $empresa->save();
+
+            $cuentas1 = new Cuentas();
+            $cuentas1->idEmpresa = $empresa->id;
+            $cuentas1->titulo = "Ventas";
+            $cuentas1->fechaActual = Carbon::now()->subHour(5);
+            $cuentas1->save();
+
+            $cuentas2 = new Cuentas();
+            $cuentas2->idEmpresa = $empresa->id;
+            $cuentas2->titulo = "Costos";
+            $cuentas2->fechaActual = Carbon::now()->subHour(5);
+            $cuentas2->save();
+
+            $cuentas3 = new Cuentas();
+            $cuentas3->idEmpresa = $empresa->id;
+            $cuentas3->titulo = "Utilidad";
+            $cuentas3->fechaActual = Carbon::now()->subHour(5);
+            $cuentas3->save();
+
+            $data = $user;
+            Mail::send('Emails.confirmacionRegistro', ['data' => $data], function($mail) use($data){
+                $mail->to($data->email)->subject('Confirma tu cuenta de SmartDoc');
+            });
+
+            return redirect("/login")
+            ->with("message", "Hemos enviado un enlace de confirmación a su cuenta de correo electrónico");
         }else{
-            $email = $request->email;
-            $nit = $request->nit;
-            $cedula = $request->cedula;
-            if($email == ""){
-                $email = "none";
+            if(sizeof($user) > 0){
+                flash('Correo en uso')->error()->important();
+                return redirect('/register');
             }
-            if($nit == ""){
-                $nit = "none";
-            }
-            if($cedula == ""){
-                $cedula = "none";
-            }
-            $user = User::Search($email)->get()->first();
-            $identity = User::identity($cedula)->get()->first();
-            $empresaIdentity = Empresa::identity($nit)->get()->first();
-            $userActual = Auth::User();
-            if($userActual->esPropietario){
-                if(sizeOf($user) == 0 && sizeof($identity) == 0 && sizeof($empresaIdentity) == 0){
-                    $empresa = new Empresa();
-                    $empresa->nombreEstablecimiento = $request->nombre;
-                    $empresa->nit = $nit;
-                    $empresa->telefono = $request->telefono;
-                    $empresa->celular = $request->celular;
-                    $empresa->direccion = $request->direccion;
-                    $empresa->imagen = 'perfil.jpg';
-                    $empresa->eslogan = "Ahora todo es más fácil con SmartDoc";
-                    $empresa->save();
+        }
+    }
 
-                    $user = new User();
-                    $user->email = $request->email;
-                    $user->password = bcrypt($request->password);
-                    $user->nombreCompleto = "Administrador";
-                    $user->cedula = $cedula;
-                    $user->esAdmin = 1;
-                    $user->idEmpresa = $empresa->id;
-                    $user->save();
+    public function confirmRegister($email, $confirm_token){
+        $user = new User;
+        $the_user = $user->select()->where('email', '=', $email)
+        ->where('confirm_token', '=', $confirm_token)->get();
+        if (count($the_user) > 0){
+           $confirmoEmail = 1;
+           $confirm_token = str_random(100);
+           $user->where('email', '=', $email)
+           ->update(['confirmoEmail' => $confirmoEmail, 'confirm_token' => $confirm_token]);
 
-                    $cuentas1 = new Cuentas();
-                    $cuentas1->idEmpresa = $empresa->id;
-                    $cuentas1->titulo = "Ventas";
-                    $cuentas1->fechaActual = Carbon::now()->subHour(5);
-                    $cuentas1->save();
-
-                    $cuentas2 = new Cuentas();
-                    $cuentas2->idEmpresa = $empresa->id;
-                    $cuentas2->titulo = "Costos";
-                    $cuentas2->fechaActual = Carbon::now()->subHour(5);
-                    $cuentas2->save();
-
-                    $cuentas3 = new Cuentas();
-                    $cuentas3->idEmpresa = $empresa->id;
-                    $cuentas3->titulo = "Utilidad";
-                    $cuentas3->fechaActual = Carbon::now()->subHour(5);
-                    $cuentas3->save();
-
-                    Flash::success('Registro exitoso');
-                    return redirect('/Registro');
-                }else{
-                    if(sizeof($user) > 0){
-                        flash('Correo en uso')->error()->important();
-                        return redirect('/Registro');
-                    }else if(sizeof($empresaIdentity) > 0){
-                        flash('Nit en uso')->error()->important();
-                        return redirect('/Registro');
-                    }else{
-                        flash('Cedula en uso')->error()->important();
-                        return redirect('/Registro');
-                    }
-                }
-            }else{
-
-            }
+           /*return redirect('Auth/login')
+           ->with('message', 'Bienvenido ' . $the_user[0]['nombrePersona'] . ' ya puede iniciar sesión');*/
+           //dd($the_user);
+            Auth::login($the_user[0], true);
+            return redirect()->intended($this->redirectPath());
+        }else{
+           return redirect('');
         }
     }
 }

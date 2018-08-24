@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AltertableHistoriaClinica2 extends Migration
+class AlterTableEmpresaConfimEmail extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,10 @@ class AltertableHistoriaClinica2 extends Migration
      */
     public function up()
     {
-        Schema::table('historiaClinica', function ($table) {
-            
-            $table->integer('idOdontogramaInicial')->unsigned();
-            $table->foreign('idOdontogramaInicial')->references('id')->on('odontograma')->onDelete('cascade');
+        Schema::table('users', function ($table) {
+            $table->boolean('confirmoEmail');
         });
     }
-
 
     /**
      * Reverse the migrations.

@@ -13,8 +13,8 @@ class AlterTableAgendaProcedimiento extends Migration
     public function up()
     {
         Schema::table('agenda', function ($table) {
-            //$table->integer('idProcedimiento')->unsigned();
-            /*$table->foreign('idProcedimiento')->references('id')->on('procedimiento')->onDelete('cascade');*/
+            $table->integer('idProcedimiento')->unsigned();
+            $table->foreign('idProcedimiento')->references('id')->on('procedimiento')->onDelete('cascade');
         });
     }
 

@@ -62,9 +62,6 @@
                             <div class="input-wrapper">
                                 <input type="password" name="password" id="password" value="" class="clave" placeholder="Contraseña" required>
                             </div>
-                            <div class="input-wrapper">
-                                <input type="password" name="passwordConfirm" id="passwordConfirm" value="" class="clave" placeholder="Confirmar contraseña" required>
-                            </div>
                             <input type="submit" name="submit" id="submit" value="REGISTRARSE" style="background-color: #467fcf">
                         </form>
                     </div> 

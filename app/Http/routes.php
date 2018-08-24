@@ -15,6 +15,8 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 Route::get('Auth/register', 'Auth\AuthController@postRegister');
 Route::get('Auth/logout', 'Auth\AuthController@getLogout');
 
+Route::get('Auth/confirm/email/{email}/confirm_token/{confirm_token}', 'Auth\AuthController@confirmRegister');
+
 Route::get('Consultorio/', 'UserController@index');
 Route::get('Registro', 'UserController@registro');
 
