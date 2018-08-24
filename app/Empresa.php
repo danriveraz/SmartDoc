@@ -9,6 +9,6 @@ class Empresa extends Model
     protected $table = 'empresa';
 
     public function scopeIdentity($query, $nit){
-      return $query->where('nit', 'like', '%' .$nit. '%');
+      return $query->where('nit', '=', $nit);
     }
 }

@@ -153,6 +153,32 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="addModalEvolucion" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" >Agregar evolución</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="bootstrapOn();">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {!! Form::open(['route' => ['historia.nuevaEvolucion'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+       {{ csrf_field() }}
+       	<input type="text" name="idHistoriaEvolucion" hidden="" value="{{$historia->id}} ">
+      	<div class="modal-body" align="center">
+        	<div class="row">
+	        	<div class="col-md-12">
+	        		<textarea id="evolucionNueva" name="evolucionNueva" rows="3" class="form-control" placeholder="Evolución"></textarea>
+	        	</div>	        	
+        	</div>
+      	</div>
+		<div class="modal-footer">
+		<button id="btn-crear" class="btn btn-primary" title="Agregar evolución" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></button>
+		</div>
+      {{ Form::close() }}
+    </div>
+  </div>
+</div>
 <div class="page-content">
 	<div class="container">
 	    <div class="row row-cards">
@@ -973,6 +999,80 @@
 							</div>				
 				        </div>
 				    @endif
+				    <div>
+			        	<div class="card" style="margin: 0">
+							<div class="card-header">
+								<div class="col-md-10">
+									<a id="btnServicios" type="" class="btn-pill" data-toggle="collapse" data-target="#servicio">
+										<span id="spanServicioPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+										<span id="spanServicioMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+									</a>
+									<h3 class="card-title" style="display: initial;">Evolución y estado actual</h3>
+								</div>
+								<div class="col-md-2" style='text-align:right'>
+					          		<a id="btn-add" class="btn btn-primary" data-toggle="modal" href="#addModalEvolucion" title="Agregar evolución" onclick="bootstrapOff();">
+										 Agregar evolución
+									</a>	
+								</div>
+							</div>
+							<!-- inicio del contenedor del campo texto-->
+							<div class="container">
+								<div id="evolución" class="collapse">
+									<div class="card-body">
+						  			<div class="row">							 
+						  				<div class="card" style="margin: 0">
+								        	@foreach($historia->servicios as $servicio)
+						              		<div class="card-header">
+						                  		<div class="col-md-4">
+						                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
+						              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
+						              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+						              				</a>
+							          				<h5  style="display: initial;">{{$servicio->procedimiento->nombre}} </h5>
+						                  		</div>
+						                  		<div class="col-md-3">
+								        			@if($servicio->costoTratamiento == 0)
+								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" disabled="">
+								        			@else
+								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}" disabled="">
+								        			@endif
+						                  		</div>
+						                  		<div class="col-md-3" align="center">
+						                  			<?php 
+						                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+														$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+					 									$date = new DateTime($servicio->fecha);
+															echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+													?>
+						                  		</div>
+						                  		<div class="col-md-3" align="center">
+						                  			{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
+								       				{{ csrf_field() }}
+											        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
+											        {{ Form::close() }}
+											    </div>
+						              		</div>
+						              		<!-- inicio del contenedor del campo texto-->
+						              		<div class="container">
+						              			<div id="{{$servicio->id}}" class="collapse">
+						              				<div class="card-body">
+									          			<div class="row">
+												        	<div class="col-md-12">
+												        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$servicio->descripcion}}</textarea>
+												        	</div>
+												        </div>
+									          		</div>	
+						              			</div>
+						              		</div>
+						              		@endforeach
+							          		</div>
+							        	</div>
+						  			</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
 	    	 		<div class="card" id="divOdontogramaGeometrico">
 	              		<div class="card-header">
 	                  		@if($historia->primerOdontograma)

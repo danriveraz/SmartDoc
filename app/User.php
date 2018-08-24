@@ -28,14 +28,14 @@ class User extends Authenticatable
     ];
 
     public function scopeSearch($query, $email){
-      return $query->where('email', 'like', '%' .$email. '%');
+      return $query->where('email', '=', $email);
     }
 
     public function scopeIdentity($query, $cedula){
-      return $query->where('cedula', 'like', '%' .$cedula. '%');
+      return $query->where('cedula', '=', $cedula);
     }
 
     public function scopeEmpresa($query, $idEmpresa){
-      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');
+      return $query->where('idEmpresa', '=', $idEmpresa);
     }
 }

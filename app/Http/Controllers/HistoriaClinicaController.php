@@ -11,6 +11,7 @@ use App\HistoriaClinica;
 use App\Procedimiento;
 use App\Laboratorio;
 use App\Cuentas;
+use App\HistoriaEvolucion;
 use App\Servicio;
 use App\Empresa;
 use App\Diente;
@@ -3898,6 +3899,18 @@ class HistoriaClinicaController extends Controller
       $id = $observacion->idHistoriaClinica;
       $_SESSION['id'] = $id;
       return redirect()->route('historia.observacionHistoriaClinica');
+    }
+     public function nuevaEvolucion(Request $request){
+      $user = Auth::User();
+      $empresa = Empresa::find($user->idEmpresa);
+      $evolucion = new HistoriaEvolucion();
+      $evolucion->idEmpresa = $user->idEmpresa;
+      $evolucion->idHistoriaClinica = $request->idHistoriaEvolucion;
+      $evolucion->evolucion = $request->evolucionNueva;
+      $evolucion->fecha = Carbon::now()->subHour(5);
+      $evolucion->save();
+      flash('Evolucion guardada exitosamente')->success()->important();
+      return redirect()->back();
     }
 
     public function postdeleteObservacion($id){

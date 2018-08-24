@@ -9,10 +9,10 @@ class Agenda extends Model
     protected $table = 'agenda';
 
     public function scopeAdmin($query, $idEmpresa){
-      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');   
+      return $query->where('idEmpresa', '=', $idEmpresa);   
     }
 
     public function scopeTrabajador($query, $idUsuario){
-      return $query->where('idUsuario', 'like', '%' .$idUsuario. '%');   
+      return $query->where('idUsuario', '=', $idUsuario);   
     }
 }

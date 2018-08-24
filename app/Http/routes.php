@@ -48,7 +48,7 @@ Route::get('Laboratorio/{id}/destroy', ['uses' => 'LaboratorioController@postdel
 //Cuentas
 Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal de Cuentas
 
-//Servicio
+//
 Route::get('Servicio', ['uses' => 'ServicioController@createLaboratorio', 'as' => 'Auth.usuario.showcreateServicio']);//Esta ruta es la principal de Servicio, sirve para crear.
 Route::get('Servicio/{id}/destroy', ['uses' => 'ServicioController@postdeleteServicio', 'as' => 'Auth.usuario.deleteServicio']);//Esta ruta sirve para eliminar un "Servicio"
 
@@ -60,7 +60,7 @@ Route::post('Abonos/imprimir', ['uses' => 'ServicioController@printPayment', 'as
 
 Route::post('Factura/', ['uses' => 'ServicioController@showInvoice', 'as' => 'factura']);//Esta ruta sirve para ver los abonos de un "Servicio"
 
-Route::post('NuevoServicio', ['uses' => 'ServicioController@nuevo', 'as' => 'servicio.nuevo']);//Esta ruta es la principal de Agenda, sirve para crear.
+Route::post('NuevoServicio', ['uses' => 'ServicioController@nuevo', 'as' => 'servicio.nuevo']);
 
 //Historia clinica
 Route::get('HistoriaClinica', ['uses' => 'HistoriaClinicaController@historiaClinica', 'as' => 'Auth.usuario.showHistoriaClinica']);//Esta ruta es la principal de Historia clinica.
@@ -68,6 +68,8 @@ Route::post('MakeHC', ['uses' => 'HistoriaClinicaController@createHistoriaClinic
 Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@edit', 'as' => 'historia.edit']);
 
 Route::get('HistoriaClinica/{id}/observacion', ['uses' => 'HistoriaClinicaController@observacion', 'as' => 'historia.observacion']);
+
+Route::post('NuevaEvolucion', ['uses' => 'HistoriaClinicaController@nuevaEvolucion', 'as' => 'historia.nuevaEvolucion']);//Esta ruta es la principal de Agenda, 
 
 Route::get('observaciones', ['uses' => 'HistoriaClinicaController@observacionHistoriaClinica', 'as' => 'historia.observacionHistoriaClinica']);
 

@@ -10,16 +10,16 @@ class HistoriaClinica extends Model
     protected $table = 'historiaClinica';
 
     public function scopeAdmin($query, $idEmpresa){
-      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%');   
+      return $query->where('idEmpresa', '=', $idEmpresa);   
     }
 
     public function scopeIdentity($query, $documento){
-    	return $query->where('documento', 'like', '%' .$documento. '%');  	
+    	return $query->where('documento', '=', $documento);  	
     }
 
     public function scopeEmpresaAndId($query, $idEmpresa, $id){
-      return $query->where('idEmpresa', 'like', '%' .$idEmpresa. '%')
-      				->where('id' , 'like', '%'.$id.'%'); 
+      return $query->where('idEmpresa', '=', $idEmpresa)
+      				->where('id' , '=', $id); 
     }
 
     public function servicios(){

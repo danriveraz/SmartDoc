@@ -22,14 +22,14 @@ class Personal extends Model
     ];
 
     public function scopeSearch($query, $email){
-      return $query->where('email', 'like', '%' .$email. '%');
+      return $query->where('email', '=', $email);
     }
 
     public function scopeIdentity($query, $cedula){
-      return $query->where('cedula', 'like', '%' .$cedula. '%');
+      return $query->where('cedula', '=', $cedula);
     }
 
     public function scopeAdmin($query, $idAdmin){
-      return $query->where('idAdmin', 'like', '%' .$idAdmin. '%');   
+      return $query->where('idAdmin', '=', $idAdmin);   
     }
 }
