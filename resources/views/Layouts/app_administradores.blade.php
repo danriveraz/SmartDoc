@@ -99,7 +99,7 @@
                     <span class="avatar" style="background-image: url({{asset('images/admin/'.$empresa->imagen)}}">
                     </span>
                     <span class="ml-2 d-none d-lg-block">
-                      <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
+                      <span class="text-default">{{$empresa->nombreEstablecimiento}}</span>
                       <small class="text-muted d-block mt-1">Administrator</small>
                     </span>
                   </a>

@@ -963,7 +963,7 @@
 			          							@if($historia->observacionesPO != "")
 			          								<label >Observaciones</label>
 			          							@endif
-			          							<textarea id="observacionesPO" name="observacionesPO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesPO}}</textarea>
+			          							<textarea id="observacionesPO" name="observacionesPO" rows="3" class="form-control" placeholder="Observaciones" >{{$historia->observacionesPO}}</textarea>
 			          						</div>
 			          					</div>
 			          				</div>		                	
@@ -1109,7 +1109,7 @@
 		          							@if($historia->observacionesO != "")
 		          								<label >Observaciones</label>
 		          							@endif
-		          							<textarea id="observacionesO" name="observacionesO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesO}}</textarea>
+		          							<textarea id="observacionesO" name="observacionesO" rows="3" class="form-control" placeholder="Observaciones">{{$historia->observacionesO}}</textarea>
 		          						</div>
 		          					</div>
 		          				</div>			                	
@@ -1224,7 +1224,9 @@
 			                    	Editar Odontograma Inicial
 			                    </button>
 		                    @endif
-		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="cargarOdontograma();"><i class="fa fa-print"></i>Imprimir</a>  
+		                    @if($historia->primerOdontograma)
+		                    	<a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="cargarOdontograma();"><i class="fa fa-print"></i>Imprimir</a>  
+		                    @endif
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -4669,16 +4671,12 @@
 	function setValue(idBtn) {
 		if(idBtn.id == "guardar"){
 			document.getElementById('activador').value = 1;
-			formGuardar.submit();
 	    }else if(idBtn.id == "observacion"){
 	    	document.getElementById('activador').value = 2;
-	    	formGuardar.submit();
 	    }else if(idBtn.id == "laboratorio"){
 	    	document.getElementById('activador').value = 3;
-	    	formGuardar.submit();
 	    }else if(idBtn.id == "editarOdontograma"){
 	    	document.getElementById('activador').value = 4;
-	    	formGuardar.submit();
 	    }
 	}
 </script>
