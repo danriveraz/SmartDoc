@@ -81,7 +81,7 @@ color: #467fcf !important;
     bottom: 10px;
 	text-align: center;
     animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
-	margin: 0px 10px;
+	margin: 0px 12px;
 }
 
 .badgescard spam {
@@ -123,6 +123,7 @@ text-overflow: ellipsis;
 white-space: nowrap;
 font-size: 17px;
 width: 85%;
+margin-bottom: 8px;
 	
 }
 

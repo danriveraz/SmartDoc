@@ -123,7 +123,7 @@
 </div>
 <!-- Fin de page-header-->
 <!-- Agregar cada Personal-->
-<div class="row row-cards">
+<div class="row row-cards" style="margin: 0px !important;">
 @foreach($personales as $personal)
 	@if(!$personal->esAdmin)
 	<div class="col-lg-6 col-xl-4 Perso-wrapper">
@@ -144,7 +144,7 @@
 					<div class="divtext">
 						{{$personal->nombreCompleto}}
 					</div>
-						<ul class="m-0 float-left" style="list-style: none; margin:0; padding: 0;font-size: 13px;">
+						<ul class="m-0 float-left" style="list-style: none; margin:0; padding: 0;font-size: 13px;color: #808080;">
 							<li><i class="fa fa-address-card SpacePerspIcon"></i>{{$personal->cedula}}</li>
 							<li><i class="fa fa-venus-mars SpacePerspIcon"></i>{{$personal->sexo}}</li>
 							<li><i class="fa fa-phone-square SpacePerspIcon"></i>{{$personal->telefono}}</li>
