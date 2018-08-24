@@ -125,6 +125,7 @@
 <!-- Agregar cada Personal-->
 <div class="row row-cards">
 @foreach($personales as $personal)
+	@if(!$personal->esAdmin)
 	<div class="col-lg-6 col-xl-4 Perso-wrapper">
 		<div class="card"  style="margin-bottom: 0rem;">
 			<div class="heading">
@@ -223,6 +224,7 @@
 	</div>
 </div>
 <!-- Fin del modal para editar-->
+	@endif
 	@endforeach
 </div>
 

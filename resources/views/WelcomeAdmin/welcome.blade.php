@@ -45,7 +45,9 @@
 	        		<select id="personal" name='personal' class="form-control" placeholder="" required>
 	                  	<option value="" selected="selected">Persona encargada</option>
 	                  	@foreach($personales as $personal)
-		                    <option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
+	                  		@if(!$personal->esAdmin)
+		                    	<option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
+		                    @endif
 		               	@endforeach
 	            	</select>
 	        	</div>

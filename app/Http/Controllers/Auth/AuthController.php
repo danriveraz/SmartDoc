@@ -114,7 +114,7 @@ class AuthController extends Controller
             $user = User::Search($request->email)->get()->first();
             if(sizeOf($user) != 0){
                 if($user->esPropietario == 1){
-                    if (Auth::attempt(
+                    /*if (Auth::attempt(
                         [
                             'email' => $request->email,
                             'password' => $request->password
@@ -123,7 +123,7 @@ class AuthController extends Controller
                         return redirect('/Registro');
                     }else{
                         return redirect('/')->with('message', 'Error al iniciar sesión');
-                    }
+                    }*/
                 }else if($user->esAdmin == 1){
                     if (Auth::attempt(
                         [
@@ -206,7 +206,7 @@ class AuthController extends Controller
                         }
                         return redirect()->intended($this->redirectPath());
                     }else{
-                        return redirect('/')->with('message', 'Error al iniciar sesión');
+                        return redirect('/login')->with('message', 'Error al iniciar sesión');
                     }
                 }else{
                     if (Auth::attempt(
@@ -221,10 +221,10 @@ class AuthController extends Controller
                     }
                 }
             }else{
-               return redirect('/')->with('message', 'Nombre de usuario o contraseña incorrecto');
+               return redirect('/login')->with('message', 'Nombre de usuario o contraseña incorrecto');
             }
         }else{
-            return redirect('/')->with('message', 'Por favor ingresar correo y contraseña');
+            return redirect('/login')->with('message', 'Por favor ingresar correo y contraseña');
         }
     }
 
