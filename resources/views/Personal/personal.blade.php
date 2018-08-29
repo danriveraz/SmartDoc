@@ -227,7 +227,7 @@
 <!--Modal edit personal -->
 <div class="modal fade" id="editModal{{$personal->id}}" tabindex="-1" role="dialog">
 	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
+		<div class="modal-content" style="background-color: white">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -238,29 +238,32 @@
 				{{ csrf_field() }}
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-md-6">
+<!--lado izquierdo del form-->
+	        	<div class="col-md-6">
+							<div class="form-group">
+			            <label class="form-label">Nombre Completo</label>
+								<div class="input-icon">
+			                  <span class="input-icon-addon">
+			                    <i class="fe fe-user"></i>
+			                  </span>
 								<input id="nombre{{$personal->id}}" name="nombre{{$personal->id}}" type="text" class="form-control" placeholder="Nombre completo" required="true" value="{{$personal->nombreCompleto}}">
-						</div>
-						<div class="col-md-6">
-							<input id="email{{$personal->id}}" name="email{{$personal->id}}" type="email" class="form-control" placeholder="Correo" required="true" value="{{$personal->email}}">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<input id="cedula{{$personal->id}}" name="cedula{{$personal->id}}" type="text" class="form-control" placeholder="Cedula" required="true" value="{{$personal->cedula}}">
-						</div>
-						<div class="col-md-6">
-							<input id="telefono{{$personal->id}}" name="telefono{{$personal->id}}" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$personal->telefono}}">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
-						</div>
-						<div class="col-md-4">
-							<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
-						</div>
-						<div class="col-md-4">
+			           </div>
+			         </div>
+							<div class="form-group">
+ 			            <label class="form-label">Documento Identificacion</label>
+ 							<div class="input-icon">
+ 			                  <span class="input-icon-addon">
+ 			                    <i class="fe fe-credit-card"></i>
+ 			                  </span>
+								<input id="cedula{{$personal->id}}" name="cedula{{$personal->id}}" type="text" class="form-control" placeholder="Cedula" required="true" value="{{$personal->cedula}}">
+							</div>
+ 			         </div>
+							<div class="form-group">
+ 			            <label class="form-label">Genero</label>
+ 								<div class="input-icon">
+ 			                  <span class="input-icon-addon">
+ 			                    <i class="fa fa-venus-mars"></i>
+ 			                  </span>
 							<select id="sexo{{$personal->id}}" name="sexo{{$personal->id}}" class="form-control" placeholder="">
 											@if($personal->sexo=='')
 												<option value="" selected="selected">Seleccionar</option>
@@ -273,8 +276,76 @@
 												<option value="masculino" selected="selected">Masculino</option>
 												<option value="femenino" >Femenino</option>
 										@endif
-									</select>
+							</select>
+ 			           </div>
+ 			         </div>
+							<div class="form-group">
+ 			            <label class="form-label">Fecha de Nacimiento</label>
+ 								<div class="input-icon">
+ 			                  <span class="input-icon-addon">
+ 			                    <i class="fa fa-birthday-cake"></i>
+ 			                  </span>
+							<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
+ 			         </div>
+							<div class="form-group">
+									 <label class="form-label">Dirección</label>
+								 <div class="input-icon">
+												 <span class="input-icon-addon">
+													 <i class="fe fe-map-pin"></i>
+												 </span>
+							<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
+									</div>
+								</div>
+					</div>
+<!--lado izquierdo del form-->
+				</div>
+<!--lado derecho del form-->
+	        	<div class="col-md-6">
+					<div class="form-group">
+								 <label class="form-label">Email</label>
+							 <div class="input-icon">
+											 <span class="input-icon-addon">
+												 <i class="fe fe-mail"></i>
+											 </span>
+							<input id="email{{$personal->id}}" name="email{{$personal->id}}" type="email" class="form-control" placeholder="Correo" required="true" value="{{$personal->email}}">
+							</div>
 						</div>
+					<div class="form-group">
+						 <label class="form-label">Telefono</label>
+					 <div class="input-icon">
+									 <span class="input-icon-addon">
+										 <i class="fe fe-phone-outgoing"></i>
+									 </span>
+							<input id="telefono{{$personal->id}}" name="telefono{{$personal->id}}" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$personal->telefono}}">
+					</div>
+				</div>
+					<div class="form-group">
+						 <label class="form-label">Departamento</label>
+					 <div class="input-icon">
+									 <span class="input-icon-addon">
+										 <i class="fe fe-map"></i>
+									 </span>
+							<select class="form-control" id="idDepto"  name="idDepto" required>
+							<option value="">Departamento</option>
+							@foreach($departamentos as $departamento)
+								<option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+							@endforeach
+							</select>
+					</div>
+				</div>
+					<div class="form-group">
+						 <label class="form-label">Ciudad</label>
+					 <div class="input-icon">
+									 <span class="input-icon-addon">
+										 <i class="fe fe-map"></i>
+									 </span>
+							<select class="form-control" id="idCiudad" name="idCiudad" required>
+								<option value="">Ciudad</option>
+							</select>
+					</div>
+				</div>
+				</div>
+<!--lado derecho del form-->
 					</div>
 					<div class="row">
 						<div class="col-md-12">
@@ -282,8 +353,9 @@
 						</div>
 					</div>
 				</div>
+
 		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary">Guardar</button>
+			<button type="submit" class="btn btn-primary" style="font-weight:400">Guardar</button>
 		</div>
 			{{ Form::close() }}
 		</div>
