@@ -39,8 +39,9 @@
 				<div class="col-md-6">
 					<select class="form-control" id="tipoDocumento" name="tipoDocumento">
 						<option value="" selected="">Tipo documento</option>
-						<option value="tarjeta">T.I</option>
-						<option value="cedula">C.C</option>
+						<option value="tarjeta">Targeta de identidad</option>
+						<option value="cedula">Cédula de ciudadanía</option>
+						<option value="cedula">Registro civil</option>
 					</select>
 				</div>
 				<div class="col-md-6">
@@ -76,6 +77,7 @@
 		        </thead>
 		        <tbody>
 		        	@foreach($historiasClinicas as $historiaClinica)
+		        	@if(!$historiaClinica->eliminada)
 		            <tr>
 		                <td>{{$historiaClinica->nombreCompleto}}</td>
 		                <td>{{$historiaClinica->documento}}</td>
@@ -94,7 +96,8 @@
 					        {{ Form::close() }}
 		                </td>
 		            </tr>
-		           @endforeach
+		            @endif
+		           	@endforeach
 		        </tbody>
 		    </table>
 		  </div>

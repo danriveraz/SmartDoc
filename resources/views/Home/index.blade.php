@@ -220,7 +220,7 @@
     			<div class="pocket">
     				<h4 style="font-weight: 500;"> 
     					<p class="text-center">Al ser miembro PocketClub, obtienes descuentos, obsequios y promociones especiales. 
-    						<a href="" target="_blank" rel="alternate">¿Qué es PocketClub?</a>
+    						<a href="{{url('/PocketClub')}}" target="_blank" rel="alternate">¿Qué es PocketClub?</a>
     					</p>
     				</h4>
     			</div>

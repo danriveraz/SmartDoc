@@ -240,41 +240,31 @@
 		          			</div>
 		          			<div class="row">
 		          				<div class="col-md-3">
+       								<label>Fecha nacimiento</label>
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
+					        	</div>
+		          				<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->edad != "")
-	          								<label>Edad</label>
-	          							@endif
+          								<label>Edad</label>
 	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}" required="true">
 	          						</div>
 	          					</div>
-	          					<div class="col-md-3">
-	          						@if($historia->fechaNacimiento != "0000-00-00")
-          								<label>Fecha inicio tratamiento</label>
-          							@endif
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
-					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->direccion != "")
-	          								<label>Dirección</label>
-	          							@endif
+	          							<label>Dirección</label>
 	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->telefono != "")
-	          								<label>Teléfono</label>
-	          							@endif
+	          							<label>Teléfono</label>
 	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 		          				<div class="col-md-3">
-		          					@if($historia->departamento != "")
-          								<label>Departamento</label>
-          							@endif
+          							<label>Departamento</label>
 					        		<select class="form-control" id="idDepto"  name="idDepto" required>
 									<option value="">Departamento</option>
 									@foreach($departamentos as $departamento)
@@ -287,9 +277,7 @@
 									</select>
 					        	</div>
 					        	<div class="col-md-3">
-					        		@if($historia->ciudad != "")
-          								<label>Ciudad</label>
-          							@endif
+          							<label>Ciudad</label>
 					        		<select class="form-control" id="idCiudad" name="idCiudad" required>
 										<option value="">Ciudad</option>
 										@foreach($ciudades as $ciudad)
@@ -305,26 +293,26 @@
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->personaResponsable != "")
-	          								<label >Persona responsable</label>
-	          							@endif
+	          							<label >Persona responsable</label>
 	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->telefonoResponsable != "")
-	          								<label >Teléfono</label>
-	          							@endif
+	          							<label>Teléfono</label>
 	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->email != "")
-	          								<label >Email</label>
-	          							@endif
+	          							<label>Email</label>
 	          							<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{$historia->email}}" required="true">
+	          						</div>
+	          					</div>
+	          					<div class="col-md-3">
+	          						<div class="form-group">
+	          							<label>EPS</label>
+	          							<input type="text" class="form-control" id="eps" name="eps" placeholder="EPS" value="{{$historia->eps}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-6">
@@ -353,26 +341,17 @@
 	          							@if($historia->motivoConsulta != "")
 	          								<label >Motivo de consulta</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}" required="true">
+	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}">
 	          						</div>
 	          					</div>
 		          			</div>
-		          			<div class="row">
-					        	<div class="col-md-12">
-					        		@if($historia->motivoConsulta != "")
-          								<label >Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)</label>
-          							@endif
-					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)" required="true">{{$historia->evolucionEstado}}</textarea>
-					        	</div>
-					        </div>
-					        <br>
 					        <div class="row">
 		          				<div class="col-md-12">
 	          						<div class="form-group">
 	          							@if($historia->antecedentesFamiliares != "")
 	          								<label>Antecedentes familiares</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}" required="true">
+	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}">
 	          						</div>
 	          					</div>
 		          			</div>

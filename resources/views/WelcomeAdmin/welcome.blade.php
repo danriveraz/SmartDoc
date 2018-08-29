@@ -29,7 +29,6 @@
         	<div class="row">
 	        	<div class="col-md-3">
 		          	<select id="procedimiento" name='procedimiento' class="form-control" placeholder="" required>
-	                  	<option value="" selected="selected">Procedimiento</option>
 	                  	@foreach($procedimientos as $procedimiento)
 		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
 		               	@endforeach
@@ -43,10 +42,12 @@
 	        	</div>
 	        	<div class="col-md-3">
 	        		<select id="personal" name='personal' class="form-control" placeholder="" required>
-	                  	<option value="" selected="selected">Persona encargada</option>
+	                  	<option value="" selected="selected">Persona a cargo</option>
 	                  	@foreach($personales as $personal)
 	                  		@if(!$personal->esAdmin)
-		                    	<option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
+	                  			@if(!$personal->eliminado)
+		                    		<option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
+		                    	@endif
 		                    @endif
 		               	@endforeach
 	            	</select>
@@ -87,7 +88,16 @@
         	</div>
       	</div>
 		<div class="modal-footer">
-		<a id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></a>
+			<div id="divGuardarEvento">
+				<a id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;
+					<li class="fa fa-check"></li>
+				</a>
+			</div>
+			<div id="divInfoPersonal">
+				<h6>Para registrar un evento es necesario tener personal a cargo, ingreselo 
+					<a href="{{url('/Personal')}}" style="color: blue;">aquí</a>
+				</h6>
+			</div>
 		</div>
       {{ Form::close() }}
     </div>
@@ -105,7 +115,7 @@
 		        <thead>
 		            <tr>
 		            	<th width="10%">Hora</th>
-		                <th width="15%">Titulo</th>
+		                <th width="15%">Procedimiento</th>
 						<th width="20%">Encargado</th>
 						<th width="20%">Paciente</th>
 						<th width="15%">Cedula</th>
@@ -258,7 +268,12 @@
 	}
 
 	$(document).ready(function() {
-	    //$('#example').DataTable();
+
+	    if(document.getElementById('personal').length == 1){
+	    	document.getElementById('divGuardarEvento').style.display = 'none';
+	    }else{
+	    	document.getElementById('divInfoPersonal').style.display = 'none';
+	    }
 
 	    $('#example').DataTable( {
 	        dom: 'lBfrtip',

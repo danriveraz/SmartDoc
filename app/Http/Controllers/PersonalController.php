@@ -165,13 +165,8 @@ class PersonalController extends Controller
 
     public function postdeleteProfile(Request $request, $id){
         $user2destroy = User::find($id);
-        $agenda2destroy = Agenda::Trabajador($user2destroy->id)->get();
-
-        for ($i=0; $i < sizeof($agenda2destroy) ; $i++) { 
-            $agenda2destroy[$i]->delete();
-        }
-        
-        $user2destroy->delete();
+        $user2destroy->eliminado = 1;
+        $user2destroy->save();
         flash('Eliminación exitosa')->success()->important();
         return redirect('/Personal');
     }

@@ -192,6 +192,7 @@
 <div class="row row-cards" style="margin: 0px !important;">
 @foreach($personales as $personal)
 	@if(!$personal->esAdmin)
+	@if(!$personal->eliminado)
 	<div class="col-lg-6 col-xl-4 Perso-wrapper">
 		<div class="card"  style="margin-bottom: 0rem;">
 			<div class="heading">
@@ -362,6 +363,7 @@
 	</div>
 </div>
 <!-- Fin del modal para editar-->
+	@endif
 	@endif
 	@endforeach
 </div>

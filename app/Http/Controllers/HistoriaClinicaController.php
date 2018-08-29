@@ -2330,6 +2330,7 @@ class HistoriaClinicaController extends Controller
       $historia->sexo = $request->sexo;
       $historia->edad = $request->edad;
       $historia->email = $request->email;
+      $historia->eps = $request->eps;
       $historia->exoneradoImpuestos = $request->impuestos;
       $historia->fechaNacimiento = $request->fechaNacimiento;
       $historia->direccion = $request->direccion;
@@ -3596,8 +3597,11 @@ class HistoriaClinicaController extends Controller
 
     public function postdeleteHistoriaClinica(Request $request, $id){
         $historia2destroy = HistoriaClinica::find($id);
-
-        $servicio2destroy = Servicio::HistoriaClinica($historia2destroy->id)->get();
+        $historia2destroy->eliminada = 1;
+        $historia2destroy->save();
+        flash('Eliminación exitosa')->success()->important();
+        return redirect('/HistoriaClinica');
+        /*$servicio2destroy = Servicio::HistoriaClinica($historia2destroy->id)->get();
 
         for ($i=0; $i < sizeof($servicio2destroy) ; $i++) { 
             $servicio2destroy[$i]->delete();
@@ -3826,10 +3830,7 @@ class HistoriaClinicaController extends Controller
         $diente49->delete();
         $diente50->delete();
         $diente51->delete();
-        $diente52->delete();
-
-        flash('Eliminación exitosa')->success()->important();
-        return redirect('/HistoriaClinica');
+        $diente52->delete();*/
     }
 
     public function observacion($id){

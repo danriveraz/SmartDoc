@@ -7,6 +7,7 @@ use App\Empresa;
 use App\Cuentas;
 use App\Departamento;
 use App\Ciudad;
+use App\Procedimiento;
 use App\Http\Controllers\Controller;
 use Laracasts\Flash\Flash;
 use Carbon\Carbon;
@@ -262,6 +263,26 @@ class AuthController extends Controller
 
             $empresa->usuario_id = $user->id;
             $empresa->save();
+
+            $procedimiento = new Procedimiento();
+            $procedimiento->nombre = "Consulta primer vez";
+            $procedimiento->idEmpresa = $empresa->id;
+            $procedimiento->save();
+
+            $procedimiento2 = new Procedimiento();
+            $procedimiento2->nombre = "Cita control";
+            $procedimiento2->idEmpresa = $empresa->id;
+            $procedimiento2->save();
+
+            $procedimiento3 = new Procedimiento();
+            $procedimiento3->nombre = "Urgencias";
+            $procedimiento3->idEmpresa = $empresa->id;
+            $procedimiento3->save();
+
+            $procedimiento4 = new Procedimiento();
+            $procedimiento4->nombre = "Otros";
+            $procedimiento4->idEmpresa = $empresa->id;
+            $procedimiento4->save();
 
             $cuentas1 = new Cuentas();
             $cuentas1->idEmpresa = $empresa->id;
