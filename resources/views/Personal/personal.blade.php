@@ -20,7 +20,7 @@
 <!-- Inicio de Modal-->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: white">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Registrar personal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -59,55 +59,121 @@
                     </div>
                 </div>
       		</div>
-        	<div class="row">
-	        	<div class="col-md-6">
-		          	<input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre completo" required="true">
+
+					<div class="row">
+						<!--lado izquierdo del form-->
+	        	<div class="col-sm-6">
+							<div class="form-group">
+			            <label class="form-label">Nombre Completo</label>
+								<div class="input-icon">
+			                  <span class="input-icon-addon">
+			                    <i class="fe fe-user"></i>
+			                  </span>
+					          	<input id="nombre" name="nombre" type="text" class="form-control"  required="true">
+			           </div>
+			         </div>
+							 <div class="form-group">
+  			            <label class="form-label">Documento Identificacion</label>
+  								<div class="input-icon">
+  			                  <span class="input-icon-addon">
+  			                    <i class="fe fe-credit-card"></i>
+  			                  </span>
+ 												<input id="cedula" name="cedula" type="text" class="form-control"  required="true">
+  			           </div>
+  			         </div>
+								 <div class="form-group">
+	  			            <label class="form-label">Genero</label>
+	  								<div class="input-icon">
+	  			                  <span class="input-icon-addon">
+	  			                    <i class="fa fa-venus-mars"></i>
+	  			                  </span>
+	 												<select id="sexo" name='sexo' class="form-control" required="true">
+	 						                  	<option value="" selected="selected">Seleccionar sexo</option>
+	 						                    <option value="masculino">Masculino</option>
+	 						                    <option value="femenino">Femenino</option>
+	 					              </select>
+	  			           </div>
+	  			         </div>
+									 <div class="form-group">
+		  			            <label class="form-label">Fecha de Nacimiento</label>
+		  								<div class="input-icon">
+		  			                  <span class="input-icon-addon">
+		  			                    <i class="fa fa-birthday-cake"></i>
+		  			                  </span>
+		 									<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" required="true" /> 			           </div>
+		  			         </div>
+		 							<div class="form-group">
+		 									 <label class="form-label">Dirección</label>
+		 								 <div class="input-icon">
+		 												 <span class="input-icon-addon">
+		 													 <i class="fe fe-map-pin"></i>
+		 												 </span>
+		 												 <input id="direccion" name="direccion" type="text" class="form-control" required="true" >
+		 									</div>
+		 								</div>
 	        	</div>
-	        	<div class="col-md-6">
-			        <input id="email" name="email" type="email" class="form-control" placeholder="Correo" required="true">
+						<!--lado izquierdo del form-->
+						<!--lado derecho del form-->
+						<div class="col-sm-6">
+						<div class="form-group">
+								 <label class="form-label">Email</label>
+							 <div class="input-icon">
+											 <span class="input-icon-addon">
+												 <i class="fe fe-mail"></i>
+											 </span>
+								<input id="email" name="email" type="email" class="form-control" required="true">
+							</div>
+						</div>
+						<div class="form-group">
+								 <label class="form-label">Contraseña</label>
+							 <div class="input-icon">
+											 <span class="input-icon-addon">
+												 <i class="fe fe-lock"></i>
+											 </span>
+									<input id="password" name="password" type="password" class="form-control" required="true">
+							</div>
+						</div>
+						<div class="form-group">
+								 <label class="form-label">Telefono</label>
+							 <div class="input-icon">
+											 <span class="input-icon-addon">
+												 <i class="fe fe-phone-outgoing"></i>
+											 </span>
+									<input id="telefono" name="telefono" type="text" class="form-control" required="true">
+							</div>
+						</div>
+						<div class="form-group">
+								 <label class="form-label">Departamento</label>
+							 <div class="input-icon">
+											 <span class="input-icon-addon">
+												 <i class="fe fe-map"></i>
+											 </span>
+									<select class="form-control" id="idDepto"  name="idDepto" required="true">
+				 					<option value="">Seleccionar Departamento</option>
+				 					@foreach($departamentos as $departamento)
+				 	                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
+				 		            @endforeach
+				 					</select>
+							</div>
+						</div>
+						<div class="form-group">
+							 <label class="form-label">Ciudad</label>
+						 <div class="input-icon">
+										 <span class="input-icon-addon">
+											 <i class="fe fe-map"></i>
+										 </span>
+								<select class="form-control" id="idCiudad" name="idCiudad" required="true">
+			 						<option value="">Seleccionar Ciudad</option>
+			 					</select>
+						</div>
+						</div>
+
+
 	        	</div>
-        	</div>
-        	<div class="row">
-        		<div class="col-md-4">
-			        <input id="cedula" name="cedula" type="text" class="form-control" placeholder="Cedula" required="true">
-        		</div>
-        		<div class="col-md-4">
-			        <input id="telefono" name="telefono" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000">
-        		</div>
-        		<div class="col-md-4">
-			        <input id="password" name="password" type="password" class="form-control" placeholder="Contraseña" required="true">
-        		</div>
-        	</div>
-	        <div class="row">
-	        	<div class="col-md-6">
-	        		<input id="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
-	        	</div>
-	        	<div class="col-md-6">
-	        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha de nacimiento AAAA/MM/DD" required="true" />
-	        	</div>
+
 	        </div>
-	        <div class="row">
-	        	<div class="col-md-4">
-	        		<select id="sexo" name='sexo' class="form-control" placeholder="">
-	                  	<option value="" selected="selected">Seleccionar sexo</option>
-	                    <option value="masculino">Masculino</option>
-	                    <option value="femenino">Femenino</option>
-                	</select>
-	        	</div>
-	        	<div class="col-md-4">
-	        		<select class="form-control" id="idDepto"  name="idDepto" required>
-					<option value="">Departamento</option>
-					@foreach($departamentos as $departamento)
-	                    <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-		            @endforeach
-					</select>
-	        	</div>
-	        	<div class="col-md-4">
-	        		<select class="form-control" id="idCiudad" name="idCiudad" required>
-						<option value="">Ciudad</option>
-					</select>
-	        	</div>
-	        </div>
+
+
 	        <div class="row">
 	        	<div class="col-md-12">
 	        		<textarea id="especialidad" name="especialidad" rows="3" class="form-control" placeholder="Especialidad de la persona" required="true"></textarea>
@@ -145,10 +211,10 @@
 						{{$personal->nombreCompleto}}
 					</div>
 						<ul class="m-0 float-left" style="list-style: none; margin:0; padding: 0;font-size: 13px;color: #808080;">
-							<li><i class="fa fa-address-card SpacePerspIcon"></i>{{$personal->cedula}}</li>
+							<li><i class="fe fe-credit-card fa-address-card SpacePerspIcon"></i>{{$personal->cedula}}</li>
 							<li><i class="fa fa-venus-mars SpacePerspIcon"></i>{{$personal->sexo}}</li>
-							<li><i class="fa fa-phone-square SpacePerspIcon"></i>{{$personal->telefono}}</li>
-							<li class="email"><i class="fa fa-map-o SpacePerspIcon"></i>{{$personal->email}}</li>
+							<li><i class="fe fe-phone-outgoing SpacePerspIcon"></i>{{$personal->telefono}}</li>
+							<li class="email"><i class="fe fe-map SpacePerspIcon"></i>{{$personal->email}}</li>
 						</ul>
 			</div>
 			</div>
