@@ -1,4 +1,9 @@
-@extends('Layouts.app_empleados')
+@if($user->esEmpleado)
+	@extends('Layouts.app_empleados')
+@elseif($user->esRecepcionista)
+	@extends('Layouts.app_recepcionista')
+@endif
+
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->

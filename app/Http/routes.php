@@ -46,7 +46,7 @@ Route::get('Laboratorio/{id}/edit', ['uses' => 'LaboratorioController@postupdate
 Route::get('Laboratorio/{id}/destroy', ['uses' => 'LaboratorioController@postdeleteLaboratorio', 'as' => 'Auth.usuario.deleteLaboratorio']);//Esta ruta sirve para eliminar un "Laboratorio"
 
 //Cuentas
-Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal de Cuentas
+//Route::get('Cuentas', 'CuentasController@index'); ////Esta ruta es la principal de Cuentas
 
 //
 Route::get('Servicio', ['uses' => 'ServicioController@createLaboratorio', 'as' => 'Auth.usuario.showcreateServicio']);//Esta ruta es la principal de Servicio, sirve para crear.
@@ -69,7 +69,7 @@ Route::get('HistoriaClinica/{id}/edit', ['uses' => 'HistoriaClinicaController@ed
 
 Route::get('HistoriaClinica/{id}/observacion', ['uses' => 'HistoriaClinicaController@observacion', 'as' => 'historia.observacion']);
 
-Route::post('NuevaEvolucion', ['uses' => 'HistoriaClinicaController@nuevaEvolucion', 'as' => 'historia.nuevaEvolucion']);//Esta ruta es la principal de Agenda, 
+Route::post('NuevaEvolucion', ['uses' => 'HistoriaClinicaController@nuevaEvolucion', 'as' => 'historia.nuevaEvolucion']);
 
 Route::get('observaciones', ['uses' => 'HistoriaClinicaController@observacionHistoriaClinica', 'as' => 'historia.observacionHistoriaClinica']);
 

@@ -57,8 +57,7 @@
 													 <span class="input-icon-addon">
 														 <i class="fa fa-venus-mars"></i>
 													 </span>
-													 <select id="personal" name='personal' class="form-control" placeholder="" required>
-						 	                  	<option value="" selected="selected">Seleccionar doctor</option>
+													 <select id="personal" name='personal' class="form-control" placeholder="" required="true">
 						 	                  	@foreach($personales as $personal)
 						 	                  		@if(!$personal->esAdmin)
 						 	                  			@if(!$personal->eliminado)
@@ -311,8 +310,7 @@
 	}
 
 	$(document).ready(function() {
-
-	    if(document.getElementById('personal').length == 1){
+	    if(document.getElementById('personal').length == 0){
 	    	document.getElementById('divGuardarEvento').style.display = 'none';
 	    }else{
 	    	document.getElementById('divInfoPersonal').style.display = 'none';

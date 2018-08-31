@@ -2291,6 +2291,8 @@ class HistoriaClinicaController extends Controller
         array_push($odontograma2array, array('completo38', $diente52->completo));
 
         $empresa = Empresa::find($user->idEmpresa);
+        $historiaEvolucion = HistoriaEvolucion::HistoriaClinica($historia->id)->get();
+
         $flag = "historia";
         if($user->esAdmin){
              return View('HistoriaClinica.crearHistoriaClinica')
@@ -2302,6 +2304,7 @@ class HistoriaClinicaController extends Controller
             ->with('procedimientos',$procedimientos)
             ->with('odontogramaInicial2array', $odontogramaInicial2array)
             ->with('odontograma2array', $odontograma2array)
+            ->with('historiaEvolucion', $historiaEvolucion)
             ->with('flag', $flag);
         }else{
              return View('HistoriaClinica.crearHistoriaClinicaTrabajador')
@@ -2313,6 +2316,7 @@ class HistoriaClinicaController extends Controller
             ->with('procedimientos',$procedimientos)
             ->with('odontogramaInicial2array', $odontogramaInicial2array)
             ->with('odontograma2array', $odontograma2array)
+            ->with('historiaEvolucion', $historiaEvolucion)
             ->with('flag', $flag);
         }
     }
@@ -3461,7 +3465,7 @@ class HistoriaClinicaController extends Controller
         $historia->save();
 
         //Servicio prestado
-      if($request->procedimiento != null){
+      /*if($request->procedimiento != null){
             $servicio = new Servicio();
             $servicio->fecha = Carbon::now()->subHour(5);
             $servicio->idEmpresa = $user->idEmpresa;
@@ -3573,7 +3577,7 @@ class HistoriaClinicaController extends Controller
                   }
 
             }
-      }
+      }*/
         
       session_start();
       $_SESSION['id'] = $request->historiaID;

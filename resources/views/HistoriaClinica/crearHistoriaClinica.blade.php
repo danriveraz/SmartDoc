@@ -103,10 +103,9 @@
 	<h3>HISTORIA CLINICA ODONTOLÓGICA</h3>
 </div>
 <div  class="text-center" id="datosEmpresa" style="display: none;">
-	<label>
+	<h3>
 		{{$empresa->nombreEstablecimiento}} - NIT: {{$empresa->nit}}
-	</label>
-	<br>
+	</h3>
 	<label>
 		Dirección: {{$empresa->direccion}}
 	</label>
@@ -944,9 +943,9 @@
 			        	<div class="card" style="margin: 0">
 							<div class="card-header">
 								<div class="col-md-10">
-									<a id="btnServicios" type="" class="btn-pill" data-toggle="collapse" data-target="#servicio">
-										<span id="spanServicioPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
-										<span id="spanServicioMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+									<a id="btnEvolucion" type="" class="btn-pill" data-toggle="collapse" data-target="#evolucion">
+										<span id="spanEvolucionPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+										<span id="spanEvolucionMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
 									</a>
 									<h3 class="card-title" style="display: initial;">Evolución y estado actual</h3>
 								</div>
@@ -957,55 +956,32 @@
 								</div>
 							</div>
 							<!-- inicio del contenedor del campo texto-->
-							<div class="container">
-								<div id="evolución" class="collapse">
+							<div class="container" style="background: #FFFFFF;">
+								<div id="evolucion" class="collapse">
 									<div class="card-body">
 						  			<div class="row">							 
 						  				<div class="card" style="margin: 0">
-								        	@foreach($historia->servicios as $servicio)
+						  					<div id="evolucionAImprimir">
+								        	@foreach($historiaEvolucion as $evolucion)
 						              		<div class="card-header">
-						                  		<div class="col-md-4">
-						                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
-						              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
-						              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-						              				</a>
-							          				<h5  style="display: initial;">{{$servicio->procedimiento->nombre}} </h5>
-						                  		</div>
-						                  		<div class="col-md-3">
-								        			@if($servicio->costoTratamiento == 0)
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" disabled="">
-								        			@else
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}" disabled="">
-								        			@endif
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			<?php 
-						                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
-														$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-					 									$date = new DateTime($servicio->fecha);
-															echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
-													?>
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
-								       				{{ csrf_field() }}
-											        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
-											        {{ Form::close() }}
-											    </div>
-						              		</div>
-						              		<!-- inicio del contenedor del campo texto-->
-						              		<div class="container">
-						              			<div id="{{$servicio->id}}" class="collapse">
-						              				<div class="card-body">
-									          			<div class="row">
-												        	<div class="col-md-12">
-												        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$servicio->descripcion}}</textarea>
-												        	</div>
-												        </div>
-									          		</div>	
-						              			</div>
+					              				<div class="card-body">
+								          			<div class="row">
+											        	<div class="col-md-9">
+											        		<textarea id="evolucionPaciente" name="evolucionPaciente" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$evolucion->evolucion}}</textarea>
+											        	</div>
+											        	<div class="col-md-3" align="center" style="margin-top: 3%;">
+								                  			<?php 
+								                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+																$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+							 									$date = new DateTime($evolucion->fecha);
+																	echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+															?>
+								                  		</div>
+											        </div>
+								          		</div>	
 						              		</div>
 						              		@endforeach
+						              		</div>
 							          		</div>
 							        	</div>
 						  			</div>	
@@ -1175,6 +1151,16 @@
 			        		<div class="container" id="odontogramaAImprimir"></div>
 			        	</div>
 			        </div>
+			        <br>
+			        <h3 class="text-center" id="titleEvolucionImprimir" style="display: none">Evolución y estado actual</h3>
+			        <div class="card" id="divEvolucionImprimir" style="display: none;">
+					    <div class="card-header">
+		              		</div>
+		              		<div class="card-body">
+				        		<div class="container" id="evolucionImprimir"></div>
+				        	</div>
+				        </div>
+				    <div>
 					<input type="text" name="activador" id="activador" value="0" hidden>
 		          	<div class="">
           				<div class="form-group" style="text-align: center; margin-top: 10px;">
@@ -1275,13 +1261,13 @@
 		}
 	});
 
-	$( '#btnServicios' ).on( 'click', function() {
-		if($('#servicio').attr('class') == "collapse"){
-			document.getElementById('spanServicioPlus').style.display = "none";
-			document.getElementById('spanServicioMinus').style.display = "";
+	$( '#btnEvolucion' ).on( 'click', function() {
+		if($('#evolucion').attr('class') == "collapse"){
+			document.getElementById('spanEvolucionPlus').style.display = "none";
+			document.getElementById('spanEvolucionMinus').style.display = "";
 		}else{
-			document.getElementById('spanServicioPlus').style.display = "";
-			document.getElementById('spanServicioMinus').style.display = "none";
+			document.getElementById('spanEvolucionPlus').style.display = "";
+			document.getElementById('spanEvolucionMinus').style.display = "none";
 		}
 	});
 
@@ -1332,7 +1318,7 @@
 	}
 
 	function eliminar(id){
-		if(confirm('¿Desea eliminar este servicio? Se perderán todos los datos y se restará este servicio de Cuentas.')){
+		if(confirm('¿Desea eliminar esta Evolución?')){
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}
@@ -5335,12 +5321,24 @@
 			document.getElementById('examen').style.marginRight = '60px';
 		}
 
+		if(!($('#evolucion').hasClass("show"))){
+			$('#evolucion').addClass('show');
+		}
+
+		if(!($('#odontogramaInicial').hasClass("show"))){
+			$('#odontogramaInicial').addClass('show');
+		}
+
 		document.getElementById('divOdontogramaInicialAImprimir').style.display = 'block';
 		document.getElementById('titleOdontogramaInicial').style.display = 'block';
 		$('canvas').css('width','900');
 
 		document.getElementById('divOdontogramaAImprimir').style.display = 'block';
 		document.getElementById('titleOdontogramaGeometrico').style.display = 'block';
+		$('canvas').css('width','900');	
+
+		document.getElementById('divEvolucionImprimir').style.display = 'block';
+		document.getElementById('titleEvolucionImprimir').style.display = 'block';
 		$('canvas').css('width','900');	
 
 		print();
@@ -5386,6 +5384,14 @@
 			document.getElementById('spanExamenMinus').style.display = "none";
 		}
 
+		if($('#evolucion').hasClass("collapse")){
+			document.getElementById('spanEvolucionPlus').style.display = "none";
+			document.getElementById('spanEvolucionMinus').style.display = "";
+		}else{
+			document.getElementById('spanEvolucionPlus').style.display = "";
+			document.getElementById('spanEvolucionMinus').style.display = "none";
+		}
+
 		if($('#odontogramaInicial').hasClass("collapse")){
 			document.getElementById('spanOdontogramaInicialPlus').style.display = "none";
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "";
@@ -5399,6 +5405,9 @@
 
 		document.getElementById('divOdontogramaAImprimir').style.display = 'none';
 		document.getElementById('titleOdontogramaGeometrico').style.display = 'none';
+
+		document.getElementById('divEvolucionImprimir').style.display = 'none';
+		document.getElementById('titleEvolucionImprimir').style.display = 'none';
 	};
 
 	function cargarOdontograma(){
@@ -5415,6 +5424,14 @@
 	    		$("#dOdontogramaGeometrico").attr("download", "Odontograma"+JSONhistoria.nombreCompleto+".jpg").attr("href", newData);*/
 	    		$("#odontogramaInicialAImprimir").empty();
 	    		$("#odontogramaInicialAImprimir").append(canvas);
+		  	}
+		});
+
+		html2canvas($('#evolucionAImprimir'), {
+			onrendered: function(canvas) {
+		    	var imgageData = canvas.toDataURL("image/png");
+	    		$("#evolucionImprimir").empty();
+	    		$("#evolucionImprimir").append(canvas);
 		  	}
 		});
 

@@ -15,8 +15,4 @@ class HistoriaEvolucion extends Model
 	public function scopeHistoriaClinica($query, $idHistoriaClinica){
       return $query->where('idHistoriaClinica', '=', $idHistoriaClinica);
     }
-
-    public function HistoriaClinica(){
-      return $this->belongsTo('App\HistoriaClinica', 'idHistoriaClinica');
-    }
 }

@@ -68,11 +68,12 @@
 			<table id="example" class="table table-striped" style="width:100%">
 		        <thead>
 		            <tr>
-		                <th width="35%">Nombre</th>
+		                <th width="25%">Nombre</th>
 		                <th width="20%">Documento</th>
 		                <th width="15%">Sexo</th>
-		                <th width="5%">Edad</th>
-		                <th width="20%">Opciones</th>
+		                <th width="10%">Edad</th>
+		                <th width="10%">Creación</th>
+		                <th width="15%">Opciones</th>
 		            </tr>
 		        </thead>
 		        <tbody>
@@ -83,6 +84,14 @@
 		                <td>{{$historiaClinica->documento}}</td>
 		                <td>{{$historiaClinica->sexo}}</td>
 		                <td>{{$historiaClinica->edad}}</td>
+		                <td>
+		                	<?php 
+                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+								$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+									$date = new DateTime($historiaClinica->created_at);
+									echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+							?>
+		                </td>
 		                <td>
 		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$historiaClinica->id"]) !!}
 		       				{{ csrf_field() }}

@@ -54,7 +54,7 @@ class ServicioController extends Controller
         $cuentas = Cuentas::Empresa($user->idEmpresa)->get();
         $fechaActual = Carbon::now()->subHour(5);
 
-        for ($i=0; $i < sizeof($cuentas); $i++) {
+        /*for ($i=0; $i < sizeof($cuentas); $i++) {
 
           if($cuentas[$i]->titulo == "Ventas"){
 
@@ -150,12 +150,12 @@ class ServicioController extends Controller
                 $cuentas[$i]->save();
           }
           
-        }
+        }*/
 
         $servicio2delete->estado = "Anulada";
         $servicio2delete->save();
         
-        flash('Eliminación exitoso')->success()->important();
+        flash('Eliminación exitosa')->success()->important();
         return redirect()->back();
     }
 
