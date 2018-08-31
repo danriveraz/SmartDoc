@@ -36,7 +36,11 @@
 													 <i class="fa fa-venus-mars"></i>
 												 </span>
  											 <select id="procedimiento" name='procedimiento' onChange="ProcedimientoChange(this)" class="form-control" placeholder="" required>				 	                  	@foreach($procedimientos as $procedimiento)
-				 		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+ 											 	@if($procedimiento->nombre == 'Otros')
+				 		                    		<option value="{{$procedimiento->id}}" selected="true">{{$procedimiento->nombre}}</option>
+				 		                    	@else
+				 		                    		<option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+				 		                    	@endif
 				 		               	@endforeach
 				 	            	</select>
 									</div>
