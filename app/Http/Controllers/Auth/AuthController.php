@@ -46,7 +46,7 @@ class AuthController extends Controller
     protected $redirectTo = '/WelcomeAdmin';
 
     protected function redirectTo()
-    {   
+    {
         if(Auth::User()->esPropietario){
             return '/Registro';
         }else if(Auth::User()->esAdmin){
@@ -155,7 +155,7 @@ class AuthController extends Controller
                             $cuentas3->save();
                         }
 
-                        for ($i=0; $i < sizeof($cuentas) ; $i++) { 
+                        for ($i=0; $i < sizeof($cuentas) ; $i++) {
 
                             $fecha = Carbon::parse($cuentas[$i]->fechaActual);
                             $fechaActual = Carbon::now()->subHour(5);
@@ -260,6 +260,8 @@ class AuthController extends Controller
             $user->remember_token = str_random(100);
             $user->confirm_token = str_random(100);
             $user->save();
+
+            $user->nombreCompleto = $empresa->nombreEstablecimiento;
 
             $empresa->usuario_id = $user->id;
             $empresa->save();

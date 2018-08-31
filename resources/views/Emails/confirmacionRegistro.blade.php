@@ -36,7 +36,7 @@ font-family: "Poppins",sans-serif;
 
 <br>
 <div style="background-color: #FBFBFB; border: solid 1px #f3f3f3; margin:0 auto; padding:15px; width:90%">
-<h2 style="color:#303030; margin-top:0px; margin-bottom: 5px; font-family: "Poppins",sans-serif; ">Bienvenido {{$data->nombreEstablecimiento}}</h2>
+<h2 style="color:#303030; margin-top:0px; margin-bottom: 5px; font-family: "Poppins",sans-serif; ">Bienvenido {{$data->nombreCompleto}}</h2>
 <span>Confirma tu cuenta, accede a todas la funcionalidades de PocketSmartDoc!</span>
 <br>
 <br>

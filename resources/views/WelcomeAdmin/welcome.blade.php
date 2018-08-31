@@ -15,7 +15,7 @@
 <!--Espacio modal add procedimiento-->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: white;">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -24,39 +24,82 @@
       </div>
       {!! Form::open(['action' => ['AgendaController@postcrearAgenda'], 'method' => 'POST','enctype' => 'multipart/form-data', 'id' => "formCrear"]) !!}
        	{{ csrf_field() }}
-      	<div class="modal-body" align="center">
-      		<h4>Información de la cita</h4>
+      	<div class="modal-body">
+      		<h4  align="center">Información de la cita</h4>
         	<div class="row">
-	        	<div class="col-md-3">
-		          	<select id="procedimiento" name='procedimiento' class="form-control" placeholder="" required>
-	                  	@foreach($procedimientos as $procedimiento)
-		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
-		               	@endforeach
-	            	</select>
-	        	</div>
-	        	<div class="col-md-3">
-	        		<input id="fechaInicio" name="fechaInicio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
-	        	</div>
-	        	<div class="col-md-3">
-			        <input id="hora" name="hora" type="text" class="form-control" placeholder="Hora inicio" required="true">
-	        	</div>
-	        	<div class="col-md-3">
-	        		<select id="personal" name='personal' class="form-control" placeholder="" required>
-	                  	<option value="" selected="selected">Persona a cargo</option>
-	                  	@foreach($personales as $personal)
-	                  		@if(!$personal->esAdmin)
-	                  			@if(!$personal->eliminado)
-		                    		<option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
-		                    	@endif
-		                    @endif
-		               	@endforeach
-	            	</select>
-	        	</div>
+<!-- lado izquiero-->
+						<div class="col-sm-6">
+							<div class="form-group">
+									 <label class="form-label">Procedimiento</label>
+								 <div class="input-icon">
+												 <span class="input-icon-addon">
+													 <i class="fa fa-venus-mars"></i>
+												 </span>
+												 <select id="procedimiento" name='procedimiento' class="form-control" placeholder="" required>
+				 	                  	@foreach($procedimientos as $procedimiento)
+				 		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
+				 		               	@endforeach
+				 	            	</select>
+									</div>
+								</div>
+								<div class="form-group">
+										 <label class="form-label">Nombre Procedimiento</label>
+									 <div class="input-icon">
+													 <span class="input-icon-addon">
+														 <i class="fa fa-birthday-cake"></i>
+													 </span>
+													 <input id="hora" name="hora" type="text" class="form-control" required="true">
+									</div>
+								</div>
+								<div class="form-group">
+										 <label class="form-label">Medico</label>
+									 <div class="input-icon">
+													 <span class="input-icon-addon">
+														 <i class="fa fa-venus-mars"></i>
+													 </span>
+													 <select id="personal" name='personal' class="form-control" placeholder="" required>
+						 	                  	<option value="" selected="selected">Seleccionar doctor</option>
+						 	                  	@foreach($personales as $personal)
+						 	                  		@if(!$personal->esAdmin)
+						 	                  			@if(!$personal->eliminado)
+						 		                    		<option value="{{$personal->id}}">{{$personal->nombreCompleto}}</option>
+						 		                    	@endif
+						 		                    @endif
+						 		               	@endforeach
+						 	            	</select>
+										</div>
+									</div>
+
+
+
+
+						</div>
+<!-- lado derecho-->
+						<div class="col-sm-6">
+							<div class="form-group">
+									 <label class="form-label">Hora</label>
+								 <div class="input-icon">
+												 <span class="input-icon-addon">
+													 <i class="fa fa-birthday-cake"></i>
+												 </span>
+												 <input id="hora" name="hora" type="text" class="form-control" placeholder="00:00 am" required="true">
+								</div>
+							</div>
+							<div class="form-group">
+									 <label class="form-label">Dia</label>
+								 <div class="input-icon">
+												 <span class="input-icon-addon">
+													 <i class="fa fa-birthday-cake"></i>
+												 </span>
+												 <input id="fechaInicio" name="fechaInicio" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="AAAA/MM/DD" required="true" />
+								</div>
+							</div>
+
+						</div>
+<!-- fin Información cita-->
         	</div>
         	<br>
-        	<h4>
-        		Información del paciente
-        	</h4>
+        	<h4  align="center">Información del paciente</h4>
         	<div class="row">
         		<div class="col-md-4">
         			<select id="nuevoviejo" name='nuevoviejo' class="form-control" placeholder="" onchange="valor(this.value);">
@@ -94,7 +137,7 @@
 				</a>
 			</div>
 			<div id="divInfoPersonal">
-				<h6>Para registrar un evento es necesario tener personal a cargo, ingreselo 
+				<h6>Para registrar un evento es necesario tener personal a cargo, ingreselo
 					<a href="{{url('/Personal')}}" style="color: blue;">aquí</a>
 				</h6>
 			</div>

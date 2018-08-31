@@ -288,15 +288,7 @@
  			                  </span>
 							<input id="fechaNacimiento{{$personal->id}}" name="fechaNacimiento{{$personal->id}}" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="año-mes-día" required="true" value="{{$personal->fechaNacimiento}}" />
  			         </div>
-							<div class="form-group">
-									 <label class="form-label">Dirección</label>
-								 <div class="input-icon">
-												 <span class="input-icon-addon">
-													 <i class="fe fe-map-pin"></i>
-												 </span>
-							<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
-									</div>
-								</div>
+
 					</div>
 <!--lado izquierdo del form-->
 				</div>
@@ -320,31 +312,16 @@
 							<input id="telefono{{$personal->id}}" name="telefono{{$personal->id}}" type="text" class="form-control" placeholder="(+57) 000 - 0000 - 000" value="{{$personal->telefono}}">
 					</div>
 				</div>
-					<div class="form-group">
-						 <label class="form-label">Departamento</label>
+				<div class="form-group">
+						 <label class="form-label">Dirección</label>
 					 <div class="input-icon">
 									 <span class="input-icon-addon">
-										 <i class="fe fe-map"></i>
+										 <i class="fe fe-map-pin"></i>
 									 </span>
-							<select class="form-control" id="idDepto"  name="idDepto" required>
-							<option value="">Departamento</option>
-							@foreach($departamentos as $departamento)
-								<option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-							@endforeach
-							</select>
+				<input id="direccion{{$personal->id}}" name="direccion{{$personal->id}}" type="text" class="form-control" placeholder="Dirección" value="{{$personal->direccion}}">
+						</div>
 					</div>
-				</div>
-					<div class="form-group">
-						 <label class="form-label">Ciudad</label>
-					 <div class="input-icon">
-									 <span class="input-icon-addon">
-										 <i class="fe fe-map"></i>
-									 </span>
-							<select class="form-control" id="idCiudad" name="idCiudad" required>
-								<option value="">Ciudad</option>
-							</select>
-					</div>
-				</div>
+
 				</div>
 <!--lado derecho del form-->
 					</div>
