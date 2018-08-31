@@ -4,17 +4,19 @@
 <meta charset="utf-8">
 <title>SmartDoc</title>
 </head>
-<style> 
+<style>
 .btn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
-  font-family: Arial;
+font-family: "Poppins",sans-serif;
   color: #ffffff;
   font-size: 16px;
-  background: #2d0031;
+  background: #467fcf;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+  font-weight: 400;
+
 }
 
 .btn:hover {
@@ -33,13 +35,13 @@
 <br>
 
 <br>
-<div style="background-color:#F1F1F1; border:solid 1px #c0c0c0; margin:0 auto; padding:15px; width:90%">
-<h2 style="color:#2d0031; font-family: 'Roboto', sans-serif; margin-top:2px;margin-bottom: 5px;">Bienvenid@ {{$data->nombreCompleto}}</h2>
-<span>Confirma tu cuenta, accede a todas la funcionalidades de pocketSmartDoc!</span>
+<div style="background-color: #FBFBFB; border: solid 1px #f3f3f3; margin:0 auto; padding:15px; width:90%">
+<h2 style="color:#303030; margin-top:0px; margin-bottom: 5px; font-family: "Poppins",sans-serif; ">Bienvenido {{$data->nombreEstablecimiento}}</h2>
+<span>Confirma tu cuenta, accede a todas la funcionalidades de PocketSmartDoc!</span>
 <br>
 <br>
 <p>
-<a class="btn" target="_blank" href="{{url('/')}}/Auth/confirm/email/{{$data->email}}/confirm_token/{{$data->confirm_token}}">Confirmar mi cuenta</a></p>
+<a class="btn" target="_blank"  href="{{url('/')}}/Auth/confirm/email/{{$data->email}}/confirm_token/{{$data->confirm_token}}">Confirmar mi cuenta</a></p>
 </div>
 <div style="margin:0 auto; width:90%; padding:15px">
 
@@ -49,7 +51,7 @@
 </div>
 
 </div>
-</div></div> <div style="display: none;"></div> 
+</div></div> <div style="display: none;"></div>
 
 </body>
 </html>
