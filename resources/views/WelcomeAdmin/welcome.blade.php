@@ -35,14 +35,13 @@
 												 <span class="input-icon-addon">
 													 <i class="fa fa-venus-mars"></i>
 												 </span>
-												 <select id="procedimiento" name='procedimiento' class="form-control" placeholder="" required>
-				 	                  	@foreach($procedimientos as $procedimiento)
+ 											 <select id="procedimiento" name='procedimiento' onChange="ProcedimientoChange(this)" class="form-control" placeholder="" required>				 	                  	@foreach($procedimientos as $procedimiento)
 				 		                    <option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
 				 		               	@endforeach
 				 	            	</select>
 									</div>
 								</div>
-								<div class="form-group">
+								<div class="form-group" id="procedimientoOtro" style="display:none;">
 										 <label class="form-label">Nombre Procedimiento</label>
 									 <div class="input-icon">
 													 <span class="input-icon-addon">
@@ -299,7 +298,20 @@
 	</div>
 </div>
 
+<script>
 
+function ProcedimientoChange() {
+	var opt = $('#procedimiento').val();
+      if(opt==Otros){
+           divC = document.getElementById("procedimientoOtro");
+           divC.style.display = "block";
+
+      }else{
+           divC = document.getElementById("procedimientoOtro");
+           divC.style.display="none";
+      }
+}
+</script>
 
 <script type="text/javascript">
 	function eliminar(id){
