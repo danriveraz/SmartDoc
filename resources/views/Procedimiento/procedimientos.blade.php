@@ -85,7 +85,11 @@
 			       				<a class="btn btn-primary btn-sm" data-toggle="modal" href="#editModal{{$procedimiento->id}}" style="width: 40%;">
 	                        		<i class="fa fa-pencil"></i>
 	                      		</a>
-					        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar procedimiento" onclick="eliminar({{$procedimiento->id}})"><i class="fe fe-trash-2"></i></a>
+	                      		@if($procedimiento->nombre != 'Otros')
+					        		<a class="btn btn-danger btn-sm ml-2" title="Eliminar procedimiento" onclick="eliminar({{$procedimiento->id}})">
+					        			<i class="fe fe-trash-2"></i>
+					        		</a>
+					        	@endif
 					        {{ Form::close() }}
 		                </td>
 		                <!--Modal edit procedimiento -->
