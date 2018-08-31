@@ -1,8 +1,4 @@
-@if($user->esEmpleado)
-	@extends('Layouts.app_empleados')
-@elseif($user->esRecepcionista)
-	@extends('Layouts.app_recepcionista')
-@endif
+@extends($user->esEmpleado ? 'Layouts.app_empleados' : 'Layouts.app_recepcionista')
 
 @section('content')
 @include('flash::message')

@@ -1,4 +1,4 @@
-@extends('Layouts.app_administradores')
+@extends(Auth::User()->esAdmin ? 'Layouts.app_administradores' : 'Layouts.app_recepcionista')
 @section('content')
 @include('flash::message')
 <!--Realizado por Luis Felipe Castaño, ing-->

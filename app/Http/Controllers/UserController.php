@@ -42,7 +42,7 @@ class UserController extends Controller
             ->with('departamentos',$departamentos)
             ->with('ciudades', $ciudades)
             ->with('flag',$flag);
-        }else if($user->esEmpleado){
+        }else{
             return View('Users.perfilTrabajador')
             ->with('user',$user)
             ->with('departamentos',$departamentos)
@@ -74,7 +74,7 @@ class UserController extends Controller
             $empresa->save();
 
             return response()->json(['status'=>'success']);
-        }else if($user->esEmpleado){
+        }else{
             $image = $_POST["image"];
             $image_array_1 = explode(";", $image);
             $image_array_2 = explode(",", $image_array_1[1]);
@@ -156,7 +156,7 @@ class UserController extends Controller
             $user->save();
             flash::success('Perfil modificado exitosamente')->important();
             return redirect('/Perfil');
-        }else if($user->esEmpleado){
+        }else{
             $user->nombreCompleto = $request->nombreCompleto;
             $user->direccion = $request->direccion;
             $user->telefono = $request->telefono;

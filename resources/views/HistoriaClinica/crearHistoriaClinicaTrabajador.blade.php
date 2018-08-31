@@ -1,4 +1,4 @@
-@extends('Layouts.app_empleados')
+@extends(Auth::User()->esEmpleado ? 'Layouts.app_empleados' : 'Layouts.app_recepcionista')
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, Luis Felipe Castaño, ing-->
@@ -103,10 +103,9 @@
 	<h3>HISTORIA CLINICA ODONTOLÓGICA</h3>
 </div>
 <div  class="text-center" id="datosEmpresa" style="display: none;">
-	<label>
+	<h3>
 		{{$empresa->nombreEstablecimiento}} - NIT: {{$empresa->nit}}
-	</label>
-	<br>
+	</h3>
 	<label>
 		Dirección: {{$empresa->direccion}}
 	</label>
@@ -115,39 +114,27 @@
 		Teléfono: {{$empresa->telefono}}
 	</label>
 </div>
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="addModalEvolucion" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" >Agregar servicio</h5>
+        <h5 class="modal-title" id="exampleModalLabel" >Agregar evolución</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="bootstrapOn();">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {!! Form::open(['route' => ['servicio.nuevo'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
+      {!! Form::open(['route' => ['historia.nuevaEvolucion'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
        {{ csrf_field() }}
-       	<input type="text" name="id" hidden="" value="{{$historia->id}} ">
+       	<input type="text" name="idHistoriaEvolucion" hidden="" value="{{$historia->id}} ">
       	<div class="modal-body" align="center">
         	<div class="row">
-	        	<div class="col-md-6">
-		          	<select id="servicioNuevo" name='servicioNuevo' class="form-control" placeholder="Procedimiento" required style="text-align:center;">
-	                  	<option value="" selected="selected">Procedimiento</option>
-	        			@foreach($procedimientos as $procedimiento)
-	        				<option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
-				        @endforeach
-	            	</select>
-	            </div>
-	        	<div class="col-md-6">
-	        		<input type="number" class="form-control" id="costoTratamientoNuevo" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
-	        	</div>	
-	        	&nbsp;
 	        	<div class="col-md-12">
-	        		<textarea id="descripcionNueva" name="descripcionNueva" rows="3" class="form-control" placeholder="Descripción"></textarea>
+	        		<textarea id="evolucionNueva" name="evolucionNueva" rows="3" class="form-control" placeholder="Evolución"></textarea>
 	        	</div>	        	
         	</div>
       	</div>
 		<div class="modal-footer">
-		<button id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></button>
+		<button id="btn-crear" class="btn btn-primary" title="Agregar evolución" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></button>
 		</div>
       {{ Form::close() }}
     </div>
@@ -214,41 +201,31 @@
 		          			</div>
 		          			<div class="row">
 		          				<div class="col-md-3">
+       								<label>Fecha nacimiento</label>
+					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
+					        	</div>
+		          				<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->edad != "")
-	          								<label>Edad</label>
-	          							@endif
+          								<label>Edad</label>
 	          							<input type="text" class="form-control" id="edad" name="edad" placeholder="Edad" value="{{$historia->edad}}" required="true">
 	          						</div>
 	          					</div>
-	          					<div class="col-md-3">
-	          						@if($historia->fechaNacimiento != "0000-00-00")
-          								<label>Fecha inicio tratamiento</label>
-          							@endif
-					        		<input id="fechaNacimiento" name="fechaNacimiento" type="date" name="field-name" class="form-control" data-mask="0000-00-00" data-mask-clearifnotmatch="true" placeholder="Fecha tratamiento AA/MM/DD" value="{{$historia->fechaNacimiento}}" required="true"/>
-					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->direccion != "")
-	          								<label>Dirección</label>
-	          							@endif
+	          							<label>Dirección</label>
 	          							<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" value="{{$historia->direccion}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->telefono != "")
-	          								<label>Teléfono</label>
-	          							@endif
+	          							<label>Teléfono</label>
 	          							<input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" value="{{$historia->telefono}}" required="true">
 	          						</div>
 	          					</div>
 		          			</div>
 		          			<div class="row">
 		          				<div class="col-md-3">
-		          					@if($historia->departamento != "")
-          								<label>Departamento</label>
-          							@endif
+          							<label>Departamento</label>
 					        		<select class="form-control" id="idDepto"  name="idDepto" required>
 									<option value="">Departamento</option>
 									@foreach($departamentos as $departamento)
@@ -261,9 +238,7 @@
 									</select>
 					        	</div>
 					        	<div class="col-md-3">
-					        		@if($historia->ciudad != "")
-          								<label>Ciudad</label>
-          							@endif
+          							<label>Ciudad</label>
 					        		<select class="form-control" id="idCiudad" name="idCiudad" required>
 										<option value="">Ciudad</option>
 										@foreach($ciudades as $ciudad)
@@ -279,26 +254,26 @@
 					        	</div>
 					        	<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->personaResponsable != "")
-	          								<label >Persona responsable</label>
-	          							@endif
+	          							<label >Persona responsable</label>
 	          							<input type="text" class="form-control" id="personaResponsable" name="personaResponsable" placeholder="Persona responsable" value="{{$historia->personaResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->telefonoResponsable != "")
-	          								<label >Teléfono</label>
-	          							@endif
+	          							<label>Teléfono</label>
 	          							<input type="text" class="form-control" id="telefonoResponsable" name="telefonoResponsable" placeholder="Teléfono" value="{{$historia->telefonoResponsable}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-3">
 	          						<div class="form-group">
-	          							@if($historia->email != "")
-	          								<label >Email</label>
-	          							@endif
+	          							<label>Email</label>
 	          							<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{$historia->email}}" required="true">
+	          						</div>
+	          					</div>
+	          					<div class="col-md-3">
+	          						<div class="form-group">
+	          							<label>EPS</label>
+	          							<input type="text" class="form-control" id="eps" name="eps" placeholder="EPS" value="{{$historia->eps}}" required="true">
 	          						</div>
 	          					</div>
 	          					<div class="col-md-6">
@@ -327,26 +302,17 @@
 	          							@if($historia->motivoConsulta != "")
 	          								<label >Motivo de consulta</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}" required="true">
+	          							<input type="text" class="form-control" id="motivoConsulta" name="motivoConsulta" placeholder="Motivo de consulta" value="{{$historia->motivoConsulta}}">
 	          						</div>
 	          					</div>
 		          			</div>
-		          			<div class="row">
-					        	<div class="col-md-12">
-					        		@if($historia->motivoConsulta != "")
-          								<label >Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)</label>
-          							@endif
-					        		<textarea id="evolucionEstado" name="evolucionEstado" rows="3" class="form-control" placeholder="Evolucion y estado actual (Ampliación motivo de consulta-Reporte Síntomas)" required="true">{{$historia->evolucionEstado}}</textarea>
-					        	</div>
-					        </div>
-					        <br>
 					        <div class="row">
 		          				<div class="col-md-12">
 	          						<div class="form-group">
 	          							@if($historia->antecedentesFamiliares != "")
 	          								<label>Antecedentes familiares</label>
 	          							@endif
-	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}" required="true">
+	          							<input type="text" class="form-control" id="antecedentesFamiliares" name="antecedentesFamiliares" placeholder="Antecedentes familiares" value="{{$historia->antecedentesFamiliares}}">
 	          						</div>
 	          					</div>
 		          			</div>
@@ -963,7 +929,7 @@
 			          							@if($historia->observacionesPO != "")
 			          								<label >Observaciones</label>
 			          							@endif
-			          							<textarea id="observacionesPO" name="observacionesPO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesPO}}</textarea>
+			          							<textarea id="observacionesPO" name="observacionesPO" rows="3" class="form-control" placeholder="Observaciones" >{{$historia->observacionesPO}}</textarea>
 			          						</div>
 			          					</div>
 			          				</div>		                	
@@ -973,6 +939,59 @@
 							</div>				
 				        </div>
 				    @endif
+				    <div>
+			        	<div class="card" style="margin: 0">
+							<div class="card-header">
+								<div class="col-md-10">
+									<a id="btnEvolucion" type="" class="btn-pill" data-toggle="collapse" data-target="#evolucion">
+										<span id="spanEvolucionPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
+										<span id="spanEvolucionMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
+									</a>
+									<h3 class="card-title" style="display: initial;">Evolución y estado actual</h3>
+								</div>
+								<div class="col-md-2" style='text-align:right'>
+									@if($user->esEmpleado)
+					          			<a id="btn-add" class="btn btn-primary" data-toggle="modal" href="#addModalEvolucion" title="Agregar evolución" onclick="bootstrapOff();">
+											Agregar evolución
+										</a>
+									@endif	
+								</div>
+							</div>
+							<!-- inicio del contenedor del campo texto-->
+							<div class="container" style="background: #FFFFFF;">
+								<div id="evolucion" class="collapse">
+									<div class="card-body">
+						  			<div class="row">							 
+						  				<div class="card" style="margin: 0">
+						  					<div id="evolucionAImprimir">
+								        	@foreach($historiaEvolucion as $evolucion)
+						              		<div class="card-header">
+					              				<div class="card-body">
+								          			<div class="row">
+											        	<div class="col-md-9">
+											        		<textarea id="evolucionPaciente" name="evolucionPaciente" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$evolucion->evolucion}}</textarea>
+											        	</div>
+											        	<div class="col-md-3" align="center" style="margin-top: 3%;">
+								                  			<?php 
+								                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+																$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+							 									$date = new DateTime($evolucion->fecha);
+																	echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+															?>
+								                  		</div>
+											        </div>
+								          		</div>	
+						              		</div>
+						              		@endforeach
+						              		</div>
+							          		</div>
+							        	</div>
+						  			</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
 	    	 		<div class="card" id="divOdontogramaGeometrico">
 	              		<div class="card-header">
 	                  		@if($historia->primerOdontograma)
@@ -1109,7 +1128,7 @@
 		          							@if($historia->observacionesO != "")
 		          								<label >Observaciones</label>
 		          							@endif
-		          							<textarea id="observacionesO" name="observacionesO" rows="3" class="form-control" placeholder="Observaciones" required="true">{{$historia->observacionesO}}</textarea>
+		          							<textarea id="observacionesO" name="observacionesO" rows="3" class="form-control" placeholder="Observaciones">{{$historia->observacionesO}}</textarea>
 		          						</div>
 		          					</div>
 		          				</div>			                	
@@ -1134,97 +1153,38 @@
 			        		<div class="container" id="odontogramaAImprimir"></div>
 			        	</div>
 			        </div>
+			        <br>
+			        <h3 class="text-center" id="titleEvolucionImprimir" style="display: none">Evolución y estado actual</h3>
+			        <div class="card" id="divEvolucionImprimir" style="display: none;">
+					    <div class="card-header">
+		              		</div>
+		              		<div class="card-body">
+				        		<div class="container" id="evolucionImprimir"></div>
+				        	</div>
+				        </div>
+				    <div>
 					<input type="text" name="activador" id="activador" value="0" hidden>
-			        <div>
-			        	<div class="card" style="margin: 0">
-							<div class="card-header">
-								<div class="col-md-10">
-									<a id="btnServicios" type="" class="btn-pill" data-toggle="collapse" data-target="#servicio">
-										<span id="spanServicioPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
-										<span id="spanServicioMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-									</a>
-									<h3 class="card-title" style="display: initial;">Servicios prestados</h3>
-								</div>
-								<div class="col-md-2" style='text-align:right'>
-					          		<a id="btn-add" class="btn btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento" onclick="bootstrapOff();">
-										 Agregar servicio
-									</a>	
-								</div>
-							</div>
-							<!-- inicio del contenedor del campo texto-->
-							<div class="container">
-								<div id="servicio" class="collapse">
-									<div class="card-body">
-						  			<div class="row">							 
-						  				<div class="card" style="margin: 0">
-								        	@foreach($historia->servicios as $servicio)
-						              		<div class="card-header">
-						                  		<div class="col-md-4">
-						                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
-						              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
-						              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-						              				</a>
-							          				<h5  style="display: initial;">{{$servicio->procedimiento->nombre}} </h5>
-						                  		</div>
-						                  		<div class="col-md-3">
-								        			@if($servicio->costoTratamiento == 0)
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" disabled="">
-								        			@else
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}" disabled="">
-								        			@endif
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			<?php 
-						                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
-														$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-					 									$date = new DateTime($servicio->fecha);
-															echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
-													?>
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
-								       				{{ csrf_field() }}
-											        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
-											        {{ Form::close() }}
-											    </div>
-						              		</div>
-						              		<!-- inicio del contenedor del campo texto-->
-						              		<div class="container">
-						              			<div id="{{$servicio->id}}" class="collapse">
-						              				<div class="card-body">
-									          			<div class="row">
-												        	<div class="col-md-12">
-												        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$servicio->descripcion}}</textarea>
-												        	</div>
-												        </div>
-									          		</div>	
-						              			</div>
-						              		</div>
-						              		@endforeach
-							          	</div>
-							        </div>
-						  		</div>	
-							</div>
-						</div>
-					</div>
-				</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center; margin-top: 10px;">
-		                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">
-		                    	Guardar
-		                    </button>
-		                    <button type="submit" class="btn btn-primary" name="observacion" id="observacion" onclick="setValue(this)">
-		                    	Agregar observación
-		                    </button>
-		                    <button type="submit" class="btn btn-primary" name="laboratorio" id="laboratorio" onclick="setValue(this)">
-		                    	Agregar pedido
-		                    </button>
-		                    @if($historia->primerOdontograma)
-			                    <button type="submit" class="btn btn-primary" name="editarOdontograma" id="editarOdontograma" onclick="setValue(this)" title="Editar odontograma inicial">
-			                    	Editar Odontograma Inicial
+          					@if($user->esEmpleado)
+			                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">
+			                    	Guardar
 			                    </button>
+			                    <button type="submit" class="btn btn-primary" name="observacion" id="observacion" onclick="setValue(this)">
+			                    	Agregar observación
+			                    </button>
+			                    <button type="submit" class="btn btn-primary" name="laboratorio" id="laboratorio" onclick="setValue(this)">
+			                    	Agregar pedido
+			                    </button>
+			                    @if($historia->primerOdontograma)
+				                    <button type="submit" class="btn btn-primary" name="editarOdontograma" id="editarOdontograma" onclick="setValue(this)" title="Editar odontograma inicial">
+				                    	Editar Odontograma Inicial
+				                    </button>
+			                    @endif
+			                @endif
+		                    @if($historia->primerOdontograma)
+		                    	<a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="cargarOdontograma();"><i class="fa fa-print"></i>Imprimir</a>  
 		                    @endif
-		                    <a class="factBot btn btn-primary" id="imprimir" style="color: #FFFFFF;" onclick="cargarOdontograma();"><i class="fa fa-print"></i>Imprimir</a>  
 		                </div>
 	          		</div>
 		        {{ Form::close() }}
@@ -1238,6 +1198,24 @@
 <!--                 -->
 
 <script>
+
+	$('#fechaNacimiento').on('change', function (event) {
+		var fecha = new Date();
+		var ano = fecha.getFullYear();
+		fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+		anoNacimiento = fechaNacimiento.getFullYear();
+		//anoNacimiento.substring(0,4);
+		var edad = ano - anoNacimiento;
+		if(edad == 0){
+			ano = fecha.getMonth() + 1;
+			anoNacimiento = fechaNacimiento.getMonth() + 1;
+			edad = ano - anoNacimiento;
+			document.getElementById('edad').value = edad + " meses";
+		}else{
+			document.getElementById('edad').value = edad + " años";
+		}
+	});
+
 	require(['input-mask']);
 	$('#idDepto').on('change', function (event) {
 	      var id = $(this).find('option:selected').val();
@@ -1287,13 +1265,13 @@
 		}
 	});
 
-	$( '#btnServicios' ).on( 'click', function() {
-		if($('#servicio').attr('class') == "collapse"){
-			document.getElementById('spanServicioPlus').style.display = "none";
-			document.getElementById('spanServicioMinus').style.display = "";
+	$( '#btnEvolucion' ).on( 'click', function() {
+		if($('#evolucion').attr('class') == "collapse"){
+			document.getElementById('spanEvolucionPlus').style.display = "none";
+			document.getElementById('spanEvolucionMinus').style.display = "";
 		}else{
-			document.getElementById('spanServicioPlus').style.display = "";
-			document.getElementById('spanServicioMinus').style.display = "none";
+			document.getElementById('spanEvolucionPlus').style.display = "";
+			document.getElementById('spanEvolucionMinus').style.display = "none";
 		}
 	});
 
@@ -1334,12 +1312,17 @@
 <!--Scripts para el odontograma-->
 <script type="text/javascript">
 	var JSONhistoria = eval(<?php echo json_encode($historia); ?>);
+	var fecha = new Date();
+	var anoActual = fecha.getFullYear();
+	var anoNacimiento = JSONhistoria.fechaNacimiento.substring(0,4);
+	var edad = anoActual - anoNacimiento;
+
 	function replaceAll(find, replace, str) {
 	    return str.replace(new RegExp(find, 'g'), replace);
 	}
 
 	function eliminar(id){
-		if(confirm('¿Desea eliminar este servicio? Se perderán todos los datos y se restará este servicio de Cuentas.')){
+		if(confirm('¿Desea eliminar esta Evolución?')){
 			var form = document.getElementById("form"+id);
 			form.submit();
 		}
@@ -1421,7 +1404,7 @@
 
 	            '</div>' +
 	            '</div>';
-	        if(JSONhistoria.edad <= 14){
+	        if(edad <= 14){
 	        	if (i <= 5) {
 		            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 		            htmlLecheRight += '<div id="dienteLindex' + i + 'Inicial" style="left: -25%;" class="diente-leche">' +
@@ -1565,7 +1548,7 @@
 	            '</div>' +
 	            '</div>';
 
-	        if(JSONhistoria.edad <= 14){
+	        if(edad <= 14){
 	        	if (i <= 5) {
 		            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 		            htmlLecheRight += '<div id="dienteLindex' + i + '" style="left: -25%;" class="diente-leche">' +
@@ -4669,16 +4652,12 @@
 	function setValue(idBtn) {
 		if(idBtn.id == "guardar"){
 			document.getElementById('activador').value = 1;
-			formGuardar.submit();
 	    }else if(idBtn.id == "observacion"){
 	    	document.getElementById('activador').value = 2;
-	    	formGuardar.submit();
 	    }else if(idBtn.id == "laboratorio"){
 	    	document.getElementById('activador').value = 3;
-	    	formGuardar.submit();
 	    }else if(idBtn.id == "editarOdontograma"){
 	    	document.getElementById('activador').value = 4;
-	    	formGuardar.submit();
 	    }
 	}
 </script>
@@ -5346,12 +5325,24 @@
 			document.getElementById('examen').style.marginRight = '60px';
 		}
 
+		if(!($('#evolucion').hasClass("show"))){
+			$('#evolucion').addClass('show');
+		}
+
+		if(!($('#odontogramaInicial').hasClass("show"))){
+			$('#odontogramaInicial').addClass('show');
+		}
+
 		document.getElementById('divOdontogramaInicialAImprimir').style.display = 'block';
 		document.getElementById('titleOdontogramaInicial').style.display = 'block';
 		$('canvas').css('width','900');
 
 		document.getElementById('divOdontogramaAImprimir').style.display = 'block';
 		document.getElementById('titleOdontogramaGeometrico').style.display = 'block';
+		$('canvas').css('width','900');	
+
+		document.getElementById('divEvolucionImprimir').style.display = 'block';
+		document.getElementById('titleEvolucionImprimir').style.display = 'block';
 		$('canvas').css('width','900');	
 
 		print();
@@ -5397,6 +5388,14 @@
 			document.getElementById('spanExamenMinus').style.display = "none";
 		}
 
+		if($('#evolucion').hasClass("collapse")){
+			document.getElementById('spanEvolucionPlus').style.display = "none";
+			document.getElementById('spanEvolucionMinus').style.display = "";
+		}else{
+			document.getElementById('spanEvolucionPlus').style.display = "";
+			document.getElementById('spanEvolucionMinus').style.display = "none";
+		}
+
 		if($('#odontogramaInicial').hasClass("collapse")){
 			document.getElementById('spanOdontogramaInicialPlus').style.display = "none";
 			document.getElementById('spanOdontogramaInicialMinus').style.display = "";
@@ -5410,6 +5409,9 @@
 
 		document.getElementById('divOdontogramaAImprimir').style.display = 'none';
 		document.getElementById('titleOdontogramaGeometrico').style.display = 'none';
+
+		document.getElementById('divEvolucionImprimir').style.display = 'none';
+		document.getElementById('titleEvolucionImprimir').style.display = 'none';
 	};
 
 	function cargarOdontograma(){
@@ -5429,6 +5431,14 @@
 		  	}
 		});
 
+		html2canvas($('#evolucionAImprimir'), {
+			onrendered: function(canvas) {
+		    	var imgageData = canvas.toDataURL("image/png");
+	    		$("#evolucionImprimir").empty();
+	    		$("#evolucionImprimir").append(canvas);
+		  	}
+		});
+
 		html2canvas($('#odontogramaGeometrico'), {
 			onrendered: function(canvas) {
 		    	var imgageData = canvas.toDataURL("image/png");
@@ -5439,20 +5449,6 @@
 		});
 	}
 
-</script>
-<script type="text/javascript">
-	$('#servicioNuevo').on('change', function (event) {
-	    var id = $(this).find('option:selected').val();
-	    if(id != ""){
-			JSONProcedimientos = eval(<?php echo json_encode($procedimientos);?>);
-			JSONProcedimientos.forEach(function(currentValue,index,arr) {
-		        if(currentValue.id == id){
-	    			$("#costoTratamientoNuevo").val(currentValue.venta);
-		        }
-		    });
-	          
-	    }
-	});
 </script>
 <style type="text/css">
 	.btn-pill{

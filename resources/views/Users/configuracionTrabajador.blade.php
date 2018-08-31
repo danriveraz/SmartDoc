@@ -1,4 +1,4 @@
-@extends('Layouts.app_empleados')
+@extends(Auth::User()->esEmpleado ? 'Layouts.app_empleados' : 'Layouts.app_recepcionista')
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->

@@ -98,7 +98,7 @@
 
                 <div class="dropdown">
                   <a href="#"  class="espacio nav-link pr-0" data-toggle="dropdown" >
-                    <span class="avatar" style="background-image: url({{asset('images/admin/'.$user->imagenPerfil)}}">
+                    <span class="avatar" style="background-image: url({{asset('images/admin/'.Auth::User()->imagenPerfil)}}">
                     </span>
                     <span class="ml-2 d-none d-lg-block">
                       <span class="text-default">{{Auth::User()->nombreCompleto}}</span>
@@ -126,15 +126,15 @@
               <div class="col">
                 <ul class="nav layout-icons">
                   <li class="nav-item">
-                    @if($flag == "agenda")
-                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link current" title="Agenda">
+                    @if($flag == "servicio")
+                    <a href="{{url('/Servicio')}}" class="nav-link current" title="Servicios">
                     @else
-                    <a href="{{url('/WelcomeTrabajador')}}" class="nav-link" title="Agenda">
+                    <a href="{{url('/Servicio')}}" class="nav-link" title="Servicios">
                     @endif
-                      <span aria-hidden="true">
-                        <img src="{{asset('images/layout-icons/1.png')}}">
+                        <span aria-hidden="true">
+                        <img src="{{asset('images/layout-icons/4.png')}}">
                       </span>
-                      <label>Agenda</label>
+                      <label>Facturación</label>
                     </a>
                   </li>
                   <li class="nav-item">

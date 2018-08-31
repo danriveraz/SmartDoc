@@ -21,13 +21,13 @@ class ServicioController extends Controller
     {
         $this->middleware('auth');
         $userActual = Auth::user();
+
         if($userActual != null){
-          if (!$userActual->esAdmin) {
+          if ($userActual->esEmpleado) {
               flash('No Tiene Los Permisos Necesarios')->error()->important();
-              return redirect('/WelcomeTrabajador')->send();
+              return redirect('/WelcomeTrabajador');
           }
         }
-
     }
 
     public function createLaboratorio(){

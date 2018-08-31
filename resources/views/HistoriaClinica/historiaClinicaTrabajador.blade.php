@@ -1,11 +1,11 @@
-@extends('Layouts.app_empleados')
+@extends(Auth::User()->esEmpleado ? 'Layouts.app_empleados' : 'Layouts.app_recepcionista')
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
 <div>
 	<button id="btn-add" class="btn btn-pill btn-primary" data-toggle="modal" href="#addModal" title="Agregar historia clinica">
-		<span class="fa fa-plus" style="margin-right: 0px;"></span>
-	</button>	
+		<i class="fa fa-plus" style="margin-right: 0px;"></i><span style="font-weight: 500"> Añadir Historia</span>
+	</button>
 </div>
 <br>
 
@@ -32,16 +32,17 @@
 						<option value="" selected="">Sexo</option>
 						<option value="masculino">Masculino</option>
 						<option value="femenino">Femenino</option>
-					</select> 
+					</select>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<select class="form-control" id="tipoDocumento" name="tipoDocumento">
 						<option value="" selected="">Tipo documento</option>
-						<option value="tarjeta">T.I</option>
-						<option value="cedula">C.C</option>
-					</select> 
+						<option value="tarjeta">Targeta de identidad</option>
+						<option value="cedula">Cédula de ciudadanía</option>
+						<option value="cedula">Registro civil</option>
+					</select>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
@@ -67,20 +68,30 @@
 			<table id="example" class="table table-striped" style="width:100%">
 		        <thead>
 		            <tr>
-		                <th width="35%">Nombre</th>
+		                <th width="25%">Nombre</th>
 		                <th width="20%">Documento</th>
 		                <th width="15%">Sexo</th>
-		                <th width="5%">Edad</th>
-		                <th width="20%">Opciones</th>
+		                <th width="10%">Edad</th>
+		                <th width="10%">Creación</th>
+		                <th width="15%">Opciones</th>
 		            </tr>
 		        </thead>
 		        <tbody>
 		        	@foreach($historiasClinicas as $historiaClinica)
+		        	@if(!$historiaClinica->eliminada)
 		            <tr>
 		                <td>{{$historiaClinica->nombreCompleto}}</td>
 		                <td>{{$historiaClinica->documento}}</td>
 		                <td>{{$historiaClinica->sexo}}</td>
 		                <td>{{$historiaClinica->edad}}</td>
+		                <td>
+		                	<?php 
+                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+								$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+									$date = new DateTime($historiaClinica->created_at);
+									echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
+							?>
+		                </td>
 		                <td>
 		                	{!! Form::open(['route' => ['historia.postdeleteHistoriaClinica', $historiaClinica], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$historiaClinica->id"]) !!}
 		       				{{ csrf_field() }}
@@ -94,9 +105,10 @@
 					        {{ Form::close() }}
 		                </td>
 		            </tr>
-		           @endforeach
+		            @endif
+		           	@endforeach
 		        </tbody>
-		    </table>	
+		    </table>
 		  </div>
 		</div>
 	  </div>
@@ -112,8 +124,23 @@
 	}
 
 	$(document).ready(function() {
-	    $('#example').DataTable();
+	    $('#example').DataTable( {
+	        dom: 'lBfrtip',
+	        buttons: [
+	            {
+								extend:    'excelHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/excel.png">',
+								titleAttr: 'Descarga Excel'
+						},
+						{
+								extend:    'pdfHtml5',
+								text:      '<img src="http://localhost/SmartDoc/public/images/table/pdf.png">',
+								titleAttr: 'Descarga PDF'
+	            }
+	        ]
+    	});
 	} );
+
 </script>
 
 @endsection

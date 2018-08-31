@@ -1,4 +1,4 @@
-@extends('Layouts.app_empleados')
+@extends(Auth::User()->esEmpleado ? 'Layouts.app_empleados' : 'Layouts.app_recepcionista')
 @section('content')
 @include('flash::message')
 <!--Realizado por Daniel Alejandro Rivera, ing-->
@@ -115,7 +115,7 @@
 									        <input id="diente{{$observacion->id}}" name="diente{{$observacion->id}}" type="text" class="form-control" placeholder="Diente" value="{{$observacion->diente}}">
 							        	</div>
 							        	<div class="col-md-4">
-									        <input id="actividad{{$observacion->id}}" name="actividad{{$observacion->id}}" type="text" class="form-control" placeholder="Actividad"  value="{{$observacion->actividad}}">
+									        <input id="actividad{{$observacion->id}}" name="actividad{{$observacion->id}}" type="text" class="form-control" placeholder="Actividad" value="{{$observacion->actividad}}">
 							        	</div>
 									</div>
 									<div class="row">
@@ -160,7 +160,7 @@
 	}
 
 	$(document).ready(function() {
-	    $('#example').DataTable( {
+		$('#example').DataTable( {
 	        dom: 'lBfrtip',
 	        buttons: [
 	            {
