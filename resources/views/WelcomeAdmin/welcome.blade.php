@@ -336,16 +336,24 @@
   	$('#cedulaPacienteViejo').on('change', function (event) {
     	var id = $(this).find('option:selected').val();
       	JSONHistorias = eval(<?php echo json_encode($historias);?>);
-      	JSONHistorias.forEach(function(currentValue,index,arr) {
-        	if(currentValue.id == id){
+      	for (var i = 0; i < JSONHistorias.length; i++) {
+      		if(JSONHistorias[i].id == id){
+      			var nombre = document.getElementById("nombrePaciente");
+        		var email = document.getElementById("emailPaciente");
+        		var telefono = document.getElementById("telefonoPaciente");
+        		nombre.value = JSONHistorias[i].nombreCompleto;
+        		email.value = JSONHistorias[i].email;
+        		telefono.value = JSONHistorias[i].telefono;
+        		break;
+      		}else{
         		var nombre = document.getElementById("nombrePaciente");
         		var email = document.getElementById("emailPaciente");
         		var telefono = document.getElementById("telefonoPaciente");
-        		nombre.value = currentValue.nombreCompleto;
-        		email.value = currentValue.email;
-        		telefono.value = currentValue.telefono;
+        		nombre.value = "";
+        		email.value = "";
+        		telefono.value = "";
         	}
-    	});
+      	}
   	});
 
 </script>

@@ -47,7 +47,6 @@ class ServicioController extends Controller
     }
 
     public function postdeleteServicio($id){
-
         $user = Auth::User();
         $servicio2delete = Servicio::find($id);
         $fecha = Carbon::parse($servicio2delete->fecha);
@@ -153,7 +152,8 @@ class ServicioController extends Controller
           
         }
 
-        $servicio2delete->delete();
+        $servicio2delete->estado = "Anulada";
+        $servicio2delete->save();
         
         flash('Eliminación exitoso')->success()->important();
         return redirect()->back();
@@ -164,11 +164,15 @@ class ServicioController extends Controller
       $empresa = Empresa::find($user->idEmpresa);
       $servicio = new Servicio();
       $servicio->idEmpresa = $user->idEmpresa;
-      $servicio->idHistoriaClinica = $request->id;
+      $servicio->idHistoriaClinica = $request->idHistoria;
       $historiaClinica = HistoriaClinica::find($servicio->idHistoriaClinica);
       $servicio->idProcedimiento = $request->servicioNuevo;
       $servicio->costoTratamiento = $request->costoTratamientoNuevo;
+      $servicio->valorTratamiento = $request->valorTratamientoNuevo;
+      $servicio->descripcion = $request->descripcionNueva;
+
       $valorTratamiento = $request->costoTratamientoNuevo;
+
       if(!$historiaClinica->exoneradoImpuestos){
         $servicio->costoTratamiento += $valorTratamiento*(($empresa->iva+0.0)/100);
         if($empresa->impuesto1 != ""){
@@ -178,12 +182,14 @@ class ServicioController extends Controller
           $servicio->costoTratamiento += $valorTratamiento*($empresa->valorImpuesto2/100);
         }
       }
-      $servicio->descripcion = $request->descripcionNueva;
+
       $servicio->fecha = Carbon::now()->subHour(5);
       $servicio->estado = "Pendiente";
       $servicio->nFactura = $empresa->contadorFacturacion + 1;
+
       $empresa->contadorFacturacion +=1;
       $empresa->save();
+
       if($servicio->nFactura >= $empresa->nFinFactura and $empresa->tipoRegimen == "comun"){
         flash('No hay numerración dispenible para la factura')->error()->important();
         return redirect()->back();

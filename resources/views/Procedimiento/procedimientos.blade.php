@@ -33,7 +33,7 @@
 			        <input id="venta" name="venta" type="number" class="form-control" placeholder="Valor venta" required="true">
 	        	</div>
 	        	<div class="col-md-3">
-			        <input id="duracion" name="duracion" type="text" class="form-control" placeholder="Duración" required="true">
+			        <input id="duracion" name="duracion" type="text" class="form-control" placeholder="Duración">
 	        	</div>
         	</div>
         	<div class="row">

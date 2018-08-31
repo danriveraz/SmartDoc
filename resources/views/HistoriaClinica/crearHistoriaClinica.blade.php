@@ -115,44 +115,6 @@
 		Teléfono: {{$empresa->telefono}}
 	</label>
 </div>
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" >Agregar servicio</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="bootstrapOn();">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      {!! Form::open(['route' => ['servicio.nuevo'], 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
-       {{ csrf_field() }}
-       	<input type="text" name="id" hidden="" value="{{$historia->id}} ">
-      	<div class="modal-body" align="center">
-        	<div class="row">
-	        	<div class="col-md-6">
-		          	<select id="servicioNuevo" name='servicioNuevo' class="form-control" placeholder="Procedimiento" required style="text-align:center;">
-	                  	<option value="" selected="selected">Procedimiento</option>
-	        			@foreach($procedimientos as $procedimiento)
-	        				<option value="{{$procedimiento->id}}">{{$procedimiento->nombre}}</option>
-				        @endforeach
-	            	</select>
-	            </div>
-	        	<div class="col-md-6">
-	        		<input type="number" class="form-control" id="costoTratamientoNuevo" id="costoTratamientoNuevo" name="costoTratamientoNuevo" placeholder="Costo tratamiento" value="">
-	        	</div>	
-	        	&nbsp;
-	        	<div class="col-md-12">
-	        		<textarea id="descripcionNueva" name="descripcionNueva" rows="3" class="form-control" placeholder="Descripción"></textarea>
-	        	</div>	        	
-        	</div>
-      	</div>
-		<div class="modal-footer">
-		<button id="btn-crear" class="btn btn-primary" title="Agregar evento" onclick="agregar()">Guardar &nbsp;<li class="fa fa-check"></li></button>
-		</div>
-      {{ Form::close() }}
-    </div>
-  </div>
-</div>
 <div class="modal fade" id="addModalEvolucion" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -1214,79 +1176,6 @@
 			        	</div>
 			        </div>
 					<input type="text" name="activador" id="activador" value="0" hidden>
-			        <div>
-			        	<div class="card" style="margin: 0">
-							<div class="card-header">
-								<div class="col-md-10">
-									<a id="btnServicios" type="" class="btn-pill" data-toggle="collapse" data-target="#servicio">
-										<span id="spanServicioPlus" class="fa fa-plus" style="margin-right: 0px;"></span>
-										<span id="spanServicioMinus" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-									</a>
-									<h3 class="card-title" style="display: initial;">Servicios prestados</h3>
-								</div>
-								<div class="col-md-2" style='text-align:right'>
-					          		<a id="btn-add" class="btn btn-primary" data-toggle="modal" href="#addModal" title="Agregar procedimiento" onclick="bootstrapOff();">
-										 Agregar servicio
-									</a>	
-								</div>
-							</div>
-							<!-- inicio del contenedor del campo texto-->
-							<div class="container">
-								<div id="servicio" class="collapse">
-									<div class="card-body">
-						  			<div class="row">							 
-						  				<div class="card" style="margin: 0">
-								        	@foreach($historia->servicios as $servicio)
-						              		<div class="card-header">
-						                  		<div class="col-md-4">
-						                  			<a id="btnPlanTratamiento{{$servicio->id}}" type="" class="btn-pill" data-toggle="collapse" data-target="#{{$servicio->id}} "onclick="info({{$servicio->id}});" data-expanded="false">
-						              					<span id="spanPlanTratamientoPlus{{$servicio->id}}" class="fa fa-plus" style="margin-right: 0px;"></span>
-						              					<span id="spanPlanTratamientoMinus{{$servicio->id}}" class="fa fa-minus" style="margin-right: 0px; display: none;"></span>
-						              				</a>
-							          				<h5  style="display: initial;">{{$servicio->procedimiento->nombre}} </h5>
-						                  		</div>
-						                  		<div class="col-md-3">
-								        			@if($servicio->costoTratamiento == 0)
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="" disabled="">
-								        			@else
-								        				<input type="number" class="form-control" id="costoTratamiento" name="costoTratamiento" placeholder="Costo tratamiento" value="{{$servicio->costoTratamiento}}" disabled="">
-								        			@endif
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			<?php 
-						                  				$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
-														$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-					 									$date = new DateTime($servicio->fecha);
-															echo ($dias[date_format($date, 'w')]." ".date_format($date, 'd')." de ".$meses[date_format($date, 'n')-1]. " del ".date_format($date, 'Y'));  
-													?>
-						                  		</div>
-						                  		<div class="col-md-3" align="center">
-						                  			{!! Form::open(['route' => ['Auth.usuario.deleteServicio', $servicio], 'method' => 'GET','enctype' => 'multipart/form-data', 'id' => "form$servicio->id"]) !!}
-								       				{{ csrf_field() }}
-											        	<a class="btn btn-danger btn-sm ml-2" title="Eliminar servicio" onclick="eliminar({{$servicio->id}})"><i class="fe fe-trash-2"></i></a>
-											        {{ Form::close() }}
-											    </div>
-						              		</div>
-						              		<!-- inicio del contenedor del campo texto-->
-						              		<div class="container">
-						              			<div id="{{$servicio->id}}" class="collapse">
-						              				<div class="card-body">
-									          			<div class="row">
-												        	<div class="col-md-12">
-												        		<textarea id="planTratamientoAprobado" name="planTratamientoAprobado" rows="3" class="form-control" placeholder="Descripción" disabled="">{{$servicio->descripcion}}</textarea>
-												        	</div>
-												        </div>
-									          		</div>	
-						              			</div>
-						              		</div>
-						              		@endforeach
-							          	</div>
-							        </div>
-						  		</div>	
-							</div>
-						</div>
-					</div>
-				</div>
 		          	<div class="">
           				<div class="form-group" style="text-align: center; margin-top: 10px;">
 		                    <button type="submit" class="btn btn-primary" name="guardar" id="guardar" onclick="setValue(this)">
@@ -1319,6 +1208,24 @@
 <!--                 -->
 
 <script>
+
+	$('#fechaNacimiento').on('change', function (event) {
+		var fecha = new Date();
+		var ano = fecha.getFullYear();
+		fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+		anoNacimiento = fechaNacimiento.getFullYear();
+		//anoNacimiento.substring(0,4);
+		var edad = ano - anoNacimiento;
+		if(edad == 0){
+			ano = fecha.getMonth() + 1;
+			anoNacimiento = fechaNacimiento.getMonth() + 1;
+			edad = ano - anoNacimiento;
+			document.getElementById('edad').value = edad + " meses";
+		}else{
+			document.getElementById('edad').value = edad + " años";
+		}
+	});
+
 	require(['input-mask']);
 	$('#idDepto').on('change', function (event) {
 	      var id = $(this).find('option:selected').val();
@@ -1415,6 +1322,11 @@
 <!--Scripts para el odontograma-->
 <script type="text/javascript">
 	var JSONhistoria = eval(<?php echo json_encode($historia); ?>);
+	var fecha = new Date();
+	var anoActual = fecha.getFullYear();
+	var anoNacimiento = JSONhistoria.fechaNacimiento.substring(0,4);
+	var edad = anoActual - anoNacimiento;
+
 	function replaceAll(find, replace, str) {
 	    return str.replace(new RegExp(find, 'g'), replace);
 	}
@@ -1502,7 +1414,7 @@
 
 	            '</div>' +
 	            '</div>';
-	        if(JSONhistoria.edad <= 14){
+	        if(edad <= 14){
 	        	if (i <= 5) {
 		            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 		            htmlLecheRight += '<div id="dienteLindex' + i + 'Inicial" style="left: -25%;" class="diente-leche">' +
@@ -1646,7 +1558,7 @@
 	            '</div>' +
 	            '</div>';
 
-	        if(JSONhistoria.edad <= 14){
+	        if(edad <= 14){
 	        	if (i <= 5) {
 		            //Dientes Temporales Cuandrante Derecho (Superior/Inferior)
 		            htmlLecheRight += '<div id="dienteLindex' + i + '" style="left: -25%;" class="diente-leche">' +
@@ -5516,20 +5428,6 @@
 		});
 	}
 
-</script>
-<script type="text/javascript">
-	$('#servicioNuevo').on('change', function (event) {
-	    var id = $(this).find('option:selected').val();
-	    if(id != ""){
-			JSONProcedimientos = eval(<?php echo json_encode($procedimientos);?>);
-			JSONProcedimientos.forEach(function(currentValue,index,arr) {
-		        if(currentValue.id == id){
-	    			$("#costoTratamientoNuevo").val(currentValue.venta);
-		        }
-		    });
-	          
-	    }
-	});
 </script>
 <style type="text/css">
 	.btn-pill{

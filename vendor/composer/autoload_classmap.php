@@ -21,6 +21,7 @@ return array(
     'AlterTableOdontogramaHistoriaClinica' => $baseDir . '/database/migrations/2018_08_14_155743_alter_table_odontogramaHistoriaClinica.php',
     'AlterTableServicio2' => $baseDir . '/database/migrations/2018_08_06_204238_alter_table_servicio2.php',
     'AlterTableServicio3' => $baseDir . '/database/migrations/2018_08_06_224420_alter_table_servicio3.php',
+    'AlterTableServicioValorTratamiento' => $baseDir . '/database/migrations/2018_08_31_175016_alter_table_servicioValorTratamiento.php',
     'AlterTableUserConfirmToken' => $baseDir . '/database/migrations/2018_08_24_003412_alter_table_userConfirmToken.php',
     'AlterTableUsersImagenPerfil' => $baseDir . '/database/migrations/2018_07_30_214856_alter_table_usersImagenPerfil.php',
     'AltertableAbono' => $baseDir . '/database/migrations/2018_08_08_204415_altertable_abono.php',

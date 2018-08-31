@@ -178,7 +178,7 @@
                         <span aria-hidden="true">
                         <img src="{{asset('images/layout-icons/4.png')}}">
                       </span>
-                      <label>Servicios</label>
+                      <label>Facturación</label>
                     </a>
                   </li>
                   <li class="nav-item">
